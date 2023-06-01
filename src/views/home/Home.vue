@@ -296,51 +296,51 @@ export default {
       switch (value) {
         case "b":
           beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
           break;
         case "p":
           beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
           break;
         case "t":
           beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
         case "q":
           beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
           break;
         case "w":
           beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
           break;
         case "e":
           beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
           break;
         case "f":
           beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
           break;
         case "g":
           beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
           break;
         case "h":
           beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
           break;
         case "i":
           beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
         case "j":
           beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
         case "k":
           beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
         default:
           break;
