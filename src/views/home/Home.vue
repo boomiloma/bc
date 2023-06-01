@@ -1,31 +1,85 @@
 <template>
   <div class="home">
     <div class="header">
-      <h1>Baccarat Roadmap Simulator</h1>
-      =========
-      <h1> {{ $t('total_amount') }}</h1>
-      New build
-      Lanuage: {{ this.$i18n.locale}}
-      <div class="input-form">
-        <select v-model="$i18n.locale" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
-        </select>
+      <h1 class="font-bold font-mono text-gray-700">KK Baccarat Road Map 🃏</h1>
+      <div class="flex flex-row gap-5 text-gray-700">
+        <div>
+          <p>
+            Press <span class="text-blue-500 font-bold text-xl">1</span> for
+            <span class="text-blue-500 font-bold">Player</span>
+          </p>
+          <p>
+            Press <span class="text-red-500 font-bold text-xl">2</span> for
+            <span class="text-red-500 font-bold">Banker</span>
+          </p>
+          <p>
+            Press <span class="text-green-500 font-bold text-xl">3</span> for
+            <span class="text-green-500 font-bold">Tie</span>
+          </p>
+        </div>
+        <div>
+          <p>
+            Press <span class="text-red-500 font-bold text-xl">4</span> for
+            <span class="text-red-500 font-bold"
+              >Banker wins - Banker pair</span
+            >
+          </p>
+          <p>
+            Press <span class="text-red-500 font-bold text-xl">5</span> for
+            <span class="text-red-500 font-bold"
+              >Banker wins - Player pair</span
+            >
+          </p>
+          <p>
+            Press <span class="text-red-500 font-bold text-xl">6</span> for
+            <span class="text-red-500 font-bold"
+              >Banker wins Banker-pair Player-pair</span
+            >
+          </p>
+        </div>
+        <div>
+          <p>
+            Press <span class="text-blue-500 font-bold text-xl">7</span> for
+            <span class="text-blue-500 font-bold">Player wins Player-Pair</span>
+          </p>
+          <p>
+            Press <span class="text-blue-500 font-bold text-xl">8</span> for
+            <span class="text-blue-500 font-bold">Player wins Banker-pair</span>
+          </p>
+          <p>
+            Press <span class="text-blue-500 font-bold text-xl">9</span> for
+            <span class="text-blue-500 font-bold"
+              >Player wins Banker-pair Player-pair</span
+            >
+          </p>
+        </div>
+        <div>
+          <p>
+            Press <span class="text-green-500 font-bold text-2xl">/</span> for
+            <span class="text-green-500 font-bold">Tie Banker-Pair</span>
+          </p>
+          <p>
+            Press <span class="text-green-500 font-bold text-2xl">*</span> for
+            <span class="text-green-500 font-bold">Tie Player-pair</span>
+          </p>
+          <p>
+            Press <span class="text-green-500 font-bold text-2xl">-</span> for
+            <span class="text-green-500 font-bold"
+              >Tie Banker-pair Player-pair</span
+            >
+          </p>
+        </div>
+        <div>
+          <p>
+            Press <span class="text-purple-500 font-bold">0</span> to
+            <span class="text-purple-500 font-bold">Clear</span>
+          </p>
+        </div>
       </div>
     </div>
-
     <div class="roadmap-container">
       <div v-if="roadmap" class="roadmap">
         <div class="roadmap__item roadmap__item--bread-plate">
-          <div class="roadmap__item--title">
-            Bread Plate
-          </div>
-
-          <RoadmapOptions
-            v-model="config.breadplate"
-            class="roadmap__item--options"
-            @save="saveConfig('breadplate')"
-          />
-
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.breadplate.matrix"
@@ -36,27 +90,41 @@
                 v-for="(col, colKey) in row"
                 :key="colKey"
                 class="grid__col text-gray-200"
-                :class="{
-                  'bg-red-500': col && col.value === 'b',
-                  'bg-blue-500': col && col.value === 'p',
-                  'bg-green-500': col && col.value === 't',
-                }"
               >
-                <small>{{ col.index }}</small>
+                <div :class="beadRoadResult(col.value)">
+                  <span
+                    v-if="
+                      (col && col.value === 'q') ||
+                      (col && col.value === 'w') ||
+                      (col && col.value === 'f') ||
+                      (col && col.value === 'g') ||
+                      (col && col.value === 'i') ||
+                      (col && col.value === 'j')
+                    "
+                    class="absolute top-0 left-0 inline-flex items-center rounded-full bg-red-400 px-1 py-1 text-md font-medium text-red-600 ring-1 ring-inset ring-grey-300/10"
+                  ></span>
+                  <span
+                    v-if="
+                      (col && col.value === 'e') ||
+                      (col && col.value === 'h') ||
+                      (col && col.value === 'g') ||
+                      (col && col.value === 'w') ||
+                      (col && col.value === 'j') ||
+                      (col && col.value === 'k')
+                    "
+                    class="absolute -bottom-1 right-0 inline-flex items-center rounded-full bg-blue-400 px-1 py-1 text-md font-medium text-blue-600 ring-1 ring-inset ring-grey-300/10"
+                  ></span>
+                  <div>
+                    <p class="uppercase font-semibold text-xl">
+                      {{ beadRoadValue(col.value) }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="roadmap__item roadmap__item--big-road">
-          <div class="roadmap__item--title">Big Road</div>
-<!-- 
-          <RoadmapOptions
-            :value="config.bigroad"
-            class="roadmap__item--options"
-            @save="saveConfig('bigroad')"
-          /> -->
-
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.bigroad.matrix"
@@ -67,33 +135,16 @@
                 v-for="(col, colKey) in row"
                 :key="colKey"
                 class="grid__col text-gray-200"
-                :class="{
-                
-                }"
               >
-                <div v-if=" col && col.value ||
-                  col && col.value ||
-                  col && col.value " style="width: 20px; height: 20px; border-radius: 50%;"   
-                  :style=" col && col.value === 'b' ? 'border: 3px solid red' : col && col.value === 'p' ? 'border: 3px solid blue;' : col && col.value === 't' ? 'border: 3px solid green;' : '' ">
-
-                </div>
-                <!-- <small>{{ col.index }}</small> -->
+                <div
+                  class="rounded-full w-6 h-6"
+                  :class="bigRoadResult(col.value)"
+                ></div>
               </div>
             </div>
           </div>
         </div>
-
-       <div class="roadmap__item roadmap__item--big-eye-boy">
-          <div class="roadmap__item--title">
-            Big Eye Boy
-          </div>
-
-          <RoadmapOptions
-            v-model="config.bigeyeboy"
-            class="roadmap__item--options"
-            @save="saveConfig('bigeyeboy')"
-          />
-
+        <div class="roadmap__item roadmap__item--big-eye-boy">
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.bigeyeboy.matrix"
@@ -104,116 +155,60 @@
                 v-for="(col, colKey) in row"
                 :key="colKey"
                 class="grid__col text-gray-200"
-                :class="{
-                  'bg-red-500': col && col.value === 'red',
-                  'bg-blue-500': col && col.value === 'blue',
-                }"
               >
-                <small>{{ col.big_road_index }}</small>
+                <div
+                  class="rounded-full w-3 h-3"
+                  :class="{
+                    'border-red-500 bg-transparent  border-4':
+                      col && col.value === 'red',
+                    'border-blue-500 bg-transparent  border-4':
+                      col && col.value === 'blue',
+                  }"
+                ></div>
               </div>
             </div>
           </div>
         </div>
-  
         <div class="roadmap__item roadmap__item--small-road">
-          <div class="roadmap__item--title">
-            Small Road
-          </div>
-
-          <RoadmapOptions
-            v-model="config.smallroad"
-            class="roadmap__item--options"
-            @save="saveConfig('smallroad')"
-          />
-
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.smallroad.matrix"
               :key="rowKey"
               class="grid__row"
             >
-              <div
-                v-for="(col, colKey) in row"
-                :key="colKey"
-                class="grid__col"
-                :class="{
-                  'bg-red-500': col && col.value === 'red',
-                  'bg-blue-500': col && col.value === 'blue',
-                }"
-              >
-                <small>{{ col ? col.big_road_index : '' }}</small>
+              <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
+                <div
+                  class="rounded-full w-6 h-6"
+                  :class="{
+                    'bg-red-500': col && col.value === 'red',
+                    'bg-blue-500': col && col.value === 'blue',
+                  }"
+                ></div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="roadmap__item roadmap__item--cockroach-pig">
-          <div class="roadmap__item--title">
-            Cockroach Pig
-          </div>
-
-          <!-- <RoadmapOptions
-            v-model="config.cockroachPig"
-            class="roadmap__item--options"
-            @save="saveConfig('cockroachPig')"
-          /> -->
-
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.cockroachPig.matrix"
               :key="rowKey"
               class="grid__row"
             >
-              <div
-                v-for="(col, colKey) in row"
-                :key="colKey"
-                class="grid__col"
-                :class="{
-                  'bg-red-500': col && col.value === 'red',
-                  'bg-blue-500': col && col.value === 'blue',
-                }"
-              >
-                <small>{{ col ? col.big_road_index : '' }}</small>
+              <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
+                <h4
+                  class="text-2xl font-bold"
+                  :class="{
+                    'text-red-500': col && col.value === 'red',
+                    'text-blue-500': col && col.value === 'blue',
+                  }"
+                >
+                  {{ col ? "/" : "" }}
+                </h4>
               </div>
             </div>
           </div>
-        </div> 
-      </div>
-    </div>
-
-    <div class="actions">
-      <div class="actions__title">Custom Marks</div>
-
-      <div class="actions__body">
-        <div class="input-form">
-          <input v-model="manualMarks" label="Marks" type="search" />
         </div>
-
-        <base-button class="bg-blue-500 self-end" @click="saveManualResult">
-          Save
-        </base-button>
-      </div>
-    </div>
-
-    <div class="actions">
-      <div class="actions__title">Actions</div>
-
-      <div class="actions__body">
-        <base-button class="bg-blue-500 text-white" @click="push('p')">
-          Player
-        </base-button>
-
-        <base-button class="bg-red-500 text-white" @click="push('b')">
-          Banker
-        </base-button>
-
-        <base-button class="bg-green-500 text-white" @click="push('t')">
-          Tie
-        </base-button>
-
-        <base-button class="bg-white text-black" @click="clearRoadmap">
-          Clear
-        </base-button>
       </div>
     </div>
   </div>
@@ -223,29 +218,14 @@
 // @ is an alias to /src
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
-
-import RoadmapOptions from "./components/RoadmapOptions.vue";
-import BaseInput from "../../components/BaseInput.vue";
-import BaseButton from "../../components/BaseButton.vue";
-
 export default {
   name: "Home",
-
-  components: {
-    RoadmapOptions,
-    BaseInput,
-    BaseButton,
-  },
-
   data() {
     return {
-      manualMarks: "",
-
       results: [],
-
       roadmap: null,
       roadmapUtils: null,
-
+      lastKeyPressed: null,
       config: {
         breadplate: {
           show_options: false,
@@ -289,8 +269,8 @@ export default {
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
+    window.addEventListener("keydown", this.handleKeyDown);
   },
-
   methods: {
     initLocalConfig() {
       const localConfig = localStorage.getItem("roadmap-config");
@@ -311,6 +291,154 @@ export default {
       this.initRoadmap();
     },
 
+    beadRoadResult(value) {
+      let beadRoadClass = "";
+      switch (value) {
+        case "b":
+          beadRoadClass =
+            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+          break;
+        case "p":
+          beadRoadClass =
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+          break;
+        case "t":
+          beadRoadClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+          break;
+        case "q":
+          beadRoadClass =
+            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+          break;
+        case "w":
+          beadRoadClass =
+            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+          break;
+        case "e":
+          beadRoadClass =
+            "bg-red-500 rounded-full border-4 border-red-700 w-12 h-12";
+          break;
+        case "f":
+          beadRoadClass =
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+          break;
+        case "g":
+          beadRoadClass =
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+          break;
+        case "h":
+          beadRoadClass =
+            "bg-blue-500 rounded-full border-4 border-blue-700 w-12 h-12";
+          break;
+        case "i":
+          beadRoadClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+          break;
+        case "j":
+          beadRoadClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+          break;
+        case "k":
+          beadRoadClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-12 h-12";
+          break;
+        default:
+          break;
+      }
+      return (
+        "flex flex-col justify-center items-center relative " + beadRoadClass
+      );
+    },
+    beadRoadValue(value) {
+      let returnValue = "";
+      switch (value) {
+        case "b":
+          returnValue = "庄";
+          break;
+        case "p":
+          returnValue = "闲";
+          break;
+        case "t":
+          returnValue = "和";
+          break;
+        case "q":
+          returnValue = "庄";
+          break;
+        case "w":
+          returnValue = "庄";
+          break;
+        case "e":
+          returnValue = "庄";
+          break;
+        case "f":
+          returnValue = "闲";
+          break;
+        case "g":
+          returnValue = "闲";
+          break;
+        case "h":
+          returnValue = "闲";
+          break;
+        case "i":
+          returnValue = "和";
+          break;
+        case "j":
+          returnValue = "和";
+          break;
+        case "k":
+          returnValue = "和";
+          break;
+        default:
+          break;
+      }
+      return returnValue;
+    },
+    bigRoadResult(value) {
+      let bigRoadClass = "";
+      switch (value) {
+        case "b":
+          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          break;
+        case "p":
+          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          break;
+        case "t":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "q":
+          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          break;
+        case "w":
+          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          break;
+        case "e":
+          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          break;
+        case "f":
+          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          break;
+        case "g":
+          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          break;
+        case "h":
+          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          break;
+        case "i":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "j":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "k":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        default:
+          break;
+      }
+      return (
+        "flex flex-col justify-center items-center relative " + bigRoadClass
+      );
+    },
     initRoadmap() {
       this.roadmap = new Roadmap({
         results: this.results,
@@ -319,54 +447,58 @@ export default {
     },
 
     push(key) {
-      let rult = {
-        p: [1,2]
-      }
       this.results.push(key);
-      console.log(this.results, 'results');
+
       this.roadmap.push(key);
     },
-
-    // eslint-disable-next-line vue/no-unused-properties
-    formatArray(arr) {
-      const str = JSON.stringify(arr);
-
-      return str
-        .replace(/(\[)(\[)/g, "$1\n$2")
-        .replace(/(\])(\])/g, "$1\n$2")
-        .replace(/(\],)(\[)/g, "$1\n$2")
-        .replace(/(\[.)/g, "  $1");
-    },
-
-    saveConfig(configKey) {
-      const config = this.config[configKey];
-
-      config.show_options = false;
-
-      this.initRoadmap();
-    },
-
-    saveManualResult() {
-      const manualResultsArray = this.manualMarks.split("");
-
-      const isValidResults = manualResultsArray.every((mark) => {
-        return this.roadmapUtils.identityDictionary[mark];
-      });
-
-      if (!isValidResults) {
-        return alert("Invalid marks");
+    handleKeyDown(event) {
+      console.log(this.results);
+      this.lastKeyPressed = event.key;
+      switch (event.key) {
+        case "1":
+          this.push("p");
+          break;
+        case "2":
+          this.push("b");
+          break;
+        case "3":
+          this.push("t");
+          break;
+        case "4":
+          this.push("q"); // banker wins banker pair
+          break;
+        case "5":
+          this.push("e"); // banker wins player pair
+          break;
+        case "6":
+          this.push("w"); // banker wins banker-pair player-pair
+          break;
+        case "7":
+          this.push("h"); // player wins player-pair
+          break;
+        case "8":
+          this.push("f"); // player wins banker-pair
+          break;
+        case "9":
+          this.push("g"); // player wins  banker-pair player-pair
+          break;
+        case "/":
+          this.push("i"); // tie banker-pair
+          break;
+        case "*":
+          this.push("k"); // tie player-pair
+          break;
+        case "-":
+          this.push("j"); // tie player-pair banker-pair
+          break;
+        case "0":
+          this.clearRoadmap();
+          break;
+        default:
+          break;
       }
-
-      this.results = manualResultsArray;
-      this.initRoadmap();
     },
-    onChangeLanuage(){
-      this.$i18n.locale = 'en'
-    }
   },
-  mounted(){
-    this.onChangeLanuage();
-  }
 };
 </script>
 
