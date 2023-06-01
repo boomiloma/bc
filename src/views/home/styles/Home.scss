@@ -180,22 +180,3 @@
     }
   }
 }
-
-.input-form {
-  display: block;
-
-  label {
-    display: block;
-    font-size: pxToRem(11);
-    color: theme("colors.gray.200");
-  }
-
-  input {
-    background-color: rgba(64, 64, 64, 0.5);
-    border: 1px solid rgba(64, 64, 64, 0.7);
-    border-radius: 3px;
-    padding: 5px 7px;
-    width: 100%;
-    font-size: pxToRem(13);
-  }
-}
