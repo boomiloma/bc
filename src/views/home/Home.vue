@@ -77,6 +77,7 @@
         </div>
       </div>
     </div>
+
     <div class="roadmap-container">
       <div v-if="roadmap" class="roadmap">
         <div class="roadmap__item roadmap__item--bread-plate">
@@ -210,18 +211,30 @@
           </div>
         </div>
       </div>
+
+      <!-- <Dialog :title="dialogTitle" :message="dialogMessage">
+        <button @click="handleDialogButtonClick">Custom Button</button>
+      </Dialog> -->
     </div>
   </div>
+  <div></div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
+import Dialog from "@/components/BaseInputDialog.vue";
+
 export default {
   name: "Home",
+  components: {
+    Dialog,
+  },
   data() {
     return {
+      dialogTitle: "My Dialog",
+      dialogMessage: "Hello from the dialog!",
       results: [],
       roadmap: null,
       roadmapUtils: null,
@@ -285,7 +298,9 @@ export default {
         })();
       }
     },
-
+    handleDialogButtonClick() {
+      console.log("Button inside dialog was clicked!");
+    },
     clearRoadmap() {
       this.results = [];
       this.initRoadmap();
@@ -452,7 +467,7 @@ export default {
       this.roadmap.push(key);
     },
     handleKeyDown(event) {
-      console.log(this.results);
+      console.log("Roadmap::",this.roadmap);
       this.lastKeyPressed = event.key;
       switch (event.key) {
         case "1":
