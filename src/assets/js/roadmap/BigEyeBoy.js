@@ -127,8 +127,8 @@ export default class BigEyeBoy extends RoadmapUtilities {
          * If they have the same identity
          */
         leftColLowerIdentity === leftColUpperIdentity,
-        // if there's two same identity on the left
-        leftColLowerIdentity === this.identityDictionary[col.value],
+        // if there's two same identity on the left column and upper left column
+        leftColLowerIdentity === this.identityDictionary[col.value], //? This code will check for THE DRAGON PATTERN
       ].some(Boolean);
 
       this.push(isMatch ? "red" : "blue", {
