@@ -27,6 +27,7 @@ export default class BigRoad extends RoadmapUtilities {
     this.previousCoordinates = [0, 0]
     this.previousIdentity = null
     this.index = 0
+    this.isCol = false
 
     this.matrix = Array.from({ length: this.rows }, () => {
       return Array.from({ length: this.cols }, () => 0)
@@ -40,6 +41,7 @@ export default class BigRoad extends RoadmapUtilities {
 
   getNextCoordinate (identity) {
     const [prevRow, prevColumn] = this.previousCoordinates
+    console.log('this.matrix', this.matrix)
 
     /**
      * If initial data
@@ -53,20 +55,26 @@ export default class BigRoad extends RoadmapUtilities {
      */
     if (this.previousIdentity === identity) {
       const bottomPosition = _get(this.matrix, [prevRow + 1, prevColumn])
-
+      // let findIndxe = _findIndex(this.prevRow)
+      console.log("bottomPosition====", bottomPosition)
+      if(this.isCol && bottomPosition == 0) {
+        return [prevRow, prevColumn + 1]
+      }
       /**
        * Bottom position is empty
        */
       if (bottomPosition === 0) {
         return [prevRow + 1, prevColumn]
       }
+    
 
       /**
        * Else, just increment column to the right
        */
+      this.isCol = true
       return [prevRow, prevColumn + 1]
     }
-
+    this.isCol = false;
     /**
      * Fallback. If not the same identity
      */
@@ -94,7 +102,6 @@ export default class BigRoad extends RoadmapUtilities {
     const isTie = this.tieIdentities.includes(key)
 
     const [nextRow, nextCol] = this.getNextCoordinate(identity)
-    console.log([nextRow, nextCol], '[nextRow, nextCol]')
 
     const [prevRow, prevCol] = JSON.parse(JSON.stringify(this.previousCoordinates))
 
@@ -123,6 +130,5 @@ export default class BigRoad extends RoadmapUtilities {
       this.previousCoordinates = [nextRow, nextCol - 1]
     }
 
-    console.log(" this.matrix=",  this.matrix)
   }
 }

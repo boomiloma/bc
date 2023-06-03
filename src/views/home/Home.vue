@@ -467,7 +467,7 @@ export default {
       this.roadmap.push(key);
     },
     handleKeyDown(event) {
-      console.log("Roadmap::",this.roadmap);
+      // console.log(this.results);
       this.lastKeyPressed = event.key;
       switch (event.key) {
         case "1":
