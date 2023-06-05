@@ -178,5 +178,57 @@
         }
       }
     }
+    .grid__row_diverse_road {
+      display: flex;
+      height: 100%;
+
+      &:not(:last-child) {
+        border-bottom: $grid-border;
+      }
+      @for $i from 1 through 25 {
+        // Remove border-bottom of the even rows
+        &:nth-child(#{$i}) {
+          @if $i % 2 == 1 {
+            border-bottom: none;
+          }
+        }
+      }
+      .grid__col {
+        padding: 5px;
+        min-height: 20px;
+        min-width: 30px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        span {
+          font-size: pxToRem(13);
+          margin-bottom: 5px;
+        }
+
+        small {
+          font-size: pxToRem(10);
+        }
+
+        &:not(:last-child) {
+          border-right: $grid-border;
+        }
+        @for $i from 1 through 26 {
+          // Remove border-right of the even columns
+          &:nth-child(#{$i}) {
+            @if $i % 2 == 1 {
+              border-right: none;
+            }
+          }
+        }
+        * {
+          line-height: 1;
+        }
+      }
+    }
   }
 }

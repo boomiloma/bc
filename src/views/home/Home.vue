@@ -150,7 +150,7 @@
             <div
               v-for="(row, rowKey) in roadmap.bigeyeboy.matrix"
               :key="rowKey"
-              class="grid__row"
+              class="grid__row_diverse_road"
             >
               <div
                 v-for="(col, colKey) in row"
@@ -175,7 +175,7 @@
             <div
               v-for="(row, rowKey) in roadmap.smallroad.matrix"
               :key="rowKey"
-              class="grid__row"
+              class="grid__row_diverse_road"
             >
               <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
                 <div
@@ -194,7 +194,7 @@
             <div
               v-for="(row, rowKey) in roadmap.cockroachPig.matrix"
               :key="rowKey"
-              class="grid__row"
+              class="grid__row_diverse_road"
             >
               <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
                 <h4
@@ -211,10 +211,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <Dialog :title="dialogTitle" :message="dialogMessage">
-        <button @click="handleDialogButtonClick">Custom Button</button>
-      </Dialog> -->
     </div>
   </div>
   <div></div>
@@ -225,7 +221,6 @@
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import Dialog from "@/components/BaseInputDialog.vue";
-
 export default {
   name: "Home",
   components: {
