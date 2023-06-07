@@ -63,11 +63,6 @@ export default class BigEyeBoy extends RoadmapUtilities {
 
     const b2HasValue = this.bigRoadMatrix[B2[0]][B2[1]];
     const c1HasValue = this.bigRoadMatrix[C1[0]][C1[1]];
-    console.log(
-      "🚀 ~ file: BigEyeBoy.js:38 ~ BigEyeBoy ~ constructor ~ this.bigRoadMatrix:",
-      this.bigRoadMatrix
-    );
-
     if (!c1HasValue && !b2HasValue) {
       return;
     }
@@ -224,10 +219,6 @@ export default class BigEyeBoy extends RoadmapUtilities {
 
   getNextCoordinates(color) {
     const [prevRow, prevColumn] = this.previousCoordinates;
-    console.log(
-      "🚀 ~ file: BigEyeBoy.js:212 ~ BigEyeBoy ~ getNextCoordinates ~  this.previousCoordinates:",
-      this.previousCoordinates
-    );
 
     /**
      * If initial data
@@ -241,11 +232,6 @@ export default class BigEyeBoy extends RoadmapUtilities {
      */
     if (this.previousColor === color) {
       const bottomPosition = _get(this.matrix, [prevRow + 1, prevColumn]);
-      console.log(
-        "🚀 ~ file: BigEyeBoy.js:226 ~ BigEyeBoy ~ getNextCoordinates ~ bottomPosition:",
-        color,
-        this.matrix
-      );
 
       /**
        * If bottom position is empty
