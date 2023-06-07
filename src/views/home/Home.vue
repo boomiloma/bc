@@ -150,7 +150,7 @@
             <div
               v-for="(row, rowKey) in roadmap.bigeyeboy.matrix"
               :key="rowKey"
-              class="grid__row_diverse_road"
+              class="grid__row"
             >
               <div
                 v-for="(col, colKey) in row"
@@ -158,12 +158,41 @@
                 class="grid__col text-gray-200"
               >
                 <div
-                  class="rounded-full w-3 h-3"
+                  v-if="col && col.value"
+                  class="rounded-full w-4 h-4"
                   :class="{
                     'border-red-500 bg-transparent  border-4':
                       col && col.value === 'red',
                     'border-blue-500 bg-transparent  border-4':
                       col && col.value === 'blue',
+                  }"
+                ></div>
+                <div
+                  v-if="
+                    checkBigRoadMap() &&
+                    rowKey === 0 &&
+                    colKey === countNotZero(row)
+                  "
+                  class="rounded-full w-4 h-4 animate-pulse"
+                  :class="{
+                    'border-red-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'red',
+                    'border-blue-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'blue',
+                  }"
+                ></div>
+                <div
+                  v-if="
+                    checkBigRoadMap() &&
+                    rowKey === 0 &&
+                    colKey === countNotZero(row) + 1
+                  "
+                  class="rounded-full w-4 h-4 animate-pulse"
+                  :class="{
+                    'border-red-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'blue',
+                    'border-blue-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'red',
                   }"
                 ></div>
               </div>
@@ -301,6 +330,20 @@ export default {
       this.initRoadmap();
     },
 
+    countNotZero(arr) {
+      return arr.filter((item) => item !== 0).length;
+    },
+    colorNextPrediction(arr) {
+      const filterArray = arr.filter((item) => item !== 0);
+      const filterArrayLength = arr.filter((item) => item !== 0).length;
+      let color = [];
+      for (let index = 0; index < filterArray.length; index++) {
+        color.push(filterArray[index].value);
+      }
+      if (color.length >= 1) {
+        return color[filterArrayLength - 1] === "red" ? "blue" : "red";
+      }
+    },
     beadRoadResult(value) {
       let beadRoadClass = "";
       switch (value) {
@@ -461,8 +504,22 @@ export default {
 
       this.roadmap.push(key);
     },
+    checkBigRoadMap() {
+      // Get the value of second array of this.roadmap.bigroad.matrix
+      const bigRoadMatrix = this.roadmap.bigroad.matrix;
+      const bigRoadmatrixE1 = bigRoadMatrix[1];
+      const bigRoadmatrixF = bigRoadMatrix[0];
+      const bigRoadmatrixF1 = bigRoadmatrixF[5];
+      const bigRoadmatrixE2 = bigRoadmatrixE1[4];
+      if (
+        bigRoadmatrixF1.value !== undefined ||
+        bigRoadmatrixE2.value !== undefined
+      ) {
+        return true;
+      }
+      return false;
+    },
     handleKeyDown(event) {
-      console.log(this.roadmap);
       this.lastKeyPressed = event.key;
       switch (event.key) {
         case "1":
