@@ -57,17 +57,16 @@ export default class BigRoad extends RoadmapUtilities {
       const bottomPosition = _get(this.matrix, [prevRow + 1, prevColumn])
       // let findIndxe = _findIndex(this.prevRow)
       console.log("bottomPosition====", bottomPosition)
-      if(this.isCol && bottomPosition == 0) {
+      if(this.isCol && bottomPosition == 0 && prevRow != 0) {
         return [prevRow, prevColumn + 1]
       }
       /**
        * Bottom position is empty
        */
       if (bottomPosition === 0) {
+        this.isCol = false;
         return [prevRow + 1, prevColumn]
       }
-    
-
       /**
        * Else, just increment column to the right
        */
@@ -84,7 +83,6 @@ export default class BigRoad extends RoadmapUtilities {
     if (initialPosition === 0) {
       return [0, lastColIdx]
     }
-
     /**
      * Else, just increment column to the right
      */

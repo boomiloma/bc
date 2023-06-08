@@ -17,7 +17,7 @@ const onGetUser = async () => {
   console.log(u, "user");
 };
 onMounted(() => {
-  onGetUser();
+  // onGetUser();
 });
 </script>
 

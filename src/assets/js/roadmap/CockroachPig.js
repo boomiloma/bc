@@ -111,7 +111,7 @@ export default class CockroachPig extends RoadmapUtilities {
       const leftColLowerIdentity = this.identityDictionary[_get(leftColLower, 'value')]
       const leftColUpperIdentity = this.identityDictionary[_get(leftColUpper, 'value')]
 
-      const isMatch = [
+      const isMatch = [                                         
         /**
          * if they are both empty
          */
@@ -271,10 +271,11 @@ export default class CockroachPig extends RoadmapUtilities {
     this.previousColor = color
 
     this.matrix[row][column] = {
-      value: color,
+      value: color, 
       index: this.index++,
       big_road_index: options.big_road_index
     }
+    console.log('matrix=croak=>', this.matrix)
 
     if (this.hasFullRow) {
       this.matrix = this.truncateFirstColumn()
