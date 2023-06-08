@@ -6,7 +6,7 @@
           <!-- BREAD PLATE ROADMAP -->
             <BreadPlate/>
           <!-- Prediction -->
-           <Sign />
+           <Sign :results="results" />
           <!-- 22 -->
       
         </div>
@@ -94,7 +94,7 @@ export default {
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
-    // window.addEventListener("keydown", this.handleKeyDown);
+    window.addEventListener("keydown", this.handleKeyDown);
   },
   methods: {
     onChildCabllback(params) {
@@ -302,53 +302,53 @@ export default {
     //   }
     //   return false;
     // },
-    // handleKeyDown(event) {
-    //   this.lastKeyPressed = event.key;
-    //   switch (event.key) {
-    //     case "1":
-    //       this.push("p");
-    //       break;
-    //     case "2":
-    //       this.push("b");
-    //       break;
-    //     case "3":
-    //       this.push("t");
-    //       break;
-    //     case "4":
-    //       this.push("q"); // banker wins banker pair
-    //       break;
-    //     case "5":
-    //       this.push("e"); // banker wins player pair
-    //       break;
-    //     case "6":
-    //       this.push("w"); // banker wins banker-pair player-pair
-    //       break;
-    //     case "7":
-    //       this.push("h"); // player wins player-pair
-    //       break;
-    //     case "8":
-    //       this.push("f"); // player wins banker-pair
-    //       break;
-    //     case "9":
-    //       this.push("g"); // player wins  banker-pair player-pair
-    //       break;
-    //     case "/":
-    //       this.push("i"); // tie banker-pair
-    //       break;
-    //     case "*":
-    //       this.push("k"); // tie player-pair
-    //       break;
-    //     case "-":
-    //       this.push("j"); // tie player-pair banker-pair
-    //       break;
-    //     case "0":
-    //       this.clearRoadmap();
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    //   console.log("###", this.roadmap.breadplate);
-    // },
+    handleKeyDown(event) {
+      this.lastKeyPressed = event.key;
+      switch (event.key) {
+        case "1":
+          this.push("p");
+          break;
+        case "2":
+          this.push("b");
+          break;
+        case "3":
+          this.push("t");
+          break;
+        case "4":
+          this.push("q"); // banker wins banker pair
+          break;
+        case "5":
+          this.push("e"); // banker wins player pair
+          break;
+        case "6":
+          this.push("w"); // banker wins banker-pair player-pair
+          break;
+        case "7":
+          this.push("h"); // player wins player-pair
+          break;
+        case "8":
+          this.push("f"); // player wins banker-pair
+          break;
+        case "9":
+          this.push("g"); // player wins  banker-pair player-pair
+          break;
+        case "/":
+          this.push("i"); // tie banker-pair
+          break;
+        case "*":
+          this.push("k"); // tie player-pair
+          break;
+        case "-":
+          this.push("j"); // tie player-pair banker-pair
+          break;
+        case "0":
+          this.clearRoadmap();
+          break;
+        default:
+          break;
+      }
+      console.log("###", this.roadmap.breadplate);
+    },
   },
 };
 </script>

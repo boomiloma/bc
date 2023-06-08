@@ -42,7 +42,7 @@
       class="border border-1 border-solid border-l-0 flex flex-col gap-7 justify-center border-black text-black w-60"
     >
       <div class="flex flex-row justify-center border-b-2 pb-2">
-        <p class="text-2xl font-bold">22</p>
+        <p class="text-2xl font-bold">{{results}}</p>
       </div>
       <div class="flex flex-row items-center justify-between gap-10 border-b-2">
         <span class="text-xl font-bold text-red-500 mx-2"> 庄 </span>
@@ -128,7 +128,11 @@
       </div>
     </div>
 </template>
-<script setup></script>
+<script>
+export default {
+  props: ['results']
+}
+</script>
 <style lang="scss" scoped>
 @import "../styles/Home.scss";
 </style>
