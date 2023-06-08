@@ -12,10 +12,10 @@ export default class BigEyeBoy extends RoadmapUtilities {
     const options = _defaultsDeep(_options, {
       results: [],
       rows: 6,
-      cols: 9,
+      cols: 30,
       bigroadConfig: {
         rows: 6,
-        cols: 26,
+        cols: 30,
       },
     });
 

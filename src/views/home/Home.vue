@@ -1,86 +1,9 @@
 <template>
   <div class="home">
-    <div class="header">
-      <h1 class="font-bold font-mono text-gray-700">KK Baccarat Road Map 🃏</h1>
-      <div class="flex flex-row gap-5 text-gray-700">
-        <div>
-          <p>
-            Press <span class="text-blue-500 font-bold text-xl">1</span> for
-            <span class="text-blue-500 font-bold">Player</span>
-          </p>
-          <p>
-            Press <span class="text-red-500 font-bold text-xl">2</span> for
-            <span class="text-red-500 font-bold">Banker</span>
-          </p>
-          <p>
-            Press <span class="text-green-500 font-bold text-xl">3</span> for
-            <span class="text-green-500 font-bold">Tie</span>
-          </p>
-        </div>
-        <div>
-          <p>
-            Press <span class="text-red-500 font-bold text-xl">4</span> for
-            <span class="text-red-500 font-bold"
-              >Banker wins - Banker pair</span
-            >
-          </p>
-          <p>
-            Press <span class="text-red-500 font-bold text-xl">5</span> for
-            <span class="text-red-500 font-bold"
-              >Banker wins - Player pair</span
-            >
-          </p>
-          <p>
-            Press <span class="text-red-500 font-bold text-xl">6</span> for
-            <span class="text-red-500 font-bold"
-              >Banker wins Banker-pair Player-pair</span
-            >
-          </p>
-        </div>
-        <div>
-          <p>
-            Press <span class="text-blue-500 font-bold text-xl">7</span> for
-            <span class="text-blue-500 font-bold">Player wins Player-Pair</span>
-          </p>
-          <p>
-            Press <span class="text-blue-500 font-bold text-xl">8</span> for
-            <span class="text-blue-500 font-bold">Player wins Banker-pair</span>
-          </p>
-          <p>
-            Press <span class="text-blue-500 font-bold text-xl">9</span> for
-            <span class="text-blue-500 font-bold"
-              >Player wins Banker-pair Player-pair</span
-            >
-          </p>
-        </div>
-        <div>
-          <p>
-            Press <span class="text-green-500 font-bold text-2xl">/</span> for
-            <span class="text-green-500 font-bold">Tie Banker-Pair</span>
-          </p>
-          <p>
-            Press <span class="text-green-500 font-bold text-2xl">*</span> for
-            <span class="text-green-500 font-bold">Tie Player-pair</span>
-          </p>
-          <p>
-            Press <span class="text-green-500 font-bold text-2xl">-</span> for
-            <span class="text-green-500 font-bold"
-              >Tie Banker-pair Player-pair</span
-            >
-          </p>
-        </div>
-        <div>
-          <p>
-            Press <span class="text-purple-500 font-bold">0</span> to
-            <span class="text-purple-500 font-bold">Clear</span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-container">
-      <div v-if="roadmap" class="roadmap">
-        <div class="roadmap__item roadmap__item--bread-plate">
+    <div class="">
+      <div v-if="roadmap" class="">
+        <div class="flex flex-row items-stretch bg-white">
+          <!-- BREAD PLATE ROADMAP -->
           <div class="grid">
             <div
               v-for="(row, rowKey) in roadmap.breadplate.matrix"
@@ -116,7 +39,7 @@
                     class="absolute -bottom-1 right-0 inline-flex items-center rounded-full bg-blue-400 px-1 py-1 text-md font-medium text-blue-600 ring-1 ring-inset ring-grey-300/10"
                   ></span>
                   <div>
-                    <p class="uppercase font-semibold text-xl">
+                    <p v-if="col.value" class="">
                       {{ beadRoadValue(col.value) }}
                     </p>
                   </div>
@@ -124,9 +47,150 @@
               </div>
             </div>
           </div>
+          <!-- Prediction -->
+          <div
+            class="border-2 border-solid flex flex-col gap-5 justify-center border-black text-black w-60"
+          >
+            <div
+              class="flex flex-row items-center justify-center border-b-2 pb-2"
+            >
+              <p class="text-2xl font-bold">庄闲问路</p>
+            </div>
+            <div class="flex flex-row items-center justify-evenly gap-10">
+              <div class="banker-fill">
+                <span class="main"> 庄 </span>
+              </div>
+              <div class="player-fill">
+                <span class="main"> 闲 </span>
+              </div>
+            </div>
+            <div class="flex flex-row items-center justify-evenly gap-10">
+              <div class="banker-hollow bw">
+                <span class="main"> 闲 </span>
+              </div>
+              <div class="player-hollow pw">
+                <span class="main"> 庄 </span>
+              </div>
+            </div>
+            <div class="flex flex-row items-center justify-evenly gap-10">
+              <div class="banker-fill">
+                <span class="main"> </span>
+              </div>
+              <div class="player-fill">
+                <span class="main"> </span>
+              </div>
+            </div>
+            <div class="flex flex-row items-center justify-evenly gap-10">
+              <div class="red-slash">
+                <span class="slash"></span>
+              </div>
+              <div class="blue-slash">
+                <span class="slash"></span>
+              </div>
+            </div>
+          </div>
+          <!-- 22 -->
+          <div
+            class="border border-1 border-solid border-l-0 flex flex-col gap-7 justify-center border-black text-black w-60"
+          >
+            <div class="flex flex-row justify-center border-b-2 pb-2">
+              <p class="text-2xl font-bold">22</p>
+            </div>
+            <div
+              class="flex flex-row items-center justify-between gap-10 border-b-2"
+            >
+              <span class="text-xl font-bold text-red-500 mx-2"> 庄 </span>
+              <span class="text-xl font-bold text-red-500 mx-2"> 14 </span>
+            </div>
+            <div
+              class="flex flex-row items-center justify-between gap-10 border-b-2"
+            >
+              <span class="text-xl font-bold text-blue-500 mx-2"> 闲 </span>
+              <span class="text-xl font-bold text-blue-500 mx-2"> 14 </span>
+            </div>
+            <div
+              class="flex flex-row items-center justify-between gap-10 border-b-2"
+            >
+              <span class="text-xl font-bold text-green-500 mx-2"> 和 </span>
+              <span class="text-xl font-bold text-green-500 mx-2"> 14 </span>
+            </div>
+            <div
+              class="flex flex-row items-center justify-between gap-10 border-b-2"
+            >
+              <span class="text-xl font-bold text-red-500 mx-2"> 庄对 </span>
+              <span class="text-xl font-bold text-red-500 mx-2"> 14 </span>
+            </div>
+            <div class="flex flex-row items-center justify-between gap-10">
+              <span class="text-xl font-bold text-blue-500 mx-2"> 闲对 </span>
+              <span class="text-xl font-bold text-blue-500 mx-2"> 14 </span>
+            </div>
+          </div>
+          <!-- Table Limit -->
+          <div
+            class="border border-1 border-solid border-l-0 items-stretch justify-center border-black text-black w-60"
+          >
+            <div class="grid grid-cols-2">
+              <div class="flex flex-row justify-center border-b-2 items-center">
+                <p class="text-2xl font-bold">本台限红</p>
+              </div>
+              <div class="flex flex-row justify-center border-b-2">
+                <div
+                  class="text-xl w-20 flex flex-row justify-start items-center font-bold text-black border-r-2"
+                >
+                  庄/闲
+                </div>
+                <div
+                  class="text-xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+                >
+                  <div class="border-b-2 w-full">USD : 199-200</div>
+                  <div>THB : 0-620</div>
+                </div>
+              </div>
+              <div class="flex flex-row justify-center border-b-2">
+                <div
+                  class="text-xl w-20 flex flex-row justify-start items-center font-bold text-black border-r-2"
+                >
+                  和
+                </div>
+                <div
+                  class="text-xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+                >
+                  <div class="border-b-2 w-full">USD : 199-200</div>
+                  <div>THB : 0-620</div>
+                </div>
+              </div>
+              <div class="flex flex-row justify-center border-b-2">
+                <div
+                  class="text-xl w-20 flex flex-row justify-start items-center font-bold text-black border-r-2"
+                >
+                  对子
+                </div>
+                <div
+                  class="text-xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+                >
+                  <div class="border-b-2 w-full">USD : 199-200</div>
+                  <div>THB : 0-620</div>
+                </div>
+              </div>
+              <div class="flex flex-row justify-center border-b-2">
+                <div
+                  class="text-xl w-20 flex flex-row justify-start items-center font-bold text-black border-r-2"
+                >
+                  幸运6
+                </div>
+                <div
+                  class="text-xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+                >
+                  <div class="border-b-2 w-full">USD : 199-200</div>
+                  <div>THB : 0-620</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="roadmap__item roadmap__item--big-road">
-          <div class="grid">
+        <!-- Big ROAD -->
+        <div class="flex flex-row items-stretch border-t-2 border-t-black">
+          <div class="grid bg-white">
             <div
               v-for="(row, rowKey) in roadmap.bigroad.matrix"
               :key="rowKey"
@@ -135,7 +199,7 @@
               <div
                 v-for="(col, colKey) in row"
                 :key="colKey"
-                class="grid__col text-gray-200"
+                class="grid__col__big__road text-gray-200"
               >
                 <div
                   class="rounded-full w-6 h-6"
@@ -144,30 +208,32 @@
               </div>
             </div>
           </div>
+          <div>
+            <img src="@/assets/images/logo.jpg" />
+          </div>
         </div>
-        <div class="roadmap__item roadmap__item--big-eye-boy">
-          <div class="grid">
+        <!-- Big Eye Road -->
+        <div class="flex flex-row -mt-8">
+          <div class="grid bg-white">
             <div
               v-for="(row, rowKey) in roadmap.bigeyeboy.matrix"
               :key="rowKey"
-              class="grid__row"
+              class="grid__row_diverse_road"
             >
               <div
                 v-for="(col, colKey) in row"
                 :key="colKey"
-                class="grid__col text-gray-200"
+                class="grid__col__Big_eye text-gray-200"
               >
                 <div
                   v-if="col && col.value"
                   class="rounded-full w-4 h-4"
                   :class="{
-                    'border-red-500 bg-transparent  border-4':
-                      col && col.value === 'red',
-                    'border-blue-500 bg-transparent  border-4':
-                      col && col.value === 'blue',
+                    banker_big_eye: col && col.value === 'red',
+                    player_big_eye: col && col.value === 'blue',
                   }"
                 ></div>
-                <div
+                <!-- <div
                   v-if="
                     checkBigRoadMap() &&
                     rowKey === 0 &&
@@ -194,47 +260,105 @@
                     'border-blue-500 bg-transparent  border-4':
                       colorNextPrediction(row) === 'red',
                   }"
+                ></div> -->
+              </div>
+            </div>
+          </div>
+          <div class="grid bg-white">
+            <div
+              v-for="(row, rowKey) in roadmap.bigeyeboy.matrix"
+              :key="rowKey"
+              class="grid__row_diverse_road"
+            >
+              <div
+                v-for="(col, colKey) in row"
+                :key="colKey"
+                class="grid__col__Big_eye text-gray-200"
+              >
+                <div
+                  v-if="col && col.value"
+                  class="rounded-full w-4 h-4"
+                  :class="{
+                    banker_big_eye: col && col.value === 'red',
+                    player_big_eye: col && col.value === 'blue',
+                  }"
                 ></div>
+                <!-- <div
+                  v-if="
+                    checkBigRoadMap() &&
+                    rowKey === 0 &&
+                    colKey === countNotZero(row)
+                  "
+                  class="rounded-full w-4 h-4 animate-pulse"
+                  :class="{
+                    'border-red-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'red',
+                    'border-blue-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'blue',
+                  }"
+                ></div>
+                <div
+                  v-if="
+                    checkBigRoadMap() &&
+                    rowKey === 0 &&
+                    colKey === countNotZero(row) + 1
+                  "
+                  class="rounded-full w-4 h-4 animate-pulse"
+                  :class="{
+                    'border-red-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'blue',
+                    'border-blue-500 bg-transparent  border-4':
+                      colorNextPrediction(row) === 'red',
+                  }"
+                ></div> -->
               </div>
             </div>
           </div>
         </div>
-        <div class="roadmap__item roadmap__item--small-road">
-          <div class="grid">
+        <!-- SMALL ROAD -->
+        <div class="flex flex-row">
+          <div class="grid bg-white">
             <div
               v-for="(row, rowKey) in roadmap.smallroad.matrix"
               :key="rowKey"
               class="grid__row_diverse_road"
             >
-              <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
+              <div
+                v-for="(col, colKey) in row"
+                :key="colKey"
+                class="grid__col__small_road"
+              >
                 <div
                   class="rounded-full w-6 h-6"
                   :class="{
-                    'bg-red-500': col && col.value === 'red',
-                    'bg-blue-500': col && col.value === 'blue',
+                    'banker-fill-small-road': col && col.value === 'red',
+                    'player-fill-small-road': col && col.value === 'blue',
                   }"
                 ></div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="roadmap__item roadmap__item--cockroach-pig">
-          <div class="grid">
+          <!-- COCKROACH ROAD -->
+          <div class="grid bg-white">
             <div
               v-for="(row, rowKey) in roadmap.cockroachPig.matrix"
               :key="rowKey"
               class="grid__row_diverse_road"
             >
-              <div v-for="(col, colKey) in row" :key="colKey" class="grid__col">
-                <h4
-                  class="text-2xl font-bold"
-                  :class="{
-                    'text-red-500': col && col.value === 'red',
-                    'text-blue-500': col && col.value === 'blue',
-                  }"
-                >
-                  {{ col ? "/" : "" }}
-                </h4>
+              <div
+                v-for="(col, colKey) in row"
+                :key="colKey"
+                class="grid__col__small_road"
+              >
+                <!-- <h4 class="text-2xl font-bold"> -->
+                <div v-if="col.value === `red`" class="red-slash">
+                  <span class="slash"></span>
+                </div>
+                <div v-if="col.value === `blue`" class="blue-slash">
+                  <span class="slash"></span>
+                </div>
+                <!-- {{ col.value === "red" ? (<></>) : "" }} -->
+                <!-- </h4> -->
               </div>
             </div>
           </div>
@@ -267,27 +391,27 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 9,
+          cols: 17,
         },
         bigroad: {
           show_options: false,
           rows: 6,
-          cols: 26,
+          cols: 30,
         },
         bigeyeboy: {
           show_options: false,
           rows: 6,
-          cols: 26,
+          cols: 30,
         },
         smallroad: {
           show_options: false,
           rows: 6,
-          cols: 19,
+          cols: 30,
         },
         cockroachPig: {
           show_options: false,
           rows: 6,
-          cols: 19,
+          cols: 30,
         },
       },
     };
@@ -348,40 +472,32 @@ export default {
       let beadRoadClass = "";
       switch (value) {
         case "b":
-          beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
+          beadRoadClass = "banker";
           break;
         case "p":
-          beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
+          beadRoadClass = "player";
           break;
         case "t":
           beadRoadClass =
             "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
         case "q":
-          beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
+          beadRoadClass = "banker";
           break;
         case "w":
-          beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
+          beadRoadClass = "banker";
           break;
         case "e":
-          beadRoadClass =
-            "bg-red-500 rounded-full border-4 border-red-700 w-8 h-8";
+          beadRoadClass = "banker";
           break;
         case "f":
-          beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
+          beadRoadClass = "player";
           break;
         case "g":
-          beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
+          beadRoadClass = "player";
           break;
         case "h":
-          beadRoadClass =
-            "bg-blue-500 rounded-full border-4 border-blue-700 w-8 h-8";
+          beadRoadClass = "player";
           break;
         case "i":
           beadRoadClass =
@@ -450,31 +566,31 @@ export default {
       let bigRoadClass = "";
       switch (value) {
         case "b":
-          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          bigRoadClass = "banker_big_road";
           break;
         case "p":
-          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          bigRoadClass = "player_big_road";
           break;
         case "t":
           bigRoadClass = "border-green-500 bg-transparent  border-4";
           break;
         case "q":
-          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          bigRoadClass = "banker_big_road";
           break;
         case "w":
-          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          bigRoadClass = "banker_big_road";
           break;
         case "e":
-          bigRoadClass = "border-red-500 bg-transparent  border-4";
+          bigRoadClass = "banker_big_road";
           break;
         case "f":
-          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          bigRoadClass = "player_big_road";
           break;
         case "g":
-          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          bigRoadClass = "player_big_road";
           break;
         case "h":
-          bigRoadClass = "border-blue-500 bg-transparent  border-4";
+          bigRoadClass = "player_big_road";
           break;
         case "i":
           bigRoadClass = "border-green-500 bg-transparent  border-4";
@@ -564,6 +680,7 @@ export default {
         default:
           break;
       }
+      console.log("###", this.roadmap.breadplate);
     },
   },
 };
