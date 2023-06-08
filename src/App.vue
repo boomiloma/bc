@@ -36,7 +36,7 @@ html,
   // width: 100%;
   display: flex;
   flex-direction: row;
-  background-color: rgb(228 228 231);
+  background-color: rgb(0, 0, 0);
   color: theme("colors.blue.50");
 }
 </style>
