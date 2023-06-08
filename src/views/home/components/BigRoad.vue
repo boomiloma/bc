@@ -1,31 +1,31 @@
 <template>
-    <div class="flex flex-row items-stretch border-t-2 border-t-black">
-  
+  <div class="flex flex-row items-stretch border-t-2 border-t-black">
+    <!--   
       <button class="btn btn-" @click="numClick">     {{data}} </button>
       <input class="form-control" v-model="lastname" />
-      {{lastname}}
-          <div class="grid bg-white">
-            <div
-              v-for="(row, rowKey) in roadmap.bigroad.matrix"
-              :key="rowKey"
-              class="grid__row"
-            >
-              <div
-                v-for="(col, colKey) in row"
-                :key="colKey"
-                class="grid__col__big__road text-gray-200"
-              >
-                <div
-                  class="rounded-full w-6 h-6"
-                  :class="bigRoadResult(col.value)"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src="@/assets/images/logo.jpg" />
-          </div>
+      {{lastname}} -->
+    <div class="grid bg-white">
+      <div
+        v-for="(row, rowKey) in roadmap.bigroad.matrix"
+        :key="rowKey"
+        class="grid__row"
+      >
+        <div
+          v-for="(col, colKey) in row"
+          :key="colKey"
+          class="grid__col__big__road text-gray-200"
+        >
+          <div
+            class="rounded-full w-6 h-6"
+            :class="bigRoadResult(col.value)"
+          ></div>
         </div>
+      </div>
+    </div>
+    <div>
+      <img src="@/assets/images/logo.jpg" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -36,13 +36,13 @@ import Dialog from "@/components/BaseInputDialog.vue";
 
 export default {
   name: "Home",
-  props:['data'],
+  props: ["data"],
   components: {
     Dialog,
   },
   data() {
     return {
-      lastname: '',
+      lastname: "",
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
       results: [],
@@ -95,8 +95,8 @@ export default {
     window.addEventListener("keydown", this.handleKeyDown);
   },
   methods: {
-    numClick(){
-      this.$emit('onClick', '345435435')
+    numClick() {
+      this.$emit("onClick", "345435435");
     },
     initLocalConfig() {
       const localConfig = localStorage.getItem("roadmap-config");
@@ -352,5 +352,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../styles/Home.scss";
+@import "../styles/Home.scss";
 </style>
