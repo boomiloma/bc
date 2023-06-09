@@ -36,6 +36,8 @@ html,
   // width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(0, 0, 0);
   color: theme("colors.blue.50");
 }

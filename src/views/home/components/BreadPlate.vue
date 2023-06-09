@@ -20,7 +20,7 @@
               (col && col.value === 'i') ||
               (col && col.value === 'j')
             "
-            class="absolute top-0 left-0 inline-flex items-center rounded-full bg-red-400 px-1 py-1 text-md font-medium text-red-600 ring-1 ring-inset ring-grey-300/10"
+            class="absolute -top-1 -left-1 inline-flex items-center rounded-full bg-red-500 px-2 py-2"
           ></span>
           <span
             v-if="
@@ -31,7 +31,7 @@
               (col && col.value === 'j') ||
               (col && col.value === 'k')
             "
-            class="absolute -bottom-1 right-0 inline-flex items-center rounded-full bg-blue-400 px-1 py-1 text-md font-medium text-blue-600 ring-1 ring-inset ring-grey-300/10"
+            class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 px-2 py-2"
           ></span>
           <div>
             <p v-if="col.value" class="">
