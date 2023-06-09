@@ -1,13 +1,12 @@
 .home {
   height: 100%;
   width: 100%;
+  // width: 98vw;
   .roadmap {
     $roadmap-border: 10px solid #000000;
-
     display: grid;
     border-top: $roadmap-border;
     border-left: $roadmap-border;
-    margin-bottom: 10px;
     grid-template:
       "breadPlate breadPlate bigRoad bigRoad"
       "breadPlate breadPlate bigEyeBoy bigEyeBoy"

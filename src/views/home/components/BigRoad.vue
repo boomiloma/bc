@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-row items-stretch border-t-2 border-t-black">
+  <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
     <div class="grid bg-white">
       <div
         v-for="(row, rowKey) in BigRoadResults"

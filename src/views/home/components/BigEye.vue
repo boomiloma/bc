@@ -13,7 +13,6 @@
         >
           <div
             v-if="col && col.value"
-            class="rounded-full w-4 h-4"
             :class="{
               banker_big_eye: col && col.value === 'red',
               player_big_eye: col && col.value === 'blue',

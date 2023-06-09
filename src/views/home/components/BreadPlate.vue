@@ -20,7 +20,7 @@
               (col && col.value === 'i') ||
               (col && col.value === 'j')
             "
-            class="absolute -top-1 -left-1 inline-flex items-center rounded-full bg-red-500 px-2 py-2"
+            class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <span
             v-if="
@@ -31,10 +31,10 @@
               (col && col.value === 'j') ||
               (col && col.value === 'k')
             "
-            class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 px-2 py-2"
+            class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <div>
-            <p v-if="col.value" class="">
+            <p v-if="col.value" class="font-extrabold text-3xl">
               {{ beadRoadValue(col.value) }}
             </p>
           </div>

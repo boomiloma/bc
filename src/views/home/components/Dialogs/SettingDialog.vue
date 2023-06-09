@@ -1,0 +1,222 @@
+<template>
+  <!-- <dialog open> -->
+  <div
+    class="modal fade blue-modal z-50"
+    id="onload"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0 p-3">
+          <h5 class="modal-title">设置</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="header-bottom"></div>
+        <div class="modal-body p-5">
+          <div class="row">
+            <h4 class="text-white mb-3">修改台桌</h4>
+            <div class="col-7">
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">修改台桌:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      value="100号桌"
+                    />
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+              <div class="mt-3 row">
+                <div class="col-5">
+                  <button type="button" class="btn-theme btn-1">
+                    修改桌台
+                  </button>
+                </div>
+              </div>
+              <div class="mt-3 row">
+                <div class="col-12">
+                  <h4 class="text-white my-3">现场限红修改区</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">币种:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <select class="form-control-custom">
+                      <option>美元</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">庄闲限红:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">和局限红:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">对子限红:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="text-white">幸运6限红:</p>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="0" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="row">
+                <div class="col-5">
+                  <p class="text-white">下注倒计时:</p>
+                </div>
+                <div class="col-3">
+                  <div class="form-group">
+                    <input type="text" class="form-control-custom" value="3" />
+                  </div>
+                </div>
+                <div class="col-4"><p class="text-white">秒</p></div>
+              </div>
+              <div class="mt-3 row">
+                <div class="col-5">
+                  <button type="button" class="btn-theme btn-1">修改</button>
+                </div>
+              </div>
+              <div class="mt-3 row">
+                <div class="col-12">
+                  <h4 class="text-white my-3">模式切换</h4>
+                </div>
+              </div>
+              <div class="mt-3 row">
+                <ul class="col-12">
+                  <ul class="list-inline">
+                    <li class="list-inline-item text-white radio-field">
+                      <label for="muhRadio1"
+                        ><input type="radio" name="muhRadio" value="" />
+                        线上模式</label
+                      >
+                    </li>
+                    <li class="list-inline-item text-white radio-field">
+                      <label for="muhRadio2"
+                        ><input type="radio" name="muhRadio" value="" />
+                        线下模式</label
+                      >
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+              <div class="mt-1 row">
+                <div class="col-12">
+                  <h4 class="text-white">换靴验证码</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  <p class="text-white">设置验证码:</p>
+                </div>
+                <div class="col-3">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      value="123"
+                    />
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+              <div class="mt-3 row">
+                <div class="col-5">
+                  <button type="button" class="btn-theme btn-1">修改</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 row">
+            <div class="col-7">
+              <div class="row">
+                <div class="col-5">
+                  <button type="button" class="btn-theme btn-1">修改</button>
+                </div>
+                <div class="col-7"></div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="mt-2 row">
+                <div class="col-8">
+                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
+                    更换牌靴
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </dialog> -->
+</template>
+<script setup></script>
+<style lang="scss" scoped>
+@import "../../styles/Dialogs/SettingsDialog.scss";
+</style>

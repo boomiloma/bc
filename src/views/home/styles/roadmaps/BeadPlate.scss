@@ -16,10 +16,9 @@
     }
 
     .grid__col {
-      padding: 5px;
-      min-height: 53px;
-      min-width: 56px;
-      max-height: 53px;
+      min-height: 50px;
+      min-width: 55px;
+      max-height: 55px;
       max-width: 56px;
       flex-grow: 1;
       flex-shrink: 0;
@@ -49,26 +48,28 @@
   }
 }
 .banker {
+  padding-top: 2px;
   display: inline-block;
-  position: relative;
-  width: 45px;
-  height: 45px;
+  // position: relative;
+  width: 49px;
+  height: 47px;
   margin: 0 auto;
   border: 4px solid #ff3019;
   background: #fff;
   color: #ff3019;
   border-radius: 50%;
   text-align: center;
-  line-height: 37px;
-  font-size: 28px;
-  font-weight: bold;
-  box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
+  // line-height: 37px;
+  // font-size: 28px;
+  // font-weight: bold;
+  // box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
 .player {
+  padding-top: 2px;
   display: inline-block;
-  position: relative;
-  width: 45px;
-  height: 45px;
+  // position: relative;
+  width: 49px;
+  height: 47px;
   margin: 0 auto;
   border: 4px solid #0059ff;
   background: #fff;
@@ -78,5 +79,5 @@
   line-height: 37px;
   font-size: 28px;
   font-weight: bold;
-  box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
+  // box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }

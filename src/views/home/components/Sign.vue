@@ -2,10 +2,10 @@
   <div
     class="border-l-4 border-b-4 border-solid border-black text-black w-36 bg-white"
   >
-    <div class="flex flex-row items-center justify-center pb-2 border-b-2 mb-1">
+    <div class="flex flex-row items-center justify-center border-b-2">
       <p class="text-2xl font-bold">庄闲问路</p>
     </div>
-    <div class="flex flex-col gap-5 justify-center">
+    <div class="flex flex-col gap-5 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div class="banker-fill">
           <span class="main"> 庄 </span>
@@ -16,10 +16,10 @@
       </div>
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div class="banker-hollow bw">
-          <span class="main"> 闲 </span>
+          <span class="main"> </span>
         </div>
         <div class="player-hollow pw">
-          <span class="main"> 庄 </span>
+          <span class="main"> </span>
         </div>
       </div>
       <div class="flex flex-row items-center justify-evenly gap-1">
@@ -44,37 +44,47 @@
   <div
     class="border border-l-4 border-b-4 border-black text-black w-36 bg-white"
   >
-    <div class="flex flex-row items-start justify-center border-b-2 pb-2">
+    <div class="flex flex-row items-start justify-center border-b-2">
       <p class="text-2xl font-bold">{{ results.length / 2 }}</p>
     </div>
     <div class="flex flex-col gap-2 justify-center">
       <div
-        class="flex flex-row items-center justify-between gap-2 border-b-2 py-2"
+        class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-xl font-bold text-red-500 mx-2"> 庄 </span>
-        <span class="text-xl font-bold text-red-500 mx-2"> 14 </span>
+        <span class="text-3xl font-bold text-red-500 mx-1"> 庄 </span>
+        <span class="text-3xl font-bold text-red-500 mx-1">
+          {{ filterBanker() / 2 }}
+        </span>
       </div>
       <div
-        class="flex flex-row items-center justify-between gap-2 border-b-2 py-2"
+        class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-xl font-bold text-blue-500 mx-2"> 闲 </span>
-        <span class="text-xl font-bold text-blue-500 mx-2"> 14 </span>
+        <span class="text-3xl font-bold text-blue-500 mx-1"> 闲 </span>
+        <span class="text-3xl font-bold text-blue-500 mx-1">
+          {{ filterPlayer() / 2 }}
+        </span>
       </div>
       <div
-        class="flex flex-row items-center justify-between gap-2 border-b-2 py-2"
+        class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-xl font-bold text-green-500 mx-2"> 和 </span>
-        <span class="text-xl font-bold text-green-500 mx-2"> 14 </span>
+        <span class="text-3xl font-bold text-green-500 mx-1"> 和 </span>
+        <span class="text-3xl font-bold text-green-500 mx-1">
+          {{ filterTie() / 2 }}
+        </span>
       </div>
       <div
-        class="flex flex-row items-center justify-between gap-2 border-b-2 py-2"
+        class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-xl font-bold text-red-500 mx-2"> 庄对 </span>
-        <span class="text-xl font-bold text-red-500 mx-2"> 14 </span>
+        <span class="text-3xl font-bold text-red-500 mx-1"> 庄对 </span>
+        <span class="text-3xl font-bold text-red-500 mx-1">
+          {{ filterBankerPair() / 2 }}
+        </span>
       </div>
       <div class="flex flex-row items-center justify-between gap-2">
-        <span class="text-xl font-bold text-blue-500 mx-2"> 闲对 </span>
-        <span class="text-xl font-bold text-blue-500 mx-2"> 14 </span>
+        <span class="text-3xl font-bold text-blue-500 mx-1"> 闲对 </span>
+        <span class="text-3xl font-bold text-blue-500 mx-1">
+          {{ filterPlayerPair() / 2 }}
+        </span>
       </div>
     </div>
   </div>
@@ -144,6 +154,35 @@
 <script>
 export default {
   props: ["results"],
+  methods: {
+    filterBanker() {
+      return this.results.filter(
+        (result) =>
+          result === "b" || result === "q" || result === "w" || result === "e"
+      ).length;
+    },
+    filterPlayer() {
+      return this.results.filter(
+        (result) =>
+          result === "p" || result === "f" || result === "g" || result === "h"
+      ).length;
+    },
+    filterTie() {
+      return this.results.filter((result) => result === "t").length;
+    },
+    filterBankerPair() {
+      return this.results.filter(
+        (result) =>
+          result === "q" || result === "w" || result === "f" || result === "g"
+      ).length;
+    },
+    filterPlayerPair() {
+      return this.results.filter(
+        (result) =>
+          result === "w" || result === "e" || result === "g" || result === "h"
+      ).length;
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

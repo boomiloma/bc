@@ -3,7 +3,7 @@
     <div class="">
       <Header />
       <div v-if="roadmap" class="w-full">
-        <div class="flex flex-row items-stretch">
+        <div class="flex flex-row">
           <div class="border border-b-4 border-black">
             <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
           </div>

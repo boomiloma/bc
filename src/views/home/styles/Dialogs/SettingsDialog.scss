@@ -1,0 +1,95 @@
+.blue-modal .modal-header {
+  background: #2f4963;
+  background: -moz-linear-gradient(top, #2f4963 0%, #1e344b 100%);
+  background: -webkit-linear-gradient(top, #2f4963 0%, #1e344b 100%);
+  background: linear-gradient(to bottom, #2f4963 0%, #1e344b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f4963', endColorstr='#1e344b',GradientType=0 );
+  padding: 10px;
+  color: #fff;
+}
+.blue-modal .modal-body {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2d4760+0,1f3448+100 */
+  background: rgb(45, 71, 96); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(45, 71, 96, 1) 0%,
+    rgba(31, 52, 72, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(45, 71, 96, 1) 0%,
+    rgba(31, 52, 72, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 71, 96, 1) 0%,
+    rgba(31, 52, 72, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d4760', endColorstr='#1f3448',GradientType=0 ); /* IE6-9 */
+}
+.header-bottom {
+  background: #9b8972;
+  background: -moz-linear-gradient(top, #9b8972 0%, #c6b69c 50%, #9b8972 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #9b8972 0%,
+    #c6b69c 50%,
+    #9b8972 100%
+  );
+  background: linear-gradient(to bottom, #9b8972 0%, #c6b69c 50%, #9b8972 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b8972', endColorstr='#9b8972',GradientType=0 );
+  height: 8px;
+  box-shadow: 0px 2px 2px 1px rgb(0 0 0 / 58%);
+}
+.golden-border-modal .modal-content {
+  border: 4px solid #ac987d;
+  border-radius: 10px;
+  background: url(../images/bg-blue1.webp);
+  background-size: cover;
+  background-position: center;
+}
+.golden-border-modal-gray .modal-content {
+  border: 4px solid #ac987d;
+  border-radius: 10px;
+  background: url(../images/gray-1.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.golden-border-modal-gray .modal-body:after {
+  position: absolute;
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.golden-border-modal-gray .modal-body h2,
+.golden-border-modal-gray .modal-body h3 {
+  position: relative;
+  z-index: 3;
+}
+
+.golden-border-modal-red .modal-content {
+  border: 4px solid #ac987d;
+  border-radius: 10px;
+  background: url(../images/red-1.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.golden-border-modal-red .modal-body:after {
+  position: absolute;
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.content-inside-modal {
+  position: relative;
+  z-index: 9;
+}
