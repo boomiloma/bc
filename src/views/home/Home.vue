@@ -1,20 +1,24 @@
 <template>
   <div class="home">
     <div class="">
-      <div v-if="roadmap" class="">
-        <div class="flex flex-row items-stretch bg-white">
+      <div v-if="roadmap" class="w-full">
+        <div class="flex flex-row items-stretch">
           <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
           <Sign :results="results" />
         </div>
-        <BigRoad :BigRoadResults="roadmap.bigroad.matrix" />
-        <BigEye
-          :BigEyeResults="roadmap.bigeyeboy.matrix"
-          :CustomPlateResults="roadmap.customplate.matrix"
-        />
-        <SmallRoad
-          :SmallRoadResults="roadmap.smallroad.matrix"
-          :CockRoachResults="roadmap.cockroachPig.matrix"
-        />
+        <div class="mb-8">
+          <BigRoad :BigRoadResults="roadmap.bigroad.matrix" />
+        </div>
+        <div>
+          <BigEye
+            :BigEyeResults="roadmap.bigeyeboy.matrix"
+            :CustomPlateResults="roadmap.customplate.matrix"
+          />
+          <SmallRoad
+            :SmallRoadResults="roadmap.smallroad.matrix"
+            :CockRoachResults="roadmap.cockroachPig.matrix"
+          />
+        </div>
       </div>
     </div>
   </div>

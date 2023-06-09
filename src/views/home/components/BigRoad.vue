@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row items-stretch border-t-2 border-t-black">
+  <div class="relative flex flex-row items-stretch border-t-2 border-t-black">
     <div class="grid bg-white">
       <div
         v-for="(row, rowKey) in BigRoadResults"
@@ -18,8 +18,11 @@
         </div>
       </div>
     </div>
-    <div>
-      <img src="@/assets/images/logo.jpg" />
+    <div class="">
+      <img
+        class="absolute -right-0 -bottom-60"
+        src="@/assets/images/logo.jpg"
+      />
     </div>
   </div>
 </template>

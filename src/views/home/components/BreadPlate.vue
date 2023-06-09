@@ -1,5 +1,5 @@
 <template>
-  <div class="grid">
+  <div class="grid bg-white">
     <div
       v-for="(row, rowKey) in BreadPlateResults"
       :key="rowKey"
