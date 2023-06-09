@@ -1,5 +1,7 @@
 <template>
-  <div class="border-2 border-solid border-black text-black w-36 bg-white">
+  <div
+    class="border-l-4 border-b-4 border-solid border-black text-black w-36 bg-white"
+  >
     <div class="flex flex-row items-center justify-center pb-2 border-b-2 mb-1">
       <p class="text-2xl font-bold">庄闲问路</p>
     </div>
@@ -40,7 +42,7 @@
   </div>
 
   <div
-    class="border border-1 border-solid border-l-0 border-black text-black w-36 bg-white"
+    class="border border-l-4 border-b-4 border-black text-black w-36 bg-white"
   >
     <div class="flex flex-row items-start justify-center border-b-2 pb-2">
       <p class="text-2xl font-bold">{{ results.length / 2 }}</p>
@@ -145,5 +147,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/Home.scss";
+@import "../styles/roadmaps/Sign.scss";
 </style>

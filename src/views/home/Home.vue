@@ -1,15 +1,20 @@
 <template>
   <div class="home">
     <div class="">
+      <Header />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row items-stretch">
-          <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
+          <div class="border border-b-4 border-black">
+            <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
+          </div>
           <Sign :results="results" />
         </div>
         <div class="mb-8">
-          <BigRoad :BigRoadResults="roadmap.bigroad.matrix" />
+          <div class="border border-b-4 border-black">
+            <BigRoad :BigRoadResults="roadmap.bigroad.matrix" />
+          </div>
         </div>
-        <div>
+        <div class="border border-b-4 border-t-3 border-r-4 border-black">
           <BigEye
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
@@ -35,7 +40,7 @@ import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
 import SmallRoad from "./components/SmallRoad.vue";
 import BreadPlate from "./components/BreadPlate.vue";
-
+import Header from "./components/Header.vue";
 export default {
   name: "Home",
   components: {
@@ -45,6 +50,7 @@ export default {
     BigRoad,
     BigEye,
     SmallRoad,
+    Header,
   },
   data() {
     return {

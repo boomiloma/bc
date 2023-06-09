@@ -104,5 +104,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/Home.scss";
+@import "../styles/roadmaps/BigEye.scss";
 </style>
