@@ -7,7 +7,10 @@
           <Sign :results="results" />
         </div>
         <BigRoad :BigRoadResults="roadmap.bigroad.matrix" />
-        <BigEye :BigEyeResults="roadmap.bigeyeboy.matrix" />
+        <BigEye
+          :BigEyeResults="roadmap.bigeyeboy.matrix"
+          :CustomPlateResults="roadmap.customplate.matrix"
+        />
         <SmallRoad
           :SmallRoadResults="roadmap.smallroad.matrix"
           :CockRoachResults="roadmap.cockroachPig.matrix"
@@ -62,6 +65,11 @@ export default {
           show_options: false,
           rows: 6,
           cols: 30,
+        },
+        customplate: {
+          show_options: false,
+          rows: 3,
+          cols: 15,
         },
         smallroad: {
           show_options: false,
@@ -173,6 +181,11 @@ export default {
         default:
           break;
       }
+
+      console.log(
+        "🚀 ~ file: CustomPlate.js:15 ~ CustomPlate ~ constructor ~ options:",
+        this.roadmap
+      );
     },
   },
 };

@@ -210,6 +210,75 @@
         }
       }
     }
+    .grid__row__custom__road {
+      display: flex;
+      height: 100%;
+
+      &:not(:last-child) {
+        border-bottom: $grid-border;
+      }
+
+      .grid__col__custom__road {
+        padding: 5px;
+        min-height: 49px;
+        min-width: 48px;
+        max-height: 49px;
+        max-width: 48px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        span {
+          font-size: pxToRem(13);
+          margin-bottom: 5px;
+        }
+
+        small {
+          font-size: pxToRem(10);
+        }
+
+        &:not(:last-child) {
+          border-right: $grid-border;
+        }
+
+        * {
+          line-height: 1;
+        }
+      }
+      .grid__col__big__road {
+        padding: 5px;
+        min-height: 48px;
+        min-width: 48px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        span {
+          font-size: 5px;
+          margin-bottom: 5px;
+        }
+
+        small {
+          font-size: pxToRem(10);
+        }
+
+        &:not(:last-child) {
+          border-right: $grid-border;
+        }
+
+        * {
+          line-height: 1;
+        }
+      }
+    }
     .grid__row_diverse_road {
       display: flex;
       height: 100%;
@@ -386,6 +455,39 @@
     font-size: 28px;
     font-weight: bold;
     box-shadow: inset 0px -3px 3px rgb(0 0 0 / 22%);
+  }
+  .banker_custom_big_eye {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border: 4px solid #ff3019;
+    background: #fff;
+    color: #ff3019;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 37px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
+  }
+
+  .player_custom_big_eye {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border: 4px solid #0059ff;
+    background: #fff;
+    color: #0059ff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 37px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
   }
   .player {
     display: inline-block;

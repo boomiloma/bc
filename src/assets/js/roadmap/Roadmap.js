@@ -5,6 +5,7 @@ import BigRoad from "./BigRoad";
 import BigEyeBoy from "./BigEyeBoy";
 import SmallRoad from "./SmallRoad";
 import CockroachPig from "./CockroachPig";
+import CustomPlate from "./CustomPlate";
 
 function attachToContext(obj, ctx) {
   for (const key in obj) {
@@ -28,6 +29,11 @@ export default class Roadmap {
           cols: 26,
         },
         bigeyeboy: {
+          show_options: false,
+          rows: 6,
+          cols: 26,
+        },
+        customplate: {
           show_options: false,
           rows: 6,
           cols: 26,
@@ -65,6 +71,12 @@ export default class Roadmap {
       cols: this.config.bigeyeboy.cols,
     });
 
+    this.customplate = new CustomPlate({
+      bigRoadMatrix: this.bigroad.matrix,
+      rows: this.config.customplate.rows,
+      cols: this.config.customplate.cols,
+    });
+
     this.smallroad = new SmallRoad({
       bigRoadMatrix: this.bigroad.matrix,
       rows: this.config.smallroad.rows,
@@ -93,5 +105,9 @@ export default class Roadmap {
 
     this.cockroachPig.bigRoadMatrix = this.bigroad.matrix;
     this.cockroachPig.traverseBigRoadScheme();
+
+    // this.customplate.bigRoadMatrix = this.bigroad.matrix;
+    // this.customplate.traverseBigRoadScheme();
+    this.customplate.push(key);
   }
 }
