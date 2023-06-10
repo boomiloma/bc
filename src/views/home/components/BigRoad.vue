@@ -47,7 +47,7 @@ export default {
       };
 
       // Wait for 30 minutes before playing the video again
-      setTimeout(playVideoAgain, 30 * 60 * 1000); // 30 minutes in milliseconds
+      setTimeout(playVideoAgain, 1 * 60 * 1000); // 30 minutes in milliseconds
     },
 
     bigRoadResult(value) {
