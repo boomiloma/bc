@@ -18,11 +18,13 @@
         </div>
       </div>
     </div>
-    <div class="">
-      <img
-        class="absolute -right-0 -bottom-60"
-        src="@/assets/images/logo.jpg"
-      />
+    <div class="absolute -right-10 -bottom-20">
+      <video ref="videoElement" autoplay muted playsinline>
+        <source
+          src="@/assets/images/kk-baccarat-logo-animation-3.gif.mp4"
+          type="video/mp4"
+        />
+      </video>
     </div>
   </div>
 </template>
@@ -31,7 +33,23 @@
 // @ is an alias to /src
 export default {
   props: ["BigRoadResults"],
+  mounted() {
+    this.startVideoLoop();
+  },
   methods: {
+    startVideoLoop() {
+      const videoElement = this.$refs.videoElement;
+
+      // Function to play the video again after 30 minutes
+      const playVideoAgain = () => {
+        videoElement.currentTime = 0; // Reset the video to the beginning
+        videoElement.play(); // Start playing the video
+      };
+
+      // Wait for 30 minutes before playing the video again
+      setTimeout(playVideoAgain, 30 * 60 * 1000); // 30 minutes in milliseconds
+    },
+
     bigRoadResult(value) {
       let bigRoadClass = "";
       switch (value) {

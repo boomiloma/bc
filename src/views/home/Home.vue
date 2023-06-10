@@ -1,5 +1,6 @@
 <template>
-  <Dialog :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
+  <DialogInput :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
+  <!-- <DialogSetting :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" /> -->
   <div class="home">
     <div class="">
       <Header />
@@ -36,7 +37,8 @@
 // @ is an alias to /src
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
-import Dialog from "@/components/BaseInputDialog.vue";
+import DialogInput from "@/components/BaseInputDialog.vue";
+import DialogSetting from "@/components/BaseSettingDialog.vue";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -46,7 +48,8 @@ import Header from "./components/Header.vue";
 export default {
   name: "Home",
   components: {
-    Dialog,
+    DialogInput,
+    DialogSetting,
     BreadPlate,
     Sign,
     BigRoad,
@@ -112,7 +115,7 @@ export default {
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
-    this.getReuslt()
+    this.getReuslt();
   },
   methods: {
     onChildCabllback(params) {
@@ -137,7 +140,7 @@ export default {
     clearRoadmap() {
       this.results = [];
       this.initRoadmap();
-       localStorage.setItem("roadmap-results", "");
+      localStorage.setItem("roadmap-results", "");
     },
     initRoadmap() {
       this.roadmap = new Roadmap({
@@ -150,7 +153,6 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-
     },
     handleKeyDown(event) {
       switch (event.key) {
@@ -220,15 +222,15 @@ export default {
         this.roadmap
       );
     },
-    async  getReuslt(){
-      let re =  await localStorage.getItem("roadmap-results");
-      if(re){
-        this.results = JSON.parse(re)
-        this.results.forEach(r => {
+    async getReuslt() {
+      let re = await localStorage.getItem("roadmap-results");
+      if (re) {
+        this.results = JSON.parse(re);
+        this.results.forEach((r) => {
           this.roadmap.push(r);
-        })
+        });
       }
-    }
+    },
   },
 };
 </script>

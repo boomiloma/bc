@@ -1,13 +1,4 @@
 <template>
-  <!-- <div class="fixed inset-0 flex items-center justify-center">
-    <button
-      type="button"
-      @click="openModal"
-      class="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-    >
-      Open dialog
-    </button>
-  </div> -->
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal" class="relative z-10">
       <TransitionChild
@@ -451,7 +442,7 @@ export default {
   margin-right: 50px;
 }
 .golden-border-modal-blue .modal-content {
-  border: 4px solid #ac987d;
+  border: 8px solid #ac987d;
   border-radius: 10px;
   background: url(../../src/assets/images/bg-blue1.webp);
   background-size: cover;
