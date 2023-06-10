@@ -112,6 +112,7 @@ export default {
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
+    this.getReuslt()
   },
   methods: {
     onChildCabllback(params) {
@@ -136,6 +137,7 @@ export default {
     clearRoadmap() {
       this.results = [];
       this.initRoadmap();
+       localStorage.setItem("roadmap-results", "");
     },
     initRoadmap() {
       this.roadmap = new Roadmap({
@@ -146,8 +148,9 @@ export default {
 
     push(key) {
       this.results.push(key);
-
       this.roadmap.push(key);
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+
     },
     handleKeyDown(event) {
       switch (event.key) {
@@ -217,6 +220,15 @@ export default {
         this.roadmap
       );
     },
+    async  getReuslt(){
+      let re =  await localStorage.getItem("roadmap-results");
+      if(re){
+        this.results = JSON.parse(re)
+        this.results.forEach(r => {
+          this.roadmap.push(r);
+        })
+      }
+    }
   },
 };
 </script>
