@@ -1,7 +1,9 @@
 <template>
+  <Dialog :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
   <div class="home">
     <div class="">
       <Header />
+
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -60,6 +62,7 @@ export default {
       roadmap: null,
       roadmapUtils: null,
       lastKeyPressed: null,
+      isOpen: false,
       config: {
         breadplate: {
           show_options: false,
@@ -147,34 +150,42 @@ export default {
       this.roadmap.push(key);
     },
     handleKeyDown(event) {
-      this.lastKeyPressed = event.key;
       switch (event.key) {
         case "1":
-          this.push("p");
+          this.lastKeyPressed = "p";
+          this.isOpen = true;
           break;
         case "2":
-          this.push("b");
+          this.lastKeyPressed = "b";
+          this.isOpen = true;
           break;
         // case "3":
         //   this.push("t");
         //   break;
-        case "4":
-          this.push("q"); // banker wins banker pair
+        case "4": // banker wins banker pair
+          this.lastKeyPressed = "q";
+          this.isOpen = true;
+
           break;
-        case "5":
-          this.push("e"); // banker wins player pair
+        case "5": // banker wins player pair
+          this.lastKeyPressed = "e";
+          this.isOpen = true;
           break;
-        case "6":
-          this.push("w"); // banker wins banker-pair player-pair
+        case "6": // banker wins banker-pair player-pair
+          this.lastKeyPressed = "w";
+          this.isOpen = true;
           break;
-        case "7":
-          this.push("h"); // player wins player-pair
+        case "7": // player wins player-pair
+          this.lastKeyPressed = "h";
+          this.isOpen = true;
           break;
-        case "8":
-          this.push("f"); // player wins banker-pair
+        case "8": // player wins banker-pair
+          this.lastKeyPressed = "f";
+          this.isOpen = true;
           break;
-        case "9":
-          this.push("g"); // player wins  banker-pair player-pair
+        case "9": // player wins  banker-pair player-pair
+          this.lastKeyPressed = "g";
+          this.isOpen = true;
           break;
         // case "/":
         //   this.push("i"); // tie banker-pair
@@ -185,6 +196,15 @@ export default {
         // case "-":
         //   this.push("j"); // tie player-pair banker-pair
         //   break;
+        case "Enter":
+          if (this.lastKeyPressed && this.lastKeyPressed !== null) {
+            this.push(this.lastKeyPressed);
+            this.lastKeyPressed = null;
+            this.isOpen = false;
+          } else {
+            // alert("Please press 1 or 2");
+          }
+          break;
         case "0":
           this.clearRoadmap();
           break;

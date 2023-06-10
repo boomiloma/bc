@@ -1,5 +1,4 @@
 <template>
-  <!-- <Dialog /> -->
   <header class="header-main container-fluid-custom">
     <div class="header-top">
       <div class="px-3">
