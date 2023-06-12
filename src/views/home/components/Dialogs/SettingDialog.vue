@@ -16,7 +16,8 @@
             class="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
-          ></button>
+            @click="emit('onClose')"
+          >Close</button>
         </div>
         <div class="header-bottom"></div>
         <div class="modal-body p-5">
@@ -203,7 +204,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button @click="emit('onClose')" type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
                     更换牌靴
                   </button>
                 </div>
