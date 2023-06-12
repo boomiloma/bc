@@ -203,7 +203,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button @click="emit('onClose')" type="button" class="btn-theme btn-1 py-1 fs-3">
                     更换牌靴
                   </button>
                 </div>
@@ -216,7 +216,9 @@
   </div>
   <!-- </dialog> -->
 </template>
-<script setup></script>
+<script setup>
+  const emit = defineEmits(["onClose", "onSave"]);
+</script>
 <style lang="scss" scoped>
 @import "../../styles/Dialogs/SettingsDialog.scss";
 </style>

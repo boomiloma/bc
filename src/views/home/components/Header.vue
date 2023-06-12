@@ -43,6 +43,7 @@
             <div class="flex flex-row items-center">
               <button
                 type="button"
+                @click="isOpen = true"
                 class="btn-theme btn-1 me-4 font-bold text-3xl"
               >
                 设置
@@ -58,15 +59,26 @@
     </div>
     <div class="header-bottom"></div>
   </header>
+  <BaseDialog width="700" :isOpen="isOpen">
+    <Setting  @onClose="isOpen = false"/>
+  </BaseDialog>
 </template>
 <script>
 import { Icon } from "@iconify/vue";
-import Dialog from "./Dialogs/SettingDialog.vue";
+import Setting from "./Dialogs/SettingDialog.vue";
+import BaseDialog from "@/components/BaseDialog.vue";
+
 export default {
   components: {
-    Dialog,
+    Setting,
     Icon,
+    BaseDialog,
   },
+  data() {
+    return {
+      isOpen: false,
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
