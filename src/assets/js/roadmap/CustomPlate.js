@@ -71,12 +71,11 @@ export default class CustomPlate extends RoadmapUtilities {
 
     this.previousCoordinates = [row, column];
     this.previousIdentity = identity;
-    if (key !== "t") {
-      this.matrix[row][column] = {
-        value: key,
-        index: this.index++,
-      };
-    }
+
+    this.matrix[row][column] = {
+      value: key,
+      index: this.index++,
+    };
 
     if (this.hasFullRow) {
       this.matrix = this.truncateFirstColumn();
