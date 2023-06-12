@@ -116,6 +116,7 @@ export default {
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
     this.getReuslt();
+    localStorage.setItem("KEYBOARD_GAME", "true");
   },
   methods: {
     onChildCabllback(params) {
@@ -155,72 +156,76 @@ export default {
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
     },
     handleKeyDown(event) {
-      switch (event.key) {
-        case "1":
-          this.lastKeyPressed = "p";
-          this.isOpen = true;
-          break;
-        case "2":
-          this.lastKeyPressed = "b";
-          this.isOpen = true;
-          break;
-        case "3":
-          this.lastKeyPressed = "t";
-          this.isOpen = true;
-          break;
-        case "4": // banker wins banker pair
-          this.lastKeyPressed = "q";
-          this.isOpen = true;
+      if (localStorage.getItem("KEYBOARD_GAME") === "true") {
+        switch (event.key) {
+          case "1":
+            this.lastKeyPressed = "p";
+            this.isOpen = true;
+            break;
+          case "2":
+            this.lastKeyPressed = "b";
+            this.isOpen = true;
+            break;
+          case "3":
+            this.lastKeyPressed = "t";
+            this.isOpen = true;
+            break;
+          case "4": // banker wins banker pair
+            this.lastKeyPressed = "q";
+            this.isOpen = true;
 
-          break;
-        case "5": // banker wins player pair
-          this.lastKeyPressed = "e";
-          this.isOpen = true;
-          break;
-        case "6": // banker wins banker-pair player-pair
-          this.lastKeyPressed = "w";
-          this.isOpen = true;
-          break;
-        case "7": // player wins player-pair
-          this.lastKeyPressed = "h";
-          this.isOpen = true;
-          break;
-        case "8": // player wins banker-pair
-          this.lastKeyPressed = "f";
-          this.isOpen = true;
-          break;
-        case "9": // player wins  banker-pair player-pair
-          this.lastKeyPressed = "g";
-          this.isOpen = true;
-          break;
-        case "/": // tie banker-pair
-          this.lastKeyPressed = "i";
-          this.isOpen = true;
-          break;
-        case "*": // tie player-pair
-          this.lastKeyPressed = "k";
-          this.isOpen = true;
-          break;
-        case "-": // tie player-pair banker-pair
-          this.lastKeyPressed = "j";
-          this.isOpen = true;
-          break;
-        case "Enter":
-          if (this.lastKeyPressed && this.lastKeyPressed !== null) {
-            this.push(this.lastKeyPressed);
-            this.lastKeyPressed = null;
-            this.isOpen = false;
-          } else {
-            // alert("Please press 1 or 2");
-          }
-          break;
-        case "0":
-          this.clearRoadmap();
-          break;
-        default:
-          break;
+            break;
+          case "5": // banker wins player pair
+            this.lastKeyPressed = "e";
+            this.isOpen = true;
+            break;
+          case "6": // banker wins banker-pair player-pair
+            this.lastKeyPressed = "w";
+            this.isOpen = true;
+            break;
+          case "7": // player wins player-pair
+            this.lastKeyPressed = "h";
+            this.isOpen = true;
+            break;
+          case "8": // player wins banker-pair
+            this.lastKeyPressed = "f";
+            this.isOpen = true;
+            break;
+          case "9": // player wins  banker-pair player-pair
+            this.lastKeyPressed = "g";
+            this.isOpen = true;
+            break;
+          case "/": // tie banker-pair
+            this.lastKeyPressed = "i";
+            this.isOpen = true;
+            break;
+          case "*": // tie player-pair
+            this.lastKeyPressed = "k";
+            this.isOpen = true;
+            break;
+          case "-": // tie player-pair banker-pair
+            this.lastKeyPressed = "j";
+            this.isOpen = true;
+            break;
+          // case ".":
+          //   this.roadmap.navigateBack(this.results);
+          //   break;
+          case "Enter":
+            if (this.lastKeyPressed && this.lastKeyPressed !== null) {
+              this.push(this.lastKeyPressed);
+              this.lastKeyPressed = null;
+              this.isOpen = false;
+            } else {
+              // alert("Please press 1 or 2");
+            }
+            break;
+          case "0":
+            this.clearRoadmap();
+            break;
+          default:
+            break;
+        }
       }
-
       console.log(
         "🚀 ~ file: CustomPlate.js:15 ~ CustomPlate ~ constructor ~ options:",
         this.roadmap

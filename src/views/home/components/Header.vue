@@ -60,7 +60,7 @@
     <div class="header-bottom"></div>
   </header>
   <BaseDialog width="999" :isOpen="isOpen">
-    <Setting  @onClose="isOpen = false"/>
+    <Setting @onClose="isOpen = false" />
   </BaseDialog>
 </template>
 <script>
@@ -74,11 +74,20 @@ export default {
     Icon,
     BaseDialog,
   },
+  watch: {
+    isOpen(newVal) {
+      if (newVal) {
+        localStorage.setItem("KEYBOARD_GAME", "false");
+      } else {
+        localStorage.setItem("KEYBOARD_GAME", "true");
+      }
+    },
+  },
   data() {
     return {
       isOpen: false,
-    }
-  }
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
