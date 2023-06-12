@@ -59,7 +59,7 @@
     </div>
     <div class="header-bottom"></div>
   </header>
-  <BaseDialog width="700" :isOpen="isOpen">
+  <BaseDialog width="999" :isOpen="isOpen">
     <Setting  @onClose="isOpen = false"/>
   </BaseDialog>
 </template>

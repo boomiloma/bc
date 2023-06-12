@@ -1,13 +1,9 @@
 <template>
   <!-- <dialog open> -->
   <div
-    class="modal fade blue-modal z-50"
-    id="onload"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
+    class="blue-modal"    
   >
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 1270px;">
       <div class="modal-content">
         <div class="modal-header flex border-0 p-3">
           <h5 class="modal-title flex-1">设置</h5>
