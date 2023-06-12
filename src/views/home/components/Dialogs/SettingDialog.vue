@@ -285,12 +285,12 @@ const setting = ref({
   },
 });
 const currencyChange = () => {
-  if (setting.value.currency == "usd") {
-    setting.value.limit = 1;
-  }
-  if (setting.value.currency == "thb") {
-    setting.value.limit = 22;
-  }
+  // if(setting.value.currency == "usd"){
+  //   setting.value.limit = 1;
+  // }
+  // if(setting.value.currency == "thb"){
+  //   setting.value.limit = 22;
+  // }
   console.log("fomr", setting.value);
 };
 
