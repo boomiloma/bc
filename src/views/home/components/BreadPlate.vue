@@ -59,8 +59,7 @@ export default {
           beadRoadClass = "player";
           break;
         case "t":
-          beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          beadRoadClass = "tie";
           break;
         case "q":
           beadRoadClass = "banker";
@@ -81,16 +80,13 @@ export default {
           beadRoadClass = "player";
           break;
         case "i":
-          beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          beadRoadClass = "tie";
           break;
         case "j":
-          beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          beadRoadClass = "tie";
           break;
         case "k":
-          beadRoadClass =
-            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          beadRoadClass = "tie";
           break;
         default:
           break;

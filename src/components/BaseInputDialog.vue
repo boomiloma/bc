@@ -105,7 +105,7 @@ export default {
           return "golden-border-modal-blue";
           break;
         case "t":
-          return "golden-border-modal-gray";
+          return "golden-border-modal-green";
           break;
         case "q":
           return "golden-border-modal-red";
@@ -126,13 +126,13 @@ export default {
           return "golden-border-modal-blue";
           break;
         case "i":
-          return "golden-border-modal-gray";
+          return "golden-border-modal-green";
           break;
         case "j":
-          return "golden-border-modal-gray";
+          return "golden-border-modal-green";
           break;
         case "k":
-          return "golden-border-modal-gray";
+          return "golden-border-modal-green";
           break;
         default:
           break;
@@ -147,7 +147,7 @@ export default {
           return "player-win";
           break;
         case "t":
-          return "和";
+          return "tie-win";
           break;
         case "q":
           return "banker-win";
@@ -168,13 +168,13 @@ export default {
           return "player-win";
           break;
         case "i":
-          return "和";
+          return "tie-win";
           break;
         case "j":
-          return "和";
+          return "tie-win";
           break;
         case "k":
-          return "和";
+          return "tie-win";
           break;
         default:
           break;
@@ -295,10 +295,16 @@ export default {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8fc', endColorstr='#0059ff',GradientType=0 );
 }
 .banker-win .circle-content {
-  background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-  background: -webkit-linear-gradient(top, #ff3019 0%, #cf0404 100%);
-  background: linear-gradient(to bottom, #ff3019 0%, #cf0404 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 );
+  background: -moz-linear-gradient(top, #ff1a00 0%, #9a0000 100%);
+  background: -webkit-linear-gradient(top, #ff1a00 0%, #9a0000 100%);
+  background: linear-gradient(to bottom, #ff1a00 0%, #9a0000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1a00', endColorstr='#9a0000',GradientType=0 );
+}
+.tie-win .circle-content {
+  background: -moz-linear-gradient(top, #46ff11 0%, #137c21 100%);
+  background: -webkit-linear-gradient(top, #46ff11 0%, #137c21 100%);
+  background: linear-gradient(to bottom, #46ff11 0%, #137c21 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46ff11 ', endColorstr='#137c21',GradientType=0 );
 }
 .big-red-dot-left-top {
   background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
@@ -450,6 +456,24 @@ export default {
   overflow: hidden;
 }
 .golden-border-modal-blue .modal-body:after {
+  position: absolute;
+  content: "";
+  /* background: rgba(0, 0, 0, 0.4); */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.golden-border-modal-green .modal-content {
+  border: 8px solid #ac987d;
+  border-radius: 10px;
+  background: url(../../src/assets/images/bg-blue1.webp);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.golden-border-modal-green .modal-body:after {
   position: absolute;
   content: "";
   /* background: rgba(0, 0, 0, 0.4); */

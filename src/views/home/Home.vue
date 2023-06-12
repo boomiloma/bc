@@ -153,6 +153,10 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+      console.log(
+        "🚀 ~ file: Home.vue:154 ~ push ~  this.results:",
+        this.roadmap
+      );
     },
     handleKeyDown(event) {
       switch (event.key) {
@@ -164,9 +168,10 @@ export default {
           this.lastKeyPressed = "b";
           this.isOpen = true;
           break;
-        // case "3":
-        //   this.push("t");
-        //   break;
+        case "3":
+          this.lastKeyPressed = "t";
+          this.isOpen = true;
+          break;
         case "4": // banker wins banker pair
           this.lastKeyPressed = "q";
           this.isOpen = true;
@@ -192,15 +197,18 @@ export default {
           this.lastKeyPressed = "g";
           this.isOpen = true;
           break;
-        // case "/":
-        //   this.push("i"); // tie banker-pair
-        //   break;
-        // case "*":
-        //   this.push("k"); // tie player-pair
-        //   break;
-        // case "-":
-        //   this.push("j"); // tie player-pair banker-pair
-        //   break;
+        case "/": // tie banker-pair
+          this.lastKeyPressed = "i";
+          this.isOpen = true;
+          break;
+        case "*": // tie player-pair
+          this.lastKeyPressed = "k";
+          this.isOpen = true;
+          break;
+        case "-": // tie player-pair banker-pair
+          this.lastKeyPressed = "j";
+          this.isOpen = true;
+          break;
         case "Enter":
           if (this.lastKeyPressed && this.lastKeyPressed !== null) {
             this.push(this.lastKeyPressed);
