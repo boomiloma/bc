@@ -45,7 +45,7 @@
     class="border border-l-4 border-b-4 border-black text-black w-36 bg-white"
   >
     <div class="flex flex-row items-start justify-center border-b-2">
-      <p class="text-2xl font-bold">{{ results.length / 2 }}</p>
+      <p class="text-2xl font-bold">{{ results.length }}</p>
     </div>
     <div class="flex flex-col gap-2 justify-center">
       <div
@@ -53,7 +53,7 @@
       >
         <span class="text-3xl font-bold text-red-500 mx-1"> 庄 </span>
         <span class="text-3xl font-bold text-red-500 mx-1">
-          {{ filterBanker() / 2 }}
+          {{ filterBanker() }}
         </span>
       </div>
       <div
@@ -61,7 +61,7 @@
       >
         <span class="text-3xl font-bold text-blue-500 mx-1"> 闲 </span>
         <span class="text-3xl font-bold text-blue-500 mx-1">
-          {{ filterPlayer() / 2 }}
+          {{ filterPlayer() }}
         </span>
       </div>
       <div
@@ -69,7 +69,7 @@
       >
         <span class="text-3xl font-bold text-green-500 mx-1"> 和 </span>
         <span class="text-3xl font-bold text-green-500 mx-1">
-          {{ filterTie() / 2 }}
+          {{ filterTie() }}
         </span>
       </div>
       <div
@@ -77,13 +77,13 @@
       >
         <span class="text-3xl font-bold text-red-500 mx-1"> 庄对 </span>
         <span class="text-3xl font-bold text-red-500 mx-1">
-          {{ filterBankerPair() / 2 }}
+          {{ filterBankerPair() }}
         </span>
       </div>
       <div class="flex flex-row items-center justify-between gap-2">
         <span class="text-3xl font-bold text-blue-500 mx-1"> 闲对 </span>
         <span class="text-3xl font-bold text-blue-500 mx-1">
-          {{ filterPlayerPair() / 2 }}
+          {{ filterPlayerPair() }}
         </span>
       </div>
     </div>
@@ -180,7 +180,6 @@ export default {
           result === "w" ||
           result === "f" ||
           result === "g" ||
-          result === "t" ||
           result === "j" ||
           result === "i"
       ).length;
@@ -192,7 +191,6 @@ export default {
           result === "e" ||
           result === "g" ||
           result === "h" ||
-          result === "t" ||
           result === "j" ||
           result === "k"
       ).length;

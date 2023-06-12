@@ -91,8 +91,7 @@ export default class Roadmap {
   }
 
   push(key) {
-    console.log("🚀 ~ file: Roadmap.js:94 ~ Roadmap ~ push ~ key:", key);
-    this.results.push(key);
+    // this.results.push(key);
 
     this.breadplate.push(key);
 
@@ -106,9 +105,6 @@ export default class Roadmap {
 
     this.cockroachPig.bigRoadMatrix = this.bigroad.matrix;
     this.cockroachPig.traverseBigRoadScheme();
-
-    // this.customplate.bigRoadMatrix = this.bigroad.matrix;
-    // this.customplate.traverseBigRoadScheme();
     if (key !== "t" && key !== "i" && key !== "j" && key !== "k") {
       this.customplate.push(key);
     }

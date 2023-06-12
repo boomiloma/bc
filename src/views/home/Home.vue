@@ -153,10 +153,6 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      console.log(
-        "🚀 ~ file: Home.vue:154 ~ push ~  this.results:",
-        this.roadmap
-      );
     },
     handleKeyDown(event) {
       switch (event.key) {
