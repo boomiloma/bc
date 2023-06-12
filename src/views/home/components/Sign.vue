@@ -168,18 +168,33 @@ export default {
       ).length;
     },
     filterTie() {
-      return this.results.filter((result) => result === "t").length;
+      return this.results.filter(
+        (result) =>
+          result === "t" || result === "j" || result === "k" || result === "i"
+      ).length;
     },
     filterBankerPair() {
       return this.results.filter(
         (result) =>
-          result === "q" || result === "w" || result === "f" || result === "g"
+          result === "q" ||
+          result === "w" ||
+          result === "f" ||
+          result === "g" ||
+          result === "t" ||
+          result === "j" ||
+          result === "i"
       ).length;
     },
     filterPlayerPair() {
       return this.results.filter(
         (result) =>
-          result === "w" || result === "e" || result === "g" || result === "h"
+          result === "w" ||
+          result === "e" ||
+          result === "g" ||
+          result === "h" ||
+          result === "t" ||
+          result === "j" ||
+          result === "k"
       ).length;
     },
   },
