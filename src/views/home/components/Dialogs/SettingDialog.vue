@@ -1,14 +1,20 @@
 <template>
   <!-- <dialog open> -->
-  <div
-    class="blue-modal"    
-  >
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 1270px;">
+  <div class="blue-modal">
+    <div
+      class="modal-dialog modal-dialog-centered modal-lg"
+      style="max-width: 1270px"
+    >
       <div class="modal-content">
         <div class="modal-header flex border-0 p-3">
           <h5 class="modal-title flex-1">设置</h5>
           <div>
-            <Icon height="20." style="cursor: pointer;"  @click="emit('onClose')" icon="fa:close" />
+            <Icon
+              height="20."
+              style="cursor: pointer"
+              @click="emit('onClose')"
+              icon="fa:close"
+            />
           </div>
         </div>
         <div class="header-bottom"></div>
@@ -49,8 +55,9 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <select class="form-control-custom">
-                      <option>美元</option>
+                    <select @change="currencyChange" v-model="setting.currency" class="form-control-custom">
+                      <option value="usd">美元</option>
+                      <option value="thb">泰铢</option>
                     </select>
                   </div>
                 </div>
@@ -62,12 +69,16 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].limit"
+                    />
                   </div>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input   v-model="setting[setting.currency].limit_red" type="text" class="form-control-custom"  />
                   </div>
                 </div>
               </div>
@@ -77,7 +88,7 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input  type="text" class="form-control-custom" />
                   </div>
                 </div>
                 <div class="col-4">
@@ -196,7 +207,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button @click="onSaved" type="button" class="btn-theme btn-1 py-1 fs-3">
                     更换牌靴
                   </button>
                 </div>
@@ -210,8 +221,56 @@
   <!-- </dialog> -->
 </template>
 <script setup>
-  import { Icon } from "@iconify/vue";
-  const emit = defineEmits(["onClose", "onSave"]);
+import { ref, onMounted , watch, computed} from "vue";
+import { Icon } from "@iconify/vue";
+const emit = defineEmits(["onClose", "onSave"]);
+
+const setting = ref({ 
+  currency: 'usd',
+  usd: {
+    limit: 0,
+    limit_red: 2,
+    type: 1,
+  },
+  thb: {
+    limit: 0,
+    type: 1,
+    limit_red: 2,
+  }
+});
+
+const finalLimit = ref({});
+
+const limitUSD = ref({bp: 1 });
+const limitTHB = ref({bp: 2 });
+
+const currencyChange = () => {
+  if(setting.value.currency == "usd"){
+    setting.value.limit = 1;
+  }
+  if(setting.value.currency == "thb"){
+    setting.value.limit = 22;
+  }
+  console.log('fomr' , setting.value)
+}
+
+// const onSaved = () => {
+
+// }
+
+function onSaved(){
+  localStorage.setItem('setting', JSON.stringify(setting.value))
+}
+// currencyChange();
+onLoad();
+async function  onLoad(){
+  let getSetting = await localStorage.getItem('setting')
+  if(getSetting){
+    setting.value = JSON.parse(getSetting)
+
+  }
+}
+
 </script>
 <style lang="scss" scoped>
 @import "../../styles/Dialogs/SettingsDialog.scss";
