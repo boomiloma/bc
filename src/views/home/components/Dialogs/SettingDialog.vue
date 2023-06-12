@@ -245,12 +245,12 @@ const limitUSD = ref({bp: 1 });
 const limitTHB = ref({bp: 2 });
 
 const currencyChange = () => {
-  if(setting.value.currency == "usd"){
-    setting.value.limit = 1;
-  }
-  if(setting.value.currency == "thb"){
-    setting.value.limit = 22;
-  }
+  // if(setting.value.currency == "usd"){
+  //   setting.value.limit = 1;
+  // }
+  // if(setting.value.currency == "thb"){
+  //   setting.value.limit = 22;
+  // }
   console.log('fomr' , setting.value)
 }
 
