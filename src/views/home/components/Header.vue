@@ -22,10 +22,6 @@
                   <span class="text-left font-bold text-3xl">状态:</span>
                   <span class="text-right font-bold text-3xl">结算完成</span>
                 </div>
-                <div class="online">
-                  <span class="text-left font-bold text-3xl">在线:</span>
-                  <span class="text-right font-bold text-3xl"> 0</span>
-                </div>
                 <div class="countdown">
                   <span class="text-left font-bold text-3xl">倒计时:</span>
                   <span class="text-right font-bold text-3xl"> 0秒</span>
