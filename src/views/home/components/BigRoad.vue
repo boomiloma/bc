@@ -21,7 +21,7 @@
     <div class="absolute -right-10 -bottom-20">
       <video ref="videoElement" autoplay muted playsinline>
         <source
-          src="@/assets/images/kk-baccarat-logo-animation-3.gif.mp4"
+          src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
           type="video/mp4"
         />
       </video>

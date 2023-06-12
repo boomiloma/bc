@@ -153,7 +153,7 @@
 </template>
 <script>
 export default {
-  props: ["results", "settings"],
+  props: ["results"],
   methods: {
     filterBanker() {
       return this.results.filter(
