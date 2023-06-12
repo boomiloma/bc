@@ -9,15 +9,11 @@
   >
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-        <div class="modal-header border-0 p-3">
-          <h5 class="modal-title">设置</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-            @click="emit('onClose')"
-          >Close</button>
+        <div class="modal-header flex border-0 p-3">
+          <h5 class="modal-title flex-1">设置</h5>
+          <div>
+            <Icon height="20." style="cursor: pointer;"  @click="emit('onClose')" icon="fa:close" />
+          </div>
         </div>
         <div class="header-bottom"></div>
         <div class="modal-body p-5">
@@ -218,6 +214,7 @@
   <!-- </dialog> -->
 </template>
 <script setup>
+  import { Icon } from "@iconify/vue";
   const emit = defineEmits(["onClose", "onSave"]);
 </script>
 <style lang="scss" scoped>

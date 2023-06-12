@@ -23,6 +23,7 @@
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
+        
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
         >
@@ -37,8 +38,9 @@
           >
             <DialogPanel
               :style="'width:'+props.width+'px;'"
-              class="transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+              class="transform overflow-hidden rounded-2xl  text-left shadow-xl"
             >
+
               <DialogTitle
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
