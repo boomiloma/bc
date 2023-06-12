@@ -10,7 +10,7 @@
           <div class="border border-b-4 border-black">
             <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
           </div>
-          <Sign :results="results" />
+          <Sign :results="results" :settings="settings" />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
@@ -62,6 +62,7 @@ export default {
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
       results: [],
+      settings: {},
       roadmap: null,
       roadmapUtils: null,
       lastKeyPressed: null,
@@ -239,6 +240,12 @@ export default {
           this.roadmap.push(r);
         });
       }
+      let settingsLocal = await localStorage.getItem("setting");
+      if (settingsLocal) this.settings = JSON.parse(settingsLocal);
+      console.log(
+        "🚀 ~ file: Home.vue:246 ~ getReuslt ~ this.settings:",
+        settingsLocal
+      );
     },
   },
 };

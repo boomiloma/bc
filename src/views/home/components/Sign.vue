@@ -105,7 +105,7 @@
         <div
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">USD : 199-200</div>
+          <div class="border-b-2 w-full font-extrabold">USD : 1 - 900</div>
           <div class="font-extrabold">THB : 0-620</div>
         </div>
       </div>
@@ -153,7 +153,7 @@
 </template>
 <script>
 export default {
-  props: ["results"],
+  props: ["results", "settings"],
   methods: {
     filterBanker() {
       return this.results.filter(
