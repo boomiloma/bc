@@ -146,7 +146,7 @@
         >
           <div class="border-b-2 w-full font-extrabold">USD : 199-200</div>
           <div class="font-extrabold">THB : 0-620</div>
-          {{ store.setting }}
+          <!-- {{ store.setting }} -->
         </div>
       </div>
     </div>

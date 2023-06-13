@@ -128,7 +128,7 @@ export default class BigRoad extends RoadmapUtilities {
     }
 
     if (this.hasFullRow) {
-      this.matrix = this.truncateFirstColumn();
+      // this.matrix = this.truncateFirstColumn();
       this.previousCoordinates = [nextRow, nextCol - 1];
     }
   }
