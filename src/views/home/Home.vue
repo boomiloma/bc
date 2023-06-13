@@ -11,6 +11,7 @@
             <BreadPlate
               :BreadPlateResults="roadmap.breadplate.matrix"
               :results="results"
+              :isChange="isChange"
             />
           </div>
           <Sign :results="results" />
@@ -77,8 +78,8 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          // cols: 17,
-          cols: 30,
+          cols: 17,
+          // cols: 25,
         },
         bigroad: {
           show_options: false,
@@ -162,8 +163,26 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      this.isChange += 1;
-      this.config.bigroad.cols += 1;
+      console.log("BB", this.roadmap.bigroad.previousCoordinates[1]);
+      console.log("##", this.roadmap.bigeyeboy);
+      // if (this.roadmap.bigeyeboy.previousCoordinates[1] >= 17) {
+      //   this.isChange += 1;
+      //   this.roadmap.bigeyeboy.cols += 1;
+      //   this.config.bigeyeboy.cols += 1;
+      //   this.initRoadmap();
+      // }
+      if (this.roadmap.bigroad.previousCoordinates[1] >= 27) {
+        this.isChange += 1;
+        this.roadmap.bigroad.cols += 1;
+        this.config.bigroad.cols += 1;
+        this.initRoadmap();
+      }
+      if (this.roadmap.breadplate.previousCoordinates[1] >= 17) {
+        this.isChange += 1;
+        this.roadmap.breadplate.cols += 1;
+        this.config.breadplate.cols += 1;
+        this.initRoadmap();
+      }
     },
     handleKeyDown(event) {
       if (localStorage.getItem("KEYBOARD_GAME") === "true") {

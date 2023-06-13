@@ -14,7 +14,7 @@ export default class BigRoad extends RoadmapUtilities {
     const options = _defaultsDeep(_options, {
       results: [],
       rows: 6,
-      cols: 26,
+      cols: 30,
     });
 
     for (const key in options) {
@@ -124,9 +124,9 @@ export default class BigRoad extends RoadmapUtilities {
       };
     }
 
-    if (this.hasFullRow) {
+    if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
-      this.previousCoordinates = [nextRow, nextCol - 1];
+      // this.previousCoordinates = [nextRow, nextCol - 1];
     }
   }
 }

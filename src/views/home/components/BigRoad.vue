@@ -33,6 +33,7 @@
           :key="colKey"
           class="grid__col__big__road text-gray-200"
         >
+          <!-- <p class="text-black">{{ colKey }}</p> -->
           <div
             class="rounded-full w-6 h-6"
             :class="bigRoadResult(col.value)"
@@ -132,11 +133,13 @@ export default {
   },
   watch: {
     checkChange() {
-      // bigroadElement.scrollLeft = bigroadElement.scrollWidth - bigroadElement.clientWidth;
-      // const bigroadElement = this.$refs.bigroadId;
-      // bigroadElement.scrollLeft =
-      //   bigroadElement.scrollWidth - bigroadElement.clientWidth;
+      const bigroadElement = this.$refs.bigroadId; // Assuming 'bigroadId' is the correct reference to your element
+
+      // Scroll to the rightmost position
+      // bigroadElement.scrollLeft = bigroadElement.scrollWidth - 80;
+      // this.$refs.bigroadId.scrollLeft += 40;
       // this.$refs.bigroadId.scrollLeft += 20;
+      this.$refs.bigroadId.scrollLeft += 50;
     },
   },
   computed: {

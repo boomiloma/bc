@@ -160,6 +160,7 @@
     &:not(:last-child) {
       border-bottom: $grid-border;
     }
+    $last: last-child;
     @for $i from 1 through 25 {
       // Remove border-bottom of the even rows
       &:nth-child(#{$i}) {

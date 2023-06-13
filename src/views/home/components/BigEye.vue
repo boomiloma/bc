@@ -33,6 +33,7 @@
           :key="colKey"
           class="grid__col__Big_eye text-gray-200"
         >
+          <!-- {{ colKey }} -->
           <div
             v-if="col && col.value"
             :class="{
