@@ -55,7 +55,11 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <select @change="currencyChange" v-model="setting.currency" class="form-control-custom">
+                    <select
+                      @change="currencyChange"
+                      v-model="setting.currency"
+                      class="form-control-custom"
+                    >
                       <option value="usd">美元</option>
                       <option value="thb">泰铢</option>
                     </select>
@@ -78,7 +82,11 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input   v-model="setting[setting.currency].limit_red" type="text" class="form-control-custom"  />
+                    <input
+                      v-model="setting[setting.currency].limit_red"
+                      type="text"
+                      class="form-control-custom"
+                    />
                   </div>
                 </div>
               </div>
@@ -88,12 +96,20 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input  type="text" class="form-control-custom" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].limited"
+                    />
                   </div>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].limited_red"
+                    />
                   </div>
                 </div>
               </div>
@@ -103,12 +119,20 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].pair_limit"
+                    />
                   </div>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].pair_limit_red"
+                    />
                   </div>
                 </div>
               </div>
@@ -118,12 +142,20 @@
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].lucky_limit"
+                    />
                   </div>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="0" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting[setting.currency].lucky_limit_red"
+                    />
                   </div>
                 </div>
               </div>
@@ -199,7 +231,13 @@
             <div class="col-7">
               <div class="row">
                 <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">修改</button>
+                  <button
+                    @click="onSaved"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    修改
+                  </button>
                 </div>
                 <div class="col-7"></div>
               </div>
@@ -207,7 +245,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button @click="onSaved" type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
                     更换牌靴
                   </button>
                 </div>
@@ -221,56 +259,56 @@
   <!-- </dialog> -->
 </template>
 <script setup>
-import { ref, onMounted , watch, computed} from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
 const emit = defineEmits(["onClose", "onSave"]);
+// import store from '@/store/store.js'
 
-const setting = ref({ 
-  currency: 'usd',
+const setting = ref({
+  currency: "usd",
   usd: {
     limit: 0,
-    limit_red: 2,
-    type: 1,
+    limit_red: 0,
+
+    limited: 0,
+    limited_red: 0,
+
+    pair_limit: 0,
+    pair_limit_red: 0,
+
+    lucky_limit: 0,
+    lucky_limit_red: 0,
   },
   thb: {
     limit: 0,
-    type: 1,
-    limit_red: 2,
-  }
+    limit_red: 0,
+
+    limited: 0,
+    limited_red: 0,
+
+    pair_limit: 0,
+    pair_limit_red: 0,
+
+    lucky_limit: 0,
+    lucky_limit_red: 0,
+  },
 });
 
-const finalLimit = ref({});
-
-const limitUSD = ref({bp: 1 });
-const limitTHB = ref({bp: 2 });
-
 const currencyChange = () => {
-  // if(setting.value.currency == "usd"){
-  //   setting.value.limit = 1;
-  // }
-  // if(setting.value.currency == "thb"){
-  //   setting.value.limit = 22;
-  // }
-  console.log('fomr' , setting.value)
+  console.log("fomr", setting.value);
+};
+
+function onSaved() {
+  localStorage.setItem("setting", JSON.stringify(setting.value));
 }
 
-// const onSaved = () => {
-
-// }
-
-function onSaved(){
-  localStorage.setItem('setting', JSON.stringify(setting.value))
-}
-// currencyChange();
 onLoad();
-async function  onLoad(){
-  let getSetting = await localStorage.getItem('setting')
-  if(getSetting){
-    setting.value = JSON.parse(getSetting)
-
+async function onLoad() {
+  let getSetting = await localStorage.getItem("setting");
+  if (getSetting) {
+    setting.value = JSON.parse(getSetting);
   }
 }
-
 </script>
 <style lang="scss" scoped>
 @import "../../styles/Dialogs/SettingsDialog.scss";
