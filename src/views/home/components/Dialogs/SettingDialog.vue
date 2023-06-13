@@ -231,7 +231,13 @@
             <div class="col-7">
               <div class="row">
                 <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">修改</button>
+                  <button
+                    @click="onSaved"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    修改
+                  </button>
                 </div>
                 <div class="col-7"></div>
               </div>
@@ -239,11 +245,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button
-                    @click="onSaved"
-                    type="button"
-                    class="btn-theme btn-1 py-1 fs-3"
-                  >
+                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
                     更换牌靴
                   </button>
                 </div>

@@ -4,23 +4,41 @@ export const store = reactive({
   leftDrawerOpen: false,
   isOne : true,
   menuSelect: 0,
-  orderNav: [
-    {
-      id: 1,
-      name: 'Home',
-      icon: 'home'
-    },
-    {
-      id: 2,
-      name: 'Report',
-      icon: 'home'
-    },
-    {
-      id: 3,
-      name: 'Detial',
-      icon: 'home'
-    }
-  ],
+  // setting:   { 
+  //   currency: 'usd',
+  //   usd: {
+  //     limit: 0,
+  //     limit_red: 0,
+  
+  //     leisure_limit: 0,
+  //     leisure_limit_red: 0,
+      
+  //     limited: 0,
+  //     limited_red: 0,
+      
+  //     pair_limit: 0,
+  //     pair_limit_red: 0,
+      
+  //     Lucky_limit: 0,
+  //     Lucky_limit_red: 0,
+  //   },
+  //   thb: {
+  //     limit: 0,
+  //     limit_red: 0,
+  
+  //     leisure_limit: 0,
+  //     leisure_limit_red: 0,
+      
+  //     limited: 0,
+  //     limited_red: 0,
+      
+  //     pair_limit: 0,
+  //     pair_limit_red: 0,
+      
+  //     Lucky_limit: 0,
+  //     Lucky_limit_red: 0,
+  //   }
+  // ],
   setting:{
     currency: "usd",
     usd: {
