@@ -1,21 +1,28 @@
 <template>
   <div class="flex flex-row">
-    <div class="grid bg-white">
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-left"
-          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-        />
-      </div>
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-right"
-          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-          style="left: 35rem"
-        />
-      </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        @click="handleScroll(true, 'smallRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+      />
+    </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        @click="handleScroll(false, 'smallRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 30.7rem"
+      />
+    </div>
+    <div
+      class="grid bg-white"
+      id="smallRoadId"
+      ref="smallRoadId"
+      style="width: 38.2rem; overflow: hidden"
+    >
       <div
         v-for="(row, rowKey) in SmallRoadResults"
         :key="rowKey"
@@ -37,22 +44,31 @@
       </div>
     </div>
     <!-- COCKROACH ROAD -->
-    <div class="grid bg-white">
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-left"
-          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-        />
-      </div>
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-right"
-          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-          style="left: 35rem"
-        />
-      </div>
+
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        @click="handleScroll(true, 'cockroachRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 39.5rem"
+      />
+    </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        @click="handleScroll(false, 'cockroachRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 69rem"
+      />
+    </div>
+    <div
+      class="grid bg-white"
+      id="cockroachRoadId"
+      ref="cockroachRoadId"
+      style="width: 38.3rem; overflow: hidden"
+    >
       <div
         v-for="(row, rowKey) in CockRoachResults"
         :key="rowKey"
@@ -83,6 +99,23 @@ export default {
     Icon,
   },
   props: ["SmallRoadResults", "CockRoachResults"],
+  methods: {
+    handleScroll(isLeft, id) {
+      if (isLeft) {
+        if (id === "smallRoadId") {
+          this.$refs.smallRoadId.scrollLeft -= 40;
+        } else {
+          this.$refs.cockroachRoadId.scrollLeft -= 40;
+        }
+      } else {
+        if (id === "smallRoadId") {
+          this.$refs.smallRoadId.scrollLeft += 40;
+        } else {
+          this.$refs.cockroachRoadId.scrollLeft += 40;
+        }
+      }
+    },
+  },
 };
 </script>
 

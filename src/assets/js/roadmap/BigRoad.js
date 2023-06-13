@@ -41,7 +41,6 @@ export default class BigRoad extends RoadmapUtilities {
 
   getNextCoordinate(identity) {
     const [prevRow, prevColumn] = this.previousCoordinates;
-    console.log("this.matrix", this.matrix);
 
     /**
      * If initial data
@@ -56,7 +55,6 @@ export default class BigRoad extends RoadmapUtilities {
     if (this.previousIdentity === identity) {
       const bottomPosition = _get(this.matrix, [prevRow + 1, prevColumn]);
       // let findIndxe = _findIndex(this.prevRow)
-      console.log("bottomPosition====", bottomPosition);
       if (this.isCol && bottomPosition == 0 && prevRow != 0) {
         return [prevRow, prevColumn + 1];
       }
@@ -92,7 +90,6 @@ export default class BigRoad extends RoadmapUtilities {
   push(key) {
     // key = p, or b,
     const identity = this.identityDictionary[key];
-    console.log("identity", identity);
     if (!identity) {
       return console.warn(`${key} is not a valid key.`);
     }

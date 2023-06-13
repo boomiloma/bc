@@ -1,7 +1,6 @@
 <template>
   <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
     <div class="absolute z-20">
-      ===== {{ isChange }}
       <Icon
         @click="handleScroll(true)"
         icon="ic:round-keyboard-double-arrow-left"
@@ -15,14 +14,14 @@
         icon="ic:round-keyboard-double-arrow-right"
         class="text-slate-500 opacity-40 relative top-24 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
-        style="left: 76rem"
+        style="left: 69rem"
       />
     </div>
     <div
       class="grid bg-white"
       id="bigroadId"
       ref="bigroadId"
-      style="width: 900px; overflow: hidden"
+      style="width: 76.6rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in BigRoadResults"
@@ -62,7 +61,6 @@ export default {
   props: ["BigRoadResults", "isChange"],
   mounted() {
     this.startVideoLoop();
-    console.log(this.BigRoadResults, "BigRoad results");
   },
   methods: {
     startVideoLoop() {
@@ -134,7 +132,11 @@ export default {
   },
   watch: {
     checkChange() {
-      this.$refs.bigroadId.scrollLeft += 20;
+      // bigroadElement.scrollLeft = bigroadElement.scrollWidth - bigroadElement.clientWidth;
+      // const bigroadElement = this.$refs.bigroadId;
+      // bigroadElement.scrollLeft =
+      //   bigroadElement.scrollWidth - bigroadElement.clientWidth;
+      // this.$refs.bigroadId.scrollLeft += 20;
     },
   },
   computed: {

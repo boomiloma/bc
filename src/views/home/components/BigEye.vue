@@ -1,21 +1,28 @@
 <template>
   <div class="flex flex-row -mt-8">
-    <div class="grid bg-white">
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-left"
-          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-        />
-      </div>
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-right"
-          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-          style="left: 35rem"
-        />
-      </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        @click="handleScroll(true, 'bigEyeId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+      />
+    </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        @click="handleScroll(false, 'bigEyeId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 30.7rem"
+      />
+    </div>
+    <div
+      class="grid bg-white"
+      id="bigEyeId"
+      ref="bigEyeId"
+      style="width: 38.3rem; overflow: hidden"
+    >
       <div
         v-for="(row, rowKey) in BigEyeResults"
         :key="rowKey"
@@ -36,22 +43,31 @@
         </div>
       </div>
     </div>
-    <div class="grid bg-white">
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-left"
-          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-        />
-      </div>
-      <div class="absolute">
-        <Icon
-          icon="ic:round-keyboard-double-arrow-right"
-          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-          width="100"
-          style="left: 35rem"
-        />
-      </div>
+
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        @click="handleScroll(true, 'customRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 39.5rem"
+      />
+    </div>
+    <div class="absolute">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        @click="handleScroll(false, 'customRoadId')"
+        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 69rem"
+      />
+    </div>
+    <div
+      class="grid bg-white"
+      id="customRoadId"
+      ref="customRoadId"
+      style="width: 38.2rem; overflow: hidden"
+    >
       <div
         v-for="(row, rowKey) in CustomPlateResults"
         :key="rowKey"
@@ -82,6 +98,21 @@ export default {
   },
   props: ["BigEyeResults", "CustomPlateResults"],
   methods: {
+    handleScroll(isLeft, id) {
+      if (isLeft) {
+        if (id === "bigEyeId") {
+          this.$refs.bigEyeId.scrollLeft -= 40;
+        } else {
+          this.$refs.customRoadId.scrollLeft -= 40;
+        }
+      } else {
+        if (id === "customRoadId") {
+          this.$refs.customRoadId.scrollLeft += 40;
+        } else {
+          this.$refs.bigEyeId.scrollLeft += 40;
+        }
+      }
+    },
     customPlateValue(value) {
       let customPlateClass = "";
       switch (value) {

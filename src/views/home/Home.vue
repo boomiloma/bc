@@ -17,7 +17,10 @@
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
-            <BigRoad :BigRoadResults="roadmap.bigroad.matrix" :isChange="isChange" />
+            <BigRoad
+              :BigRoadResults="roadmap.bigroad.matrix"
+              :isChange="isChange"
+            />
           </div>
         </div>
         <div class="border border-b-4 border-t-3 border-r-4 border-black">
@@ -62,7 +65,7 @@ export default {
   },
   data() {
     return {
-      isChange: 1, 
+      isChange: 1,
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
       results: [],
@@ -74,7 +77,8 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 17,
+          // cols: 17,
+          cols: 30,
         },
         bigroad: {
           show_options: false,
@@ -159,6 +163,7 @@ export default {
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.isChange += 1;
+      this.config.bigroad.cols += 1;
     },
     handleKeyDown(event) {
       if (localStorage.getItem("KEYBOARD_GAME") === "true") {

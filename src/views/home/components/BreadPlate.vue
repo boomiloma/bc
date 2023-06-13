@@ -1,22 +1,27 @@
 <template>
-  <div class="grid bg-white">
-    <div class="absolute z-20">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-left"
-        @click="prevPage"
-        class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-      />
-    </div>
-    <div class="absolute z-20">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-right"
-        @click="nextPage"
-        class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-        style="left: 52rem"
-      />
-    </div>
+  <div class="absolute z-20">
+    <Icon
+      icon="ic:round-keyboard-double-arrow-left"
+      @click="handleScroll(true)"
+      class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+      width="100"
+    />
+  </div>
+  <div class="absolute z-20">
+    <Icon
+      icon="ic:round-keyboard-double-arrow-right"
+      @click="handleScroll(false)"
+      class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+      width="100"
+      style="left: 52rem"
+    />
+  </div>
+  <div
+    class="grid bg-white"
+    id="beadRoadId"
+    ref="beadRoadId"
+    style="width: 58.6rem; overflow: hidden"
+  >
     <div
       v-for="(row, rowKey) in BreadPlateResults"
       :key="rowKey"
@@ -70,11 +75,12 @@ export default {
   },
   props: ["BreadPlateResults", "results"],
   methods: {
-    prevPage() {
-      console.log("TEST-PREVIOUS", this.results);
-    },
-    nextPage() {
-      console.log("TEST-NEXT");
+    handleScroll(isLeft) {
+      if (isLeft) {
+        this.$refs.beadRoadId.scrollLeft -= 40;
+      } else {
+        this.$refs.beadRoadId.scrollLeft += 40;
+      }
     },
     beadRoadResult(value) {
       let beadRoadClass = "";

@@ -154,8 +154,6 @@ export default class CockroachPig extends RoadmapUtilities {
 
   getColumnLength (columnIdx) {
     let coordinates = columnIdx 
-    console.log("this.bigRoadMatrix",  this.bigRoadMatrix)
-    console.log("this.coordinates",  this.coordinates)
     if(coordinates){
       coordinates = [0,0]
     }
@@ -275,7 +273,6 @@ export default class CockroachPig extends RoadmapUtilities {
       index: this.index++,
       big_road_index: options.big_road_index
     }
-    console.log('matrix=croak=>', this.matrix)
 
     if (this.hasFullRow) {
       this.matrix = this.truncateFirstColumn()
