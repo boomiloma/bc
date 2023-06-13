@@ -1,7 +1,9 @@
 <template>
   <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
     <div class="absolute z-20">
+      ===== {{ isChange }}
       <Icon
+        @click="handleScroll(true)"
         icon="ic:round-keyboard-double-arrow-left"
         class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
@@ -9,13 +11,19 @@
     </div>
     <div class="absolute z-20">
       <Icon
+        @click="handleScroll(false)"
         icon="ic:round-keyboard-double-arrow-right"
         class="text-slate-500 opacity-40 relative top-24 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 76rem"
       />
     </div>
-    <div class="grid bg-white">
+    <div
+      class="grid bg-white"
+      id="bigroadId"
+      ref="bigroadId"
+      style="width: 900px; overflow: hidden"
+    >
       <div
         v-for="(row, rowKey) in BigRoadResults"
         :key="rowKey"
@@ -51,9 +59,10 @@ export default {
   components: {
     Icon,
   },
-  props: ["BigRoadResults"],
+  props: ["BigRoadResults", "isChange"],
   mounted() {
     this.startVideoLoop();
+    console.log(this.BigRoadResults, "BigRoad results");
   },
   methods: {
     startVideoLoop() {
@@ -114,6 +123,23 @@ export default {
       return (
         "flex flex-col justify-center items-center relative " + bigRoadClass
       );
+    },
+    handleScroll(isLeft) {
+      if (isLeft) {
+        this.$refs.bigroadId.scrollLeft -= 60;
+      } else {
+        this.$refs.bigroadId.scrollLeft += 60;
+      }
+    },
+  },
+  watch: {
+    checkChange() {
+      this.$refs.bigroadId.scrollLeft += 20;
+    },
+  },
+  computed: {
+    checkChange() {
+      return this.isChange;
     },
   },
 };
