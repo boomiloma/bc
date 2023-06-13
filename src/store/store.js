@@ -20,5 +20,28 @@ export const store = reactive({
       name: 'Detial',
       icon: 'home'
     }
-  ]
+  ],
+  setting:{
+    currency: "usd",
+    usd: {
+      min_bp: 0,
+      max_bp: 0,
+      min_tie: 0,
+      max_tie: 0,
+      min_pair: 0,
+      max_pair: 0,
+      min_lucky6: 0,
+      max_lucky6: 0,
+    },
+    thb: {
+      min_bp: 0,
+      max_bp: 0,
+      min_tie: 0,
+      max_tie: 0,
+      min_pair: 0,
+      max_pair: 0,
+      min_lucky6: 0,
+      max_lucky6: 0,
+    },
+  }
 })

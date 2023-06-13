@@ -260,6 +260,7 @@
 import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
 const emit = defineEmits(["onClose", "onSave"]);
+import { store } from "@/store/store";
 
 const setting = ref({
   currency: "usd",
@@ -296,6 +297,7 @@ const currencyChange = () => {
 
 function onSaved() {
   localStorage.setItem("setting", JSON.stringify(setting.value));
+  store.setting = setting.value;
 }
 // currencyChange();
 onLoad();

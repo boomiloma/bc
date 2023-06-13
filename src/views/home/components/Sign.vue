@@ -146,14 +146,21 @@
         >
           <div class="border-b-2 w-full font-extrabold">USD : 199-200</div>
           <div class="font-extrabold">THB : 0-620</div>
+          {{ store.setting }}
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { store } from "@/store/store";
 export default {
-  props: ["results", "settings"],
+  data() {
+    return {
+      store,
+    };
+  },
+  props: ["results"],
   methods: {
     filterBanker() {
       return this.results.filter(
@@ -195,6 +202,15 @@ export default {
           result === "k"
       ).length;
     },
+    async onLoad() {
+      let getSetting = await localStorage.getItem("setting");
+      if (getSetting) {
+        this.store.setting = JSON.parse(getSetting);
+      }
+    },
+  },
+  mounted() {
+    this.onLoad();
   },
 };
 </script>
