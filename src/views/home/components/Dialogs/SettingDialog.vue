@@ -76,14 +76,14 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].limit"
+                      v-model="setting[setting.currency].min_bp"
                     />
                   </div>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
                     <input
-                      v-model="setting[setting.currency].limit_red"
+                      v-model="setting[setting.currency].max_bp"
                       type="text"
                       class="form-control-custom"
                     />
@@ -99,7 +99,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].limited"
+                      v-model="setting[setting.currency].min_tie"
                     />
                   </div>
                 </div>
@@ -108,7 +108,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].limited_red"
+                      v-model="setting[setting.currency].max_tie"
                     />
                   </div>
                 </div>
@@ -122,7 +122,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].pair_limit"
+                      v-model="setting[setting.currency].min_pair"
                     />
                   </div>
                 </div>
@@ -131,7 +131,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].pair_limit_red"
+                      v-model="setting[setting.currency].max_pair"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].lucky_limit"
+                      v-model="setting[setting.currency].min_lucky6"
                     />
                   </div>
                 </div>
@@ -154,7 +154,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      v-model="setting[setting.currency].lucky_limit_red"
+                      v-model="setting[setting.currency].max_lucky6"
                     />
                   </div>
                 </div>
@@ -262,46 +262,46 @@
 import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
 const emit = defineEmits(["onClose", "onSave"]);
-// import store from '@/store/store.js'
+import { store } from "@/store/store";
 
 const setting = ref({
   currency: "usd",
   usd: {
-    limit: 0,
-    limit_red: 0,
-
-    limited: 0,
-    limited_red: 0,
-
-    pair_limit: 0,
-    pair_limit_red: 0,
-
-    lucky_limit: 0,
-    lucky_limit_red: 0,
+    min_bp: 0,
+    max_bp: 0,
+    min_tie: 0,
+    max_tie: 0,
+    min_pair: 0,
+    max_pair: 0,
+    min_lucky6: 0,
+    max_lucky6: 0,
   },
   thb: {
-    limit: 0,
-    limit_red: 0,
-
-    limited: 0,
-    limited_red: 0,
-
-    pair_limit: 0,
-    pair_limit_red: 0,
-
-    lucky_limit: 0,
-    lucky_limit_red: 0,
+    min_bp: 0,
+    max_bp: 0,
+    min_tie: 0,
+    max_tie: 0,
+    min_pair: 0,
+    max_pair: 0,
+    min_lucky6: 0,
+    max_lucky6: 0,
   },
 });
-
 const currencyChange = () => {
+  // if(setting.value.currency == "usd"){
+  //   setting.value.limit = 1;
+  // }
+  // if(setting.value.currency == "thb"){
+  //   setting.value.limit = 22;
+  // }
   console.log("fomr", setting.value);
 };
 
 function onSaved() {
   localStorage.setItem("setting", JSON.stringify(setting.value));
+  store.setting = setting.value;
 }
-
+// currencyChange();
 onLoad();
 async function onLoad() {
   let getSetting = await localStorage.getItem("setting");

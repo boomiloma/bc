@@ -109,4 +109,8 @@ export default class Roadmap {
       this.customplate.push(key);
     }
   }
+
+  showPrevious() {
+    this.breadplate.showPreviousColumn();
+  }
 }
