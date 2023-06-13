@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute z-20">
+  <div class="absolute z-10">
     <Icon
       icon="ic:round-keyboard-double-arrow-left"
       @click="handleScroll(true)"
@@ -7,7 +7,7 @@
       width="100"
     />
   </div>
-  <div class="absolute z-20">
+  <div class="absolute z-10">
     <Icon
       icon="ic:round-keyboard-double-arrow-right"
       @click="handleScroll(false)"

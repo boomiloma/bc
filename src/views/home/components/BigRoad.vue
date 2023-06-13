@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
-    <div class="absolute z-20">
+    <div class="absolute z-10">
       <Icon
         @click="handleScroll(true)"
         icon="ic:round-keyboard-double-arrow-left"
@@ -8,7 +8,7 @@
         width="100"
       />
     </div>
-    <div class="absolute z-20">
+    <div class="absolute z-10">
       <Icon
         @click="handleScroll(false)"
         icon="ic:round-keyboard-double-arrow-right"
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute -right-10 -bottom-20">
+    <div class="absolute right-5 -bottom-44">
       <video ref="videoElement" autoplay muted playsinline>
         <source
           src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"

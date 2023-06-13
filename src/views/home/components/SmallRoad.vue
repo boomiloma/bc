@@ -4,7 +4,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-left"
         @click="handleScroll(true, 'smallRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
       />
     </div>
@@ -12,7 +12,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-right"
         @click="handleScroll(false, 'smallRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 30.7rem"
       />
@@ -49,7 +49,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-left"
         @click="handleScroll(true, 'cockroachRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 39.5rem"
       />
@@ -58,7 +58,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-right"
         @click="handleScroll(false, 'cockroachRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 69rem"
       />

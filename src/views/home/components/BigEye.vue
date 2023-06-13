@@ -4,7 +4,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-left"
         @click="handleScroll(true, 'bigEyeId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
       />
     </div>
@@ -12,7 +12,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-right"
         @click="handleScroll(false, 'bigEyeId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 30.7rem"
       />
@@ -21,7 +21,7 @@
       class="grid bg-white"
       id="bigEyeId"
       ref="bigEyeId"
-      style="width: 38.3rem; overflow: hidden"
+      style="width: 38.2rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in BigEyeResults"
@@ -48,7 +48,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-left"
         @click="handleScroll(true, 'customRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 39.5rem"
       />
@@ -57,7 +57,7 @@
       <Icon
         icon="ic:round-keyboard-double-arrow-right"
         @click="handleScroll(false, 'customRoadId')"
-        class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
         width="100"
         style="left: 69rem"
       />
@@ -66,7 +66,7 @@
       class="grid bg-white"
       id="customRoadId"
       ref="customRoadId"
-      style="width: 38.2rem; overflow: hidden"
+      style="width: 38.3rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in CustomPlateResults"
