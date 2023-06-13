@@ -8,9 +8,12 @@
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
-            <BreadPlate :BreadPlateResults="roadmap.breadplate.matrix" />
+            <BreadPlate
+              :BreadPlateResults="roadmap.breadplate.matrix"
+              :results="results"
+            />
           </div>
-          <Sign :results="results"/>
+          <Sign :results="results" />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
@@ -207,9 +210,9 @@ export default {
             this.lastKeyPressed = "j";
             this.isOpen = true;
             break;
-          // case ".":
-          //   this.roadmap.navigateBack(this.results);
-          //   break;
+          case ".":
+            this.roadmap.showPrevious();
+            break;
           case "Enter":
             if (this.lastKeyPressed && this.lastKeyPressed !== null) {
               this.push(this.lastKeyPressed);

@@ -1,10 +1,26 @@
 <template>
   <div class="grid bg-white">
+    <div class="absolute z-20">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        @click="prevPage"
+        class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+      />
+    </div>
+    <div class="absolute z-20">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        @click="nextPage"
+        class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 52rem"
+      />
+    </div>
     <div
       v-for="(row, rowKey) in BreadPlateResults"
       :key="rowKey"
       class="grid__row"
-      id="bead"
     >
       <div
         v-for="(col, colKey) in row"
@@ -35,7 +51,7 @@
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <div>
-            <p v-if="col.value" class="font-extrabold text-3xl">
+            <p v-if="col.value" class="font-extrabold text-3xl select-none">
               {{ beadRoadValue(col.value) }}
             </p>
           </div>
@@ -47,9 +63,19 @@
 
 <script>
 // @ is an alias to /src
+import { Icon } from "@iconify/vue";
 export default {
-  props: ["BreadPlateResults"],
+  components: {
+    Icon,
+  },
+  props: ["BreadPlateResults", "results"],
   methods: {
+    prevPage() {
+      console.log("TEST-PREVIOUS", this.results);
+    },
+    nextPage() {
+      console.log("TEST-NEXT");
+    },
     beadRoadResult(value) {
       let beadRoadClass = "";
       switch (value) {

@@ -1,5 +1,20 @@
 <template>
   <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
+    <div class="absolute z-20">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-left"
+        class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+      />
+    </div>
+    <div class="absolute z-20">
+      <Icon
+        icon="ic:round-keyboard-double-arrow-right"
+        class="text-slate-500 opacity-40 relative top-24 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+        width="100"
+        style="left: 76rem"
+      />
+    </div>
     <div class="grid bg-white">
       <div
         v-for="(row, rowKey) in BigRoadResults"
@@ -31,7 +46,11 @@
 
 <script>
 // @ is an alias to /src
+import { Icon } from "@iconify/vue";
 export default {
+  components: {
+    Icon,
+  },
   props: ["BigRoadResults"],
   mounted() {
     this.startVideoLoop();

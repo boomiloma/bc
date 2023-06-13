@@ -1,6 +1,21 @@
 <template>
   <div class="flex flex-row -mt-8">
     <div class="grid bg-white">
+      <div class="absolute">
+        <Icon
+          icon="ic:round-keyboard-double-arrow-left"
+          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+          width="100"
+        />
+      </div>
+      <div class="absolute">
+        <Icon
+          icon="ic:round-keyboard-double-arrow-right"
+          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+          width="100"
+          style="left: 35rem"
+        />
+      </div>
       <div
         v-for="(row, rowKey) in BigEyeResults"
         :key="rowKey"
@@ -22,6 +37,21 @@
       </div>
     </div>
     <div class="grid bg-white">
+      <div class="absolute">
+        <Icon
+          icon="ic:round-keyboard-double-arrow-left"
+          class="text-slate-500 z-20 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+          width="100"
+        />
+      </div>
+      <div class="absolute">
+        <Icon
+          icon="ic:round-keyboard-double-arrow-right"
+          class="text-slate-500 z-20 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+          width="100"
+          style="left: 35rem"
+        />
+      </div>
       <div
         v-for="(row, rowKey) in CustomPlateResults"
         :key="rowKey"
@@ -45,7 +75,11 @@
 
 <script>
 // @ is an alias to /src
+import { Icon } from "@iconify/vue";
 export default {
+  components: {
+    Icon,
+  },
   props: ["BigEyeResults", "CustomPlateResults"],
   methods: {
     customPlateValue(value) {
