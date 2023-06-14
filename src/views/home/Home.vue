@@ -1,6 +1,6 @@
 <template>
   <DialogInput :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
-  <DialogCountdown :isOpenCountDown="isOpenCountDown" />
+  <DialogCountdown :isOpenCountDown="isOpenCountDown" @onClose="isOpenCountDown = false"  />
   <!-- <DialogSetting :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" /> -->
   <div class="home">
     <div class="">

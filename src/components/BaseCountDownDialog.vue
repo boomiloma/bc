@@ -62,7 +62,8 @@ const playSoundAndClose = () => {
   audio.value.play();
   audio.value.onended = () => {
     emit("onClose");
-    props.isOpenCountDown = false;
+    // alert("onClose");
+    // props.isOpenCountDown = false;
   };
 };
 
