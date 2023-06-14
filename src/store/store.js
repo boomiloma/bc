@@ -1,45 +1,47 @@
-import { reactive, shallowReactive } from 'vue'
+import { reactive, shallowReactive } from "vue";
 
 export const store = reactive({
   leftDrawerOpen: false,
-  isOne : true,
+  isOne: true,
   menuSelect: 0,
-  // setting:   { 
+  // setting:   {
   //   currency: 'usd',
   //   usd: {
   //     limit: 0,
   //     limit_red: 0,
-  
+
   //     leisure_limit: 0,
   //     leisure_limit_red: 0,
-      
+
   //     limited: 0,
   //     limited_red: 0,
-      
+
   //     pair_limit: 0,
   //     pair_limit_red: 0,
-      
+
   //     Lucky_limit: 0,
   //     Lucky_limit_red: 0,
   //   },
   //   thb: {
   //     limit: 0,
   //     limit_red: 0,
-  
+
   //     leisure_limit: 0,
   //     leisure_limit_red: 0,
-      
+
   //     limited: 0,
   //     limited_red: 0,
-      
+
   //     pair_limit: 0,
   //     pair_limit_red: 0,
-      
+
   //     Lucky_limit: 0,
   //     Lucky_limit_red: 0,
   //   }
   // ],
-  setting:{
+  setting: {
+    table_no: 0,
+    bet_counter: 0,
     currency: "usd",
     usd: {
       min_bp: 0,
@@ -61,5 +63,5 @@ export const store = reactive({
       min_lucky6: 0,
       max_lucky6: 0,
     },
-  }
-})
+  },
+});

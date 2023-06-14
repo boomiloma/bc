@@ -31,7 +31,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      value="100号桌"
+                      v-model="setting.table_no"
                     />
                   </div>
                 </div>
@@ -167,7 +167,11 @@
                 </div>
                 <div class="col-3">
                   <div class="form-group">
-                    <input type="text" class="form-control-custom" value="3" />
+                    <input
+                      type="text"
+                      class="form-control-custom"
+                      v-model="setting.bet_counter"
+                    />
                   </div>
                 </div>
                 <div class="col-4"><p class="text-white">秒</p></div>
@@ -266,6 +270,8 @@ const emit = defineEmits(["onClose", "onSave"]);
 
 const setting = ref({
   currency: "usd",
+  table_no: 0,
+  bet_counter: 0,
   usd: {
     min_bp: 0,
     max_bp: 0,
@@ -300,7 +306,7 @@ const currencyChange = () => {
 function onSaved() {
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
-  emit('onClose');
+  emit("onClose");
 }
 // currencyChange();
 onLoad();

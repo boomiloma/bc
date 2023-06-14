@@ -8,7 +8,9 @@
               <div class="blocks-one-side-left">
                 <div class="terrace-details">
                   <span class="text-left font-bold text-3xl">台号:</span>
-                  <span class="text-right font-bold text-3xl"> 100号桌</span>
+                  <span class="text-right font-bold text-3xl">
+                    &nbsp;{{ store.setting.table_no }}</span
+                  >
                 </div>
                 <div class="boot-size">
                   <span class="text-left font-bold text-3xl">靴号:</span>
@@ -74,6 +76,7 @@ import Setting from "./Dialogs/SettingDialog.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import placeYourBet from "@/assets/sounds/place_your_bet.mp3";
 import noMoreBet from "@/assets/sounds/no_more_bet.mp3";
+import { store } from "@/store/store";
 
 export default {
   components: {
@@ -97,14 +100,25 @@ export default {
       countdownInterval: null,
       isCountdownFinished: false,
       status: "结算完成",
+      store,
     };
   },
   methods: {
+    async onLoad() {
+      let getSetting = await localStorage.getItem("setting");
+      if (getSetting) {
+        this.store.setting = JSON.parse(getSetting);
+        console.log(
+          "🚀 ~ file: Header.vue:111 ~ onLoad ~ getSetting:",
+          JSON.parse(getSetting)
+        );
+      }
+    },
     handleCountdown() {
       this.status = "开始";
       this.playPlaceYourBetSound();
       clearInterval(this.countdownInterval);
-      this.countdown = 10;
+      this.countdown = store.setting.bet_counter;
       this.countdownInterval = setInterval(() => {
         this.countdown--;
         if (this.countdown === 0) {
@@ -124,6 +138,9 @@ export default {
       const audio = new Audio(noMoreBet);
       audio.play();
     },
+  },
+  mounted() {
+    this.onLoad();
   },
 };
 </script>
