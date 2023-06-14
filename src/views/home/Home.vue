@@ -36,6 +36,28 @@
         </div>
       </div>
     </div>
+    <BaseDialog width="300" :isOpen="isClear">
+      <div style="background: #2f4963; padding: 20px;">
+          <div>
+            <Icon
+              height="20."
+              style="cursor: pointer"
+              icon="fa:close"
+              @click="isClear = false"
+              class="float-right"
+            />
+          </div>
+
+        <h3>你想清除吗</h3>
+        <button
+          type="button"
+          class="inline-flex mt-3 justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          @click="clearRoadmap"
+        >
+          好的
+        </button>
+      </div>
+    </BaseDialog>
   </div>
   <div></div>
 </template>
@@ -52,6 +74,9 @@ import BigEye from "./components/BigEye.vue";
 import SmallRoad from "./components/SmallRoad.vue";
 import BreadPlate from "./components/BreadPlate.vue";
 import Header from "./components/Header.vue";
+import BaseDialog from "@/components/BaseDialog.vue";
+import { Icon } from "@iconify/vue";
+
 export default {
   name: "Home",
   components: {
@@ -63,9 +88,12 @@ export default {
     BigEye,
     SmallRoad,
     Header,
+    BaseDialog,
+    Icon
   },
   data() {
     return {
+      isClear: false,
       isChange: 1,
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
@@ -151,7 +179,9 @@ export default {
       this.results = [];
       this.initRoadmap();
       localStorage.setItem("roadmap-results", "");
+      this.isClear = false;
     },
+
     initRoadmap() {
       this.roadmap = new Roadmap({
         results: this.results,
@@ -163,7 +193,7 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-       this.isChange += 1;
+      this.isChange += 1;
       // console.log("BB", this.roadmap.bigroad.previousCoordinates[1]);
       // console.log("##", this.roadmap.bigeyeboy);
       // if (this.roadmap.bigeyeboy.previousCoordinates[1] >= 17) {
@@ -250,7 +280,7 @@ export default {
             }
             break;
           case "0":
-            this.clearRoadmap();
+            this.isClear = true
             break;
           default:
             break;
