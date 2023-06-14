@@ -1,5 +1,6 @@
 <template>
   <DialogInput :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
+  <DialogCountdown :isOpenCountDown="isOpenCountDown" />
   <!-- <DialogSetting :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" /> -->
   <div class="home">
     <div class="">
@@ -47,6 +48,7 @@
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import DialogInput from "@/components/BaseInputDialog.vue";
+import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
@@ -59,6 +61,7 @@ export default {
   components: {
     DialogInput,
     DialogSetting,
+    DialogCountdown,
     BreadPlate,
     Sign,
     BigRoad,
@@ -76,6 +79,7 @@ export default {
       roadmapUtils: null,
       lastKeyPressed: null,
       isOpen: false,
+      isOpenCountDown: false,
       config: {
         breadplate: {
           show_options: false,
@@ -229,6 +233,7 @@ export default {
               this.push(this.lastKeyPressed);
               this.lastKeyPressed = null;
               this.isOpen = false;
+              this.isOpenCountDown = true;
               localStorage.setItem("KEYBOARD_GAME", "false");
             } else {
               // alert("Please press 1 or 2");
