@@ -28,10 +28,12 @@
           <BigEye
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
+            :isChange="isChange"
           />
           <SmallRoad
             :SmallRoadResults="roadmap.smallroad.matrix"
             :CockRoachResults="roadmap.cockroachPig.matrix"
+            :isChange="isChange"
           />
         </div>
       </div>
@@ -122,7 +124,7 @@ export default {
         customplate: {
           show_options: false,
           rows: 3,
-          cols: 15,
+          cols: 18,
         },
         smallroad: {
           show_options: false,
@@ -152,8 +154,9 @@ export default {
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
-    this.getReuslt();
-    localStorage.setItem("KEYBOARD_GAME", "true");
+    this.getResult();
+    // this.getResultLocal();
+    localStorage.setItem("KEYBOARD_GAME", "false");
   },
   methods: {
     onChildCabllback(params) {
@@ -190,30 +193,11 @@ export default {
     },
 
     push(key) {
+      this.isChange += 1;
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.isChange += 1;
-      // console.log("BB", this.roadmap.bigroad.previousCoordinates[1]);
-      // console.log("##", this.roadmap.bigeyeboy);
-      // if (this.roadmap.bigeyeboy.previousCoordinates[1] >= 17) {
-      //   this.isChange += 1;
-      //   this.roadmap.bigeyeboy.cols += 1;
-      //   this.config.bigeyeboy.cols += 1;
-      //   this.initRoadmap();
-      // }
-      // if (this.roadmap.bigroad.previousCoordinates[1] >= 27) {
-      //   this.isChange += 1;
-      //   this.roadmap.bigroad.cols += 1;
-      //   this.config.bigroad.cols += 1;
-      //   this.initRoadmap();
-      // }
-      // if (this.roadmap.breadplate.previousCoordinates[1] >= 17) {
-      //   this.isChange += 1;
-      //   this.roadmap.breadplate.cols += 1;
-      //   this.config.breadplate.cols += 1;
-      //   this.initRoadmap();
-      // }
     },
     handleKeyDown(event) {
       if (localStorage.getItem("KEYBOARD_GAME") === "true") {
@@ -275,6 +259,7 @@ export default {
               this.push(this.lastKeyPressed);
               this.lastKeyPressed = null;
               this.isOpen = false;
+              localStorage.setItem("KEYBOARD_GAME", "false");
             } else {
               // alert("Please press 1 or 2");
             }
@@ -286,13 +271,18 @@ export default {
             break;
         }
       }
-      // console.log(
-      //   "🚀 ~ file: CustomPlate.js:15 ~ CustomPlate ~ constructor ~ options:",
-      //   this.roadmap
-      // );
     },
-    async getReuslt() {
+    async getResult() {
       let re = await localStorage.getItem("roadmap-results");
+      if (re) {
+        this.results = JSON.parse(re);
+        this.results.forEach((r) => {
+          this.roadmap.push(r);
+        });
+      }
+    },
+    getResultLocal() {
+      let re = localStorage.getItem("roadmap-results");
       if (re) {
         this.results = JSON.parse(re);
         this.results.forEach((r) => {

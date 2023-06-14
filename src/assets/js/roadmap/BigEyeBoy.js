@@ -284,6 +284,7 @@ export default class BigEyeBoy extends RoadmapUtilities {
       index: this.index++,
       big_road_index: options.big_road_index,
     };
+    this.matrix = this.equalizeArrays();
 
     if (this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();

@@ -98,7 +98,24 @@ export default {
   components: {
     Icon,
   },
-  props: ["SmallRoadResults", "CockRoachResults"],
+  props: ["SmallRoadResults", "CockRoachResults", "isChange"],
+  watch: {
+    checkChange() {
+      const smallRoad = this.$refs.smallRoadId;
+      const cockroachRoad = this.$refs.cockroachRoadId;
+      if (this.isChange > 30) {
+        setTimeout(() => {
+          this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
+          this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
+        }, 600);
+      }
+    },
+  },
+  computed: {
+    checkChange() {
+      return this.isChange;
+    },
+  },
   methods: {
     handleScroll(isLeft, id) {
       if (isLeft) {

@@ -57,7 +57,6 @@ export default class Roadmap {
       return [...tail(row), 0];
     });
   }
-
   get roadmap() {
     return this.matrix.map((row) => {
       return row.map((col) => {

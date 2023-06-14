@@ -33,7 +33,6 @@
           :key="colKey"
           class="grid__col__Big_eye text-gray-200"
         >
-          <!-- {{ colKey }} -->
           <div
             v-if="col && col.value"
             :class="{
@@ -97,7 +96,23 @@ export default {
   components: {
     Icon,
   },
-  props: ["BigEyeResults", "CustomPlateResults"],
+  props: ["BigEyeResults", "CustomPlateResults", "isChange"],
+  watch: {
+    checkChange() {
+      const bigEyeRoad = this.$refs.bigEyeId;
+      const CustomRoad = this.$refs.customRoadId;
+
+      if (this.isChange > 30) {
+        this.$refs.bigEyeId.scrollLeft = bigEyeRoad.scrollWidth;
+        this.$refs.customRoadId.scrollLeft = CustomRoad.scrollWidth;
+      }
+    },
+  },
+  computed: {
+    checkChange() {
+      return this.isChange;
+    },
+  },
   methods: {
     handleScroll(isLeft, id) {
       if (isLeft) {
@@ -114,6 +129,22 @@ export default {
         }
       }
     },
+    // watch: {
+    //   checkChange() {
+    //     // const bigroadElement = this.$refs.customRoadId; // Assuming 'bigroadId' is the correct reference to your element
+
+    //     // Scroll to the rightmost position
+    //     // bigroadElement.scrollLeft = bigroadElement.scrollWidth - 80;
+    //     // this.$refs.bigroadId.scrollLeft += 40;
+    //     // this.$refs.bigroadId.scrollLeft += 20;
+    //     this.$refs.customRoadId.scrollLeft += 20;
+    //   },
+    // },
+    // computed: {
+    //   checkChange() {
+    //     return this.isChange;
+    //   },
+    // },
     customPlateValue(value) {
       let customPlateClass = "";
       switch (value) {
@@ -145,18 +176,6 @@ export default {
         case "h":
           customPlateClass = "player_custom_big_eye";
           break;
-        // case "i":
-        //   customPlateClass =
-        //     "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
-        //   break;
-        // case "j":
-        //   customPlateClass =
-        //     "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
-        //   break;
-        // case "k":
-        //   customPlateClass =
-        //     "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
-        //   break;
         default:
           break;
       }
@@ -170,4 +189,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/roadmaps/BigEye.scss";
+// :root {
+//   --dynamic-cols: 30; /* Set the initial value of dynamic-cols */
+// }
 </style>
