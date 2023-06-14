@@ -271,9 +271,11 @@ export default class SmallRoad extends RoadmapUtilities {
       big_road_index: options.big_road_index
     }
 
+    this.matrix = this.equalizeArrays(this.matrix)
+
     if (this.hasFullRow) {
-      this.matrix = this.truncateFirstColumn()
-      this.previousCoordinates = [row, column - 1]
+      // this.matrix = this.truncateFirstColumn()
+      // this.previousCoordinates = [row, column - 1]
     }
   }
 }

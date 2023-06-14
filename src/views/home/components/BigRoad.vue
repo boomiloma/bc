@@ -17,6 +17,7 @@
         style="left: 69rem"
       />
     </div>
+    <!-- {{BigRoadResults}} -->
     <div
       class="grid bg-white"
       id="bigroadId"
@@ -134,12 +135,16 @@ export default {
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.bigroadId; // Assuming 'bigroadId' is the correct reference to your element
-
+      console.log(bigroadElement.scrollWidth, 'scrollwidht',bigroadElement.offsetWidth, 'offsetWidth' );
       // Scroll to the rightmost position
       // bigroadElement.scrollLeft = bigroadElement.scrollWidth - 80;
       // this.$refs.bigroadId.scrollLeft += 40;
       // this.$refs.bigroadId.scrollLeft += 20;
-      this.$refs.bigroadId.scrollLeft += 50;
+      if(this.isChange > 28){
+        setTimeout(() => {
+        this.$refs.bigroadId.scrollLeft =  bigroadElement.scrollWidth;  
+        },600)
+      }
     },
   },
   computed: {

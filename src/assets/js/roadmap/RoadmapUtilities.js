@@ -66,6 +66,24 @@ export default class Roadmap {
     });
   }
 
+  
+  equalizeArrays() {
+    let maxLength = 0;
+    let arrays = this.matrix
+    for (let i = 0; i < arrays.length; i++) {
+        if (arrays[i].length > maxLength) {
+            maxLength = arrays[i].length;
+        }
+    }
+    for (let i = 0; i < arrays.length; i++) {
+        while (arrays[i].length < maxLength) {
+            arrays[i].push(0);
+        }
+    }
+    return arrays;
+    // this.matrix = arrays
+}
+
   /**
    * Used as utility getter for sub classes
    */

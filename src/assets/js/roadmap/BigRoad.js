@@ -123,6 +123,7 @@ export default class BigRoad extends RoadmapUtilities {
         tie_count: 0,
       };
     }
+    this.matrix = this.equalizeArrays()
 
     if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
