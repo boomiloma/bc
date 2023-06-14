@@ -28,10 +28,12 @@
           <BigEye
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
+            :isChange="isChange"
           />
           <SmallRoad
             :SmallRoadResults="roadmap.smallroad.matrix"
             :CockRoachResults="roadmap.cockroachPig.matrix"
+            :isChange="isChange"
           />
         </div>
       </div>
@@ -78,7 +80,7 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 40,
+          cols: 17,
           // cols: 25,
         },
         bigroad: {
@@ -126,7 +128,7 @@ export default {
     window.addEventListener("keydown", this.handleKeyDown);
     this.getResult();
     // this.getResultLocal();
-    localStorage.setItem("KEYBOARD_GAME", "true");
+    localStorage.setItem("KEYBOARD_GAME", "false");
   },
   methods: {
     onChildCabllback(params) {
@@ -227,6 +229,7 @@ export default {
               this.push(this.lastKeyPressed);
               this.lastKeyPressed = null;
               this.isOpen = false;
+              localStorage.setItem("KEYBOARD_GAME", "false");
             } else {
               // alert("Please press 1 or 2");
             }

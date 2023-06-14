@@ -20,11 +20,15 @@
                 </div>
                 <div class="status">
                   <span class="text-left font-bold text-3xl">状态:</span>
-                  <span class="text-right font-bold text-3xl">结算完成</span>
+                  <span class="text-right font-bold text-3xl">{{
+                    status
+                  }}</span>
                 </div>
-                <div class="countdown">
+                <div class="countdown gap-2">
                   <span class="text-left font-bold text-3xl">倒计时:</span>
-                  <span class="text-right font-bold text-3xl"> 0秒</span>
+                  <span class="text-right font-bold text-3xl">
+                    {{ countdown }}秒</span
+                  >
                 </div>
               </div>
               <div class="blocks-one-sde-right ms-auto">
@@ -32,6 +36,7 @@
                   <button
                     type="button"
                     class="btn-theme btn-1 font-bold text-3xl"
+                    @click="handleCountdown"
                   >
                     开始
                   </button>
@@ -67,6 +72,8 @@
 import { Icon } from "@iconify/vue";
 import Setting from "./Dialogs/SettingDialog.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
+import placeYourBet from "@/assets/sounds/place_your_bet.mp3";
+import noMoreBet from "@/assets/sounds/no_more_bet.mp3";
 
 export default {
   components: {
@@ -86,7 +93,37 @@ export default {
   data() {
     return {
       isOpen: false,
+      countdown: 0,
+      countdownInterval: null,
+      isCountdownFinished: false,
+      status: "结算完成",
     };
+  },
+  methods: {
+    handleCountdown() {
+      this.status = "开始";
+      this.playPlaceYourBetSound();
+      clearInterval(this.countdownInterval);
+      this.countdown = 10;
+      this.countdownInterval = setInterval(() => {
+        this.countdown--;
+        if (this.countdown === 0) {
+          clearInterval(this.countdownInterval);
+          this.isCountdownFinished = true; // Set the flag to indicate countdown finish
+          localStorage.setItem("KEYBOARD_GAME", "true");
+          this.NoMoreBetSound();
+          this.status = "结算完成";
+        }
+      }, 1000);
+    },
+    playPlaceYourBetSound() {
+      const audio = new Audio(placeYourBet);
+      audio.play();
+    },
+    NoMoreBetSound() {
+      const audio = new Audio(noMoreBet);
+      audio.play();
+    },
   },
 };
 </script>

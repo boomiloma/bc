@@ -96,7 +96,23 @@ export default {
   components: {
     Icon,
   },
-  props: ["BigEyeResults", "CustomPlateResults"],
+  props: ["BigEyeResults", "CustomPlateResults", "isChange"],
+  watch: {
+    checkChange() {
+      const bigEyeRoad = this.$refs.bigEyeId;
+      const CustomRoad = this.$refs.customRoadId;
+
+      if (this.isChange > 30) {
+        this.$refs.bigEyeId.scrollLeft = bigEyeRoad.scrollWidth;
+        this.$refs.customRoadId.scrollLeft = CustomRoad.scrollWidth;
+      }
+    },
+  },
+  computed: {
+    checkChange() {
+      return this.isChange;
+    },
+  },
   methods: {
     handleScroll(isLeft, id) {
       if (isLeft) {

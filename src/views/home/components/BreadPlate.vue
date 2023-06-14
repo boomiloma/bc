@@ -76,12 +76,14 @@ export default {
   props: ["BreadPlateResults", "results", "isChange"],
   watch: {
     checkChange() {
-      if (this.isChange > 53) this.$refs.beadRoadId.scrollLeft += 49;
+      const bigroadElement = this.$refs.beadRoadId;
+      if (this.isChange > 52)
+        this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
     },
   },
   computed: {
     checkChange() {
-      if (this.isChange > 53) this.$refs.beadRoadId.scrollLeft += 40;
+      return this.isChange;
     },
   },
   methods: {

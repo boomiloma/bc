@@ -74,6 +74,7 @@ export default class BreadPlate extends RoadmapUtilities {
       value: key,
       index: this.index++,
     };
+    this.matrix = this.equalizeArrays();
 
     if (this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
