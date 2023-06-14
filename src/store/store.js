@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive, shallowReactive } from 'vue'
 
 export const store = reactive({
   leftDrawerOpen: false,

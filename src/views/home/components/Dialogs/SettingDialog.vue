@@ -300,6 +300,7 @@ const currencyChange = () => {
 function onSaved() {
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
+  emit('onClose');
 }
 // currencyChange();
 onLoad();

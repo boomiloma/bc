@@ -105,8 +105,8 @@
         <div
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">USD : {{setting['usd']?.min_bp ?? 0}}-{{setting['usd']?.max_bp ?? 0}}</div>
-          <div class="font-extrabold">THB : {{setting['thb']?.min_bp ?? 0}}-{{setting['thb']?.max_bp ?? 0}}</div>
+          <div class="border-b-2 w-full font-extrabold">USD : {{store.setting['usd']?.min_bp ?? 0}}-{{store.setting['usd']?.max_bp ?? 0}}</div>
+          <div class="font-extrabold">THB : {{store.setting['thb']?.min_bp ?? 0}}-{{store.setting['thb']?.max_bp ?? 0}}</div>
         </div>
       </div>
       <div class="flex flex-row justify-center border-b-2">
@@ -118,8 +118,8 @@
         <div
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">USD : {{setting['usd']?.min_tie ?? 0}}-{{setting['usd']?.max_tie ?? 0}}</div>
-          <div class="font-extrabold">THB : {{setting['thb']?.min_tie ?? 0}}-{{setting['thb']?.max_tie ?? 0}}</div>
+          <div class="border-b-2 w-full font-extrabold">USD : {{store.setting['usd']?.min_tie ?? 0}}-{{store.setting['usd']?.max_tie ?? 0}}</div>
+          <div class="font-extrabold">THB : {{store.setting['thb']?.min_tie ?? 0}}-{{store.setting['thb']?.max_tie ?? 0}}</div>
         </div>
       </div>
       <div class="flex flex-row justify-center border-b-2">
@@ -131,8 +131,8 @@
         <div
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">USD : {{setting['usd']?.min_pair ?? 0}}-{{setting['usd']?.max_pair ?? 0}}</div>
-          <div class="font-extrabold">THB : {{setting['thb']?.min_pair ?? 0}}-{{setting['thb']?.max_pair ?? 0}}</div>
+          <div class="border-b-2 w-full font-extrabold">USD : {{store.setting['usd']?.min_pair ?? 0}}-{{store.setting['usd']?.max_pair ?? 0}}</div>
+          <div class="font-extrabold">THB : {{store.setting['thb']?.min_pair ?? 0}}-{{store.setting['thb']?.max_pair ?? 0}}</div>
         </div>
       </div>
       <div class="flex flex-row justify-center border-b-2">
@@ -144,8 +144,8 @@
         <div
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">USD : {{setting['usd']?.min_lucky6 ?? 0}}-{{setting['usd']?.max_lucky6 ?? 0}}</div>
-          <div class="font-extrabold">THB : {{setting['thb']?.min_lucky6 ?? 0}}-{{setting['thb']?.max_lucky6 ?? 0}}</div>
+          <div class="border-b-2 w-full font-extrabold">USD : {{store.setting['usd']?.min_lucky6 ?? 0}}-{{store.setting['usd']?.max_lucky6 ?? 0}}</div>
+          <div class="font-extrabold">THB : {{store.setting['thb']?.min_lucky6 ?? 0}}-{{store.setting['thb']?.max_lucky6 ?? 0}}</div>
         </div>
       </div>
     </div>
@@ -154,6 +154,8 @@
 <script>
 // import store from '@/store/store.js'
 import {ref} from 'vue'
+import { store } from "@/store/store";
+
 export default {
   setup() {
     const count = ref(0)
@@ -164,10 +166,7 @@ export default {
   },
   data(){
     return {
-      setting: {
-        usd: {},
-        thd: {}
-      }
+      store
     }
   },
   props: ["results"],
@@ -215,7 +214,7 @@ export default {
     async  onLoad(){
       let getSetting = await localStorage.getItem('setting')
       if(getSetting){
-        this.setting = JSON.parse(getSetting)
+        store.setting = JSON.parse(getSetting)
       }
     }
 
