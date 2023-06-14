@@ -165,8 +165,7 @@ export default {
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      console.log("BB", this.roadmap.bigroad.previousCoordinates[1]);
-      console.log("##", this.roadmap.bigeyeboy);
+      this.isChange += 1;
     },
     handleKeyDown(event) {
       if (localStorage.getItem("KEYBOARD_GAME") === "true") {
