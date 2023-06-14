@@ -76,22 +76,18 @@ export default {
   props: ["BreadPlateResults", "results", "isChange"],
   watch: {
     checkChange() {
-      const beadRoadELement = this.$refs.beadRoadId; // Assuming 'bigroadId' is the correct reference to your element
-
-      // Scroll to the rightmost position
-      beadRoadELement.scrollLeft =
-        beadRoadELement.scrollWidth - beadRoadELement.clientWidth;
-      // this.$refs.bigroadId.scrollLeft += 40;
-      // this.$refs.bigroadId.scrollLeft += 20;
+      if (this.isChange > 53) this.$refs.beadRoadId.scrollLeft += 49;
     },
   },
   computed: {
     checkChange() {
-      return this.isChange;
+      if (this.isChange > 53) this.$refs.beadRoadId.scrollLeft += 40;
     },
   },
   methods: {
     handleScroll(isLeft) {
+      console.log("🚀 ~ file: BreadPlate.vue:191 ~ isChange:", this.isChange);
+
       if (isLeft) {
         this.$refs.beadRoadId.scrollLeft -= 40;
       } else {

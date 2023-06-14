@@ -78,8 +78,8 @@ export default class CustomPlate extends RoadmapUtilities {
     };
 
     if (this.hasFullRow) {
-      this.matrix = this.truncateFirstColumn();
-      this.previousCoordinates = [row, column - 1];
+      // this.matrix = this.truncateFirstColumn();
+      // this.previousCoordinates = [row, column - 1];
     }
   }
 }

@@ -81,12 +81,4 @@ export default class BreadPlate extends RoadmapUtilities {
       // alert("Full row");
     }
   }
-  showPreviousColumn() {
-    // console.log(
-    //   "🚀 ~ file: RoadmapUtilities.js:82 ~ Roadmap ~ prevColumn ~ prevColumn:",
-    //   (this.matrix = Array.from({ length: this.rows }, () => {
-    //     return Array.from({ length: this.cols }, () => 0);
-    //   }))
-    // );
-  }
 }
