@@ -18,6 +18,7 @@
                   <span class="text-left font-bold text-3xl"
                     >{{ $t("shoe_no") }}:</span
                   >
+                  &nbsp;
                   <span class="text-right font-bold text-3xl">{{
                     store.setting.shoe_no
                   }}</span>
@@ -26,6 +27,7 @@
                   <span class="text-left font-bold text-3xl"
                     >{{ $t("match_no") }}:</span
                   >
+                  &nbsp;
                   <span class="text-right font-bold text-3xl">
                     {{ matches }}</span
                   >
@@ -34,6 +36,7 @@
                   <span class="text-left font-bold text-3xl"
                     >{{ $t("status") }}:</span
                   >
+                  &nbsp;
                   <span class="text-right font-bold text-3xl">{{
                     $t(status)
                   }}</span>
@@ -42,6 +45,7 @@
                   <span class="text-left font-bold text-3xl"
                     >{{ $t("counter") }}:</span
                   >
+                  &nbsp;
                   <span class="text-right font-bold text-3xl">
                     {{ countdown }}&nbsp;{{ $t("sec") }}</span
                   >
@@ -106,11 +110,11 @@ export default {
   props: ["matches"],
   watch: {
     isOpen(newVal) {
-      if (newVal) {
-        localStorage.setItem("KEYBOARD_GAME", "false");
-      } else {
-        localStorage.setItem("KEYBOARD_GAME", "true");
-      }
+      // if (newVal) {
+      //   localStorage.setItem("KEYBOARD_GAME", "false");
+      // } else {
+      //   localStorage.setItem("KEYBOARD_GAME", "true");
+      // }
     },
   },
   data() {
