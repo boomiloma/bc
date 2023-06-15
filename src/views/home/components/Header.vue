@@ -18,7 +18,9 @@
                 </div>
                 <div class="no-of-rounds">
                   <span class="text-left font-bold text-3xl">局数:</span>
-                  <span class="text-right font-bold text-3xl"> 22</span>
+                  <span class="text-right font-bold text-3xl">
+                    {{ matches }}</span
+                  >
                 </div>
                 <div class="status">
                   <span class="text-left font-bold text-3xl">状态:</span>
@@ -84,6 +86,7 @@ export default {
     Icon,
     BaseDialog,
   },
+  props: ["matches"],
   watch: {
     isOpen(newVal) {
       if (newVal) {

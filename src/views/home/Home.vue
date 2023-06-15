@@ -1,10 +1,13 @@
 <template>
   <DialogInput :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" />
-  <DialogCountdown :isOpenCountDown="isOpenCountDown" @onClose="isOpenCountDown = false"  />
+  <DialogCountdown
+    :isOpenCountDown="isOpenCountDown"
+    @onClose="isOpenCountDown = false"
+  />
   <!-- <DialogSetting :lastKeyPressed="lastKeyPressed" :isOpen="isOpen" /> -->
   <div class="home">
     <div class="">
-      <Header />
+      <Header :matches="results.length" />
 
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
@@ -40,16 +43,16 @@
       </div>
     </div>
     <BaseDialog width="300" :isOpen="isClear">
-      <div style="background: #2f4963; padding: 20px;">
-          <div>
-            <Icon
-              height="20."
-              style="cursor: pointer"
-              icon="fa:close"
-              @click="isClear = false"
-              class="float-right"
-            />
-          </div>
+      <div style="background: #2f4963; padding: 20px">
+        <div>
+          <Icon
+            height="20."
+            style="cursor: pointer"
+            icon="fa:close"
+            @click="isClear = false"
+            class="float-right"
+          />
+        </div>
 
         <h3>你想清除吗</h3>
         <button
@@ -94,7 +97,7 @@ export default {
     SmallRoad,
     Header,
     BaseDialog,
-    Icon
+    Icon,
   },
   data() {
     return {
@@ -269,8 +272,13 @@ export default {
               // alert("Please press 1 or 2");
             }
             break;
+          default:
+            break;
+        }
+      } else if (!isOpen) {
+        switch (event.key) {
           case "0":
-            this.isClear = true
+            this.isClear = true;
             break;
           default:
             break;
