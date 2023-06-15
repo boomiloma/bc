@@ -42,28 +42,6 @@
         </div>
       </div>
     </div>
-    <BaseDialog width="500" :isOpen="isClear">
-      <div style="background: #2f4963; padding: 20px">
-        <div>
-          <Icon
-            height="20."
-            style="cursor: pointer"
-            icon="fa:close"
-            @click="isClear = false"
-            class="float-right"
-          />
-        </div>
-
-        <h3>你想清除吗</h3>
-        <button
-          type="button"
-          class="inline-flex mt-3 justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          @click="clearRoadmap"
-        >
-          好的
-        </button>
-      </div>
-    </BaseDialog>
   </div>
   <div></div>
 </template>
@@ -76,7 +54,7 @@ import DialogInput from "@/components/BaseInputDialog.vue";
 import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
 import { store } from "@/store/store";
-import useShoe from "@/composables/useShoe";
+import useShoe from '@/composables/useShoe'
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -152,7 +130,7 @@ export default {
           cols: 30,
         },
       },
-      store,
+      store
     };
   },
 
@@ -297,16 +275,16 @@ export default {
           default:
             break;
         }
+      } 
+      else if (!this.isOpen) {
+        switch (event.key) {
+          case "0":
+            this.isClear = true;
+            break;
+          default:
+            break;
+        }
       }
-      //  else if (!this.isOpen) {
-      //   switch (event.key) {
-      //     case "0":
-      //       this.isClear = true;
-      //       break;
-      //     default:
-      //       break;
-      //   }
-      // }
     },
     async getResult() {
       let re = await localStorage.getItem("roadmap-results");
