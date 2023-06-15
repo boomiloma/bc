@@ -106,10 +106,6 @@ export default {
     Sign,
     BreadPlate,
   },
-  setup() {
-    const { t } = useI18n({ useScope: "global" });
-    return { t };
-  },
   data() {
     return {
       isClear: false,
