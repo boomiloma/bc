@@ -141,8 +141,16 @@ export default {
       },
       deep: true,
     },
+    isNewShoe(){
+      this.clearRoadmap();
+    }
+    
   },
-
+  computed:{
+    isNewShoe() {
+      return this.store.setting.shoe_no
+    }
+  },
   created() {
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
