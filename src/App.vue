@@ -33,6 +33,9 @@ async function onInit() {
     Shoe.createIndex("date", "date", {
       unique: true,
     });
+    Shoe.createIndex("table_number", "table_number", {
+      unique: false,
+    });
   };
 }
 

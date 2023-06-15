@@ -256,7 +256,7 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button @click="isConfirm = true" type="button" class="btn-theme btn-1 py-1 fs-3">
                     {{ $t("change_shoe") }}
                   </button>
                 </div>
@@ -266,6 +266,28 @@
         </div>
       </div>
     </div>
+    <BaseDialog width="300" :isOpen="isConfirm">
+       <div style="background: #2f4963; padding: 20px">
+        <div>
+          <Icon
+            height="20."
+            style="cursor: pointer"
+            icon="fa:close"
+            @click="isConfirm = false"
+            class="float-right"
+          />
+        </div>
+
+        <h3>你想清除吗</h3>
+        <input /> 
+        <button
+          type="button"
+          class="inline-flex mt-3 justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        >
+          好的
+        </button>
+      </div>
+    </BaseDialog>
   </div>
   <!-- </dialog> -->
 </template>
@@ -273,8 +295,9 @@
 import { store } from "@/store/store";
 import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
+import BaseDialog from "@/components/BaseDialog.vue";
 const emit = defineEmits(["onClose", "onSave"]);
-
+const isConfirm = ref(false);
 const setting = ref({
   currency: "usd",
   table_no: 0,
@@ -323,6 +346,8 @@ async function onLoad() {
   let getSetting = await localStorage.getItem("setting");
   if (getSetting) {
     setting.value = JSON.parse(getSetting);
+  } else {
+    setting.value = store.setting
   }
 }
 </script>
