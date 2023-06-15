@@ -91,14 +91,14 @@ export default {
     DialogInput,
     DialogSetting,
     DialogCountdown,
-    BreadPlate,
-    Sign,
     BigRoad,
     BigEye,
     SmallRoad,
     Header,
     BaseDialog,
     Icon,
+    Sign,
+    BreadPlate,
   },
   setup() {
     const { t } = useI18n({ useScope: "global" });
@@ -169,6 +169,7 @@ export default {
     this.getResult();
     // this.getResultLocal();
     localStorage.setItem("KEYBOARD_GAME", "false");
+    console.log(this.t("table_no"), "table_no");
   },
   methods: {
     onChildCabllback(params) {
