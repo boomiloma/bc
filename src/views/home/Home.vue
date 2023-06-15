@@ -70,6 +70,7 @@
 
 <script>
 // @ is an alias to /src
+import { useI18n } from "vue-i18n";
 import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import DialogInput from "@/components/BaseInputDialog.vue";
@@ -83,15 +84,16 @@ import BreadPlate from "./components/BreadPlate.vue";
 import Header from "./components/Header.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import { Icon } from "@iconify/vue";
-
 export default {
   name: "Home",
+  setup() {
+    const { t } = useI18n({ useScope: 'global' })
+    return { t }
+  },
   components: {
     DialogInput,
     DialogSetting,
     DialogCountdown,
-    BreadPlate,
-    Sign,
     BigRoad,
     BigEye,
     SmallRoad,
@@ -164,6 +166,7 @@ export default {
     this.getResult();
     // this.getResultLocal();
     localStorage.setItem("KEYBOARD_GAME", "false");
+    console.log(this.t('table_no'), 'table_no')
   },
   methods: {
     onChildCabllback(params) {

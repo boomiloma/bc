@@ -289,8 +289,8 @@ export default class CockroachPig extends RoadmapUtilities {
     this.matrix = this.equalizeArrays();
 
     if (this.hasFullRow) {
-      this.matrix = this.truncateFirstColumn();
-      this.previousCoordinates = [row, column - 1];
+      // this.matrix = this.truncateFirstColumn();
+      // this.previousCoordinates = [row, column - 1];
     }
   }
 }

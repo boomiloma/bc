@@ -7,7 +7,7 @@
             <div class="flex flex-row items-center">
               <div class="blocks-one-side-left">
                 <div class="terrace-details">
-                  <span class="text-left font-bold text-3xl">台号:</span>
+                  <span class="text-left font-bold text-3xl">{{$t('table_no')}}:</span>
                   <span class="text-right font-bold text-3xl">
                     &nbsp;{{ store.setting.table_no }}</span
                   >
@@ -73,6 +73,7 @@
   </BaseDialog>
 </template>
 <script>
+import { useI18n } from "vue-i18n";
 import { Icon } from "@iconify/vue";
 import Setting from "./Dialogs/SettingDialog.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
@@ -81,6 +82,10 @@ import noMoreBet from "@/assets/sounds/no_more_bet.mp3";
 import { store } from "@/store/store";
 
 export default {
+  setup() {
+    const { t } = useI18n({ useScope: 'global' })
+    return { t }
+  },
   components: {
     Setting,
     Icon,
