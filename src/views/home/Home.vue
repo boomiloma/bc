@@ -83,6 +83,7 @@ import BreadPlate from "./components/BreadPlate.vue";
 import Header from "./components/Header.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import { Icon } from "@iconify/vue";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "Home",
@@ -98,6 +99,10 @@ export default {
     Header,
     BaseDialog,
     Icon,
+  },
+  setup() {
+    const { t } = useI18n({ useScope: "global" });
+    return { t };
   },
   data() {
     return {

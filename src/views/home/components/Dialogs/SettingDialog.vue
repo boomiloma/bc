@@ -7,7 +7,7 @@
     >
       <div class="modal-content">
         <div class="modal-header flex border-0 p-3">
-          <h5 class="modal-title flex-1">设置</h5>
+          <h5 class="modal-title flex-1">{{ $t("settings") }}</h5>
           <div>
             <Icon
               height="20."
@@ -20,11 +20,11 @@
         <div class="header-bottom"></div>
         <div class="modal-body p-5">
           <div class="row">
-            <h4 class="text-white mb-3">修改台桌</h4>
+            <h4 class="text-white mb-3">{{ $t("edit_table_no") }}</h4>
             <div class="col-7">
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">修改台桌:</p>
+                  <p class="text-white">{{ $t("edit_table_no") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -46,12 +46,12 @@
               </div>
               <div class="mt-3 row">
                 <div class="col-12">
-                  <h4 class="text-white my-3">现场限红修改区</h4>
+                  <h4 class="text-white my-3">{{ $t("edit_table_limit") }}</h4>
                 </div>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">币种:</p>
+                  <p class="text-white">{{ $t("currency") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -69,7 +69,7 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">庄闲限红:</p>
+                  <p class="text-white">{{ $t("bp_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -92,7 +92,7 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">和局限红:</p>
+                  <p class="text-white">{{ $t("tie_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -115,7 +115,7 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">对子限红:</p>
+                  <p class="text-white">{{ $t("pair_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -138,7 +138,7 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <p class="text-white">幸运6限红:</p>
+                  <p class="text-white">{{ $t("lucky_6_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -163,7 +163,7 @@
             <div class="col-5">
               <div class="row">
                 <div class="col-5">
-                  <p class="text-white">下注倒计时:</p>
+                  <p class="text-white">{{ $t("bet_counter") }}:</p>
                 </div>
                 <div class="col-3">
                   <div class="form-group">
@@ -174,7 +174,9 @@
                     />
                   </div>
                 </div>
-                <div class="col-4"><p class="text-white">秒</p></div>
+                <div class="col-4">
+                  <p class="text-white">{{ $t("sec") }}</p>
+                </div>
               </div>
               <div class="mt-3 row">
                 <div class="col-5">
@@ -205,12 +207,14 @@
               </div>
               <div class="mt-1 row">
                 <div class="col-12">
-                  <h4 class="text-white">换靴验证码</h4>
+                  <h4 class="text-white">
+                    {{ $t("change_shoe_verification_code") }}
+                  </h4>
                 </div>
               </div>
               <div class="row">
                 <div class="col-5">
-                  <p class="text-white">设置验证码:</p>
+                  <p class="text-white">{{ $t("set_code") }}:</p>
                 </div>
                 <div class="col-3">
                   <div class="form-group">

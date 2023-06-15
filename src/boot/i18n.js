@@ -5,13 +5,13 @@ import messages from "../i18n";
 let locale = localStorage.getItem("locale");
 localStorage.setItem("locale", locale ? locale : "en");
 
-console.log("message", messages)
+console.log("message", messages);
 
 // Create I18n instance
-const i18n = createI18n ({
+const i18n = createI18n({
   legacy: false,
-  locale: 'ch',
+  locale: "en",
   globalInjection: true,
   messages,
 });
-export default i18n ;
+export default i18n;

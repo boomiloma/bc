@@ -7,31 +7,41 @@
             <div class="flex flex-row items-center">
               <div class="blocks-one-side-left">
                 <div class="terrace-details">
-                  <span class="text-left font-bold text-3xl">台号:</span>
+                  <span class="text-left font-bold text-3xl"
+                    >{{ $t("table_no") }}:</span
+                  >
                   <span class="text-right font-bold text-3xl">
                     &nbsp;{{ store.setting.table_no }}</span
                   >
                 </div>
                 <div class="boot-size">
-                  <span class="text-left font-bold text-3xl">靴号:</span>
+                  <span class="text-left font-bold text-3xl"
+                    >{{ $t("shoe_no") }}:</span
+                  >
                   <span class="text-right font-bold text-3xl"> 8</span>
                 </div>
                 <div class="no-of-rounds">
-                  <span class="text-left font-bold text-3xl">局数:</span>
+                  <span class="text-left font-bold text-3xl"
+                    >{{ $t("match_no") }}:</span
+                  >
                   <span class="text-right font-bold text-3xl">
                     {{ matches }}</span
                   >
                 </div>
                 <div class="status">
-                  <span class="text-left font-bold text-3xl">状态:</span>
+                  <span class="text-left font-bold text-3xl"
+                    >{{ $t("status") }}:</span
+                  >
                   <span class="text-right font-bold text-3xl">{{
                     status
                   }}</span>
                 </div>
                 <div class="countdown gap-2">
-                  <span class="text-left font-bold text-3xl">倒计时:</span>
+                  <span class="text-left font-bold text-3xl"
+                    >{{ $t("counter") }}:</span
+                  >
                   <span class="text-right font-bold text-3xl">
-                    {{ countdown }}秒</span
+                    {{ countdown }}&nbsp;{{ $t("sec") }}</span
                   >
                 </div>
               </div>
@@ -42,7 +52,7 @@
                     class="btn-theme btn-1 font-bold text-3xl"
                     @click="handleCountdown"
                   >
-                    开始
+                    {{ $t("start") }}
                   </button>
                 </div>
               </div>
@@ -55,7 +65,7 @@
                 @click="isOpen = true"
                 class="btn-theme btn-1 me-4 font-bold text-3xl"
               >
-                设置
+                {{ $t("settings") }}
               </button>
               <button type="button" class="btn-power">
                 <!-- <i class="fa fa-power-off"></i> -->
