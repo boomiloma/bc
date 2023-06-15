@@ -35,5 +35,7 @@
   "change": "Change",
   "change_shoe": "Change Shoe",
   "settling": "Settling",
-  "enter_verification_code": "Please enter the verification code to change shoe."
+  "enter_verification_code": "Please enter the verification code to change shoe.",
+  "change_success": "Change shoe successfully!",
+  "verification_failed": "Verification failed!"
 }

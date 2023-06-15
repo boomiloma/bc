@@ -311,6 +311,15 @@
         </div>
       </div>
     </BaseDialog>
+    <BaseDialog width="800" :isOpen="isVerified">
+      <div
+        class="w-full h-40 bg-slate-800 bg-opacity-70 flex flex-row items-center justify-center border-y border-y-yellow-600"
+      >
+        <p class="text-6xl text-lime-400 font-semibold">
+          {{ $t(verifyStatus) }}
+        </p>
+      </div>
+    </BaseDialog>
   </div>
   <!-- </dialog> -->
 </template>
@@ -321,6 +330,8 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
+const isVerified = ref(false);
+const verifyStatus = "change_success";
 const verification_code = ref("");
 const setting = ref({
   currency: "usd",
@@ -373,8 +384,10 @@ function verifyCode() {
     store.setting = setting.value;
     localStorage.setItem("roadmap-results", "");
     emit("onClose");
+    isVerified.value = true;
   } else {
-    alert("Verification code is wrong.");
+    verifyStatus = "verification_failed";
+    isVerified.value = false;
   }
 }
 // currencyChange();

@@ -35,5 +35,7 @@
   "change": "修改",
   "change_shoe": "更换牌靴",
   "settling": "结算中",
-  "enter_verification_code": "请输入换靴验证码以完成换靴"
+  "enter_verification_code": "请输入换靴验证码以完成换靴",
+  "change_success":"更换牌靴成功！",
+  "verification_failed":"验证失败！"
 }
