@@ -10,7 +10,7 @@ export default function useShoe() {
     items: [],
   });
 
-  const saveShoe = async (data, table_number) => {
+  const saveShoe = async (data, table_number, shoe_no) => {
     try {
       let DB;
       const request = window.indexedDB.open("Baccarat", 4);
@@ -20,6 +20,7 @@ export default function useShoe() {
         const store = txn.objectStore("Shoe");
         let _data = {
           table_number: table_number,
+          shoe_no: shoe_no,
           date: new Date().toISOString(),
           reuslt: JSON.stringify(data),
         };

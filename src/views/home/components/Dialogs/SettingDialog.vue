@@ -367,6 +367,7 @@ function onSaved() {
 function verifyCode() {
   if (verification_code.value == setting.value.verification_code) {
     isConfirm.value = false;
+    store.isFirst = false;
     setting.value.shoe_no = setting.value.shoe_no + 1;
     localStorage.setItem("setting", JSON.stringify(setting.value));
     store.setting = setting.value;

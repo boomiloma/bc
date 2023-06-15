@@ -164,7 +164,9 @@ export default {
       deep: true,
     },
     isNewShoe(){
-      this.clearRoadmap();
+      if(!this.store.isFirst){
+        this.clearRoadmap();
+      }
     }
     
   },
@@ -204,7 +206,7 @@ export default {
       console.log("Button inside dialog was clicked!");
     },
     async clearRoadmap() {
-      await this.shoe.saveShoe(this.results, this.store.setting.table_no);
+      await this.shoe.saveShoe(this.results, this.store.setting.table_no, this.store.setting.shoe_no-1);
       this.results = [];
       this.initRoadmap();
       localStorage.setItem("roadmap-results", "");

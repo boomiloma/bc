@@ -66,4 +66,5 @@ export const store = reactive({
       max_lucky6: 0,
     },
   },
+  isFirst: true
 });
