@@ -256,7 +256,11 @@
             <div class="col-5">
               <div class="mt-2 row">
                 <div class="col-8">
-                  <button @click="isConfirm = true" type="button" class="btn-theme btn-1 py-1 fs-3">
+                  <button
+                    @click="isConfirm = true"
+                    type="button"
+                    class="btn-theme btn-1 py-1 fs-3"
+                  >
                     {{ $t("change_shoe") }}
                   </button>
                 </div>
@@ -266,26 +270,45 @@
         </div>
       </div>
     </div>
-    <BaseDialog width="300" :isOpen="isConfirm">
-       <div style="background: #2f4963; padding: 20px">
-        <div>
-          <Icon
-            height="20."
-            style="cursor: pointer"
-            icon="fa:close"
-            @click="isConfirm = false"
-            class="float-right"
-          />
-        </div>
-
-        <h3>你想清除吗</h3>
-        <input /> 
-        <button
-          type="button"
-          class="inline-flex mt-3 justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+    <BaseDialog width="550" :isOpen="isConfirm">
+      <div class="blue-modal">
+        <div
+          class="modal-dialog modal-dialog-centered modal-lg"
+          style="max-width: 1270px"
         >
-          好的
-        </button>
+          <div class="modal-content">
+            <div class="modal-header flex border-0 p-3">
+              <h5 class="modal-title flex-1">{{ $t("settings") }}</h5>
+              <div>
+                <Icon
+                  height="20."
+                  style="cursor: pointer"
+                  @click="emit('onClose')"
+                  icon="fa:close"
+                />
+              </div>
+            </div>
+            <div class="modal-body p-5">
+              <div class="flex flex-col justify-center items-center">
+                <p class="text-lg">{{ $t("enter_verification_code") }}</p>
+                <input
+                  type="text"
+                  class="form-control-custom"
+                  width="150"
+                  v-model="verification_code"
+                />
+                <button
+                  type="button"
+                  class="btn-theme btn-1 mt-4"
+                  style="width: 40%"
+                  @click="verifyCode"
+                >
+                  {{ $t("change_shoe") }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </BaseDialog>
   </div>
@@ -298,6 +321,7 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
+const verification_code = ref("");
 const setting = ref({
   currency: "usd",
   table_no: 0,
@@ -340,6 +364,18 @@ function onSaved() {
   store.setting = setting.value;
   emit("onClose");
 }
+function verifyCode() {
+  if (verification_code.value == setting.value.verification_code) {
+    isConfirm.value = false;
+    setting.value.shoe_no = setting.value.shoe_no + 1;
+    localStorage.setItem("setting", JSON.stringify(setting.value));
+    store.setting = setting.value;
+    localStorage.setItem("roadmap-results", "");
+    emit("onClose");
+  } else {
+    alert("Verification code is wrong.");
+  }
+}
 // currencyChange();
 onLoad();
 async function onLoad() {
@@ -347,7 +383,7 @@ async function onLoad() {
   if (getSetting) {
     setting.value = JSON.parse(getSetting);
   } else {
-    setting.value = store.setting
+    setting.value = store.setting;
   }
 }
 </script>

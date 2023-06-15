@@ -33,5 +33,7 @@
   "thb": "泰铢",
   "change_table_id": "修改桌台",
   "change": "修改",
-  "change_shoe": "更换牌靴"
+  "change_shoe": "更换牌靴",
+  "settling": "结算中",
+  "enter_verification_code": "请输入换靴验证码以完成换靴"
 }

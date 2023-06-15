@@ -31,7 +31,7 @@
               :style="'width:500px; height:300px;'"
               class="transform overflow-hidden rounded-md text-left shadow-xl gap-5 bg-slate-700 flex flex-row justify-center items-center border border-solid border-yellow-600"
             >
-              <p class="text-4xl font-bold">结算中...</p>
+              <p class="text-4xl font-bold">{{ $t("settling") }}...</p>
               <p class="text-4xl font-bold text-lime-500">{{ countdown }}</p>
             </DialogPanel>
           </TransitionChild>
