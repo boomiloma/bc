@@ -40,7 +40,7 @@
               <div class="mt-3 row">
                 <div class="col-5">
                   <button type="button" class="btn-theme btn-1">
-                    修改桌台
+                    {{ $t("change_table_id") }}
                   </button>
                 </div>
               </div>
@@ -60,8 +60,8 @@
                       v-model="setting.currency"
                       class="form-control-custom"
                     >
-                      <option value="usd">美元</option>
-                      <option value="thb">泰铢</option>
+                      <option value="usd">{{ $t("usd") }}</option>
+                      <option value="thb">{{ $t("thb") }}</option>
                     </select>
                   </div>
                 </div>
@@ -180,10 +180,12 @@
               </div>
               <div class="mt-3 row">
                 <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">修改</button>
+                  <button type="button" class="btn-theme btn-1">
+                    {{ $t("change") }}
+                  </button>
                 </div>
               </div>
-              <div class="mt-3 row">
+              <!-- <div class="mt-3 row">
                 <div class="col-12">
                   <h4 class="text-white my-3">模式切换</h4>
                 </div>
@@ -204,15 +206,15 @@
                     </li>
                   </ul>
                 </ul>
-              </div>
-              <div class="mt-1 row">
+              </div> -->
+              <div class="mt-1 row pt-8">
                 <div class="col-12">
                   <h4 class="text-white">
                     {{ $t("change_shoe_verification_code") }}
                   </h4>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mt-3">
                 <div class="col-5">
                   <p class="text-white">{{ $t("set_code") }}:</p>
                 </div>
@@ -229,7 +231,9 @@
               </div>
               <div class="mt-3 row">
                 <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">修改</button>
+                  <button type="button" class="btn-theme btn-1">
+                    {{ $t("change") }}
+                  </button>
                 </div>
               </div>
             </div>
@@ -243,7 +247,7 @@
                     type="button"
                     class="btn-theme btn-1"
                   >
-                    修改
+                    {{ $t("change") }}
                   </button>
                 </div>
                 <div class="col-7"></div>
@@ -253,7 +257,7 @@
               <div class="mt-2 row">
                 <div class="col-8">
                   <button type="button" class="btn-theme btn-1 py-1 fs-3">
-                    更换牌靴
+                    {{ $t("change_shoe") }}
                   </button>
                 </div>
               </div>

@@ -33,7 +33,7 @@
                     >{{ $t("status") }}:</span
                   >
                   <span class="text-right font-bold text-3xl">{{
-                    status
+                    $t(status)
                   }}</span>
                 </div>
                 <div class="countdown gap-2">
@@ -117,7 +117,7 @@ export default {
       countdown: 0,
       countdownInterval: null,
       isCountdownFinished: false,
-      status: "结算完成",
+      status: "complete_settlement",
       store,
     };
   },
@@ -133,7 +133,7 @@ export default {
       }
     },
     handleCountdown() {
-      this.status = "开始";
+      this.status = "start";
       this.playPlaceYourBetSound();
       clearInterval(this.countdownInterval);
       this.countdown = store.setting.bet_counter;
@@ -144,7 +144,7 @@ export default {
           this.isCountdownFinished = true; // Set the flag to indicate countdown finish
           localStorage.setItem("KEYBOARD_GAME", "true");
           this.NoMoreBetSound();
-          this.status = "结算完成";
+          this.status = "complete_settlement";
         }
       }, 1000);
     },

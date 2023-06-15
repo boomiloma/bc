@@ -27,5 +27,12 @@
   "change_shoe_verification_code": "Change shoe verification code",
   "set_code": "Set code",
   "edit": "Edit",
-  "change_shoe_verification_code_2": "Change Shoe verification code"
+  "change_shoe_verification_code_2": "Change Shoe verification code",
+  "complete_settlement":"Complete Settlement",
+  "usd":"USD",
+  "thb":"THB",
+  "change_table_id":"Change Table ID",
+  "change":"Change",
+  "change_shoe":"Change Shoe"
+
 }

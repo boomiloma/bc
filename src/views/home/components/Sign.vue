@@ -116,12 +116,12 @@
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
           <div class="border-b-2 w-full font-extrabold">
-            USD : {{ store.setting["usd"]?.min_bp ?? 0 }}-{{
+            {{ $t("usd") }} : {{ store.setting["usd"]?.min_bp ?? 0 }}-{{
               store.setting["usd"]?.max_bp ?? 0
             }}
           </div>
           <div class="font-extrabold">
-            THB : {{ store.setting["thb"]?.min_bp ?? 0 }}-{{
+            {{ $t("thb") }} : {{ store.setting["thb"]?.min_bp ?? 0 }}-{{
               store.setting["thb"]?.max_bp ?? 0
             }}
           </div>
@@ -137,12 +137,12 @@
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
           <div class="border-b-2 w-full font-extrabold">
-            USD : {{ store.setting["usd"]?.min_tie ?? 0 }}-{{
+            {{ $t("usd") }} : {{ store.setting["usd"]?.min_tie ?? 0 }}-{{
               store.setting["usd"]?.max_tie ?? 0
             }}
           </div>
           <div class="font-extrabold">
-            THB : {{ store.setting["thb"]?.min_tie ?? 0 }}-{{
+            {{ $t("thb") }} : {{ store.setting["thb"]?.min_tie ?? 0 }}-{{
               store.setting["thb"]?.max_tie ?? 0
             }}
           </div>
@@ -158,12 +158,12 @@
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
           <div class="border-b-2 w-full font-extrabold">
-            USD : {{ store.setting["usd"]?.min_pair ?? 0 }}-{{
+            {{ $t("usd") }} : {{ store.setting["usd"]?.min_pair ?? 0 }}-{{
               store.setting["usd"]?.max_pair ?? 0
             }}
           </div>
           <div class="font-extrabold">
-            THB : {{ store.setting["thb"]?.min_pair ?? 0 }}-{{
+            {{ $t("thb") }} : {{ store.setting["thb"]?.min_pair ?? 0 }}-{{
               store.setting["thb"]?.max_pair ?? 0
             }}
           </div>
@@ -179,12 +179,12 @@
           class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
         >
           <div class="border-b-2 w-full font-extrabold">
-            USD : {{ store.setting["usd"]?.min_lucky6 ?? 0 }}-{{
+            {{ $t("usd") }} : {{ store.setting["usd"]?.min_lucky6 ?? 0 }}-{{
               store.setting["usd"]?.max_lucky6 ?? 0
             }}
           </div>
           <div class="font-extrabold">
-            THB : {{ store.setting["thb"]?.min_lucky6 ?? 0 }}-{{
+            {{ $t("thb") }} : {{ store.setting["thb"]?.min_lucky6 ?? 0 }}-{{
               store.setting["thb"]?.max_lucky6 ?? 0
             }}
           </div>

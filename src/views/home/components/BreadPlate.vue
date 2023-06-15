@@ -57,7 +57,7 @@
           ></span>
           <div>
             <p v-if="col.value" class="font-extrabold text-3xl select-none">
-              {{ beadRoadValue(col.value) }}
+              {{ $t(beadRoadValue(col.value)) }}
             </p>
           </div>
         </div>
@@ -69,9 +69,14 @@
 <script>
 // @ is an alias to /src
 import { Icon } from "@iconify/vue";
+import { useI18n } from "vue-i18n";
 export default {
   components: {
     Icon,
+  },
+  setup() {
+    const { t } = useI18n({ useScope: "global" });
+    return { t };
   },
   props: ["BreadPlateResults", "results", "isChange"],
   watch: {
@@ -146,40 +151,40 @@ export default {
       let returnValue = "";
       switch (value) {
         case "b":
-          returnValue = "庄";
+          returnValue = "b";
           break;
         case "p":
-          returnValue = "闲";
+          returnValue = "p";
           break;
         case "t":
-          returnValue = "和";
+          returnValue = "t";
           break;
         case "q":
-          returnValue = "庄";
+          returnValue = "b";
           break;
         case "w":
-          returnValue = "庄";
+          returnValue = "b";
           break;
         case "e":
-          returnValue = "庄";
+          returnValue = "b";
           break;
         case "f":
-          returnValue = "闲";
+          returnValue = "p";
           break;
         case "g":
-          returnValue = "闲";
+          returnValue = "p";
           break;
         case "h":
-          returnValue = "闲";
+          returnValue = "p";
           break;
         case "i":
-          returnValue = "和";
+          returnValue = "t";
           break;
         case "j":
-          returnValue = "和";
+          returnValue = "t";
           break;
         case "k":
-          returnValue = "和";
+          returnValue = "t";
           break;
         default:
           break;

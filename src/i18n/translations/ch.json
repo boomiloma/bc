@@ -27,5 +27,11 @@
   "change_shoe_verification_code": "换靴验证码",
   "set_code": "设置验证码",
   "edit": "修改验证码",
-  "change_shoe_verification_code_2": "更换牌靴"
+  "change_shoe_verification_code_2": "更换牌靴",
+  "complete_settlement": "结算完成",
+  "usd": "美元",
+  "thb": "泰铢",
+  "change_table_id": "修改桌台",
+  "change": "修改",
+  "change_shoe": "更换牌靴"
 }
