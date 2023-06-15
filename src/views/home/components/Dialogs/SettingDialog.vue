@@ -191,8 +191,7 @@
                   <ul class="list-inline">
                     <li class="list-inline-item text-white radio-field">
                       <label for="muhRadio1"
-                        ><input type="radio" name="muhRadio" value="" />
-                        线上模式</label
+                        ><input type="radio" name="muhRadio" /> 线上模式</label
                       >
                     </li>
                     <li class="list-inline-item text-white radio-field">
@@ -218,7 +217,7 @@
                     <input
                       type="text"
                       class="form-control-custom"
-                      value="123"
+                      v-model="setting.verification_code"
                     />
                   </div>
                 </div>
@@ -272,6 +271,7 @@ const setting = ref({
   currency: "usd",
   table_no: 0,
   bet_counter: 0,
+  verification_code: "",
   usd: {
     min_bp: 0,
     max_bp: 0,
