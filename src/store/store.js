@@ -42,7 +42,7 @@ export const store = reactive({
   setting: {
     table_no: 0,
     bet_counter: 0,
-    verification_code: "",
+    verification_code: 123,
     currency: "usd",
     shoe_no: 0,
     usd: {

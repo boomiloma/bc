@@ -37,13 +37,13 @@
                 </div>
                 <div class="col-4"></div>
               </div>
-              <div class="mt-3 row">
+              <!-- <div class="mt-3 row">
                 <div class="col-5">
                   <button type="button" class="btn-theme btn-1">
                     {{ $t("change_table_id") }}
                   </button>
                 </div>
-              </div>
+              </div> -->
               <div class="mt-3 row">
                 <div class="col-12">
                   <h4 class="text-white my-3">{{ $t("edit_table_limit") }}</h4>
@@ -178,13 +178,13 @@
                   <p class="text-white">{{ $t("sec") }}</p>
                 </div>
               </div>
-              <div class="mt-3 row">
+              <!-- <div class="mt-3 row">
                 <div class="col-5">
                   <button type="button" class="btn-theme btn-1">
                     {{ $t("change") }}
                   </button>
                 </div>
-              </div>
+              </div> -->
               <!-- <div class="mt-3 row">
                 <div class="col-12">
                   <h4 class="text-white my-3">模式切换</h4>
@@ -229,13 +229,13 @@
                 </div>
                 <div class="col-4"></div>
               </div>
-              <div class="mt-3 row">
+              <!-- <div class="mt-3 row">
                 <div class="col-5">
                   <button type="button" class="btn-theme btn-1">
                     {{ $t("change") }}
                   </button>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="mt-3 row">
@@ -280,6 +280,7 @@ const setting = ref({
   table_no: 0,
   bet_counter: 0,
   verification_code: "",
+  shoe_no: 0,
   usd: {
     min_bp: 0,
     max_bp: 0,

@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <BaseDialog width="300" :isOpen="isClear">
+    <BaseDialog width="500" :isOpen="isClear">
       <div style="background: #2f4963; padding: 20px">
         <div>
           <Icon
@@ -63,6 +63,52 @@
           好的
         </button>
       </div>
+      <!-- <div class="blue-modal">
+        <div
+          class="modal-dialog modal-dialog-centered modal-lg"
+          style="max-width: 1270px"
+        >
+          <div class="modal-content">
+            <div class="modal-header flex border-0 p-3">
+              <h5 class="modal-title flex-1">{{ $t("settings") }}</h5>
+              <div>
+                <Icon
+                  height="20."
+                  style="cursor: pointer"
+                  @click="emit('onClose')"
+                  icon="fa:close"
+                />
+              </div>
+            </div>
+            <div class="modal-body p-5">
+              <div class="flex flex-col justify-center items-center">
+                <p class="text-lg">Please input your verification code.</p>
+                <input
+                  type="text"
+                  style="
+                    background: #192f40;
+                    border-radius: 6px;
+                    border: 0;
+                    width: 60%;
+                    min-height: 36px;
+                    padding: 5px 10px;
+                    color: #fff;
+                    box-shadow: 0px 1px 5px rgba(255, 255, 255, 0.3);
+                  "
+                  width="200"
+                />
+                <button
+                  type="button"
+                  class="btn-theme btn-1 mt-4"
+                  style="width: 40%"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </BaseDialog>
   </div>
   <div></div>
@@ -75,7 +121,7 @@ import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import DialogInput from "@/components/BaseInputDialog.vue";
 import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
-import useShoe from '@/composables/useShoe'
+import useShoe from "@/composables/useShoe";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -89,9 +135,9 @@ import { useI18n } from "vue-i18n";
 export default {
   name: "Home",
   setup() {
-    const { t } = useI18n({ useScope: 'global' })
+    const { t } = useI18n({ useScope: "global" });
     const shoe = useShoe();
-    return { t, shoe }
+    return { t, shoe };
   },
   components: {
     DialogInput,
@@ -319,4 +365,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "./styles/Home";
+// @import "./styles/Dialogs/SettingsDialog.scss";
 </style>

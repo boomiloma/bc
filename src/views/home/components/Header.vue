@@ -18,7 +18,9 @@
                   <span class="text-left font-bold text-3xl"
                     >{{ $t("shoe_no") }}:</span
                   >
-                  <span class="text-right font-bold text-3xl"> 8</span>
+                  <span class="text-right font-bold text-3xl">{{
+                    store.setting.shoe_no
+                  }}</span>
                 </div>
                 <div class="no-of-rounds">
                   <span class="text-left font-bold text-3xl"
