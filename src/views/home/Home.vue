@@ -75,6 +75,7 @@ import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import DialogInput from "@/components/BaseInputDialog.vue";
 import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
+import useShoe from '@/composables/useShoe'
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -87,6 +88,11 @@ import { useI18n } from "vue-i18n";
 
 export default {
   name: "Home",
+  setup() {
+    const { t } = useI18n({ useScope: 'global' })
+    const shoe = useShoe();
+    return { t, shoe }
+  },
   components: {
     DialogInput,
     DialogSetting,
@@ -99,10 +105,6 @@ export default {
     Icon,
     Sign,
     BreadPlate,
-  },
-  setup() {
-    const { t } = useI18n({ useScope: "global" });
-    return { t };
   },
   data() {
     return {
@@ -191,7 +193,8 @@ export default {
     handleDialogButtonClick() {
       console.log("Button inside dialog was clicked!");
     },
-    clearRoadmap() {
+    async clearRoadmap() {
+      await this.shoe.saveShoe(this.results);
       this.results = [];
       this.initRoadmap();
       localStorage.setItem("roadmap-results", "");
@@ -213,6 +216,7 @@ export default {
       this.isChange += 1;
     },
     handleKeyDown(event) {
+      this.isOpen = false;
       if (localStorage.getItem("KEYBOARD_GAME") === "true") {
         switch (event.key) {
           case "1":
@@ -281,7 +285,7 @@ export default {
           default:
             break;
         }
-      } else if (!isOpen) {
+      } else if (!this.isOpen) {
         switch (event.key) {
           case "0":
             this.isClear = true;
