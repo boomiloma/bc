@@ -12,6 +12,30 @@ import useUser from "@/composables/useUser";
 const { all } = useUser();
 const user = ref([]);
 
+onInit();
+async function onInit() {
+  if (!window.indexedDB) {
+    console.log(`Your browser doesn't support IndexedDB`);
+    return;
+  }
+  const request = window.indexedDB.open("Baccarat", 4);
+  request.onerror = (event) => {
+    console.error(`Database error: ${event.target.errorCode}`);
+  };
+  request.onsuccess = (event) => {
+    const db = event.target.result;
+  };
+  request.onupgradeneeded = (event) => {
+    let db = event.target.result;
+    let Shoe = db.createObjectStore("Shoe", {
+      autoIncrement: true,
+    });
+    Shoe.createIndex("date", "date", {
+      unique: true,
+    });
+  };
+}
+
 const onGetUser = async () => {
   let u = await all();
   console.log(u, "user");
