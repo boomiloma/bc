@@ -194,14 +194,12 @@
   </div>
 </template>
 <script>
-// import store from '@/store/store.js'
 import { ref } from "vue";
 import { store } from "@/store/store";
 
 export default {
   setup() {
     const count = ref(0);
-    // expose to template and other options API hooks
     return {
       count,
     };

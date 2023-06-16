@@ -110,11 +110,6 @@ export default {
   props: ["matches"],
   watch: {
     isOpen(newVal) {
-      // if (newVal) {
-      //   localStorage.setItem("KEYBOARD_GAME", "false");
-      // } else {
-      //   localStorage.setItem("KEYBOARD_GAME", "true");
-      // }
     },
   },
   data() {

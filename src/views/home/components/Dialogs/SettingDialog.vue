@@ -1,5 +1,4 @@
 <template>
-  <!-- <dialog open> -->
   <div class="blue-modal">
     <div
       class="modal-dialog modal-dialog-centered modal-lg"
@@ -37,13 +36,6 @@
                 </div>
                 <div class="col-4"></div>
               </div>
-              <!-- <div class="mt-3 row">
-                <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">
-                    {{ $t("change_table_id") }}
-                  </button>
-                </div>
-              </div> -->
               <div class="mt-3 row">
                 <div class="col-12">
                   <h4 class="text-white my-3">{{ $t("edit_table_limit") }}</h4>
@@ -178,35 +170,6 @@
                   <p class="text-white">{{ $t("sec") }}</p>
                 </div>
               </div>
-              <!-- <div class="mt-3 row">
-                <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">
-                    {{ $t("change") }}
-                  </button>
-                </div>
-              </div> -->
-              <!-- <div class="mt-3 row">
-                <div class="col-12">
-                  <h4 class="text-white my-3">模式切换</h4>
-                </div>
-              </div>
-              <div class="mt-3 row">
-                <ul class="col-12">
-                  <ul class="list-inline">
-                    <li class="list-inline-item text-white radio-field">
-                      <label for="muhRadio1"
-                        ><input type="radio" name="muhRadio" /> 线上模式</label
-                      >
-                    </li>
-                    <li class="list-inline-item text-white radio-field">
-                      <label for="muhRadio2"
-                        ><input type="radio" name="muhRadio" value="" />
-                        线下模式</label
-                      >
-                    </li>
-                  </ul>
-                </ul>
-              </div> -->
               <div class="mt-1 row pt-8">
                 <div class="col-12">
                   <h4 class="text-white">
@@ -229,13 +192,6 @@
                 </div>
                 <div class="col-4"></div>
               </div>
-              <!-- <div class="mt-3 row">
-                <div class="col-5">
-                  <button type="button" class="btn-theme btn-1">
-                    {{ $t("change") }}
-                  </button>
-                </div>
-              </div> -->
             </div>
           </div>
           <div class="mt-3 row">
@@ -270,7 +226,6 @@
         </div>
       </div>
     </div>
-    <!-- Create close function for confirm verification -->
     <BaseDialog width="550" :isOpen="isConfirm">
       <div class="blue-modal">
         <div
@@ -312,7 +267,6 @@
         </div>
       </div>
     </BaseDialog>
-    <!-- Create auto close function after 3 seconds for is verified -->
     <BaseDialog width="800" :isOpen="isVerified">
       <div
         class="w-full h-40 bg-slate-800 bg-opacity-70 flex flex-row items-center justify-center border-y border-y-yellow-600"
@@ -323,7 +277,6 @@
       </div>
     </BaseDialog>
   </div>
-  <!-- </dialog> -->
 </template>
 <script setup>
 import { store } from "@/store/store";
@@ -400,7 +353,6 @@ function verifyCode() {
     }, 3000);
   }
 }
-// currencyChange();
 onLoad();
 async function onLoad() {
   let getSetting = await localStorage.getItem("setting");

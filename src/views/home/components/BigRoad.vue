@@ -134,12 +134,7 @@ export default {
   },
   watch: {
     checkChange() {
-      const bigroadElement = this.$refs.bigroadId; // Assuming 'bigroadId' is the correct reference to your element
-      console.log(bigroadElement.scrollWidth, 'scrollwidht',bigroadElement.offsetWidth, 'offsetWidth' );
-      // Scroll to the rightmost position
-      // bigroadElement.scrollLeft = bigroadElement.scrollWidth - 80;
-      // this.$refs.bigroadId.scrollLeft += 40;
-      // this.$refs.bigroadId.scrollLeft += 20;
+      const bigroadElement = this.$refs.bigroadId;
       if(this.isChange > 28){
         setTimeout(() => {
         this.$refs.bigroadId.scrollLeft =  bigroadElement.scrollWidth;  

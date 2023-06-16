@@ -129,22 +129,6 @@ export default {
         }
       }
     },
-    // watch: {
-    //   checkChange() {
-    //     // const bigroadElement = this.$refs.customRoadId; // Assuming 'bigroadId' is the correct reference to your element
-
-    //     // Scroll to the rightmost position
-    //     // bigroadElement.scrollLeft = bigroadElement.scrollWidth - 80;
-    //     // this.$refs.bigroadId.scrollLeft += 40;
-    //     // this.$refs.bigroadId.scrollLeft += 20;
-    //     this.$refs.customRoadId.scrollLeft += 20;
-    //   },
-    // },
-    // computed: {
-    //   checkChange() {
-    //     return this.isChange;
-    //   },
-    // },
     customPlateValue(value) {
       let customPlateClass = "";
       switch (value) {
