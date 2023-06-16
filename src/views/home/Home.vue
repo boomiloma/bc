@@ -53,7 +53,7 @@ import DialogInput from "@/components/BaseInputDialog.vue";
 import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
 import { store } from "@/store/store";
-import useShoe from '@/composables/useShoe'
+import useShoe from "@/composables/useShoe";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -129,7 +129,7 @@ export default {
           cols: 30,
         },
       },
-      store
+      store,
     };
   },
 
@@ -140,17 +140,16 @@ export default {
       },
       deep: true,
     },
-    isNewShoe(){
-      if(!this.store.isFirst){
+    isNewShoe() {
+      if (!this.store.isFirst) {
         this.clearRoadmap();
       }
-    }
-    
+    },
   },
-  computed:{
+  computed: {
     isNewShoe() {
-      return this.store.setting.shoe_no
-    }
+      return this.store.setting.shoe_no;
+    },
   },
   created() {
     this.initLocalConfig();
@@ -183,7 +182,11 @@ export default {
       console.log("Button inside dialog was clicked!");
     },
     async clearRoadmap() {
-      await this.shoe.saveShoe(this.results, this.store.setting.table_no, this.store.setting.shoe_no-1);
+      await this.shoe.saveShoe(
+        this.results,
+        this.store.setting.table_no,
+        this.store.setting.shoe_no - 1
+      );
       this.results = [];
       this.initRoadmap();
       localStorage.setItem("roadmap-results", "");
@@ -274,8 +277,7 @@ export default {
           default:
             break;
         }
-      } 
-      else if (!this.isOpen) {
+      } else if (!this.isOpen) {
         switch (event.key) {
           case "0":
             this.isClear = true;
