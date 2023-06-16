@@ -270,6 +270,7 @@
         </div>
       </div>
     </div>
+    <!-- Create close function for confirm verification -->
     <BaseDialog width="550" :isOpen="isConfirm">
       <div class="blue-modal">
         <div
@@ -283,7 +284,7 @@
                 <Icon
                   height="20."
                   style="cursor: pointer"
-                  @click="emit('onClose')"
+                  @click="isConfirm = false"
                   icon="fa:close"
                 />
               </div>
@@ -311,6 +312,7 @@
         </div>
       </div>
     </BaseDialog>
+    <!-- Create auto close function after 3 seconds for is verified -->
     <BaseDialog width="800" :isOpen="isVerified">
       <div
         class="w-full h-40 bg-slate-800 bg-opacity-70 flex flex-row items-center justify-center border-y border-y-yellow-600"
@@ -331,7 +333,7 @@ import BaseDialog from "@/components/BaseDialog.vue";
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
-const verifyStatus = "change_success";
+const verifyStatus = ref("change_success");
 const verification_code = ref("");
 const setting = ref({
   currency: "usd",
@@ -377,17 +379,25 @@ function onSaved() {
 }
 function verifyCode() {
   if (verification_code.value == setting.value.verification_code) {
+    verifyStatus.value = "change_success";
+
     isConfirm.value = false;
     store.isFirst = false;
     setting.value.shoe_no = setting.value.shoe_no + 1;
     localStorage.setItem("setting", JSON.stringify(setting.value));
     store.setting = setting.value;
     localStorage.setItem("roadmap-results", "");
-    emit("onClose");
     isVerified.value = true;
+    setTimeout(() => {
+      isVerified.value = false;
+    }, 3000);
   } else {
-    verifyStatus = "verification_failed";
-    isVerified.value = false;
+    verifyStatus.value = "verification_failed";
+    isVerified.value = true;
+
+    setTimeout(() => {
+      isVerified.value = false;
+    }, 3000);
   }
 }
 // currencyChange();
