@@ -1,6 +1,4 @@
-# baccarat
-
-This template should help get you started developing with Vue 3 in Vite.
+# KK BACCARAT TERMINAL
 
 ## Recommended IDE Setup
 
@@ -44,4 +42,29 @@ Press / for TIE AND BANKER PAIR
 Press * for TIE AND PLAYER PAIR
 Press - for TIE AND BANKER PAIR AND PLAYER PAIR
 Press 0 for CLEAR
+```
+
+## START 🚀
+
+```sh
+Press Start to Start Bet countdown
+Wait for the countdown to finish
+Press the keys based on results
+```
+
+## CHANGE SHOE 🔥
+
+```sh
+Press settings
+Press change shoe
+Add verification code
+Submit
+```
+
+## Change BET LIMIT SETTINGS 🔨
+
+```sh
+Press settings
+Add desired bet limits
+Press change
 ```
