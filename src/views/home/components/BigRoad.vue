@@ -135,10 +135,10 @@ export default {
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.bigroadId;
-      if(this.isChange > 28){
+      if (this.isChange > 28) {
         setTimeout(() => {
-        this.$refs.bigroadId.scrollLeft =  bigroadElement.scrollWidth;  
-        },600)
+          this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
+        }, 600);
       }
     },
   },

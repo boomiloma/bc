@@ -117,13 +117,13 @@ export default class BigRoad extends RoadmapUtilities {
     this.previousIdentity = identity;
 
     if (!isTie) {
-      this.matrix[nextRow][nextCol] = {
-        value: key,
-        index: this.index++,
-        tie_count: 0,
-      };
+    this.matrix[nextRow][nextCol] = {
+      value: key,
+      index: this.index++,
+      tie_count: 0,
+    };
     }
-    this.matrix = this.equalizeArrays()
+    this.matrix = this.equalizeArrays();
 
     if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
