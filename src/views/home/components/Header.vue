@@ -109,8 +109,7 @@ export default {
   },
   props: ["matches"],
   watch: {
-    isOpen(newVal) {
-    },
+    isOpen(newVal) {},
   },
   data() {
     return {
@@ -121,6 +120,12 @@ export default {
       status: "complete_settlement",
       store,
     };
+  },
+  //  check if matches is changed then set the status to complete_settlement
+  watch: {
+    matches(newVal) {
+      this.status = "complete_settlement";
+    },
   },
   methods: {
     async onLoad() {
@@ -133,8 +138,9 @@ export default {
         );
       }
     },
+
     handleCountdown() {
-      this.status = "start";
+      this.status = "start_bet";
       this.playPlaceYourBetSound();
       clearInterval(this.countdownInterval);
       this.countdown = store.setting.bet_counter;
@@ -143,9 +149,9 @@ export default {
         if (this.countdown === 0) {
           clearInterval(this.countdownInterval);
           this.isCountdownFinished = true; // Set the flag to indicate countdown finish
+          this.status = "no_more_bet";
           localStorage.setItem("KEYBOARD_GAME", "true");
           this.NoMoreBetSound();
-          this.status = "complete_settlement";
         }
       }, 1000);
     },

@@ -28,7 +28,7 @@
   "set_code": "Set code",
   "edit": "Edit",
   "change_shoe_verification_code_2": "Change Shoe verification code",
-  "complete_settlement": "Complete Settlement",
+  "complete_settlement": "Settlement Completed",
   "usd": "USD",
   "thb": "THB",
   "change_table_id": "Change Table ID",
@@ -37,5 +37,7 @@
   "settling": "Settling",
   "enter_verification_code": "Please enter the verification code to change shoe.",
   "change_success": "Change shoe successfully!",
-  "verification_failed": "Verification failed!"
+  "verification_failed": "Verification failed!",
+  "no_more_bet": "No more bet",
+  "start_bet": "Start betting"
 }

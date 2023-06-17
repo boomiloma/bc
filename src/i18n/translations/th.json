@@ -37,5 +37,7 @@
   "settling": "การชำระบัญชี",
   "enter_verification_code": "กรุณาป้อนโค้ดยืนยันสำหรับเปลี่ยนเกม",
   "change_success": "เปลี่ยนเกมสำเร็จ",
-  "verification_failed": "การตรวจสอบล้มเหลว"
+  "verification_failed": "การตรวจสอบล้มเหลว",
+  "no_more_bet": "ไม่มีเดิมพันอีกแล้ว",
+  "start_bet": "เริ่มเดิมพัน"
 }
