@@ -38,7 +38,7 @@
                 <div class="mt-3 row">
                   <div class="col-5">
                     <button
-                      @click="onSaved"
+                      @click="onSaved('set_table_success')"
                       type="button"
                       class="btn-theme btn-1"
                     >
@@ -184,7 +184,7 @@
               <div class="mt-3 row">
                 <div class="col-5">
                   <button
-                    @click="onSaved"
+                    @click="onSaved('set_time_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -215,7 +215,7 @@
                 <div class="col-4"></div>
                 <div class="col-5">
                   <button
-                    @click="onSaved"
+                    @click="onSaved('set_code_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -230,7 +230,7 @@
               <div class="row">
                 <div class="col-5">
                   <button
-                    @click="onSaved"
+                    @click="onSaved('set_limit_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -359,9 +359,15 @@ const currencyChange = () => {
   console.log("fomr", setting.value);
 };
 
-async function onSaved() {
+async function onSaved(text) {
+  console.log("🚀 ~ file: SettingDialog.vue:360 ~ onSaved ~ text:", text);
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
+  verifyStatus.value = text;
+  isVerified.value = true;
+  setTimeout(() => {
+    isVerified.value = false;
+  }, 2000);
   let saveConfig = {
     desk_name: setting.value.table_no,
     boot_num: 0,
@@ -390,6 +396,8 @@ async function onSaved() {
   let res =  await add(saveConfig)
   console.log(res)
   emit("onClose");
+
+  // emit("onClose");
 }
 function verifyCode() {
   if (verification_code.value == setting.value.verification_code) {

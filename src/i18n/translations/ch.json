@@ -39,5 +39,9 @@
   "change_success": "更换牌靴成功！",
   "verification_failed": "验证失败！",
   "no_more_bet": "停止下注",
-  "start_bet": "开始下注"
+  "start_bet": "开始下注",
+  "set_time_success": "设置时间成功!",
+  "set_table_success": "修改现在限红成功!",
+  "set_limit_success": "设置限红成功!",
+  "set_code_success": "修改验证码成功!"
 }

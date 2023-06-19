@@ -280,7 +280,7 @@ export default {
       //  Will use on replacing the last result
 
       if (
-        this.isReplace &&
+        this.isReplace === true &&
         keyPressed === "Enter" &&
         localStorage.getItem("KEYBOARD_GAME") === "false"
       ) {
@@ -368,13 +368,14 @@ export default {
           this.colIndex = "";
           this.lastKeyPressed = null;
           this.keyArray = [];
-          this.initRoadmap();
           localStorage.setItem("KEYBOARD_GAME", "false");
+          this.initRoadmap();
         } else {
           this.push(this.lastKeyPressed);
           this.lastKeyPressed = null;
           this.isOpen = false;
           this.isOpenCountDown = true;
+          localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
           let _data = {
             desk_name: this.store.setting.table_no,

@@ -39,5 +39,9 @@
   "change_success": "Change shoe successfully!",
   "verification_failed": "Verification failed!",
   "no_more_bet": "No more bet",
-  "start_bet": "Start betting"
+  "start_bet": "Start betting",
+  "set_time_success": "Set time successfully!",
+  "set_table_success": "Set table successfully!",
+  "set_limit_success": "Successfully changed the table limit!",
+  "set_code_success": "Successfully changed the verification code!"
 }

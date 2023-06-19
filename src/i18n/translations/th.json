@@ -39,5 +39,9 @@
   "change_success": "เปลี่ยนเกมสำเร็จ",
   "verification_failed": "การตรวจสอบล้มเหลว",
   "no_more_bet": "ไม่มีเดิมพันอีกแล้ว",
-  "start_bet": "เริ่มเดิมพัน"
+  "start_bet": "เริ่มเดิมพัน",
+  "set_time_success": "สำเร็จเปลี่ยนเวลาเคาน์เตอร์!",
+  "set_table_success": "สำเร็จเปลี่ยนเลขโต๊ะ!",
+  "set_limit_success": "สำเร็จเปลี่ยนวงเงินราม!",
+  "set_code_success": "สำเร็จเปลี่ยนโค้ดยืนยัน!"
 }
