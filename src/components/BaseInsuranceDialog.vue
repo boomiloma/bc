@@ -43,14 +43,21 @@
                     <h3 class="text-white mb-16 text-5xl capitalize">
                       Insurance for Betting on {{ insuranceType }}
                     </h3>
-                    <div class="middle-arranged">
-                      <div class="left-num" v-if="insuranceType">1</div>
-                      <div class="mb-20">
+                    <div
+                      style="display: flex; justify-content: space-around"
+                      class="mb-10"
+                    >
+                      <div class="flex-1 text-right">
+                        <span v-if="insuranceType" class="left-num"> 1 </span>
+                      </div>
+                      <div class="mt-20 w-70">
                         <h2 class="text-white text-7xl">赔</h2>
                         <h2 class="text-white text-7xl">to</h2>
                       </div>
-                      <div class="ml-10 right-num" v-if="insuranceMax > 0">
-                        {{ insuranceMax }}
+                      <div class="ml-10 flex-1 text-left">
+                        <span v-if="insuranceMax > 0" class="right-num">
+                          {{ insuranceMax }}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -89,7 +96,10 @@ function checkInsuranceType(type) {
 </script>
 <style scoped>
 .golden-border-modal-gray .modal-content {
-  border: 4px solid #ac987d;
+  /* border: 4px solid #ac987d;
+   */
+  border: 10px solid;
+  border-image: linear-gradient(to left, #e7cd7d, #fff3cb) 100;
   border-radius: 10px;
   background: url(../assets/images/gray-1.jpg);
   background-size: cover;
@@ -100,7 +110,7 @@ function checkInsuranceType(type) {
 .golden-border-modal-gray .modal-body:after {
   position: absolute;
   content: "";
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   top: 0;
   left: 0;
   height: 100%;
@@ -113,7 +123,8 @@ function checkInsuranceType(type) {
 }
 
 .golden-border-modal-red .modal-content {
-  border: 4px solid #aca77d;
+  border: 10px solid;
+  border-image: linear-gradient(to left, #e7cd7d, #fff3cb) 100;
   border-radius: 10px;
   background: url(../assets/images/red-1.jpg);
   background-size: cover;
@@ -123,7 +134,7 @@ function checkInsuranceType(type) {
 .golden-border-modal-red .modal-body:after {
   position: absolute;
   content: "";
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
   top: 0;
   left: 0;
   height: 100%;
@@ -150,7 +161,9 @@ function checkInsuranceType(type) {
   margin-right: 50px;
 }
 .golden-border-modal-blue .modal-content {
-  border: 4px solid #ac987d;
+  border: 10px solid;
+  border-image: linear-gradient(to left, #e7cd7d, #fff3cb) 100;
+  box-shadow: inset;
   border-radius: 10px;
   background: url(../assets/images/blue-1.jpg);
   background-size: cover;
@@ -160,7 +173,7 @@ function checkInsuranceType(type) {
 .golden-border-modal-blue .modal-body:after {
   position: absolute;
   content: "";
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
   top: 0;
   left: 0;
   height: 100%;
@@ -173,5 +186,22 @@ function checkInsuranceType(type) {
 }
 .form-group {
   margin-bottom: 10px;
+}
+.text-3D {
+  /* position: absolute;
+  top: 45%;
+  right: 50%;
+  transform: translate(50%, -50%); */
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 150px;
+  font-weight: 700;
+  color: #fafafa;
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+    1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+    1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.4);
 }
 </style>
