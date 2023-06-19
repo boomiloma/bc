@@ -42,7 +42,6 @@
       </div>
     </div>
   </div>
-  <div></div>
 </template>
 
 <script>
@@ -94,6 +93,7 @@ export default {
       roadmap: null,
       roadmapUtils: null,
       lastKeyPressed: null,
+      keyArray: [],
       isOpen: false,
       isOpenCountDown: false,
       config: {
@@ -151,6 +151,12 @@ export default {
       return this.store.setting.shoe_no;
     },
   },
+  mounted() {
+    window.addEventListener("keydown", this.handleKeyDown);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  },
   created() {
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
@@ -164,6 +170,48 @@ export default {
   methods: {
     onChildCabllback(params) {
       alert(params);
+    },
+    mappedResults(arr) {
+      console.log("🚀 ~ file: Home.vue:175 ~ mappedResults ~ arr:", arr);
+      let keys = "";
+      if (arr.includes("1")) {
+        keys = "p";
+      }
+      if (arr.includes("4")) {
+        keys = "b";
+      }
+      if (arr.includes("7")) {
+        keys = "t";
+      }
+      if (arr.includes("1") && arr.includes("2")) {
+        keys = "g";
+      }
+      if (arr.includes("4") && arr.includes("2")) {
+        keys = "w";
+      }
+      if (arr.includes("7") && arr.includes("2")) {
+        keys = "j";
+      }
+      if (arr.includes("1") && arr.includes("5")) {
+        keys = "h";
+      }
+      if (arr.includes("4") && arr.includes("5")) {
+        keys = "e";
+      }
+      if (arr.includes("7") && arr.includes("5")) {
+        keys = "k";
+      }
+      if (arr.includes("1") && arr.includes("8")) {
+        keys = "f";
+      }
+      if (arr.includes("4") && arr.includes("8")) {
+        keys = "q";
+      }
+      if (arr.includes("7") && arr.includes("8")) {
+        keys = "i";
+      }
+
+      return keys;
     },
     initLocalConfig() {
       const localConfig = localStorage.getItem("roadmap-config");
@@ -208,84 +256,75 @@ export default {
       this.isChange += 1;
     },
     handleKeyDown(event) {
-      this.isOpen = false;
-      if (localStorage.getItem("KEYBOARD_GAME") === "true") {
-        switch (event.key) {
-          case "1":
-            this.lastKeyPressed = "p";
-            this.isOpen = true;
-            break;
-          case "2":
-            this.lastKeyPressed = "b";
-            this.isOpen = true;
-            break;
-          case "3":
-            this.lastKeyPressed = "t";
-            this.isOpen = true;
-            break;
-          case "4": // banker wins banker pair
-            this.lastKeyPressed = "q";
-            this.isOpen = true;
+      const keyPressed = event.key;
 
-            break;
-          case "5": // banker wins player pair
-            this.lastKeyPressed = "e";
-            this.isOpen = true;
-            break;
-          case "6": // banker wins banker-pair player-pair
-            this.lastKeyPressed = "w";
-            this.isOpen = true;
-            break;
-          case "7": // player wins player-pair
-            this.lastKeyPressed = "h";
-            this.isOpen = true;
-            break;
-          case "8": // player wins banker-pair
-            this.lastKeyPressed = "f";
-            this.isOpen = true;
-            break;
-          case "9": // player wins  banker-pair player-pair
-            this.lastKeyPressed = "g";
-            this.isOpen = true;
-            break;
-          case "/": // tie banker-pair
-            this.lastKeyPressed = "i";
-            this.isOpen = true;
-            break;
-          case "*": // tie player-pair
-            this.lastKeyPressed = "k";
-            this.isOpen = true;
-            break;
-          case "-": // tie player-pair banker-pair
-            this.lastKeyPressed = "j";
-            this.isOpen = true;
-            break;
-          case ".":
-            this.roadmap.showPrevious();
-            break;
-          case "Enter":
-            if (this.lastKeyPressed && this.lastKeyPressed !== null) {
-              this.push(this.lastKeyPressed);
-              this.lastKeyPressed = null;
-              this.isOpen = false;
-              this.isOpenCountDown = true;
-              localStorage.setItem("KEYBOARD_GAME", "false");
-            } else {
-              // alert("Please press 1 or 2");
-            }
-            break;
-          default:
-            break;
-        }
-      } else if (!this.isOpen) {
-        switch (event.key) {
-          case "0":
-            this.isClear = true;
-            break;
-          default:
-            break;
+      const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
+
+      if (
+        this.keyArray.length === 0 &&
+        !["1", "4", "6", "7"].includes(keyPressed)
+      ) {
+        return; // Exit early if the first element is not 1, 4, or 7
+      }
+
+      if (validNumbers.includes(keyPressed)) {
+        const contains147 =
+          this.keyArray.includes("1") ||
+          this.keyArray.includes("4") ||
+          this.keyArray.includes("6") ||
+          this.keyArray.includes("7");
+        const contains258 =
+          this.keyArray.includes("2") ||
+          this.keyArray.includes("5") ||
+          this.keyArray.includes("8");
+        const contains39 =
+          this.keyArray.includes("3") || this.keyArray.includes("9");
+
+        if (contains147 && ["1", "4", "6", "7"].includes(keyPressed)) {
+          const index = this.keyArray.findIndex((key) =>
+            ["1", "4", "6", "7"].includes(key)
+          );
+          this.keyArray.splice(index, 1, keyPressed);
+        } else if (contains258 && ["2", "5", "8"].includes(keyPressed)) {
+          if (this.keyArray.includes(keyPressed)) {
+            this.keyArray = this.keyArray.filter((key) => key !== keyPressed);
+          } else {
+            const index = this.keyArray.findIndex((key) =>
+              ["2", "5", "8"].includes(key)
+            );
+            this.keyArray.splice(index, 1, keyPressed);
+          }
+        } else if (contains39 && ["3", "9"].includes(keyPressed)) {
+          if (this.keyArray.includes(keyPressed)) {
+            this.keyArray = this.keyArray.filter((key) => key !== keyPressed);
+          } else {
+            const index = this.keyArray.findIndex((key) =>
+              ["3", "9"].includes(key)
+            );
+            this.keyArray.splice(index, 1, keyPressed);
+          }
+        } else if (this.keyArray.length < 3) {
+          this.keyArray.push(keyPressed);
         }
       }
+      const mappedResults = this.mappedResults(this.keyArray);
+      this.lastKeyPressed = mappedResults;
+      this.isOpen = true;
+      console.log("mappedResults:", this.mappedResults(this.keyArray));
+      if (
+        keyPressed === "Enter" &&
+        this.lastKeyPressed &&
+        this.lastKeyPressed !== null
+      ) {
+        this.push(this.lastKeyPressed);
+        this.lastKeyPressed = null;
+        this.isOpen = false;
+        this.isOpenCountDown = true;
+        localStorage.setItem("KEYBOARD_GAME", "false");
+      } else {
+        // alert("Please press 1 or 2");
+      }
+      // this.lastKeyPressed = keyPressed;
     },
     async getResult() {
       let re = await localStorage.getItem("roadmap-results");
