@@ -292,6 +292,10 @@ export default {
       if (keyPressed === "-") {
         if (this.results.length > 0) {
           this.isReplace = !this.isReplace;
+          if (this.isOpen) {
+            this.isOpen = false;
+            localStorage.setItem("KEYBOARD_GAME", "false");
+          }
         }
       }
 
