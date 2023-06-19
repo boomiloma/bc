@@ -260,6 +260,7 @@ export default {
         default:
           break;
       }
+
     },
     handleEdit(rowKey, colKey, value) {
       if (value) {
@@ -275,6 +276,7 @@ export default {
           this.colIndex = value.index;
           return "bg-yellow-200";
         }
+        this.$emit('colIndex', this.colIndex)
       }
     },
   },

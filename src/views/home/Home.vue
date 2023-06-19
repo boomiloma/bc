@@ -7,6 +7,8 @@
   <div class="home">
     <div class="">
       <Header :matches="results.length" />
+            ================={{colIndex}}
+
 
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
@@ -17,6 +19,7 @@
               :isChange="isChange"
               :isReplace="isReplace"
               :Breadplate="roadmap.breadplate"
+              @colIndex="colIndex = $event"
             />
           </div>
           <Sign :results="results" />
@@ -89,6 +92,7 @@ export default {
   },
   data() {
     return {
+      colIndex: '',
       isClear: false,
       isReplace: false,
       isChange: 1,
