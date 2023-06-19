@@ -55,6 +55,7 @@ import DialogCountdown from "@/components/BaseCountDownDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
 import { store } from "@/store/store";
 import useShoe from "@/composables/useShoe";
+import userResult from "@/composables/userResult";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -70,7 +71,8 @@ export default {
   setup() {
     const { t } = useI18n({ useScope: "global" });
     const shoe = useShoe();
-    return { t, shoe };
+    const uResult = userResult();
+    return { t, shoe, uResult };
   },
   components: {
     DialogInput,
@@ -357,6 +359,13 @@ export default {
         this.lastKeyPressed = null;
         this.isOpen = false;
         this.isOpenCountDown = true;
+        let joinResult = Object.values(this.keyArray).join('');
+        let _data = {
+          "desk_name" : this.store.setting.table_no,
+          "result":  joinResult,
+          "result_name" : "Name"
+        }
+        this.uResult.add(_data)
         this.keyArray = [];
         localStorage.setItem("KEYBOARD_GAME", "false");
       } else {
