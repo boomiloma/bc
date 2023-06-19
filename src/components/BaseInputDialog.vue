@@ -231,6 +231,9 @@ export default {
         case "j":
           returnValue = "和";
           break;
+        case "k":
+          returnValue = "和";
+          break;
         case "z":
           returnValue = "6";
           break;

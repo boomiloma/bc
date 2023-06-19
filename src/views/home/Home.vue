@@ -7,9 +7,6 @@
   <div class="home">
     <div class="">
       <Header :matches="results.length" />
-            ================={{colIndex}}
-
-
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -92,7 +89,8 @@ export default {
   },
   data() {
     return {
-      colIndex: '',
+      colValue: "",
+      colIndex: "",
       isClear: false,
       isReplace: false,
       isChange: 1,
@@ -173,7 +171,7 @@ export default {
     window.addEventListener("keydown", this.handleKeyDown);
     this.getResult();
     // this.getResultLocal();
-    localStorage.setItem("KEYBOARD_GAME", "false");
+    localStorage.setItem("KEYBOARD_GAME", false);
     console.log(this.t("table_no"), "table_no");
   },
   methods: {
@@ -280,23 +278,20 @@ export default {
 
       const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
       //  Will use on replacing the last result
+
+      if (
+        this.isReplace &&
+        keyPressed === "Enter" &&
+        localStorage.getItem("KEYBOARD_GAME") === "false"
+      ) {
+        localStorage.setItem("KEYBOARD_GAME", "true");
+        this.lastKeyPressed = this.results[this.colIndex];
+        this.isOpen = true;
+        console.log("CHECK!!", 1);
+      }
       if (keyPressed === "-") {
         if (this.results.length > 0) {
-          this.isReplace = true;
-          // Remove the last element from the results array
-          // this.results.pop();
-
-          // Add the new value to the end of the results array
-          // this.results.push("t");
-          // localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-
-          // this.getResultLocal();
-          // this.initRoadmap();
-          // Alternatively, if you want to replace the last value without adding a new one,
-          // you can directly assign the new value to the last element of the results array
-          // this.results[this.results.length - 1] = newValue;
-
-          console.log("this.results", this.results);
+          this.isReplace = !this.isReplace;
         }
       }
 
@@ -359,21 +354,32 @@ export default {
         this.lastKeyPressed !== null &&
         localStorage.getItem("KEYBOARD_GAME") === "true"
       ) {
-        this.push(this.lastKeyPressed);
-        this.lastKeyPressed = null;
-        this.isOpen = false;
-        this.isOpenCountDown = true;
-        let joinResult = Object.values(this.keyArray).join('');
-        let _data = {
-          "desk_name" : this.store.setting.table_no,
-          "result":  joinResult,
-          "result_name" : "Name"
+        if (this.isReplace) {
+          console.log("CHECK!!", 2, this.isReplace);
+
+          this.isOpen = false;
+          this.results[this.colIndex] = this.lastKeyPressed;
+          localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+          this.isReplace = false;
+          this.colIndex = "";
+          this.lastKeyPressed = null;
+          this.keyArray = [];
+          this.initRoadmap();
+          localStorage.setItem("KEYBOARD_GAME", "false");
+        } else {
+          this.push(this.lastKeyPressed);
+          this.lastKeyPressed = null;
+          this.isOpen = false;
+          this.isOpenCountDown = true;
+          let joinResult = Object.values(this.keyArray).join("");
+          let _data = {
+            desk_name: this.store.setting.table_no,
+            result: joinResult,
+            result_name: "Name",
+          };
+          this.uResult.add(_data);
+          this.keyArray = [];
         }
-        this.uResult.add(_data)
-        this.keyArray = [];
-        localStorage.setItem("KEYBOARD_GAME", "false");
-      } else {
-        // alert("Please press 1 or 2");
       }
     },
     async getResult() {

@@ -109,7 +109,8 @@ export default {
       navRow: 0,
       currentRow: 0,
       currentCol: 0,
-      maxLength: 0,
+      maxRowlength: 0,
+      maxColLength: 0,
       colIndex: 0,
     };
   },
@@ -119,16 +120,11 @@ export default {
   },
   beforeUnmount() {
     // Remove key event listeners when component is unmounted
+
     window.removeEventListener("keydown", this.handleKeyPress);
   },
   methods: {
     handleScroll(isLeft) {
-      console.log(
-        "🚀 ~ file: BreadPlate.vue:191 ~ isChange:",
-        this.Breadplate,
-        this.isReplace
-      );
-
       if (isLeft) {
         this.$refs.beadRoadId.scrollLeft -= 40;
       } else {
@@ -226,7 +222,7 @@ export default {
           returnValue = "t";
           break;
         case "k":
-          returnValue = "6";
+          returnValue = "t";
         case "z":
           returnValue = "6";
         case "r":
@@ -242,41 +238,50 @@ export default {
       return returnValue;
     },
     handleKeyPress(event) {
-      console.log("TT", this.colIndex);
-      const { key } = event;
-      switch (key) {
-        case "8":
-          if (this.currentRow > 0) this.navRow -= 1; // Move up one row
-          break;
-        case "4":
-          if (this.currentCol > 0) this.navCol -= 1; // Move left one column
-          break;
-        case "6":
-          if (this.currentCol + 1 < this.maxLength) this.navCol += 1; // Move right one column
-          break;
-        case "2":
-          if (this.currentRow < 5) this.navRow += 1; // Move down one row
-          break;
-        default:
-          break;
+      // console.log("TT", test);
+      if (this.isReplace && localStorage.getItem("KEYBOARD_GAME") === "false") {
+        const { key } = event;
+        switch (key) {
+          case "8":
+            if (this.currentRow > 0) this.navRow -= 1; // Move up one row
+            break;
+          case "4":
+            if (this.currentCol > 0) this.navCol -= 1; // Move left one column
+            break;
+          case "6":
+            if (this.currentCol + 1 < this.maxRowlength) this.navCol += 1; // Move right one column
+            break;
+          case "2":
+            const test =
+              this.Breadplate.matrix[this.currentRow + 1][this.currentCol];
+            if (test && test !== 0 && this.currentRow < 5) this.navRow += 1; // Move down one row
+            break;
+          default:
+            break;
+        }
       }
-
     },
     handleEdit(rowKey, colKey, value) {
-      if (value) {
+      if (value && this.isReplace) {
         const navRow = this.navRow + this.Breadplate.previousCoordinates[0];
         const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
+
         if (rowKey === navRow && colKey === navCol) {
+          const test2 = this.Breadplate.matrix[rowKey][colKey];
+
+          // console.log("TT", test2, test);
+
           const rowLength = this.Breadplate.matrix[rowKey].filter(
             (item) => item.value
           ).length;
+
           this.currentRow = rowKey;
           this.currentCol = colKey;
-          this.maxLength = rowLength;
+          this.maxRowlength = rowLength;
           this.colIndex = value.index;
           return "bg-yellow-200";
         }
-        this.$emit('colIndex', this.colIndex)
+        this.$emit("colIndex", this.colIndex);
       }
     },
   },
