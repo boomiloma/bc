@@ -314,6 +314,9 @@ import { store } from "@/store/store";
 import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
+import useConfig from "@/composables/useConfig";
+
+const { add } = useConfig();
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
@@ -356,16 +359,44 @@ const currencyChange = () => {
   console.log("fomr", setting.value);
 };
 
-function onSaved(text) {
+async function onSaved(text) {
   console.log("🚀 ~ file: SettingDialog.vue:360 ~ onSaved ~ text:", text);
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
   verifyStatus.value = text;
-
   isVerified.value = true;
   setTimeout(() => {
     isVerified.value = false;
   }, 2000);
+  let saveConfig = {
+    desk_name: setting.value.table_no,
+    boot_num: 0,
+    double_small: setting.value.usd.min_pair,
+    double_max: setting.value.usd.max_pair,
+    draw_small: setting.value.usd.max_bp,
+    draw_max: setting.value.usd.min_bp,
+    six_max: setting.value.usd.min_lucky6,
+    six_small: setting.value.usd.max_lucky6,
+    banker_and_player_max: setting.value.usd.max_tie,
+    banker_and_player_small: setting.value.usd.min_tie,
+    double_small_th: setting.value.thb.min_pair,
+    double_max_th: setting.value.thb.max_pair,
+    draw_small_th: setting.value.thb.max_bp,
+    draw_max_th: setting.value.thb.min_bp,
+    six_max_th: setting.value.thb.min_lucky6,
+    six_small_th: setting.value.thb.max_lucky6,
+    banker_and_player_max_th: setting.value.thb.max_tie,
+    banker_and_player_small_th: setting.value.thb.min_tie,
+    game_num: setting.value.shoe_no,
+    is_online: 1,
+    second: '',
+    status: '',
+    verify: setting.value.verification_code,
+  }
+  let res =  await add(saveConfig)
+  console.log(res)
+  emit("onClose");
+
   // emit("onClose");
 }
 function verifyCode() {
