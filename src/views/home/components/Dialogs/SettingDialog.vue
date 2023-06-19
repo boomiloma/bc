@@ -35,6 +35,17 @@
                   </div>
                 </div>
                 <div class="col-4"></div>
+                <div class="mt-3 row">
+                  <div class="col-5">
+                    <button
+                      @click="onSaved"
+                      type="button"
+                      class="btn-theme btn-1"
+                    >
+                      {{ $t("change_table_id") }}
+                    </button>
+                  </div>
+                </div>
               </div>
               <div class="mt-3 row">
                 <div class="col-12">
@@ -170,6 +181,17 @@
                   <p class="text-white">{{ $t("sec") }}</p>
                 </div>
               </div>
+              <div class="mt-3 row">
+                <div class="col-5">
+                  <button
+                    @click="onSaved"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    {{ $t("change") }}
+                  </button>
+                </div>
+              </div>
               <div class="mt-1 row pt-8">
                 <div class="col-12">
                   <h4 class="text-white">
@@ -191,6 +213,15 @@
                   </div>
                 </div>
                 <div class="col-4"></div>
+                <div class="col-5">
+                  <button
+                    @click="onSaved"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    {{ $t("change") }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

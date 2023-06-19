@@ -31,6 +31,7 @@
         v-for="(col, colKey) in row"
         :key="colKey"
         class="grid__col text-gray-200"
+        :class="handleEdit(rowKey, colKey, col)"
       >
         <div :class="beadRoadResult(col.value)">
           <span
@@ -101,6 +102,24 @@ export default {
     checkChange() {
       return this.isChange;
     },
+  },
+  data() {
+    return {
+      navCol: 0,
+      navRow: 0,
+      currentRow: 0,
+      currentCol: 0,
+      maxLength: 0,
+      colIndex: 0,
+    };
+  },
+  mounted() {
+    // Add key event listeners
+    window.addEventListener("keydown", this.handleKeyPress);
+  },
+  beforeUnmount() {
+    // Remove key event listeners when component is unmounted
+    window.removeEventListener("keydown", this.handleKeyPress);
   },
   methods: {
     handleScroll(isLeft) {
@@ -221,6 +240,42 @@ export default {
           break;
       }
       return returnValue;
+    },
+    handleKeyPress(event) {
+      console.log("TT", this.colIndex);
+      const { key } = event;
+      switch (key) {
+        case "8":
+          if (this.currentRow > 0) this.navRow -= 1; // Move up one row
+          break;
+        case "4":
+          if (this.currentCol > 0) this.navCol -= 1; // Move left one column
+          break;
+        case "6":
+          if (this.currentCol + 1 < this.maxLength) this.navCol += 1; // Move right one column
+          break;
+        case "2":
+          if (this.currentRow < 5) this.navRow += 1; // Move down one row
+          break;
+        default:
+          break;
+      }
+    },
+    handleEdit(rowKey, colKey, value) {
+      if (value) {
+        const navRow = this.navRow + this.Breadplate.previousCoordinates[0];
+        const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
+        if (rowKey === navRow && colKey === navCol) {
+          const rowLength = this.Breadplate.matrix[rowKey].filter(
+            (item) => item.value
+          ).length;
+          this.currentRow = rowKey;
+          this.currentCol = colKey;
+          this.maxLength = rowLength;
+          this.colIndex = value.index;
+          return "bg-yellow-200";
+        }
+      }
     },
   },
 };

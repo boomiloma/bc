@@ -274,25 +274,25 @@ export default {
 
       const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
       //  Will use on replacing the last result
-      // if (keyPressed === "-") {
-      //   if (this.results.length > 0) {
-      //     this.isReplace = true;
-      //     // Remove the last element from the results array
-      //     this.results.pop();
+      if (keyPressed === "-") {
+        if (this.results.length > 0) {
+          this.isReplace = true;
+          // Remove the last element from the results array
+          // this.results.pop();
 
-      //     // Add the new value to the end of the results array
-      //     this.results.push("t");
-      //     localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+          // Add the new value to the end of the results array
+          // this.results.push("t");
+          // localStorage.setItem("roadmap-results", JSON.stringify(this.results));
 
-      //     this.getResultLocal();
-      //     this.initRoadmap();
-      //     // Alternatively, if you want to replace the last value without adding a new one,
-      //     // you can directly assign the new value to the last element of the results array
-      //     // this.results[this.results.length - 1] = newValue;
+          // this.getResultLocal();
+          // this.initRoadmap();
+          // Alternatively, if you want to replace the last value without adding a new one,
+          // you can directly assign the new value to the last element of the results array
+          // this.results[this.results.length - 1] = newValue;
 
-      //     console.log("this.results", this.results);
-      //   }
-      // }
+          console.log("this.results", this.results);
+        }
+      }
 
       if (
         this.keyArray.length === 0 &&
