@@ -4,6 +4,11 @@
     :isOpenCountDown="isOpenCountDown"
     @onClose="isOpenCountDown = false"
   />
+  <DialogInsurance
+    :isInsuranceOpen="isInsuranceOpen"
+    :insuranceType="insuranceType"
+    :insuranceMax="insuranceMax"
+  />
   <div class="home">
     <div class="">
       <Header :matches="results.length" />
@@ -52,6 +57,7 @@ import Roadmap from "@/assets/js/roadmap/Roadmap";
 import RoadmapUtilities from "@/assets/js/roadmap/RoadmapUtilities";
 import DialogInput from "@/components/BaseInputDialog.vue";
 import DialogCountdown from "@/components/BaseCountDownDialog.vue";
+import DialogInsurance from "@/components/BaseInsuranceDialog.vue";
 import DialogSetting from "@/components/BaseSettingDialog.vue";
 import { store } from "@/store/store";
 import useShoe from "@/composables/useShoe";
@@ -86,9 +92,13 @@ export default {
     Icon,
     Sign,
     BreadPlate,
+    DialogInsurance,
   },
   data() {
     return {
+      isInsuranceOpen: false,
+      insuranceType: "",
+      insuranceMax: 0,
       colValue: "",
       colIndex: "",
       isClear: false,
@@ -277,7 +287,6 @@ export default {
       const keyPressed = event.key;
 
       const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
-      //  Will use on replacing the last result
 
       if (
         this.isReplace === true &&
@@ -288,6 +297,32 @@ export default {
         this.lastKeyPressed = this.results[this.colIndex];
         this.isOpen = true;
         console.log("CHECK!!", 1);
+      }
+      if (keyPressed === "+") {
+        if (!this.isInsuranceOpen) {
+          // Clear the previous values
+          this.insuranceType = "";
+          this.insuranceMax = 0;
+        }
+        this.isInsuranceOpen = !this.isInsuranceOpen;
+      } else if (this.isInsuranceOpen && this.insuranceType === "") {
+        if (keyPressed === "4") {
+          this.insuranceType = "banker";
+        } else if (keyPressed === "1") {
+          this.insuranceType = "player";
+        }
+        console.log("Selected Insurance Type:", this.insuranceType);
+      } else if (this.isInsuranceOpen && this.insuranceType !== "") {
+        const number = parseInt(keyPressed);
+        if (!isNaN(number)) {
+          const newInsuranceMax = parseInt(
+            this.insuranceMax.toString() + number.toString()
+          );
+          if (newInsuranceMax.toString().length <= 3) {
+            this.insuranceMax = newInsuranceMax; // Update insuranceMax if it's within 3 digits
+          }
+        }
+        console.log("Insurance Max:", this.insuranceMax);
       }
       if (keyPressed === "-") {
         if (this.results.length > 0) {
