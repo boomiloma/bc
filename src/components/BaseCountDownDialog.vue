@@ -61,7 +61,6 @@ const audio = ref(null);
 const playSoundAndClose = () => {
   audio.value.play();
   audio.value.onended = () => {
-    emit("onClose");
     // alert("onClose");
     // props.isOpenCountDown = false;
   };
@@ -80,6 +79,7 @@ onMounted(() => {
         const countdownInterval = setInterval(() => {
           countdown.value--;
           if (countdown.value === 0) {
+            emit("onClose");
             clearInterval(countdownInterval);
           }
         }, 1000);
