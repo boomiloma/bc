@@ -267,7 +267,11 @@ export default {
         return; // Exit early if the first element is not 1, 4, or 7
       }
 
-      if (validNumbers.includes(keyPressed)) {
+      if (
+        validNumbers.includes(keyPressed) &&
+        localStorage.getItem("KEYBOARD_GAME") === "true"
+      ) {
+        this.isOpen = true;
         const contains147 =
           this.keyArray.includes("1") ||
           this.keyArray.includes("4") ||
@@ -309,8 +313,6 @@ export default {
       }
       const mappedResults = this.mappedResults(this.keyArray);
       this.lastKeyPressed = mappedResults;
-      this.isOpen = true;
-      console.log("mappedResults:", this.mappedResults(this.keyArray));
       if (
         keyPressed === "Enter" &&
         this.lastKeyPressed &&
@@ -320,11 +322,11 @@ export default {
         this.lastKeyPressed = null;
         this.isOpen = false;
         this.isOpenCountDown = true;
+        this.keyArray = [];
         localStorage.setItem("KEYBOARD_GAME", "false");
       } else {
         // alert("Please press 1 or 2");
       }
-      // this.lastKeyPressed = keyPressed;
     },
     async getResult() {
       let re = await localStorage.getItem("roadmap-results");
