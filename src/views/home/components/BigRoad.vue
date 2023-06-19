@@ -117,6 +117,18 @@ export default {
         case "k":
           bigRoadClass = "border-green-500 bg-transparent  border-4";
           break;
+        case "z":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "r":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "s":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "u":
+          bigRoadClass = "banker_big_road";
+          break;
         default:
           break;
       }

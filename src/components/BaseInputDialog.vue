@@ -50,7 +50,9 @@
                             lastKeyPressed === 'f' ||
                             lastKeyPressed === 'g' ||
                             lastKeyPressed === 'i' ||
-                            lastKeyPressed === 'j'
+                            lastKeyPressed === 'j' ||
+                            lastKeyPressed === 'r' ||
+                            lastKeyPressed === 'u'
                           "
                           class="big-red-dot-left-top"
                         ></span>
@@ -61,7 +63,9 @@
                             lastKeyPressed === 'g' ||
                             lastKeyPressed === 'w' ||
                             lastKeyPressed === 'j' ||
-                            lastKeyPressed === 'k'
+                            lastKeyPressed === 'k' ||
+                            lastKeyPressed === 'u' ||
+                            lastKeyPressed === 's'
                           "
                           class="big-blue-dot-right-bottom"
                         ></span>
@@ -176,6 +180,17 @@ export default {
         case "k":
           return "tie-win";
           break;
+        case "z":
+          return "banker-win";
+          break;
+        case "r":
+          return "banker-win";
+          break;
+        case "s":
+          return "banker-win";
+          break;
+        case "u":
+          return "banker-win";
         default:
           break;
       }
@@ -216,8 +231,17 @@ export default {
         case "j":
           returnValue = "和";
           break;
-        case "k":
-          returnValue = "和";
+        case "z":
+          returnValue = "6";
+          break;
+        case "r":
+          returnValue = "6";
+          break;
+        case "s":
+          returnValue = "6";
+          break;
+        case "u":
+          returnValue = "6";
           break;
         default:
           break;

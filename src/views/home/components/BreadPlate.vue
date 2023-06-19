@@ -40,7 +40,10 @@
               (col && col.value === 'f') ||
               (col && col.value === 'g') ||
               (col && col.value === 'i') ||
-              (col && col.value === 'j')
+              (col && col.value === 'j') ||
+              (col && col.value === 'z') ||
+              (col && col.value === 'r') ||
+              (col && col.value === 'u')
             "
             class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -51,7 +54,9 @@
               (col && col.value === 'g') ||
               (col && col.value === 'w') ||
               (col && col.value === 'j') ||
-              (col && col.value === 'k')
+              (col && col.value === 'k') ||
+              (col && col.value === 's') ||
+              (col && col.value === 'u')
             "
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -139,6 +144,14 @@ export default {
           break;
         case "k":
           beadRoadClass = "tie";
+        case "z":
+          beadRoadClass = "banker";
+        case "r":
+          beadRoadClass = "banker";
+        case "s":
+          beadRoadClass = "banker";
+        case "u":
+          beadRoadClass = "banker";
           break;
         default:
           break;
@@ -184,7 +197,15 @@ export default {
           returnValue = "t";
           break;
         case "k":
-          returnValue = "t";
+          returnValue = "6";
+        case "z":
+          returnValue = "6";
+        case "r":
+          returnValue = "6";
+        case "s":
+          returnValue = "6";
+        case "u":
+          returnValue = "6";
           break;
         default:
           break;

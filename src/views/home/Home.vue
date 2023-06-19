@@ -172,7 +172,6 @@ export default {
       alert(params);
     },
     mappedResults(arr) {
-      console.log("🚀 ~ file: Home.vue:175 ~ mappedResults ~ arr:", arr);
       let keys = "";
       if (arr.includes("1")) {
         keys = "p";
@@ -209,6 +208,18 @@ export default {
       }
       if (arr.includes("7") && arr.includes("8")) {
         keys = "i";
+      }
+      if (arr.includes("6")) {
+        keys = "z";
+      }
+      if (arr.includes("6") && arr.includes("2")) {
+        keys = "u";
+      }
+      if (arr.includes("6") && arr.includes("5")) {
+        keys = "r";
+      }
+      if (arr.includes("6") && arr.includes("8")) {
+        keys = "s";
       }
 
       return keys;

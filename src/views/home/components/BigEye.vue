@@ -160,6 +160,18 @@ export default {
         case "h":
           customPlateClass = "player_custom_big_eye";
           break;
+        case "z":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "r":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "s":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "u":
+          customPlateClass = "banker_custom_big_eye";
+          break;
         default:
           break;
       }

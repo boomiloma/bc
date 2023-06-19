@@ -17,6 +17,10 @@ export default class Roadmap {
       m: "banker", // banker banker-pair
       n: "banker", // banker banker-pair player-pair
       o: "banker", // banker player-pair
+      z: "banker", // lucky 6
+      r: "banker", // lucky 6 banker-pair
+      s: "banker", // lucky 6 player-pair
+      u: "banker", // lucky 6 banker-pair player-pair
     };
   }
 
@@ -65,23 +69,22 @@ export default class Roadmap {
     });
   }
 
-  
   equalizeArrays() {
     let maxLength = 0;
-    let arrays = this.matrix
+    let arrays = this.matrix;
     for (let i = 0; i < arrays.length; i++) {
-        if (arrays[i].length > maxLength) {
-            maxLength = arrays[i].length;
-        }
+      if (arrays[i].length > maxLength) {
+        maxLength = arrays[i].length;
+      }
     }
     for (let i = 0; i < arrays.length; i++) {
-        while (arrays[i].length < maxLength) {
-            arrays[i].push(0);
-        }
+      while (arrays[i].length < maxLength) {
+        arrays[i].push(0);
+      }
     }
     return arrays;
     // this.matrix = arrays
-}
+  }
 
   /**
    * Used as utility getter for sub classes
