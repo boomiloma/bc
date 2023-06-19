@@ -83,7 +83,13 @@ export default {
     const { t } = useI18n({ useScope: "global" });
     return { t };
   },
-  props: ["BreadPlateResults", "results", "isChange"],
+  props: [
+    "BreadPlateResults",
+    "results",
+    "isChange",
+    "isReplace",
+    "Breadplate",
+  ],
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.beadRoadId;
@@ -98,7 +104,11 @@ export default {
   },
   methods: {
     handleScroll(isLeft) {
-      console.log("🚀 ~ file: BreadPlate.vue:191 ~ isChange:", this.isChange);
+      console.log(
+        "🚀 ~ file: BreadPlate.vue:191 ~ isChange:",
+        this.Breadplate,
+        this.isReplace
+      );
 
       if (isLeft) {
         this.$refs.beadRoadId.scrollLeft -= 40;

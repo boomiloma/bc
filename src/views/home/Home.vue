@@ -15,6 +15,8 @@
               :BreadPlateResults="roadmap.breadplate.matrix"
               :results="results"
               :isChange="isChange"
+              :isReplace="isReplace"
+              :Breadplate="roadmap.breadplate"
             />
           </div>
           <Sign :results="results" />
@@ -86,6 +88,7 @@ export default {
   data() {
     return {
       isClear: false,
+      isReplace: false,
       isChange: 1,
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
@@ -270,6 +273,26 @@ export default {
       const keyPressed = event.key;
 
       const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
+      //  Will use on replacing the last result
+      // if (keyPressed === "-") {
+      //   if (this.results.length > 0) {
+      //     this.isReplace = true;
+      //     // Remove the last element from the results array
+      //     this.results.pop();
+
+      //     // Add the new value to the end of the results array
+      //     this.results.push("t");
+      //     localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+
+      //     this.getResultLocal();
+      //     this.initRoadmap();
+      //     // Alternatively, if you want to replace the last value without adding a new one,
+      //     // you can directly assign the new value to the last element of the results array
+      //     // this.results[this.results.length - 1] = newValue;
+
+      //     console.log("this.results", this.results);
+      //   }
+      // }
 
       if (
         this.keyArray.length === 0 &&
@@ -327,7 +350,8 @@ export default {
       if (
         keyPressed === "Enter" &&
         this.lastKeyPressed &&
-        this.lastKeyPressed !== null
+        this.lastKeyPressed !== null &&
+        localStorage.getItem("KEYBOARD_GAME") === "true"
       ) {
         this.push(this.lastKeyPressed);
         this.lastKeyPressed = null;
