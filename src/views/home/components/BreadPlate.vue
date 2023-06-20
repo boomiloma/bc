@@ -35,61 +35,11 @@
       >
         <div :class="beadRoadResult(col.value)">
           <span
-            v-if="
-              (col && col.value === 'q') ||
-              (col && col.value === 'w') ||
-              (col && col.value === 'f') ||
-              (col && col.value === 'g') ||
-              (col && col.value === 'i') ||
-              (col && col.value === 'j') ||
-              (col && col.value === 'r') ||
-              (col && col.value === 'u') ||
-              (col && col.value === 'aq') ||
-              (col && col.value === 'aw') ||
-              (col && col.value === 'cq') ||
-              (col && col.value === 'cw') ||
-              (col && col.value === 'df') ||
-              (col && col.value === 'dg') ||
-              (col && col.value === 'xf') ||
-              (col && col.value === 'xg') ||
-              (col && col.value === 'vi') ||
-              (col && col.value === 'vj') ||
-              (col && col.value === 'yi') ||
-              (col && col.value === 'yj') ||
-              (col && col.value === 'za') ||
-              (col && col.value === 'zb') ||
-              (col && col.value === 'ze') ||
-              (col && col.value === 'zf')
-            "
+            v-if="beadRoadBankerPair(col.value)"
             class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <span
-            v-if="
-              (col && col.value === 'e') ||
-              (col && col.value === 'h') ||
-              (col && col.value === 'g') ||
-              (col && col.value === 'w') ||
-              (col && col.value === 'j') ||
-              (col && col.value === 'k') ||
-              (col && col.value === 's') ||
-              (col && col.value === 'u') ||
-              (col && col.value === 'ae') ||
-              (col && col.value === 'aw') ||
-              (col && col.value === 'ce') ||
-              (col && col.value === 'cw') ||
-              (col && col.value === 'dh') ||
-              (col && col.value === 'dg') ||
-              (col && col.value === 'xh') ||
-              (col && col.value === 'xg') ||
-              (col && col.value === 'yk') ||
-              (col && col.value === 'vj') ||
-              (col && col.value === 'yj') ||
-              (col && col.value === 'vk') ||
-              (col && col.value === 'zb') ||
-              (col && col.value === 'zc') ||
-              (col && col.value === 'zf') ||
-              (col && col.value === 'zg')
-            "
+            v-if="beadRoadPlayerPair(col.value)"
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <div>
@@ -107,6 +57,7 @@
 // @ is an alias to /src
 import { Icon } from "@iconify/vue";
 import { useI18n } from "vue-i18n";
+import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 export default {
   components: {
     Icon,
@@ -146,12 +97,9 @@ export default {
     };
   },
   mounted() {
-    // Add key event listeners
     window.addEventListener("keydown", this.handleKeyPress);
   },
   beforeUnmount() {
-    // Remove key event listeners when component is unmounted
-
     window.removeEventListener("keydown", this.handleKeyPress);
   },
   methods: {
@@ -163,355 +111,18 @@ export default {
       }
     },
     beadRoadResult(value) {
-      let beadRoadClass = "";
-      switch (value) {
-        case "b":
-          beadRoadClass = "banker";
-          break;
-        case "p":
-          beadRoadClass = "player";
-          break;
-        case "t":
-          beadRoadClass = "tie";
-          break;
-        case "q":
-          beadRoadClass = "banker";
-          break;
-        case "w":
-          beadRoadClass = "banker";
-          break;
-        case "e":
-          beadRoadClass = "banker";
-          break;
-        case "f":
-          beadRoadClass = "player";
-          break;
-        case "g":
-          beadRoadClass = "player";
-          break;
-        case "h":
-          beadRoadClass = "player";
-          break;
-        case "i":
-          beadRoadClass = "tie";
-          break;
-        case "j":
-          beadRoadClass = "tie";
-          break;
-        case "k":
-          beadRoadClass = "tie";
-          break;
-
-        case "z":
-          beadRoadClass = "banker";
-          break;
-
-        case "r":
-          beadRoadClass = "banker";
-          break;
-
-        case "s":
-          beadRoadClass = "banker";
-          break;
-
-        case "u":
-          beadRoadClass = "banker";
-          break;
-        case "a":
-          beadRoadClass = "banker";
-          break;
-
-        case "c":
-          beadRoadClass = "banker";
-          break;
-
-        case "aq":
-          beadRoadClass = "banker";
-          break;
-
-        case "aw":
-          beadRoadClass = "banker";
-          break;
-
-        case "ae":
-          beadRoadClass = "banker";
-          break;
-
-        case "cq":
-          beadRoadClass = "banker";
-          break;
-
-        case "cw":
-          beadRoadClass = "banker";
-          break;
-
-        case "ce":
-          beadRoadClass = "banker";
-          break;
-
-        case "d":
-          beadRoadClass = "player";
-          break;
-
-        case "x":
-          beadRoadClass = "player";
-          break;
-
-        case "df":
-          beadRoadClass = "player";
-          break;
-
-        case "dg":
-          beadRoadClass = "player";
-          break;
-
-        case "dh":
-          beadRoadClass = "player";
-          break;
-
-        case "xf":
-          beadRoadClass = "player";
-          break;
-
-        case "xg":
-          beadRoadClass = "player";
-          break;
-
-        case "xh":
-          beadRoadClass = "player";
-          break;
-
-        case "v":
-          beadRoadClass = "tie";
-          break;
-
-        case "y":
-          beadRoadClass = "tie";
-          break;
-
-        case "vi":
-          beadRoadClass = "tie";
-          break;
-
-        case "vj":
-          beadRoadClass = "tie";
-          break;
-
-        case "vk":
-          beadRoadClass = "tie";
-          break;
-
-        case "yi":
-          beadRoadClass = "tie";
-          break;
-
-        case "yj":
-          beadRoadClass = "tie";
-          break;
-
-        case "yk":
-          beadRoadClass = "tie";
-          break;
-        case "zh":
-          beadRoadClass = "banker";
-          break;
-
-        case "za":
-          beadRoadClass = "banker";
-          break;
-
-        case "zb":
-          beadRoadClass = "banker";
-          break;
-
-        case "zc":
-          beadRoadClass = "banker";
-          break;
-
-        case "zd":
-          beadRoadClass = "banker";
-          break;
-
-        case "ze":
-          beadRoadClass = "banker";
-          break;
-
-        case "zf":
-          beadRoadClass = "banker";
-          break;
-
-        case "zg":
-          beadRoadClass = "banker";
-          break;
-        default:
-          break;
-      }
-      return (
-        "flex flex-col justify-center items-center relative " + beadRoadClass
-      );
+      return MappingUtils.BeadRoadResult(value);
     },
     beadRoadValue(value) {
-      let returnValue = "";
-      switch (value) {
-        case "b":
-          returnValue = "b";
-          break;
-        case "p":
-          returnValue = "p";
-          break;
-        case "t":
-          returnValue = "t";
-          break;
-        case "q":
-          returnValue = "b";
-          break;
-        case "w":
-          returnValue = "b";
-          break;
-        case "e":
-          returnValue = "b";
-          break;
-        case "f":
-          returnValue = "p";
-          break;
-        case "g":
-          returnValue = "p";
-          break;
-        case "h":
-          returnValue = "p";
-          break;
-        case "i":
-          returnValue = "t";
-          break;
-        case "j":
-          returnValue = "t";
-          break;
-        case "k":
-          returnValue = "t";
-          break;
-        case "z":
-          returnValue = "6";
-          break;
-        case "r":
-          returnValue = "6";
-          break;
-        case "s":
-          returnValue = "6";
-          break;
-        case "u":
-          returnValue = "6";
-          break;
-        case "a":
-          returnValue = "b";
-          break;
-        case "c":
-          returnValue = "b";
-          break;
-        case "aq":
-          returnValue = "b";
-          break;
-        case "aw":
-          returnValue = "b";
-          break;
-        case "ae":
-          returnValue = "b";
-          break;
-        case "cq":
-          returnValue = "b";
-          break;
-        case "cw":
-          returnValue = "b";
-          break;
-        case "ce":
-          returnValue = "b";
-          break;
-        case "d":
-          returnValue = "p";
-          break;
-        case "x":
-          returnValue = "p";
-          break;
-        case "df":
-          returnValue = "p";
-          break;
-        case "dg":
-          returnValue = "p";
-          break;
-        case "dh":
-          returnValue = "p";
-          break;
-        case "xf":
-          returnValue = "p";
-          break;
-        case "xg":
-          returnValue = "p";
-          break;
-        case "xh":
-          returnValue = "p";
-          break;
-        case "v":
-          returnValue = "t";
-          break;
-        case "y":
-          returnValue = "t";
-          break;
-        case "vi":
-          returnValue = "t";
-          break;
-        case "vj":
-          returnValue = "t";
-          break;
-        case "vk":
-          returnValue = "t";
-          break;
-        case "yi":
-          returnValue = "t";
-          break;
-        case "yj":
-          returnValue = "t";
-          break;
-        case "yk":
-          returnValue = "t";
-          break;
-
-        case "zh":
-          returnValue = "6";
-          break;
-
-        case "za":
-          returnValue = "6";
-          break;
-
-        case "zb":
-          returnValue = "6";
-          break;
-
-        case "zc":
-          returnValue = "6";
-          break;
-
-        case "zd":
-          returnValue = "6";
-          break;
-
-        case "ze":
-          returnValue = "6";
-          break;
-
-        case "zf":
-          returnValue = "6";
-          break;
-
-        case "zg":
-          returnValue = "6";
-          break;
-        default:
-          break;
-      }
-      return returnValue;
+      return MappingUtils.BeadRoadValue(value);
+    },
+    beadRoadBankerPair(value) {
+      return MappingUtils.BeadRoadBankerPair(value);
+    },
+    beadRoadPlayerPair(value) {
+      return MappingUtils.BeadRoadPlayerPair(value);
     },
     handleKeyPress(event) {
-      // console.log("TT", test);
       if (this.isReplace && localStorage.getItem("KEYBOARD_GAME") === "false") {
         const { key } = event;
         switch (key) {
@@ -540,10 +151,6 @@ export default {
         const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
 
         if (rowKey === navRow && colKey === navCol) {
-          const test2 = this.Breadplate.matrix[rowKey][colKey];
-
-          // console.log("TT", test2, test);
-
           const rowLength = this.Breadplate.matrix[rowKey].filter(
             (item) => item.value
           ).length;

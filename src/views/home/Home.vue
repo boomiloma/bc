@@ -71,7 +71,7 @@ import Header from "./components/Header.vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import { Icon } from "@iconify/vue";
 import { useI18n } from "vue-i18n";
-
+import MappingUtils from "@/assets/js/roadmap/MappingUtils";
 export default {
   name: "Home",
   setup() {
@@ -187,260 +187,6 @@ export default {
   methods: {
     onChildCabllback(params) {
       alert(params);
-    },
-    // reverseMappedResults(input) {
-    //   const mappings = {
-    //     p: "1",
-    //     b: "4",
-    //     t: "7",
-    //     d: "1,3",
-    //     x: "1,9",
-    //     a: "4,3",
-    //     c: "4,9",
-    //     v: "7,3",
-    //     y: "7,9",
-    //     g: "1,2",
-    //     w: "4,2",
-    //     j: "7,2",
-    //     h: "1,5",
-    //     e: "4,5",
-    //     k: "7,5",
-    //     f: "1,8",
-    //     q: "4,8",
-    //     i: "7,8",
-    //     z: "6",
-    //     u: "6,2",
-    //     r: "6,5",
-    //     s: "6,8",
-    //     df: "1,8,3",
-    //     xf: "1,8,9",
-    //     dh: "1,5,3",
-    //     xh: "1,5,9",
-    //     dg: "1,2,3",
-    //     xg: "1,2,9",
-    //     aq: "4,8,3",
-    //     cq: "4,8,9",
-    //     ae: "4,5,3",
-    //     ce: "4,5,9",
-    //     aw: "4,2,3",
-    //     cw: "4,2,9",
-    //     vi: "7,8,3",
-    //     yi: "7,8,9",
-    //     vk: "7,5,3",
-    //     yk: "7,5,9",
-    //     vj: "7,2,3",
-    //     yj: "7,2,9",
-    //     zh: "6,3",
-    //     zd: "6,9",
-    //     za: "6,8,3",
-    //     ze: "6,8,9",
-    //     zc: "6,5,3",
-    //     zg: "6,5,9",
-    //     zb: "6,2,3",
-    //     zf: "6,2,9",
-    //   };
-
-    //   let arr = [];
-    //   if (typeof input === "string") {
-    //     arr = input.split(",");
-    //   } else if (Array.isArray(input)) {
-    //     arr = input;
-    //   }
-
-    //   const keys = arr
-    //     .map((item) => mappings[item] || "")
-    //     .join()
-    //     .split(",");
-
-    //   return keys.filter(Boolean);
-    // },
-
-    mappedResults(arr) {
-      let keys = "";
-      if (arr.includes("1")) {
-        keys = "p";
-      }
-      if (arr.includes("4")) {
-        keys = "b";
-      }
-      if (arr.includes("7")) {
-        keys = "t";
-      }
-      if (arr.includes("1") && arr.includes("3")) {
-        // Player Small
-        keys = "d";
-      }
-      if (arr.includes("1") && arr.includes("9")) {
-        // Player Big
-        keys = "x";
-      }
-      if (arr.includes("4") && arr.includes("3")) {
-        //Banker Small
-        keys = "a";
-      }
-      if (arr.includes("4") && arr.includes("9")) {
-        //Banker Big
-        keys = "c";
-      }
-      if (arr.includes("7") && arr.includes("3")) {
-        //Tie Small
-        keys = "v";
-      }
-      if (arr.includes("7") && arr.includes("9")) {
-        //Tie Big
-        keys = "y";
-      }
-      if (arr.includes("1") && arr.includes("2")) {
-        keys = "g";
-      }
-      if (arr.includes("4") && arr.includes("2")) {
-        keys = "w";
-      }
-      if (arr.includes("7") && arr.includes("2")) {
-        keys = "j";
-      }
-      if (arr.includes("1") && arr.includes("5")) {
-        keys = "h";
-      }
-      if (arr.includes("4") && arr.includes("5")) {
-        keys = "e";
-      }
-      if (arr.includes("7") && arr.includes("5")) {
-        keys = "k";
-      }
-      if (arr.includes("1") && arr.includes("8")) {
-        keys = "f";
-      }
-      if (arr.includes("4") && arr.includes("8")) {
-        keys = "q";
-      }
-      if (arr.includes("7") && arr.includes("8")) {
-        keys = "i";
-      }
-      if (arr.includes("6")) {
-        keys = "z";
-      }
-      if (arr.includes("6") && arr.includes("2")) {
-        keys = "u";
-      }
-      if (arr.includes("6") && arr.includes("5")) {
-        keys = "r";
-      }
-      if (arr.includes("6") && arr.includes("8")) {
-        keys = "s";
-      }
-      // PLAYER WITH SMALL AND BIG
-      if (arr.includes("1") && arr.includes("8") && arr.includes("3")) {
-        // Player - Banker Pair Small
-        keys = "df";
-      }
-      if (arr.includes("1") && arr.includes("8") && arr.includes("9")) {
-        // Player - Banker Pair Big
-        keys = "xf";
-      }
-      if (arr.includes("1") && arr.includes("5") && arr.includes("3")) {
-        // Player - Player Pair Small
-        keys = "dh";
-      }
-      if (arr.includes("1") && arr.includes("5") && arr.includes("9")) {
-        // Player - Player Pair Big
-        keys = "xh";
-      }
-      if (arr.includes("1") && arr.includes("2") && arr.includes("3")) {
-        // Player - Banker & Player Pair Small
-        keys = "dg";
-      }
-      if (arr.includes("1") && arr.includes("2") && arr.includes("9")) {
-        // Player - Banker & Player Pair Big
-        keys = "xg";
-      }
-      // BANKER WITH SMALL AND BIG
-      if (arr.includes("4") && arr.includes("8") && arr.includes("3")) {
-        // Banker - Banker Pair Small
-        keys = "aq";
-      }
-      if (arr.includes("4") && arr.includes("8") && arr.includes("9")) {
-        // Banker - Banker Pair Big
-        keys = "cq";
-      }
-      if (arr.includes("4") && arr.includes("5") && arr.includes("3")) {
-        // Banker - Player Pair Small
-        keys = "ae";
-      }
-      if (arr.includes("4") && arr.includes("5") && arr.includes("9")) {
-        // Banker - Player Pair Big
-        keys = "ce";
-      }
-      if (arr.includes("4") && arr.includes("2") && arr.includes("3")) {
-        // Banker - Banker & Player Pair Small
-        keys = "aw";
-      }
-      if (arr.includes("4") && arr.includes("2") && arr.includes("9")) {
-        // Banker - Banker & Player Pair Big
-        keys = "cw";
-      }
-
-      // TIE WITH SMALL AND BIG
-      if (arr.includes("7") && arr.includes("8") && arr.includes("3")) {
-        // TIE - Banker Pair Small
-        keys = "vi";
-      }
-      if (arr.includes("7") && arr.includes("8") && arr.includes("9")) {
-        // TIE - Banker Pair Big
-        keys = "yi";
-      }
-      if (arr.includes("7") && arr.includes("5") && arr.includes("3")) {
-        // TIE - Player Pair Small
-        keys = "vk";
-      }
-      if (arr.includes("7") && arr.includes("5") && arr.includes("9")) {
-        // TIE - Player Pair
-        keys = "yk";
-      }
-      if (arr.includes("7") && arr.includes("2") && arr.includes("3")) {
-        // Tie - Banker & Player Pair Small
-        keys = "vj";
-      }
-      if (arr.includes("7") && arr.includes("2") && arr.includes("9")) {
-        // Tie - Banker & Player Pair Big
-        keys = "yj";
-      }
-
-      if (arr.includes("6") && arr.includes("3")) {
-        //Lucky 6 Small
-        keys = "zh";
-      }
-      if (arr.includes("6") && arr.includes("9")) {
-        //Lucky 6 Big
-        keys = "zd";
-      }
-      // Lucky 6 with Small and Big Pair
-      if (arr.includes("6") && arr.includes("8") && arr.includes("3")) {
-        // Lucky 6 - Banker Pair Small
-        keys = "za";
-      }
-      if (arr.includes("6") && arr.includes("8") && arr.includes("9")) {
-        // Lucky 6 - Banker Pair Big
-        keys = "ze";
-      }
-      if (arr.includes("6") && arr.includes("5") && arr.includes("3")) {
-        // Lucky 6 - Player Pair Small
-        keys = "zc";
-      }
-      if (arr.includes("6") && arr.includes("5") && arr.includes("9")) {
-        // Lucky 6 - Player Pair Big
-        keys = "zg";
-      }
-      if (arr.includes("6") && arr.includes("2") && arr.includes("3")) {
-        // Lucky 6 - Banker & Player Pair Small
-        keys = "zb";
-      }
-      if (arr.includes("6") && arr.includes("2") && arr.includes("9")) {
-        // Lucky 6 - Banker & Player Pair Big
-        keys = "zf";
-      }
-
-      return keys;
     },
     initLocalConfig() {
       const localConfig = localStorage.getItem("roadmap-config");
@@ -597,7 +343,7 @@ export default {
           this.keyArray.push(keyPressed);
         }
       }
-      const mappedResults = this.mappedResults(this.keyArray);
+      const mappedResults = MappingUtils.mappedResults(this.keyArray);
       this.lastKeyPressed = mappedResults;
 
       if (
@@ -638,7 +384,7 @@ export default {
             result: joinResult,
             result_name: "Name",
             boot_num: this.store.setting.shoe_no,
-            game_num: this.results.length
+            game_num: this.results.length,
           };
 
           // add to tatabase
@@ -683,5 +429,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "./styles/Home";
-// @import "./styles/Dialogs/SettingsDialog.scss";
 </style>
