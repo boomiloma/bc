@@ -8,10 +8,14 @@
     <div class="flex flex-col gap-5 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div class="banker-fill">
-          <span class="main"> {{ $t("b") }} </span>
+          <span class="main hover:cursor-pointer">
+            {{ $t("b") }}
+          </span>
         </div>
         <div class="player-fill">
-          <span class="main"> {{ $t("p") }} </span>
+          <span class="main hover:cursor-pointer">
+            {{ $t("p") }}
+          </span>
         </div>
       </div>
       <div class="flex flex-row items-center justify-evenly gap-1">
@@ -251,6 +255,13 @@ export default {
           result === "k"
       ).length;
     },
+
+    // predictBanker() {
+    //   this.$emit("bankerPredict");
+    // },
+    // predictPlayer() {
+    //   this.$emit("playerPredict");
+    // },
     async onLoad() {
       let getSetting = await localStorage.getItem("setting");
       if (getSetting) {

@@ -11,7 +11,11 @@
   />
   <div class="home">
     <div class="">
-      <Header :matches="results.length" ref="headerComponent" @start="onStartGame" />
+      <Header
+        :matches="results.length"
+        ref="headerComponent"
+        @start="onStartGame"
+      />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -185,7 +189,6 @@ export default {
     this.getResult();
     localStorage.setItem("KEYBOARD_GAME", false);
     console.log(this.t("table_no"), "table_no");
-
   },
   methods: {
     onChildCabllback(params) {
@@ -226,7 +229,6 @@ export default {
         config: this.config,
       });
     },
-
     push(key) {
       this.isChange += 1;
       this.results.push(key);
@@ -383,7 +385,8 @@ export default {
           let _data = {
             desk_name: this.store.setting.table_no,
             result: joinResult,
-            result_name: this.roadmapUtils.identityDictionary[this.lastKeyPressed],
+            result_name:
+              this.roadmapUtils.identityDictionary[this.lastKeyPressed],
             boot_num: this.store.setting.shoe_no,
             game_num: this.results.length,
           };
@@ -415,16 +418,48 @@ export default {
       }
     },
     async getConfig() {
-      try { 
-        let cof = await this.uConfig.get('');
+      try {
+        let cof = await this.uConfig.get("");
         console.log(cof, "config");
-      } catch (e) { 
-        console.log('error', e);
+      } catch (e) {
+        console.log("error", e);
       }
     },
-    onStartGame(){
+    onStartGame() {
       this.getConfig();
-    }
+    },
+    // predictBanker() {
+    //   console.log("BANKER");
+    //   if (this.store.isPredict === false) {
+    //     this.store.isPredict = true;
+    //     this.push("b");
+
+    //     setTimeout(() => {
+    //       this.results.pop();
+    //       this.initRoadmap();
+    //     }, 3000);
+    //   } else {
+    //     this.results.pop();
+    //     this.results.push("b");
+
+    //     setTimeout(() => {
+    //       this.results.pop();
+    //       this.initRoadmap();
+    //     }, 3000);
+    //   }
+    //   this.initRoadmap();
+    // },
+    // predictPlayer() {
+    //   console.log("Player");
+    //   if (this.store.isPredict === false) {
+    //     this.store.isPredict = true;
+    //     this.push("p");
+    //   } else {
+    //     this.results.pop();
+    //     this.results.push("p");
+    //   }
+    //   this.initRoadmap();
+    // },
   },
 };
 </script>
