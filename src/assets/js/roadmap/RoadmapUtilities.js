@@ -21,6 +21,35 @@ export default class Roadmap {
       r: "banker", // lucky 6 banker-pair
       s: "banker", // lucky 6 player-pair
       u: "banker", // lucky 6 banker-pair player-pair
+
+      a: "banker", // banker small
+      aq: "banker", // banker banker-pair small
+      aw: "banker", // banker banker-pair player-pair small
+      ae: "banker", // banker player-pair small
+      c: "banker", // banker big
+      cq: "banker", // banker banker-pair big
+      cw: "banker", // banker banker-pair player-pair big
+      ce: "banker", // banker player-pair big
+
+      d: "player", // player small
+      df: "player", // player banker-pair
+      dg: "player", // player banker-pair player-pair
+      dh: "player", // player player-pair
+
+      x: "player", // player big
+      xf: "player", // player banker-pair
+      xg: "player", // player banker-pair player-pair
+      xh: "player", // player player-pair
+
+      v: "tie", // tie small
+      vi: "tie", // tie banker-pair
+      vj: "tie", // tie banker-pair player-pair
+      vk: "tie", // tie player-pair
+
+      y: "tie", // tie big
+      yi: "tie", // tie banker-pair
+      yj: "tie", // tie banker-pair player-pair
+      yk: "tie", // tie player-pair
     };
   }
 

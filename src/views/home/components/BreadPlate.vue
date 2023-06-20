@@ -43,7 +43,19 @@
               (col && col.value === 'i') ||
               (col && col.value === 'j') ||
               (col && col.value === 'r') ||
-              (col && col.value === 'u')
+              (col && col.value === 'u') ||
+              (col && col.value === 'aq') ||
+              (col && col.value === 'aw') ||
+              (col && col.value === 'cq') ||
+              (col && col.value === 'cw') ||
+              (col && col.value === 'df') ||
+              (col && col.value === 'dg') ||
+              (col && col.value === 'xf') ||
+              (col && col.value === 'xg') ||
+              (col && col.value === 'vi') ||
+              (col && col.value === 'vj') ||
+              (col && col.value === 'yi') ||
+              (col && col.value === 'yj')
             "
             class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -56,7 +68,20 @@
               (col && col.value === 'j') ||
               (col && col.value === 'k') ||
               (col && col.value === 's') ||
-              (col && col.value === 'u')
+              (col && col.value === 'u') ||
+              (col && col.value === 'ae') ||
+              (col && col.value === 'aw') ||
+              (col && col.value === 'ce') ||
+              (col && col.value === 'cw') ||
+              (col && col.value === 'dh') ||
+              (col && col.value === 'dg') ||
+              (col && col.value === 'xh') ||
+              (col && col.value === 'xg') ||
+              (col && col.value === 'yk') ||
+              (col && col.value === 'vj') ||
+              (col && col.value === 'yk') ||
+              (col && col.value === 'yj') ||
+              (col && col.value === 'vk')
             "
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -168,14 +193,119 @@ export default {
           break;
         case "k":
           beadRoadClass = "tie";
+          break;
+
         case "z":
           beadRoadClass = "banker";
+          break;
+
         case "r":
           beadRoadClass = "banker";
+          break;
+
         case "s":
           beadRoadClass = "banker";
+          break;
+
         case "u":
           beadRoadClass = "banker";
+          break;
+        case "a":
+          beadRoadClass = "banker";
+          break;
+
+        case "c":
+          beadRoadClass = "banker";
+          break;
+
+        case "aq":
+          beadRoadClass = "banker";
+          break;
+
+        case "aw":
+          beadRoadClass = "banker";
+          break;
+
+        case "ae":
+          beadRoadClass = "banker";
+          break;
+
+        case "cq":
+          beadRoadClass = "banker";
+          break;
+
+        case "cw":
+          beadRoadClass = "banker";
+          break;
+
+        case "ce":
+          beadRoadClass = "banker";
+          break;
+
+        case "d":
+          beadRoadClass = "player";
+          break;
+
+        case "x":
+          beadRoadClass = "player";
+          break;
+
+        case "df":
+          beadRoadClass = "player";
+          break;
+
+        case "dg":
+          beadRoadClass = "player";
+          break;
+
+        case "dh":
+          beadRoadClass = "player";
+          break;
+
+        case "xf":
+          beadRoadClass = "player";
+          break;
+
+        case "xg":
+          beadRoadClass = "player";
+          break;
+
+        case "xh":
+          beadRoadClass = "player";
+          break;
+
+        case "v":
+          beadRoadClass = "tie";
+          break;
+
+        case "y":
+          beadRoadClass = "tie";
+          break;
+
+        case "vi":
+          beadRoadClass = "tie";
+          break;
+
+        case "vj":
+          beadRoadClass = "tie";
+          break;
+
+        case "vk":
+          beadRoadClass = "tie";
+          break;
+
+        case "yi":
+          beadRoadClass = "tie";
+          break;
+
+        case "yj":
+          beadRoadClass = "tie";
+          break;
+
+        case "yk":
+          beadRoadClass = "tie";
+          break;
+
           break;
         default:
           break;
@@ -222,14 +352,91 @@ export default {
           break;
         case "k":
           returnValue = "t";
+          break;
         case "z":
           returnValue = "6";
+          break;
         case "r":
           returnValue = "6";
+          break;
         case "s":
           returnValue = "6";
+          break;
         case "u":
           returnValue = "6";
+          break;
+        case "a":
+          returnValue = "b";
+          break;
+        case "c":
+          returnValue = "b";
+          break;
+        case "aq":
+          returnValue = "b";
+          break;
+        case "aw":
+          returnValue = "b";
+          break;
+        case "ae":
+          returnValue = "b";
+          break;
+        case "cq":
+          returnValue = "b";
+          break;
+        case "cw":
+          returnValue = "b";
+          break;
+        case "ce":
+          returnValue = "b";
+          break;
+        case "d":
+          returnValue = "p";
+          break;
+        case "x":
+          returnValue = "p";
+          break;
+        case "df":
+          returnValue = "p";
+          break;
+        case "dg":
+          returnValue = "p";
+          break;
+        case "dh":
+          returnValue = "p";
+          break;
+        case "xf":
+          returnValue = "p";
+          break;
+        case "xg":
+          returnValue = "p";
+          break;
+        case "xh":
+          returnValue = "p";
+          break;
+        case "v":
+          returnValue = "t";
+          break;
+        case "y":
+          returnValue = "t";
+          break;
+        case "vi":
+          returnValue = "t";
+          break;
+        case "vj":
+          returnValue = "t";
+          break;
+        case "vk":
+          returnValue = "t";
+          break;
+        case "yi":
+          returnValue = "t";
+          break;
+        case "yj":
+          returnValue = "t";
+          break;
+        case "yk":
+          returnValue = "t";
+          break;
           break;
         default:
           break;

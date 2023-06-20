@@ -44,5 +44,7 @@
   "set_table_success": "修改现在限红成功!",
   "set_limit_success": "设置限红成功!",
   "set_code_success": "修改验证码成功!",
-  "wait_game_ends":"请等待游戏结束!"
+  "wait_game_ends": "请等待游戏结束!",
+  "big": "大",
+  "small": "小"
 }

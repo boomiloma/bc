@@ -199,6 +199,30 @@ export default {
       if (arr.includes("7")) {
         keys = "t";
       }
+      if (arr.includes("1") && arr.includes("3")) {
+        // Player Small
+        keys = "d";
+      }
+      if (arr.includes("1") && arr.includes("9")) {
+        // Player Big
+        keys = "x";
+      }
+      if (arr.includes("4") && arr.includes("3")) {
+        //Banker Small
+        keys = "a";
+      }
+      if (arr.includes("4") && arr.includes("9")) {
+        //Banker Big
+        keys = "c";
+      }
+      if (arr.includes("7") && arr.includes("3")) {
+        //Tie Small
+        keys = "v";
+      }
+      if (arr.includes("7") && arr.includes("9")) {
+        //Tie Big
+        keys = "y";
+      }
       if (arr.includes("1") && arr.includes("2")) {
         keys = "g";
       }
@@ -237,6 +261,82 @@ export default {
       }
       if (arr.includes("6") && arr.includes("8")) {
         keys = "s";
+      }
+      // PLAYER WITH SMALL AND BIG
+      if (arr.includes("1") && arr.includes("8") && arr.includes("3")) {
+        // Player - Banker Pair Small
+        keys = "df";
+      }
+      if (arr.includes("1") && arr.includes("8") && arr.includes("9")) {
+        // Player - Banker Pair Big
+        keys = "xf";
+      }
+      if (arr.includes("1") && arr.includes("5") && arr.includes("3")) {
+        // Player - Player Pair Small
+        keys = "dh";
+      }
+      if (arr.includes("1") && arr.includes("5") && arr.includes("9")) {
+        // Player - Player Pair Big
+        keys = "xh";
+      }
+      if (arr.includes("1") && arr.includes("2") && arr.includes("3")) {
+        // Player - Banker & Player Pair Small
+        keys = "dg";
+      }
+      if (arr.includes("1") && arr.includes("2") && arr.includes("9")) {
+        // Player - Banker & Player Pair Big
+        keys = "xg";
+      }
+      // BANKER WITH SMALL AND BIG
+      if (arr.includes("4") && arr.includes("8") && arr.includes("3")) {
+        // Banker - Banker Pair Small
+        keys = "aq";
+      }
+      if (arr.includes("4") && arr.includes("8") && arr.includes("9")) {
+        // Banker - Banker Pair Big
+        keys = "cq";
+      }
+      if (arr.includes("4") && arr.includes("5") && arr.includes("3")) {
+        // Banker - Player Pair Small
+        keys = "ae";
+      }
+      if (arr.includes("4") && arr.includes("5") && arr.includes("9")) {
+        // Banker - Player Pair Big
+        keys = "ce";
+      }
+      if (arr.includes("4") && arr.includes("2") && arr.includes("3")) {
+        // Banker - Banker & Player Pair Small
+        keys = "aw";
+      }
+      if (arr.includes("4") && arr.includes("2") && arr.includes("9")) {
+        // Banker - Banker & Player Pair Big
+        keys = "cw";
+      }
+
+      // TIE WITH SMALL AND BIG
+      if (arr.includes("7") && arr.includes("8") && arr.includes("3")) {
+        // TIE - Banker Pair Small
+        keys = "vi";
+      }
+      if (arr.includes("7") && arr.includes("8") && arr.includes("9")) {
+        // TIE - Banker Pair Big
+        keys = "yi";
+      }
+      if (arr.includes("7") && arr.includes("5") && arr.includes("3")) {
+        // TIE - Player Pair Small
+        keys = "vk";
+      }
+      if (arr.includes("7") && arr.includes("5") && arr.includes("9")) {
+        // TIE - Player Pair
+        keys = "yk";
+      }
+      if (arr.includes("7") && arr.includes("2") && arr.includes("3")) {
+        // Tie - Banker & Player Pair Small
+        keys = "vj";
+      }
+      if (arr.includes("7") && arr.includes("2") && arr.includes("9")) {
+        // Tie - Banker & Player Pair Big
+        keys = "yj";
       }
 
       return keys;

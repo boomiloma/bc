@@ -52,7 +52,19 @@
                             lastKeyPressed === 'i' ||
                             lastKeyPressed === 'j' ||
                             lastKeyPressed === 'r' ||
-                            lastKeyPressed === 'u'
+                            lastKeyPressed === 'u' ||
+                            lastKeyPressed === 'aq' ||
+                            lastKeyPressed === 'aw' ||
+                            lastKeyPressed === 'cq' ||
+                            lastKeyPressed === 'cw' ||
+                            lastKeyPressed === 'df' ||
+                            lastKeyPressed === 'dg' ||
+                            lastKeyPressed === 'xf' ||
+                            lastKeyPressed === 'xg' ||
+                            lastKeyPressed === 'vi' ||
+                            lastKeyPressed === 'vj' ||
+                            lastKeyPressed === 'yi' ||
+                            lastKeyPressed === 'yj'
                           "
                           class="big-red-dot-left-top"
                         ></span>
@@ -65,10 +77,61 @@
                             lastKeyPressed === 'j' ||
                             lastKeyPressed === 'k' ||
                             lastKeyPressed === 'u' ||
-                            lastKeyPressed === 's'
+                            lastKeyPressed === 's' ||
+                            lastKeyPressed === 'ae' ||
+                            lastKeyPressed === 'aw' ||
+                            lastKeyPressed === 'ce' ||
+                            lastKeyPressed === 'cw' ||
+                            lastKeyPressed === 'dh' ||
+                            lastKeyPressed === 'dg' ||
+                            lastKeyPressed === 'xh' ||
+                            lastKeyPressed === 'xg' ||
+                            lastKeyPressed === 'yk' ||
+                            lastKeyPressed === 'vj' ||
+                            lastKeyPressed === 'yk' ||
+                            lastKeyPressed === 'yj' ||
+                            lastKeyPressed === 'vk'
                           "
                           class="big-blue-dot-right-bottom"
                         ></span>
+                        <span
+                          v-if="
+                            lastKeyPressed === 'c' ||
+                            lastKeyPressed === 'x' ||
+                            lastKeyPressed === 'y' ||
+                            lastKeyPressed === 'cq' ||
+                            lastKeyPressed === 'cw' ||
+                            lastKeyPressed === 'ce' ||
+                            lastKeyPressed === 'xf' ||
+                            lastKeyPressed === 'xg' ||
+                            lastKeyPressed === 'xh' ||
+                            lastKeyPressed === 'yi' ||
+                            lastKeyPressed === 'yj' ||
+                            lastKeyPressed === 'yk'
+                          "
+                          class="big-black-dot-right-top flex flex-row justify-center items-center align-items-center font-semibold"
+                          style="font-size: 30px"
+                          ><p>{{ $t("big") }}</p></span
+                        >
+                        <span
+                          v-if="
+                            lastKeyPressed === 'a' ||
+                            lastKeyPressed === 'd' ||
+                            lastKeyPressed === 'v' ||
+                            lastKeyPressed === 'aq' ||
+                            lastKeyPressed === 'aw' ||
+                            lastKeyPressed === 'ae' ||
+                            lastKeyPressed === 'df' ||
+                            lastKeyPressed === 'dg' ||
+                            lastKeyPressed === 'dh' ||
+                            lastKeyPressed === 'vi' ||
+                            lastKeyPressed === 'vj' ||
+                            lastKeyPressed === 'vk'
+                          "
+                          class="big-black-dot-left-bottom flex flex-row justify-center items-center align-items-center font-semibold"
+                          style="font-size: 30px"
+                          ><p>{{ $t("small") }}</p></span
+                        >
                       </div>
                     </div>
                   </div>
@@ -104,40 +167,79 @@ export default {
       switch (value) {
         case "b":
           return "golden-border-modal-red";
-          break;
         case "p":
           return "golden-border-modal-blue";
-          break;
         case "t":
           return "golden-border-modal-green";
-          break;
         case "q":
           return "golden-border-modal-red";
-          break;
         case "w":
           return "golden-border-modal-red";
-          break;
         case "e":
           return "golden-border-modal-red";
-          break;
         case "f":
           return "golden-border-modal-blue";
-          break;
         case "g":
           return "golden-border-modal-blue";
-          break;
         case "h":
           return "golden-border-modal-blue";
-          break;
         case "i":
           return "golden-border-modal-green";
-          break;
         case "j":
           return "golden-border-modal-green";
-          break;
         case "k":
           return "golden-border-modal-green";
-          break;
+        case "a":
+          return "golden-border-modal-red";
+        case "c":
+          return "golden-border-modal-red";
+        case "aq":
+          return "golden-border-modal-red";
+        case "aw":
+          return "golden-border-modal-red";
+        case "ae":
+          return "golden-border-modal-red";
+        case "cq":
+          return "golden-border-modal-red";
+        case "cw":
+          return "golden-border-modal-red";
+        case "ce":
+          return "golden-border-modal-red";
+
+        case "d":
+          return "golden-border-modal-blue";
+        case "x":
+          return "golden-border-modal-blue";
+        case "df":
+          return "golden-border-modal-blue";
+        case "dg":
+          return "golden-border-modal-blue";
+        case "dh":
+          return "golden-border-modal-blue";
+        case "xf":
+          return "golden-border-modal-blue";
+        case "xg":
+          return "golden-border-modal-blue";
+        case "xh":
+          return "golden-border-modal-blue";
+
+        case "v":
+          return "golden-border-modal-green";
+        case "y":
+          return "golden-border-modal-green";
+
+        case "vi":
+          return "golden-border-modal-green";
+        case "vj":
+          return "golden-border-modal-green";
+        case "vk":
+          return "golden-border-modal-green";
+        case "yi":
+          return "golden-border-modal-green";
+        case "yj":
+          return "golden-border-modal-green";
+        case "yk":
+          return "golden-border-modal-green";
         default:
           break;
       }
@@ -146,51 +248,87 @@ export default {
       switch (value) {
         case "b":
           return "banker-win";
-          break;
         case "p":
           return "player-win";
-          break;
         case "t":
           return "tie-win";
-          break;
         case "q":
           return "banker-win";
-          break;
         case "w":
           return "banker-win";
-          break;
         case "e":
           return "banker-win";
-          break;
         case "f":
           return "player-win";
-          break;
         case "g":
           return "player-win";
-          break;
         case "h":
           return "player-win";
-          break;
         case "i":
           return "tie-win";
-          break;
         case "j":
           return "tie-win";
-          break;
         case "k":
           return "tie-win";
-          break;
         case "z":
           return "banker-win";
-          break;
         case "r":
           return "banker-win";
-          break;
         case "s":
           return "banker-win";
-          break;
         case "u":
           return "banker-win";
+        case "a":
+          return "banker-win";
+        case "c":
+          return "banker-win";
+        case "d":
+          return "player-win";
+        case "x":
+          return "player-win";
+        case "v":
+          return "tie-win";
+        case "y":
+          return "tie-win";
+
+        case "aq":
+          return "banker-win";
+        case "aw":
+          return "banker-win";
+        case "ae":
+          return "banker-win";
+        case "cq":
+          return "banker-win";
+        case "cw":
+          return "banker-win";
+        case "ce":
+          return "banker-win";
+
+        case "df":
+          return "player-win";
+        case "dg":
+          return "player-win";
+        case "dh":
+          return "player-win";
+        case "xf":
+          return "player-win";
+        case "xg":
+          return "player-win";
+        case "xh":
+          return "player-win";
+
+        case "vi":
+          return "tie-win";
+        case "vj":
+          return "tie-win";
+        case "vk":
+          return "tie-win";
+        case "yi":
+          return "tie-win";
+        case "yj":
+          return "tie-win";
+        case "yk":
+          return "tie-win";
         default:
           break;
       }
@@ -246,6 +384,63 @@ export default {
         case "u":
           returnValue = "6";
           break;
+        case "a":
+          returnValue = "庄";
+          break;
+        case "c":
+          returnValue = "庄";
+          break;
+        case "d":
+          returnValue = "闲";
+          break;
+        case "x":
+          returnValue = "闲";
+          break;
+        case "v":
+          returnValue = "和";
+          break;
+        case "y":
+          returnValue = "和";
+          break;
+
+        case "aq":
+          return "庄";
+        case "aw":
+          return "庄";
+        case "ae":
+          return "庄";
+        case "cq":
+          return "庄";
+        case "cw":
+          return "庄";
+        case "ce":
+          return "庄";
+
+        case "df":
+          return "闲";
+        case "dg":
+          return "闲";
+        case "dh":
+          return "闲";
+        case "xf":
+          return "闲";
+        case "xg":
+          return "闲";
+        case "xh":
+          return "闲";
+
+        case "vi":
+          return "和";
+        case "vj":
+          return "和";
+        case "vk":
+          return "和";
+        case "yi":
+          return "和";
+        case "yj":
+          return "和";
+        case "yk":
+          return "和";
         default:
           break;
       }
@@ -342,11 +537,56 @@ export default {
   width: 70px;
   height: 70px;
   position: absolute;
-  left: 0;
-  top: 40px;
+  left: 30px;
+  top: 30px;
   border: 4px solid #ac987d;
 }
-
+.big-black-dot-left-bottom {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    top,
+    rgb(129, 129, 129) 0%,
+    rgb(75, 75, 75) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgb(63, 59, 59) 0%,
+    rgb(31, 28, 28) 100%
+  );
+  background: linear-gradient(to bottom, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8fc', endColorstr='#0059ff',GradientType=0 );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  border: 4px solid #ac987d;
+  color: white;
+}
+.big-black-dot-right-top {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    top,
+    rgb(129, 129, 129) 0%,
+    rgb(75, 75, 75) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgb(63, 59, 59) 0%,
+    rgb(31, 28, 28) 100%
+  );
+  background: linear-gradient(to bottom, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8fc', endColorstr='#0059ff',GradientType=0 );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  border: 4px solid #ac987d;
+  color: white;
+}
 .big-red-dot-right-bottom {
   background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
   background: -webkit-linear-gradient(top, #ff3019 0%, #cf0404 100%);
@@ -403,6 +643,24 @@ export default {
     rgba(0, 168, 252, 1) 0%,
     rgba(0, 89, 255, 1) 100%
   );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8fc', endColorstr='#0059ff',GradientType=0 );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  border: 4px solid #ac987d;
+}
+.big-black-dot-left-bottom {
+  background: rgb(46, 46, 46);
+  background: -moz-linear-gradient(top, rgb(65, 65, 65) 0%, rgb(0, 0, 0) 100%);
+  background: -webkit-linear-gradient(
+    top,
+    rgb(87, 87, 87) 0%,
+    rgb(0, 0, 0) 100%
+  );
+  background: linear-gradient(to bottom, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a8fc', endColorstr='#0059ff',GradientType=0 );
   border-radius: 50%;
   width: 70px;

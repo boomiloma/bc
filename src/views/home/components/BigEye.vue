@@ -172,6 +172,86 @@ export default {
         case "u":
           customPlateClass = "banker_custom_big_eye";
           break;
+        case "a":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "aq":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "aw":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "ae":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "c":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "cq":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "cw":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "ce":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "d":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "df":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "dg":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "dh":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "x":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "xf":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "xg":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "xh":
+          customPlateClass = "player_custom_big_eye";
+          break;
+        case "v":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "vi":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "vj":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "vk":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "y":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "yi":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "yj":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
+        case "yk":
+          customPlateClass =
+            "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
+          break;
         default:
           break;
       }

@@ -129,6 +129,78 @@ export default {
         case "u":
           bigRoadClass = "banker_big_road";
           break;
+        case "a":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "aq":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "aw":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "ae":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "c":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "cq":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "cw":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "ce":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "d":
+          bigRoadClass = "player_big_road";
+          break;
+        case "df":
+          bigRoadClass = "player_big_road";
+          break;
+        case "dg":
+          bigRoadClass = "player_big_road";
+          break;
+        case "dh":
+          bigRoadClass = "player_big_road";
+          break;
+        case "x":
+          bigRoadClass = "player_big_road";
+          break;
+        case "xf":
+          bigRoadClass = "player_big_road";
+          break;
+        case "xg":
+          bigRoadClass = "player_big_road";
+          break;
+        case "xh":
+          bigRoadClass = "player_big_road";
+          break;
+        case "v":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "vi":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "vj":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "vk":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "y":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "yi":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "yj":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
+        case "yk":
+          bigRoadClass = "border-green-500 bg-transparent  border-4";
+          break;
         default:
           break;
       }
