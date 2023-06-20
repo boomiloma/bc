@@ -5,11 +5,11 @@ export const store = reactive({
   isOne: true,
   menuSelect: 0,
   setting: {
-    table_no: 0,
+    table_no: "1号桌",
     bet_counter: 10,
     verification_code: 123,
     currency: "usd",
-    shoe_no: 0,
+    shoe_no: 1,
     usd: {
       min_bp: 0,
       max_bp: 0,
@@ -31,5 +31,5 @@ export const store = reactive({
       max_lucky6: 0,
     },
   },
-  isFirst: true
+  isFirst: true,
 });
