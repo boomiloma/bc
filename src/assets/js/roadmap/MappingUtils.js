@@ -1077,7 +1077,6 @@ export default class MappingUtils {
     const allowedValues = [
       "c",
       "x",
-      "y",
       "cq",
       "cw",
       "ce",

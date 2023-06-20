@@ -68,14 +68,16 @@ export default class CustomPlate extends RoadmapUtilities {
     }
 
     const [row, column] = this.getNextCoordinates(identity);
+    const isTie = this.tieIdentities.includes(key);
 
     this.previousCoordinates = [row, column];
     this.previousIdentity = identity;
-
-    this.matrix[row][column] = {
-      value: key,
-      index: this.index++,
-    };
+    if (!isTie) {
+      this.matrix[row][column] = {
+        value: key,
+        index: this.index++,
+      };
+    }
     this.matrix = this.equalizeArrays();
 
     if (this.hasFullRow) {
