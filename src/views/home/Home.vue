@@ -525,6 +525,8 @@ export default {
             desk_name: this.store.setting.table_no,
             result: joinResult,
             result_name: "Name",
+            boot_num: this.store.setting.shoe_no,
+            game_num: this.results.length
           };
 
           // add to tatabase
