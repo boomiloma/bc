@@ -42,7 +42,6 @@
               (col && col.value === 'g') ||
               (col && col.value === 'i') ||
               (col && col.value === 'j') ||
-              (col && col.value === 'z') ||
               (col && col.value === 'r') ||
               (col && col.value === 'u')
             "
