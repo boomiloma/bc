@@ -511,7 +511,9 @@ export default {
           this.lastKeyPressed = null;
           this.keyArray = [];
           localStorage.setItem("KEYBOARD_GAME", "false");
+          this.results = [];
           this.initRoadmap();
+          this.getResult();
         } else {
           this.push(this.lastKeyPressed);
           this.lastKeyPressed = null;
