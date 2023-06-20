@@ -107,7 +107,8 @@ export default function useConfig() {
   const get = async (id) => {
     try {
       state.loading = true;
-      await api.get(`/config/${id}`);
+      const response = await api.get(`/config/${id}`);
+      return response; 
     } catch (err) {
       //throw Error(Utils.getErrorMessage(err));
       throw Utils.getErrorMessage(err);

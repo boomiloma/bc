@@ -316,7 +316,7 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import useConfig from "@/composables/useConfig";
 
-const { add } = useConfig();
+const { add, get } = useConfig();
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
@@ -394,7 +394,6 @@ async function onSaved(text) {
     verify: setting.value.verification_code,
   }
   let res =  await add(saveConfig)
-  console.log(res)
   emit("onClose");
 
   // emit("onClose");
@@ -422,6 +421,16 @@ function verifyCode() {
     }, 3000);
   }
 }
+
+const getConfig = async () => {
+  try {
+      let config = await get(2);
+      console.log(config,'config====');
+   } catch (e) {
+    console.log(e.message);
+  }
+}
+
 onLoad();
 async function onLoad() {
   let getSetting = await localStorage.getItem("setting");
@@ -430,6 +439,7 @@ async function onLoad() {
   } else {
     setting.value = store.setting;
   }
+  getConfig();
 }
 </script>
 <style lang="scss" scoped>
