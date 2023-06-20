@@ -71,7 +71,8 @@ export default function userResult() {
   const add = async (data) => {
     try {
       state.saving = true;
-      await api.post("/result", data);
+     const response =   await api.post("/result", data);
+     return response.data;
     } catch (err) {
       //throw Error(Utils.getErrorMessage(err));
       throw Utils.getErrorMessage(err);

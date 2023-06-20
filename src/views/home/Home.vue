@@ -107,6 +107,7 @@ export default {
       dialogTitle: "My Dialog",
       dialogMessage: "Hello from the dialog!",
       results: [],
+      results_id: [],
       roadmap: null,
       roadmapUtils: null,
       lastKeyPressed: null,
@@ -180,7 +181,6 @@ export default {
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
     this.getResult();
-    // this.getResultLocal();
     localStorage.setItem("KEYBOARD_GAME", false);
     console.log(this.t("table_no"), "table_no");
   },
@@ -266,6 +266,7 @@ export default {
       this.results = [];
       this.initRoadmap();
       localStorage.setItem("roadmap-results", "");
+      localStorage.setItem("roadmap-results-id", "");
       this.isClear = false;
     },
 
@@ -283,7 +284,7 @@ export default {
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.isChange += 1;
     },
-    handleKeyDown(event) {
+    async handleKeyDown(event) {
       const keyPressed = event.key;
 
       const validNumbers = ["1", "4", "6", "7", "2", "5", "8", "3", "9"];
@@ -398,7 +399,13 @@ export default {
 
           this.isOpen = false;
           this.results[this.colIndex] = this.lastKeyPressed;
+          console.log("update key",this.lastKeyPressed )
           localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+          // for update results in db
+          let joinResult = Object.values(this.keyArray).join("");
+          console.log('resul id', this.results_id[this.colIndex]);
+          this.uResult.update(this.results_id[this.colIndex], {result: joinResult});
+          // end
           this.isReplace = false;
           this.colIndex = "";
           this.lastKeyPressed = null;
@@ -417,13 +424,25 @@ export default {
             result: joinResult,
             result_name: "Name",
           };
-          this.uResult.add(_data);
+
+          // add to tatabase
+          let res = await this.uResult.add(_data);
+
+          // for mapping update to database
+          this.results_id.push(res?.id);
+          localStorage.setItem("roadmap-results-id", JSON.stringify(this.results_id));
+          console.log(res, 'response');
           this.keyArray = [];
         }
       }
     },
     async getResult() {
       let re = await localStorage.getItem("roadmap-results");
+      let reID = await localStorage.getItem("roadmap-results-id");
+      if(reID){
+        this.results_id = JSON.parse(reID);
+        console.log( this.results_id , ' this.results_id ')
+      }
       if (re) {
         this.results = JSON.parse(re);
         this.results.forEach((r) => {
@@ -431,15 +450,15 @@ export default {
         });
       }
     },
-    getResultLocal() {
-      let re = localStorage.getItem("roadmap-results");
-      if (re) {
-        this.results = JSON.parse(re);
-        this.results.forEach((r) => {
-          this.roadmap.push(r);
-        });
-      }
-    },
+    // getResultLocal() {
+    //   let re = localStorage.getItem("roadmap-results");
+    //   if (re) {
+    //     this.results = JSON.parse(re);
+    //     this.results.forEach((r) => {
+    //       this.roadmap.push(r);
+    //     });
+    //   }
+    // },
   },
 };
 </script>
