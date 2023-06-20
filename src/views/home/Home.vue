@@ -626,24 +626,21 @@ export default {
           this.getResult();
         } else {
           this.push(this.lastKeyPressed);
-          this.lastKeyPressed = null;
           this.isOpen = false;
           this.isOpenCountDown = true;
           localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
           this.keyArray = [];
-
           let _data = {
             desk_name: this.store.setting.table_no,
             result: joinResult,
-            result_name: "Name",
+            result_name: this.roadmapUtils.identityDictionary[this.lastKeyPressed],
             boot_num: this.store.setting.shoe_no,
             game_num: this.results.length
           };
-
           // add to tatabase
           let res = await this.uResult.add(_data);
-
+          this.lastKeyPressed = null;
           // for mapping update to database
           this.results_id.push(res?.id);
           localStorage.setItem(
