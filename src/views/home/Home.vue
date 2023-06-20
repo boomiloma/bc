@@ -640,7 +640,9 @@ export default {
           this.colIndex = "";
           this.lastKeyPressed = null;
           localStorage.setItem("KEYBOARD_GAME", "false");
+          this.results = [];
           this.initRoadmap();
+          this.getResult();
         } else {
           this.push(this.lastKeyPressed);
           this.lastKeyPressed = null;
