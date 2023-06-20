@@ -11,7 +11,7 @@
   />
   <div class="home">
     <div class="">
-      <Header :matches="results.length" />
+      <Header :matches="results.length" ref="headerComponent" />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -297,7 +297,10 @@ export default {
         localStorage.setItem("KEYBOARD_GAME", "true");
         this.lastKeyPressed = this.results[this.colIndex];
         this.isOpen = true;
-        console.log("CHECK!!", 1);
+      }
+      if (keyPressed === "." && this.isReplace === false) {
+        const headerComponent = this.$refs.headerComponent;
+        headerComponent.handleCountdown();
       }
       if (keyPressed === "+") {
         if (!this.isInsuranceOpen) {
@@ -312,7 +315,6 @@ export default {
         } else if (keyPressed === "1") {
           this.insuranceType = "player";
         }
-        console.log("Selected Insurance Type:", this.insuranceType);
       } else if (this.isInsuranceOpen && this.insuranceType !== "") {
         const number = parseInt(keyPressed);
         if (!isNaN(number)) {
@@ -320,7 +322,7 @@ export default {
             this.insuranceMax.toString() + number.toString()
           );
           if (newInsuranceMax.toString().length <= 3) {
-            this.insuranceMax = newInsuranceMax; // Update insuranceMax if it's within 3 digits
+            this.insuranceMax = newInsuranceMax;
           }
         }
         console.log("Insurance Max:", this.insuranceMax);
@@ -395,8 +397,6 @@ export default {
         localStorage.getItem("KEYBOARD_GAME") === "true"
       ) {
         if (this.isReplace) {
-          console.log("CHECK!!", 2, this.isReplace);
-
           this.isOpen = false;
           this.results[this.colIndex] = this.lastKeyPressed;
           console.log("update key",this.lastKeyPressed )

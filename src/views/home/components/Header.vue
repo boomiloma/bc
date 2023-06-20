@@ -87,6 +87,15 @@
   <BaseDialog width="999" :isOpen="isOpen">
     <Setting @onClose="isOpen = false" />
   </BaseDialog>
+  <BaseDialog width="800" :isOpen="isGameEnd">
+    <div
+      class="w-full h-40 bg-slate-800 bg-opacity-70 flex flex-row items-center justify-center border-y border-y-yellow-600"
+    >
+      <p class="text-6xl text-lime-400 font-semibold">
+        {{ $t("wait_game_ends") }}
+      </p>
+    </div>
+  </BaseDialog>
 </template>
 <script>
 import { useI18n } from "vue-i18n";
@@ -118,6 +127,7 @@ export default {
       countdownInterval: null,
       isCountdownFinished: false,
       status: "complete_settlement",
+      isGameEnd: false,
       store,
     };
   },
@@ -140,20 +150,27 @@ export default {
     },
 
     handleCountdown() {
-      this.status = "start_bet";
-      this.playPlaceYourBetSound();
-      clearInterval(this.countdownInterval);
-      this.countdown = store.setting.bet_counter;
-      this.countdownInterval = setInterval(() => {
-        this.countdown--;
-        if (this.countdown === 0) {
-          clearInterval(this.countdownInterval);
-          this.isCountdownFinished = true; // Set the flag to indicate countdown finish
-          this.status = "no_more_bet";
-          localStorage.setItem("KEYBOARD_GAME", "true");
-          this.NoMoreBetSound();
-        }
-      }, 1000);
+      if (localStorage.getItem("KEYBOARD_GAME") === "false") {
+        this.status = "start_bet";
+        this.playPlaceYourBetSound();
+        clearInterval(this.countdownInterval);
+        this.countdown = store.setting.bet_counter;
+        this.countdownInterval = setInterval(() => {
+          this.countdown--;
+          if (this.countdown === 0) {
+            clearInterval(this.countdownInterval);
+            this.isCountdownFinished = true; // Set the flag to indicate countdown finish
+            this.status = "no_more_bet";
+            localStorage.setItem("KEYBOARD_GAME", "true");
+            this.NoMoreBetSound();
+          }
+        }, 1000);
+      } else {
+        this.isGameEnd = true;
+        setTimeout(() => {
+          this.isGameEnd = false;
+        }, 2000);
+      }
     },
     playPlaceYourBetSound() {
       const audio = new Audio(placeYourBet);
