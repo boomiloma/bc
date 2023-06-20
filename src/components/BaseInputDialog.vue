@@ -335,6 +335,11 @@ export default {
     },
     ModelContentValue(value) {
       let returnValue = "";
+      console.log(
+        "🚀 ~ file: BaseInputDialog.vue:338 ~ ModelContentValue ~ returnValue:",
+        returnValue,
+        value
+      );
       switch (value) {
         case "b":
           returnValue = "庄";
@@ -404,43 +409,77 @@ export default {
           break;
 
         case "aq":
-          return "庄";
+          returnValue = "庄";
+          break;
+
         case "aw":
-          return "庄";
+          returnValue = "庄";
+          break;
+
         case "ae":
-          return "庄";
+          returnValue = "庄";
+          break;
+
         case "cq":
-          return "庄";
+          returnValue = "庄";
+          break;
+
         case "cw":
-          return "庄";
+          returnValue = "庄";
+          break;
+
         case "ce":
-          return "庄";
+          returnValue = "庄";
+          break;
 
         case "df":
-          return "闲";
+          returnValue = "闲";
+          break;
+
         case "dg":
-          return "闲";
+          returnValue = "闲";
+          break;
+
         case "dh":
-          return "闲";
+          returnValue = "闲";
+          break;
+
         case "xf":
-          return "闲";
+          returnValue = "闲";
+          break;
+
         case "xg":
-          return "闲";
+          returnValue = "闲";
+          break;
+
         case "xh":
-          return "闲";
+          returnValue = "闲";
+          break;
 
         case "vi":
-          return "和";
+          returnValue = "和";
+          break;
+
         case "vj":
-          return "和";
+          returnValue = "和";
+          break;
+
         case "vk":
-          return "和";
+          returnValue = "和";
+          break;
+
         case "yi":
-          return "和";
+          returnValue = "和";
+          break;
+
         case "yj":
-          return "和";
+          returnValue = "和";
+          break;
+
         case "yk":
-          return "和";
+          returnValue = "和";
+          break;
+
         default:
           break;
       }

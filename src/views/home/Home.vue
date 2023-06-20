@@ -188,6 +188,133 @@ export default {
     onChildCabllback(params) {
       alert(params);
     },
+    reverseMappedResults(key) {
+      const arr = [];
+
+      if (key.includes("p")) {
+        arr.push("1");
+      }
+      if (key.includes("b")) {
+        arr.push("4");
+      }
+      if (key.includes("t")) {
+        arr.push("7");
+      }
+      if (key.includes("d")) {
+        arr.push("1", "3");
+      }
+      if (key.includes("x")) {
+        arr.push("1", "9");
+      }
+      if (key.includes("a")) {
+        arr.push("4", "3");
+      }
+      if (key.includes("c")) {
+        arr.push("4", "9");
+      }
+      if (key.includes("v")) {
+        arr.push("7", "3");
+      }
+      if (key.includes("y")) {
+        arr.push("7", "9");
+      }
+      if (key.includes("g")) {
+        arr.push("1", "2");
+      }
+      if (key.includes("w")) {
+        arr.push("4", "2");
+      }
+      if (key.includes("j")) {
+        arr.push("7", "2");
+      }
+      if (key.includes("h")) {
+        arr.push("1", "5");
+      }
+      if (key.includes("e")) {
+        arr.push("4", "5");
+      }
+      if (key.includes("k")) {
+        arr.push("7", "5");
+      }
+      if (key.includes("f")) {
+        arr.push("1", "8");
+      }
+      if (key.includes("q")) {
+        arr.push("4", "8");
+      }
+      if (key.includes("i")) {
+        arr.push("7", "8");
+      }
+      if (key.includes("z")) {
+        arr.push("6");
+      }
+      if (key.includes("u")) {
+        arr.push("6", "2");
+      }
+      if (key.includes("r")) {
+        arr.push("6", "5");
+      }
+      if (key.includes("s")) {
+        arr.push("6", "8");
+      }
+      if (key.includes("df")) {
+        arr.push("1", "8", "3");
+      }
+      if (key.includes("xf")) {
+        arr.push("1", "8", "9");
+      }
+      if (key.includes("dh")) {
+        arr.push("1", "5", "3");
+      }
+      if (key.includes("xh")) {
+        arr.push("1", "5", "9");
+      }
+      if (key.includes("dg")) {
+        arr.push("1", "2", "3");
+      }
+      if (key.includes("xg")) {
+        arr.push("1", "2", "9");
+      }
+      if (key.includes("aq")) {
+        arr.push("4", "8", "3");
+      }
+      if (key.includes("cq")) {
+        arr.push("4", "8", "9");
+      }
+      if (key.includes("ae")) {
+        arr.push("4", "5", "3");
+      }
+      if (key.includes("ce")) {
+        arr.push("4", "5", "9");
+      }
+      if (key.includes("aw")) {
+        arr.push("4", "2", "3");
+      }
+      if (key.includes("cw")) {
+        arr.push("4", "2", "9");
+      }
+      if (key.includes("vi")) {
+        arr.push("7", "8", "3");
+      }
+      if (key.includes("yi")) {
+        arr.push("7", "8", "9");
+      }
+      if (key.includes("vk")) {
+        arr.push("7", "5", "3");
+      }
+      if (key.includes("yk")) {
+        arr.push("7", "5", "9");
+      }
+      if (key.includes("vj")) {
+        arr.push("7", "2", "3");
+      }
+      if (key.includes("yj")) {
+        arr.push("7", "2", "9");
+      }
+
+      return arr;
+    },
+
     mappedResults(arr) {
       let keys = "";
       if (arr.includes("1")) {
@@ -396,6 +523,7 @@ export default {
       ) {
         localStorage.setItem("KEYBOARD_GAME", "true");
         this.lastKeyPressed = this.results[this.colIndex];
+
         this.isOpen = true;
       }
       if (keyPressed === "." && this.isReplace === false) {
@@ -490,6 +618,7 @@ export default {
       }
       const mappedResults = this.mappedResults(this.keyArray);
       this.lastKeyPressed = mappedResults;
+
       if (
         keyPressed === "Enter" &&
         this.lastKeyPressed &&
@@ -499,17 +628,17 @@ export default {
         if (this.isReplace) {
           this.isOpen = false;
           this.results[this.colIndex] = this.lastKeyPressed;
-          console.log("update key",this.lastKeyPressed )
           localStorage.setItem("roadmap-results", JSON.stringify(this.results));
           // for update results in db
           let joinResult = Object.values(this.keyArray).join("");
-          console.log('resul id', this.results_id[this.colIndex]);
-          this.uResult.update(this.results_id[this.colIndex], {result: joinResult});
+          this.keyArray = [];
+          this.uResult.update(this.results_id[this.colIndex], {
+            result: joinResult,
+          });
           // end
           this.isReplace = false;
           this.colIndex = "";
           this.lastKeyPressed = null;
-          this.keyArray = [];
           localStorage.setItem("KEYBOARD_GAME", "false");
           this.initRoadmap();
         } else {
@@ -519,6 +648,8 @@ export default {
           this.isOpenCountDown = true;
           localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
+          this.keyArray = [];
+
           let _data = {
             desk_name: this.store.setting.table_no,
             result: joinResult,
@@ -530,18 +661,20 @@ export default {
 
           // for mapping update to database
           this.results_id.push(res?.id);
-          localStorage.setItem("roadmap-results-id", JSON.stringify(this.results_id));
-          console.log(res, 'response');
-          this.keyArray = [];
+          localStorage.setItem(
+            "roadmap-results-id",
+            JSON.stringify(this.results_id)
+          );
+          console.log(res, "response");
         }
       }
     },
     async getResult() {
       let re = await localStorage.getItem("roadmap-results");
       let reID = await localStorage.getItem("roadmap-results-id");
-      if(reID){
+      if (reID) {
         this.results_id = JSON.parse(reID);
-        console.log( this.results_id , ' this.results_id ')
+        console.log(this.results_id, " this.results_id ");
       }
       if (re) {
         this.results = JSON.parse(re);
