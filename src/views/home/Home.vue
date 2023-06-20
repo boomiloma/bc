@@ -11,7 +11,7 @@
   />
   <div class="home">
     <div class="">
-      <Header :matches="results.length" ref="headerComponent" />
+      <Header :matches="results.length" ref="headerComponent" @start="onStartGame" />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -62,6 +62,7 @@ import DialogSetting from "@/components/BaseSettingDialog.vue";
 import { store } from "@/store/store";
 import useShoe from "@/composables/useShoe";
 import userResult from "@/composables/userResult";
+import useConfig from "@/composables/useConfig";
 import Sign from "./components/Sign.vue";
 import BigRoad from "./components/BigRoad.vue";
 import BigEye from "./components/BigEye.vue";
@@ -78,7 +79,8 @@ export default {
     const { t } = useI18n({ useScope: "global" });
     const shoe = useShoe();
     const uResult = userResult();
-    return { t, shoe, uResult };
+    const uConfig = useConfig();
+    return { t, shoe, uResult, uConfig };
   },
   components: {
     DialogInput,
@@ -183,6 +185,7 @@ export default {
     this.getResult();
     localStorage.setItem("KEYBOARD_GAME", false);
     console.log(this.t("table_no"), "table_no");
+
   },
   methods: {
     onChildCabllback(params) {
@@ -372,24 +375,21 @@ export default {
           this.getResult();
         } else {
           this.push(this.lastKeyPressed);
-          this.lastKeyPressed = null;
           this.isOpen = false;
           this.isOpenCountDown = true;
           localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
           this.keyArray = [];
-
           let _data = {
             desk_name: this.store.setting.table_no,
             result: joinResult,
-            result_name: "Name",
+            result_name: this.roadmapUtils.identityDictionary[this.lastKeyPressed],
             boot_num: this.store.setting.shoe_no,
             game_num: this.results.length,
           };
-
           // add to tatabase
           let res = await this.uResult.add(_data);
-
+          this.lastKeyPressed = null;
           // for mapping update to database
           this.results_id.push(res?.id);
           localStorage.setItem(
@@ -414,15 +414,17 @@ export default {
         });
       }
     },
-    // getResultLocal() {
-    //   let re = localStorage.getItem("roadmap-results");
-    //   if (re) {
-    //     this.results = JSON.parse(re);
-    //     this.results.forEach((r) => {
-    //       this.roadmap.push(r);
-    //     });
-    //   }
-    // },
+    async getConfig() {
+      try { 
+        let cof = await this.uConfig.get('');
+        console.log(cof, "config");
+      } catch (e) { 
+        console.log('error', e);
+      }
+    },
+    onStartGame(){
+      this.getConfig();
+    }
   },
 };
 </script>

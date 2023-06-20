@@ -171,6 +171,7 @@ export default {
           this.isGameEnd = false;
         }, 2000);
       }
+      this.$emit('start')
     },
     playPlaceYourBetSound() {
       const audio = new Audio(placeYourBet);
