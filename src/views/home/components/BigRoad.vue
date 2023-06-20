@@ -201,6 +201,30 @@ export default {
         case "yk":
           bigRoadClass = "border-green-500 bg-transparent  border-4";
           break;
+        case "zh":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "za":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "zb":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "zc":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "zd":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "ze":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "zf":
+          bigRoadClass = "banker_big_road";
+          break;
+        case "zg":
+          bigRoadClass = "banker_big_road";
+          break;
         default:
           break;
       }

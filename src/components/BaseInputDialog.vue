@@ -64,7 +64,11 @@
                             lastKeyPressed === 'vi' ||
                             lastKeyPressed === 'vj' ||
                             lastKeyPressed === 'yi' ||
-                            lastKeyPressed === 'yj'
+                            lastKeyPressed === 'yj' ||
+                            lastKeyPressed === 'za' ||
+                            lastKeyPressed === 'zb' ||
+                            lastKeyPressed === 'ze' ||
+                            lastKeyPressed === 'zf'
                           "
                           class="big-red-dot-left-top"
                         ></span>
@@ -90,7 +94,11 @@
                             lastKeyPressed === 'vj' ||
                             lastKeyPressed === 'yk' ||
                             lastKeyPressed === 'yj' ||
-                            lastKeyPressed === 'vk'
+                            lastKeyPressed === 'vk' ||
+                            lastKeyPressed === 'zc' ||
+                            lastKeyPressed === 'zb' ||
+                            lastKeyPressed === 'zg' ||
+                            lastKeyPressed === 'zf'
                           "
                           class="big-blue-dot-right-bottom"
                         ></span>
@@ -107,7 +115,11 @@
                             lastKeyPressed === 'xh' ||
                             lastKeyPressed === 'yi' ||
                             lastKeyPressed === 'yj' ||
-                            lastKeyPressed === 'yk'
+                            lastKeyPressed === 'yk' ||
+                            lastKeyPressed === 'zd' ||
+                            lastKeyPressed === 'ze' ||
+                            lastKeyPressed === 'zf' ||
+                            lastKeyPressed === 'zg'
                           "
                           class="big-black-dot-right-top flex flex-row justify-center items-center align-items-center font-semibold"
                           style="font-size: 30px"
@@ -126,7 +138,11 @@
                             lastKeyPressed === 'dh' ||
                             lastKeyPressed === 'vi' ||
                             lastKeyPressed === 'vj' ||
-                            lastKeyPressed === 'vk'
+                            lastKeyPressed === 'vk' ||
+                            lastKeyPressed === 'zh' ||
+                            lastKeyPressed === 'za' ||
+                            lastKeyPressed === 'zb' ||
+                            lastKeyPressed === 'zc'
                           "
                           class="big-black-dot-left-bottom flex flex-row justify-center items-center align-items-center font-semibold"
                           style="font-size: 30px"
@@ -240,6 +256,30 @@ export default {
           return "golden-border-modal-green";
         case "yk":
           return "golden-border-modal-green";
+        case "zh":
+          return "golden-border-modal-red";
+
+        case "za":
+          return "golden-border-modal-red";
+
+        case "zb":
+          return "golden-border-modal-red";
+
+        case "zc":
+          return "golden-border-modal-red";
+
+        case "zd":
+          return "golden-border-modal-red";
+
+        case "ze":
+          return "golden-border-modal-red";
+
+        case "zf":
+          return "golden-border-modal-red";
+
+        case "zg":
+          return "golden-border-modal-red";
+
         default:
           break;
       }
@@ -329,6 +369,30 @@ export default {
           return "tie-win";
         case "yk":
           return "tie-win";
+        case "zh":
+          return "banker-win";
+
+        case "za":
+          return "banker-win";
+
+        case "zb":
+          return "banker-win";
+
+        case "zc":
+          return "banker-win";
+
+        case "zd":
+          return "banker-win";
+
+        case "ze":
+          return "banker-win";
+
+        case "zf":
+          return "banker-win";
+
+        case "zg":
+          return "banker-win";
+
         default:
           break;
       }
@@ -479,7 +543,30 @@ export default {
         case "yk":
           returnValue = "和";
           break;
-
+        case "zh":
+          returnValue = "6";
+          break;
+        case "za":
+          returnValue = "6";
+          break;
+        case "zb":
+          returnValue = "6";
+          break;
+        case "zc":
+          returnValue = "6";
+          break;
+        case "zd":
+          returnValue = "6";
+          break;
+        case "ze":
+          returnValue = "6";
+          break;
+        case "zf":
+          returnValue = "6";
+          break;
+        case "zg":
+          returnValue = "6";
+          break;
         default:
           break;
       }

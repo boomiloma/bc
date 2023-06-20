@@ -55,7 +55,11 @@
               (col && col.value === 'vi') ||
               (col && col.value === 'vj') ||
               (col && col.value === 'yi') ||
-              (col && col.value === 'yj')
+              (col && col.value === 'yj') ||
+              (col && col.value === 'za') ||
+              (col && col.value === 'zb') ||
+              (col && col.value === 'ze') ||
+              (col && col.value === 'zf')
             "
             class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -79,9 +83,12 @@
               (col && col.value === 'xg') ||
               (col && col.value === 'yk') ||
               (col && col.value === 'vj') ||
-              (col && col.value === 'yk') ||
               (col && col.value === 'yj') ||
-              (col && col.value === 'vk')
+              (col && col.value === 'vk') ||
+              (col && col.value === 'zb') ||
+              (col && col.value === 'zc') ||
+              (col && col.value === 'zf') ||
+              (col && col.value === 'zg')
             "
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
@@ -305,7 +312,36 @@ export default {
         case "yk":
           beadRoadClass = "tie";
           break;
+        case "zh":
+          beadRoadClass = "banker";
+          break;
 
+        case "za":
+          beadRoadClass = "banker";
+          break;
+
+        case "zb":
+          beadRoadClass = "banker";
+          break;
+
+        case "zc":
+          beadRoadClass = "banker";
+          break;
+
+        case "zd":
+          beadRoadClass = "banker";
+          break;
+
+        case "ze":
+          beadRoadClass = "banker";
+          break;
+
+        case "zf":
+          beadRoadClass = "banker";
+          break;
+
+        case "zg":
+          beadRoadClass = "banker";
           break;
         default:
           break;
@@ -437,6 +473,37 @@ export default {
         case "yk":
           returnValue = "t";
           break;
+
+        case "zh":
+          returnValue = "6";
+          break;
+
+        case "za":
+          returnValue = "6";
+          break;
+
+        case "zb":
+          returnValue = "6";
+          break;
+
+        case "zc":
+          returnValue = "6";
+          break;
+
+        case "zd":
+          returnValue = "6";
+          break;
+
+        case "ze":
+          returnValue = "6";
+          break;
+
+        case "zf":
+          returnValue = "6";
+          break;
+
+        case "zg":
+          returnValue = "6";
           break;
         default:
           break;

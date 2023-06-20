@@ -252,6 +252,30 @@ export default {
           customPlateClass =
             "bg-green-500 rounded-full border-4 border-green-700 w-8 h-8";
           break;
+        case "zh":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "za":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "zb":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "zc":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "zd":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "ze":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "zf":
+          customPlateClass = "banker_custom_big_eye";
+          break;
+        case "zg":
+          customPlateClass = "banker_custom_big_eye";
+          break;
         default:
           break;
       }

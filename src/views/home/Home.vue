@@ -188,132 +188,72 @@ export default {
     onChildCabllback(params) {
       alert(params);
     },
-    reverseMappedResults(key) {
-      const arr = [];
+    // reverseMappedResults(input) {
+    //   const mappings = {
+    //     p: "1",
+    //     b: "4",
+    //     t: "7",
+    //     d: "1,3",
+    //     x: "1,9",
+    //     a: "4,3",
+    //     c: "4,9",
+    //     v: "7,3",
+    //     y: "7,9",
+    //     g: "1,2",
+    //     w: "4,2",
+    //     j: "7,2",
+    //     h: "1,5",
+    //     e: "4,5",
+    //     k: "7,5",
+    //     f: "1,8",
+    //     q: "4,8",
+    //     i: "7,8",
+    //     z: "6",
+    //     u: "6,2",
+    //     r: "6,5",
+    //     s: "6,8",
+    //     df: "1,8,3",
+    //     xf: "1,8,9",
+    //     dh: "1,5,3",
+    //     xh: "1,5,9",
+    //     dg: "1,2,3",
+    //     xg: "1,2,9",
+    //     aq: "4,8,3",
+    //     cq: "4,8,9",
+    //     ae: "4,5,3",
+    //     ce: "4,5,9",
+    //     aw: "4,2,3",
+    //     cw: "4,2,9",
+    //     vi: "7,8,3",
+    //     yi: "7,8,9",
+    //     vk: "7,5,3",
+    //     yk: "7,5,9",
+    //     vj: "7,2,3",
+    //     yj: "7,2,9",
+    //     zh: "6,3",
+    //     zd: "6,9",
+    //     za: "6,8,3",
+    //     ze: "6,8,9",
+    //     zc: "6,5,3",
+    //     zg: "6,5,9",
+    //     zb: "6,2,3",
+    //     zf: "6,2,9",
+    //   };
 
-      if (key.includes("p")) {
-        arr.push("1");
-      }
-      if (key.includes("b")) {
-        arr.push("4");
-      }
-      if (key.includes("t")) {
-        arr.push("7");
-      }
-      if (key.includes("d")) {
-        arr.push("1", "3");
-      }
-      if (key.includes("x")) {
-        arr.push("1", "9");
-      }
-      if (key.includes("a")) {
-        arr.push("4", "3");
-      }
-      if (key.includes("c")) {
-        arr.push("4", "9");
-      }
-      if (key.includes("v")) {
-        arr.push("7", "3");
-      }
-      if (key.includes("y")) {
-        arr.push("7", "9");
-      }
-      if (key.includes("g")) {
-        arr.push("1", "2");
-      }
-      if (key.includes("w")) {
-        arr.push("4", "2");
-      }
-      if (key.includes("j")) {
-        arr.push("7", "2");
-      }
-      if (key.includes("h")) {
-        arr.push("1", "5");
-      }
-      if (key.includes("e")) {
-        arr.push("4", "5");
-      }
-      if (key.includes("k")) {
-        arr.push("7", "5");
-      }
-      if (key.includes("f")) {
-        arr.push("1", "8");
-      }
-      if (key.includes("q")) {
-        arr.push("4", "8");
-      }
-      if (key.includes("i")) {
-        arr.push("7", "8");
-      }
-      if (key.includes("z")) {
-        arr.push("6");
-      }
-      if (key.includes("u")) {
-        arr.push("6", "2");
-      }
-      if (key.includes("r")) {
-        arr.push("6", "5");
-      }
-      if (key.includes("s")) {
-        arr.push("6", "8");
-      }
-      if (key.includes("df")) {
-        arr.push("1", "8", "3");
-      }
-      if (key.includes("xf")) {
-        arr.push("1", "8", "9");
-      }
-      if (key.includes("dh")) {
-        arr.push("1", "5", "3");
-      }
-      if (key.includes("xh")) {
-        arr.push("1", "5", "9");
-      }
-      if (key.includes("dg")) {
-        arr.push("1", "2", "3");
-      }
-      if (key.includes("xg")) {
-        arr.push("1", "2", "9");
-      }
-      if (key.includes("aq")) {
-        arr.push("4", "8", "3");
-      }
-      if (key.includes("cq")) {
-        arr.push("4", "8", "9");
-      }
-      if (key.includes("ae")) {
-        arr.push("4", "5", "3");
-      }
-      if (key.includes("ce")) {
-        arr.push("4", "5", "9");
-      }
-      if (key.includes("aw")) {
-        arr.push("4", "2", "3");
-      }
-      if (key.includes("cw")) {
-        arr.push("4", "2", "9");
-      }
-      if (key.includes("vi")) {
-        arr.push("7", "8", "3");
-      }
-      if (key.includes("yi")) {
-        arr.push("7", "8", "9");
-      }
-      if (key.includes("vk")) {
-        arr.push("7", "5", "3");
-      }
-      if (key.includes("yk")) {
-        arr.push("7", "5", "9");
-      }
-      if (key.includes("vj")) {
-        arr.push("7", "2", "3");
-      }
-      if (key.includes("yj")) {
-        arr.push("7", "2", "9");
-      }
+    //   let arr = [];
+    //   if (typeof input === "string") {
+    //     arr = input.split(",");
+    //   } else if (Array.isArray(input)) {
+    //     arr = input;
+    //   }
 
-      return arr;
-    },
+    //   const keys = arr
+    //     .map((item) => mappings[item] || "")
+    //     .join()
+    //     .split(",");
+
+    //   return keys.filter(Boolean);
+    // },
 
     mappedResults(arr) {
       let keys = "";
@@ -466,6 +406,40 @@ export default {
         keys = "yj";
       }
 
+      if (arr.includes("6") && arr.includes("3")) {
+        //Lucky 6 Small
+        keys = "zh";
+      }
+      if (arr.includes("6") && arr.includes("9")) {
+        //Lucky 6 Big
+        keys = "zd";
+      }
+      // Lucky 6 with Small and Big Pair
+      if (arr.includes("6") && arr.includes("8") && arr.includes("3")) {
+        // Lucky 6 - Banker Pair Small
+        keys = "za";
+      }
+      if (arr.includes("6") && arr.includes("8") && arr.includes("9")) {
+        // Lucky 6 - Banker Pair Big
+        keys = "ze";
+      }
+      if (arr.includes("6") && arr.includes("5") && arr.includes("3")) {
+        // Lucky 6 - Player Pair Small
+        keys = "zc";
+      }
+      if (arr.includes("6") && arr.includes("5") && arr.includes("9")) {
+        // Lucky 6 - Player Pair Big
+        keys = "zg";
+      }
+      if (arr.includes("6") && arr.includes("2") && arr.includes("3")) {
+        // Lucky 6 - Banker & Player Pair Small
+        keys = "zb";
+      }
+      if (arr.includes("6") && arr.includes("2") && arr.includes("9")) {
+        // Lucky 6 - Banker & Player Pair Big
+        keys = "zf";
+      }
+
       return keys;
     },
     initLocalConfig() {
@@ -523,7 +497,10 @@ export default {
       ) {
         localStorage.setItem("KEYBOARD_GAME", "true");
         this.lastKeyPressed = this.results[this.colIndex];
-
+        // const newArray = this.reverseMappedResults(this.lastKeyPressed);
+        // if (newArray.length > 0) {
+        //   this.keyArray = newArray;
+        // }
         this.isOpen = true;
       }
       if (keyPressed === "." && this.isReplace === false) {
@@ -571,6 +548,10 @@ export default {
       ) {
         return; // Exit early if the first element is not 1, 4, or 7
       }
+      console.log(
+        "🚀 ~ file: Home.vue:606 ~ handleKeyDown ~  this.keyArray:",
+        this.keyArray
+      );
 
       if (
         validNumbers.includes(keyPressed) &&
