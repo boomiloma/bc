@@ -87,6 +87,15 @@
   <BaseDialog width="999" :isOpen="isOpen">
     <Setting @onClose="isOpen = false" />
   </BaseDialog>
+  <BaseDialog width="800" :isOpen="isGameEnd">
+    <div
+      class="w-full h-40 bg-slate-800 bg-opacity-70 flex flex-row items-center justify-center border-y border-y-yellow-600"
+    >
+      <p class="text-6xl text-lime-400 font-semibold">
+        {{ $t("wait_game_ends") }}
+      </p>
+    </div>
+  </BaseDialog>
 </template>
 <script>
 import { useI18n } from "vue-i18n";
@@ -118,6 +127,7 @@ export default {
       countdownInterval: null,
       isCountdownFinished: false,
       status: "complete_settlement",
+      isGameEnd: false,
       store,
     };
   },
@@ -155,6 +165,11 @@ export default {
             this.NoMoreBetSound();
           }
         }, 1000);
+      } else {
+        this.isGameEnd = true;
+        setTimeout(() => {
+          this.isGameEnd = false;
+        }, 2000);
       }
     },
     playPlaceYourBetSound() {

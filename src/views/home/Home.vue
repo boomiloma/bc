@@ -11,7 +11,7 @@
   />
   <div class="home">
     <div class="">
-      <Header :matches="results.length" />
+      <Header :matches="results.length" ref="headerComponent" />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
           <div class="border border-b-4 border-black">
@@ -296,6 +296,10 @@ export default {
         localStorage.setItem("KEYBOARD_GAME", "true");
         this.lastKeyPressed = this.results[this.colIndex];
         this.isOpen = true;
+      }
+      if (keyPressed === "." && this.isReplace === false) {
+        const headerComponent = this.$refs.headerComponent;
+        headerComponent.handleCountdown();
       }
       if (keyPressed === "+") {
         if (!this.isInsuranceOpen) {
