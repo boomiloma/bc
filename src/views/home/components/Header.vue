@@ -140,20 +140,22 @@ export default {
     },
 
     handleCountdown() {
-      this.status = "start_bet";
-      this.playPlaceYourBetSound();
-      clearInterval(this.countdownInterval);
-      this.countdown = store.setting.bet_counter;
-      this.countdownInterval = setInterval(() => {
-        this.countdown--;
-        if (this.countdown === 0) {
-          clearInterval(this.countdownInterval);
-          this.isCountdownFinished = true; // Set the flag to indicate countdown finish
-          this.status = "no_more_bet";
-          localStorage.setItem("KEYBOARD_GAME", "true");
-          this.NoMoreBetSound();
-        }
-      }, 1000);
+      if (localStorage.getItem("KEYBOARD_GAME") === "false") {
+        this.status = "start_bet";
+        this.playPlaceYourBetSound();
+        clearInterval(this.countdownInterval);
+        this.countdown = store.setting.bet_counter;
+        this.countdownInterval = setInterval(() => {
+          this.countdown--;
+          if (this.countdown === 0) {
+            clearInterval(this.countdownInterval);
+            this.isCountdownFinished = true; // Set the flag to indicate countdown finish
+            this.status = "no_more_bet";
+            localStorage.setItem("KEYBOARD_GAME", "true");
+            this.NoMoreBetSound();
+          }
+        }, 1000);
+      }
     },
     playPlaceYourBetSound() {
       const audio = new Audio(placeYourBet);
