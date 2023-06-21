@@ -147,8 +147,6 @@ export default {
       }
     },
     handleEdit(rowKey, colKey, value) {
-      const previousRow = this.Breadplate.previousCoordinates[0];
-      const previousCol = this.Breadplate.previousCoordinates[1];
       if (value && this.isReplace) {
         const navRow = this.navRow + this.Breadplate.previousCoordinates[0];
         const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
