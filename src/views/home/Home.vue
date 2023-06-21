@@ -199,7 +199,6 @@ export default {
     window.addEventListener("keydown", this.handleKeyDown);
     this.getResult();
     localStorage.setItem("KEYBOARD_GAME", false);
-    console.log(this.t("table_no"), "table_no");
   },
   methods: {
     onChildCabllback(params) {
@@ -461,7 +460,7 @@ export default {
             this.store.setting.thb.max_lucky6 = res.data.six_small_th;
             this.store.setting.thb.max_tie = res.data.banker_and_player_max_th;
             this.store.setting.thb.min_tie =
-              res.data.banker_and_player_small_th;
+            res.data.banker_and_player_small_th;
             this.store.setting.game_num = this.results.length;
             this.store.setting.is_online = res.data.is_online;
             this.store.setting.second = res.data.second;
