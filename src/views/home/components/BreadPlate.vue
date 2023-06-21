@@ -58,6 +58,7 @@
 import { Icon } from "@iconify/vue";
 import { useI18n } from "vue-i18n";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
+import { store } from "../../../store/store";
 export default {
   components: {
     Icon,
@@ -146,6 +147,8 @@ export default {
       }
     },
     handleEdit(rowKey, colKey, value) {
+      const previousRow = this.Breadplate.previousCoordinates[0];
+      const previousCol = this.Breadplate.previousCoordinates[1];
       if (value && this.isReplace) {
         const navRow = this.navRow + this.Breadplate.previousCoordinates[0];
         const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
@@ -162,6 +165,9 @@ export default {
           return "bg-yellow-200";
         }
         this.$emit("colIndex", this.colIndex);
+      }
+      if (previousRow === rowKey && previousCol === colKey && store.isPredict) {
+        return "animate-pulse";
       }
     },
   },

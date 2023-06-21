@@ -1075,17 +1075,6 @@ export default class MappingUtils {
   }
   static Small(value) {
     const allowedValues = [
-      "c",
-      "x",
-      "cq",
-      "cw",
-      "ce",
-      "xf",
-      "xg",
-      "xh",
-      "yi",
-      "yj",
-      "yk",
       "zd",
       "ze",
       "zf",

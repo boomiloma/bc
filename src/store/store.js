@@ -4,6 +4,7 @@ export const store = reactive({
   leftDrawerOpen: false,
   isOne: true,
   menuSelect: 0,
+  isPredict: false,
   setting: {
     table_no: "1号桌",
     bet_counter: 10,

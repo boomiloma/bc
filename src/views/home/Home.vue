@@ -28,7 +28,11 @@
               @colIndex="colIndex = $event"
             />
           </div>
-          <Sign :results="results" />
+          <Sign
+            :results="results"
+            @bankerPredict="predictBanker"
+            @playerPredict="predictPlayer"
+          />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
@@ -103,6 +107,7 @@ export default {
   data() {
     return {
       isInsuranceOpen: false,
+      removePredictionTimeout: null,
       insuranceType: "",
       insuranceMax: 0,
       colValue: "",
@@ -428,38 +433,60 @@ export default {
     onStartGame() {
       this.getConfig();
     },
-    // predictBanker() {
-    //   console.log("BANKER");
-    //   if (this.store.isPredict === false) {
-    //     this.store.isPredict = true;
-    //     this.push("b");
 
-    //     setTimeout(() => {
-    //       this.results.pop();
-    //       this.initRoadmap();
-    //     }, 3000);
-    //   } else {
-    //     this.results.pop();
-    //     this.results.push("b");
+    predictBanker() {
+      console.log("BANKER");
+      const newPrediction = "b";
 
-    //     setTimeout(() => {
-    //       this.results.pop();
-    //       this.initRoadmap();
-    //     }, 3000);
-    //   }
-    //   this.initRoadmap();
-    // },
-    // predictPlayer() {
-    //   console.log("Player");
-    //   if (this.store.isPredict === false) {
-    //     this.store.isPredict = true;
-    //     this.push("p");
-    //   } else {
-    //     this.results.pop();
-    //     this.results.push("p");
-    //   }
-    //   this.initRoadmap();
-    // },
+      if (this.store.isPredict) {
+        this.results.pop();
+        this.results.push(newPrediction);
+      } else {
+        this.store.isPredict = true;
+        this.results.push(newPrediction);
+      }
+
+      clearTimeout(this.removePredictionTimeout);
+      this.removePredictionTimeout = setTimeout(() => {
+        this.removePrediction(newPrediction);
+        this.initRoadmap();
+
+        this.getResult();
+        this.store.isPredict = false;
+      }, 5000);
+
+      this.initRoadmap();
+    },
+
+    predictPlayer() {
+      console.log("Player");
+      const newPrediction = "p";
+
+      if (this.store.isPredict) {
+        this.results.pop();
+        this.results.push(newPrediction);
+      } else {
+        this.store.isPredict = true;
+        this.results.push(newPrediction);
+      }
+
+      clearTimeout(this.removePredictionTimeout);
+      this.removePredictionTimeout = setTimeout(() => {
+        this.removePrediction(newPrediction);
+        this.initRoadmap();
+
+        this.getResult();
+        this.store.isPredict = false;
+      }, 5000);
+
+      this.initRoadmap();
+    },
+
+    removePrediction(prediction) {
+      this.results.pop();
+      this.initRoadmap();
+      this.store.isPredict = false;
+    },
   },
 };
 </script>
