@@ -206,6 +206,7 @@
 <script>
 import { ref } from "vue";
 import { store } from "@/store/store";
+import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 
 export default {
   setup() {
@@ -222,44 +223,19 @@ export default {
   props: ["results"],
   methods: {
     filterBanker() {
-      return this.results.filter(
-        (result) =>
-          result === "b" || result === "q" || result === "w" || result === "e"
-      ).length;
+      return MappingUtils.CountBankerBeads(this.results);
     },
     filterPlayer() {
-      return this.results.filter(
-        (result) =>
-          result === "p" || result === "f" || result === "g" || result === "h"
-      ).length;
+      return MappingUtils.CountPlayerBeads(this.results);
     },
     filterTie() {
-      return this.results.filter(
-        (result) =>
-          result === "t" || result === "j" || result === "k" || result === "i"
-      ).length;
+      return MappingUtils.CountTierBeads(this.results);
     },
     filterBankerPair() {
-      return this.results.filter(
-        (result) =>
-          result === "q" ||
-          result === "w" ||
-          result === "f" ||
-          result === "g" ||
-          result === "j" ||
-          result === "i"
-      ).length;
+      return MappingUtils.CountBankerPair(this.results);
     },
     filterPlayerPair() {
-      return this.results.filter(
-        (result) =>
-          result === "w" ||
-          result === "e" ||
-          result === "g" ||
-          result === "h" ||
-          result === "j" ||
-          result === "k"
-      ).length;
+      return MappingUtils.CountPlayerPair(this.results);
     },
 
     predictBanker() {

@@ -1434,4 +1434,139 @@ export default class MappingUtils {
     }
     return false;
   }
+
+  static CountBankerBeads(Results) {
+    return Results.filter(
+      (result) =>
+        result === "b" ||
+        result === "q" ||
+        result === "w" ||
+        result === "e" ||
+        result === "l" ||
+        result === "m" ||
+        result === "n" ||
+        result === "o" ||
+        result === "z" ||
+        result === "r" ||
+        result === "s" ||
+        result === "u" ||
+        result === "a" ||
+        result === "aq" ||
+        result === "aw" ||
+        result === "ae" ||
+        result === "c" ||
+        result === "cq" ||
+        result === "cw" ||
+        result === "ce" ||
+        // LUCKY 6
+        result === "zh" ||
+        result === "za" ||
+        result === "zb" ||
+        result === "zc" ||
+        result === "zd" ||
+        result === "ze" ||
+        result === "zf" ||
+        result === "zg"
+    ).length;
+  }
+
+  static CountPlayerBeads(Results) {
+    return Results.filter(
+      (result) =>
+        result === "p" ||
+        result === "f" ||
+        result === "g" ||
+        result === "h" ||
+        result === "d" ||
+        result === "df" ||
+        result === "dg" ||
+        result === "dh" ||
+        result === "x" ||
+        result === "xf" ||
+        result === "xg" ||
+        result === "xh"
+    ).length;
+  }
+
+  static CountTierBeads(Results) {
+    return Results.filter(
+      (result) =>
+        result === "t" ||
+        result === "i" ||
+        result === "j" ||
+        result === "k" ||
+        result === "v" ||
+        result === "vi" ||
+        result === "vj" ||
+        result === "vk" ||
+        result === "y" ||
+        result === "yi" ||
+        result === "yj" ||
+        result === "yk"
+    ).length;
+  }
+
+  static CountBankerPair(Results) {
+    return Results.filter(
+      (result) =>
+        result === "q" ||
+        result === "w" ||
+        result === "f" ||
+        result === "g" ||
+        result === "i" ||
+        result === "j" ||
+        result === "m" ||
+        result === "n" ||
+        result === "r" ||
+        result === "u" ||
+        result === "aq" ||
+        result === "aw" ||
+        result === "cq" ||
+        result === "cw" ||
+        result === "df" ||
+        result === "dg" ||
+        result === "xf" ||
+        result === "xg" ||
+        result === "vi" ||
+        result === "vj" ||
+        result === "yi" ||
+        result === "yj" ||
+        result === "za" ||
+        result === "zb" ||
+        result === "ze" ||
+        result === "zf"
+    ).length;
+  }
+
+  static CountPlayerPair(Results) {
+    return Results.filter(
+      (result) =>
+        result === "w" ||
+        result === "e" ||
+        result === "g" ||
+        result === "h" ||
+        result === "j" ||
+        result === "k" ||
+        result === "n" ||
+        result === "o" ||
+        result === "s" ||
+        result === "u" ||
+        result === "aw" ||
+        result === "ae" ||
+        result === "cw" ||
+        result === "ce" ||
+        result === "dg" ||
+        result === "dh" ||
+        result === "xg" ||
+        result === "xh" ||
+        result === "vj" ||
+        result === "vk" ||
+        result === "yj" ||
+        result === "yk" ||
+        result === "zb" ||
+        result === "zf" ||
+        result === "zg" ||
+        result === "zc"
+    ).length;
+  }
 }

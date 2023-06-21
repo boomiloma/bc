@@ -502,18 +502,15 @@ export default {
       this.removePredictionTimeout = setTimeout(() => {
         this.removePrediction();
         this.initRoadmap();
-
         this.store.isPredict = false;
       }, 2500);
-
-      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      this.results = [];
-      this.getResult();
-      this.initRoadmap();
-      console.log("Player", this.roadmap);
+      this.resetRoadMap();
     },
     removePrediction() {
       this.results.pop();
+      this.resetRoadMap();
+    },
+    resetRoadMap() {
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.results = [];
       this.getResult();
