@@ -362,11 +362,16 @@ export default {
           this.results[this.colIndex] = this.lastKeyPressed;
           localStorage.setItem("roadmap-results", JSON.stringify(this.results));
           // for update results in db
-          let joinResult = Object.values(this.keyArray).join("");
+          try {
+            let joinResult = Object.values(this.keyArray).join("");
+            this.uResult.update(this.results_id[this.colIndex], {
+              result: joinResult,
+            });
+          } catch (e) {
+            console.log(e);
+          }
+
           this.keyArray = [];
-          this.uResult.update(this.results_id[this.colIndex], {
-            result: joinResult,
-          });
           // end
           this.isReplace = false;
           this.colIndex = "";
@@ -382,24 +387,29 @@ export default {
           localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
           this.keyArray = [];
-          let _data = {
-            desk_name: this.store.setting.table_no,
-            result: joinResult,
-            result_name:
-              this.roadmapUtils.identityDictionary[this.lastKeyPressed],
-            boot_num: this.store.setting.shoe_no,
-            game_num: this.results.length,
-          };
-          // add to tatabase
-          let res = await this.uResult.add(_data);
-          this.lastKeyPressed = null;
+
+          try {
+            let _data = {
+              desk_name: this.store.setting.table_no,
+              result: joinResult,
+              result_name:
+                this.roadmapUtils.identityDictionary[this.lastKeyPressed],
+              boot_num: this.store.setting.shoe_no,
+              game_num: this.results.length,
+            };
+            // add to tatabase
+            let res = await this.uResult.add(_data);
           // for mapping update to database
-          this.results_id.push(res?.id);
-          localStorage.setItem(
-            "roadmap-results-id",
-            JSON.stringify(this.results_id)
-          );
-          console.log(res, "response");
+            this.results_id.push(res?.id);
+            localStorage.setItem(
+              "roadmap-results-id",
+              JSON.stringify(this.results_id)
+            );
+          } catch (e) {
+            console.log(e);
+          }
+          this.lastKeyPressed = null;
+     
         }
       }
     },
@@ -421,35 +431,36 @@ export default {
       try {
         let res = await this.uConfig.get("");
         // console.log(res.data, "config");
-        if(res.data) {
-            try {
-              this.store.setting.table_no = res.data.desk_name
-              this.store.setting.shoe_no = res.data.boot_num
-              this.store.setting.usd.min_pair = res.data.double_small
-              this.store.setting.usd.max_pair = res.data.double_max       
-              this.store.setting.usd.max_bp = res.data.draw_small       
-              this.store.setting.usd.min_bp = res.data.draw_max       
-              this.store.setting.usd.min_lucky6 = res.data.six_max       
-              this.store.setting.usd.max_lucky6 = res.data.six_small       
-              this.store.setting.usd.max_tie = res.data.banker_and_player_max       
-              this.store.setting.usd.min_tie = res.data.banker_and_player_small       
-              this.store.setting.thb.min_pair = res.data.double_small_th      
-              this.store.setting.thb.max_pair = res.data.double_max_th       
-              this.store.setting.thb.max_bp = res.data.draw_small_th       
-              this.store.setting.thb.min_bp = res.data.draw_max_th       
-              this.store.setting.thb.min_lucky6 = res.data.six_max_th       
-              this.store.setting.thb.max_lucky6 = res.data.six_small_th      
-              this.store.setting.thb.max_tie = res.data.banker_and_player_max_th       
-              this.store.setting.thb.min_tie = res.data.banker_and_player_small_th       
-              this.store.setting.game_num = this.results.length       
-              this.store.setting.is_online = res.data.is_online     
-              this.store.setting.second = res.data.second     
-              this.store.setting.status = res.data.status    
-              this.store.setting.verification_code = res.data.verification_code 
-              // console.log(this.store.setting, 'this.store.setting');
-            } catch (e) {
-              console.log('error', e)
-            }
+        if (res.data) {
+          try {
+            this.store.setting.table_no = res.data.desk_name;
+            this.store.setting.shoe_no = res.data.boot_num;
+            this.store.setting.usd.min_pair = res.data.double_small;
+            this.store.setting.usd.max_pair = res.data.double_max;
+            this.store.setting.usd.max_bp = res.data.draw_small;
+            this.store.setting.usd.min_bp = res.data.draw_max;
+            this.store.setting.usd.min_lucky6 = res.data.six_max;
+            this.store.setting.usd.max_lucky6 = res.data.six_small;
+            this.store.setting.usd.max_tie = res.data.banker_and_player_max;
+            this.store.setting.usd.min_tie = res.data.banker_and_player_small;
+            this.store.setting.thb.min_pair = res.data.double_small_th;
+            this.store.setting.thb.max_pair = res.data.double_max_th;
+            this.store.setting.thb.max_bp = res.data.draw_small_th;
+            this.store.setting.thb.min_bp = res.data.draw_max_th;
+            this.store.setting.thb.min_lucky6 = res.data.six_max_th;
+            this.store.setting.thb.max_lucky6 = res.data.six_small_th;
+            this.store.setting.thb.max_tie = res.data.banker_and_player_max_th;
+            this.store.setting.thb.min_tie =
+              res.data.banker_and_player_small_th;
+            this.store.setting.game_num = this.results.length;
+            this.store.setting.is_online = res.data.is_online;
+            this.store.setting.second = res.data.second;
+            this.store.setting.status = res.data.status;
+            this.store.setting.verification_code = res.data.verification_code;
+            // console.log(this.store.setting, 'this.store.setting');
+          } catch (e) {
+            console.log("error", e);
+          }
         }
       } catch (e) {
         console.log("error", e);
