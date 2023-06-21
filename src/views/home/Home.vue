@@ -404,7 +404,7 @@ export default {
             };
             // add to tatabase
             let res = await this.uResult.add(_data);
-          // for mapping update to database
+            // for mapping update to database
             this.results_id.push(res?.id);
             localStorage.setItem(
               "roadmap-results-id",
@@ -414,7 +414,6 @@ export default {
             console.log(e);
           }
           this.lastKeyPressed = null;
-     
         }
       }
     },
@@ -482,51 +481,62 @@ export default {
       if (this.store.isPredict) {
         this.results.pop();
         this.results.push(newPrediction);
+        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+        this.results = [];
+        this.getResult();
       } else {
         this.store.isPredict = true;
         this.results.push(newPrediction);
+        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+        this.results = [];
+        this.getResult();
       }
 
       clearTimeout(this.removePredictionTimeout);
       this.removePredictionTimeout = setTimeout(() => {
-        this.removePrediction(newPrediction);
+        this.removePrediction();
         this.initRoadmap();
 
-        // this.getResult();
         this.store.isPredict = false;
       }, 5000);
-
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.initRoadmap();
     },
 
     predictPlayer() {
-      console.log("Player");
       const newPrediction = "p";
 
       if (this.store.isPredict) {
         this.results.pop();
         this.results.push(newPrediction);
+        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+        this.results = [];
+        this.getResult();
       } else {
         this.store.isPredict = true;
         this.results.push(newPrediction);
+        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+        this.results = [];
+        this.getResult();
       }
 
       clearTimeout(this.removePredictionTimeout);
       this.removePredictionTimeout = setTimeout(() => {
-        this.removePrediction(newPrediction);
+        this.removePrediction();
         this.initRoadmap();
 
-        // this.getResult();
         this.store.isPredict = false;
       }, 5000);
-
       this.initRoadmap();
+      console.log("Player", this.roadmap);
     },
 
-    removePrediction(prediction) {
+    removePrediction() {
       this.results.pop();
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+      this.results = [];
+      this.getResult();
       this.initRoadmap();
-      this.store.isPredict = false;
     },
   },
 };

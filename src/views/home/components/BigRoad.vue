@@ -37,7 +37,7 @@
           <!-- <p class="text-black">{{ colKey }}</p> -->
           <div
             class="rounded-full w-6 h-6"
-            :class="bigRoadResult(col, col.value)"
+            :class="bigRoadResult(col.value)"
           ></div>
         </div>
       </div>
@@ -79,8 +79,7 @@ export default {
       setTimeout(playVideoAgain, 5 * 60 * 1000); // 5 minutes in milliseconds
     },
 
-    bigRoadResult(c, value) {
-      console.log("🚀 ~ file: BigRoad.vue:83 ~ bigRoadResult ~ c:", c);
+    bigRoadResult(value) {
       return MappingUtils.BigRoadResult(value);
     },
     handleScroll(isLeft) {
