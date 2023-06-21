@@ -103,14 +103,12 @@ export default class BigRoad extends RoadmapUtilities {
     );
 
     const prevColValue = _get(this.matrix[prevRow][prevCol], "value");
-    const isAnotherTie = isTie && this.tieIdentities.includes(prevColValue);
+    const isPrevNonTie = !this.tieIdentities.includes(prevColValue); // Check if previous value is non-tie
 
-    /**
-     * If previous col is tie and the current identity
-     * is also tie
-     */
-    if (isAnotherTie) {
-      return this.matrix[prevRow][prevCol].tie_count++;
+    if (isTie && isPrevNonTie && typeof prevColValue === "object") {
+      // Increment tie count of previous non-tie value
+      this.matrix[prevRow][prevCol].tie_count =
+        (this.matrix[prevRow][prevCol].tie_count || 0) + 1;
     }
 
     this.previousCoordinates = [nextRow, nextCol];

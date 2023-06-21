@@ -85,6 +85,7 @@ export default {
       return MappingUtils.BigRoadResult(value);
     },
     handleScroll(isLeft) {
+      console.log("!!", this.BigRoad);
       if (isLeft) {
         this.$refs.bigroadId.scrollLeft -= 60;
       } else {
