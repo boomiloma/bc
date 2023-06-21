@@ -39,6 +39,7 @@
             <BigRoad
               :BigRoadResults="roadmap.bigroad.matrix"
               :isChange="isChange"
+              :BigRoad="roadmap.bigroad"
             />
           </div>
         </div>
@@ -47,11 +48,15 @@
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
             :isChange="isChange"
+            :BigEye="roadmap.bigeyeboy"
+            :CustomPlate="roadmap.customplate"
           />
           <SmallRoad
             :SmallRoadResults="roadmap.smallroad.matrix"
             :CockRoachResults="roadmap.cockroachPig.matrix"
             :isChange="isChange"
+            :SmallRoad="roadmap.smallroad"
+            :CockRoach="roadmap.cockroachPig"
           />
         </div>
       </div>

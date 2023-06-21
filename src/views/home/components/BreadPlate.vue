@@ -166,8 +166,13 @@ export default {
         }
         this.$emit("colIndex", this.colIndex);
       }
-      if (previousRow === rowKey && previousCol === colKey && store.isPredict) {
-        return "animate-pulse";
+      if (this.isReplace === false) {
+        return MappingUtils.CheckIfPredict(
+          store.isPredict,
+          this.Breadplate,
+          rowKey,
+          colKey
+        );
       }
     },
   },

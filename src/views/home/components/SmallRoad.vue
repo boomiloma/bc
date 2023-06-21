@@ -32,6 +32,7 @@
           v-for="(col, colKey) in row"
           :key="colKey"
           class="grid__col__small_road"
+          :class="CheckPredict(SmallRoad, rowKey, colKey)"
         >
           <div
             class="rounded-full w-6 h-6"
@@ -78,6 +79,7 @@
           v-for="(col, colKey) in row"
           :key="colKey"
           class="grid__col__small_road"
+          :class="CheckPredict(CockRoach, rowKey, colKey)"
         >
           <div v-if="col.value === `red`" class="red-slash">
             <span class="slash"></span>
@@ -94,11 +96,19 @@
 <script>
 // @ is an alias to /src
 import { Icon } from "@iconify/vue";
+import { store } from "../../../store/store";
+import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 export default {
   components: {
     Icon,
   },
-  props: ["SmallRoadResults", "CockRoachResults", "isChange"],
+  props: [
+    "SmallRoadResults",
+    "CockRoachResults",
+    "isChange",
+    "SmallRoad",
+    "CockRoach",
+  ],
   watch: {
     checkChange() {
       const smallRoad = this.$refs.smallRoadId;
@@ -131,6 +141,9 @@ export default {
           this.$refs.cockroachRoadId.scrollLeft += 40;
         }
       }
+    },
+    CheckPredict(Road, row, col) {
+      return MappingUtils.CheckIfPredict(store.isPredict, Road, row, col);
     },
   },
 };

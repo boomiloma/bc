@@ -33,6 +33,7 @@
           v-for="(col, colKey) in row"
           :key="colKey"
           class="grid__col__big__road text-gray-200"
+          :class="CheckPredict(BigRoad, rowKey, colKey)"
         >
           <!-- <p class="text-black">{{ colKey }}</p> -->
           <div
@@ -57,11 +58,12 @@
 // @ is an alias to /src
 import { Icon } from "@iconify/vue";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
+import { store } from "../../../store/store";
 export default {
   components: {
     Icon,
   },
-  props: ["BigRoadResults", "isChange"],
+  props: ["BigRoadResults", "isChange", "BigRoad"],
   mounted() {
     this.startVideoLoop();
   },
@@ -88,6 +90,9 @@ export default {
       } else {
         this.$refs.bigroadId.scrollLeft += 60;
       }
+    },
+    CheckPredict(BigRoad, row, col) {
+      return MappingUtils.CheckIfPredict(store.isPredict, BigRoad, row, col);
     },
   },
   watch: {

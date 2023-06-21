@@ -1424,4 +1424,14 @@ export default class MappingUtils {
 
     return allowedValues.includes(value);
   }
+
+  static CheckIfPredict(isPredict, coordinates, row, col) {
+    const previousRow = coordinates.previousCoordinates[0];
+    const previousCol = coordinates.previousCoordinates[1];
+
+    if (isPredict && row === previousRow && col === previousCol) {
+      return "animate-pulse";
+    }
+    return false;
+  }
 }
