@@ -111,6 +111,7 @@ export default {
   },
   data() {
     return {
+      newPrediction: "",
       isInsuranceOpen: false,
       removePredictionTimeout: null,
       insuranceType: "",
@@ -480,49 +481,21 @@ export default {
     },
 
     predictBanker() {
-      console.log("BANKER");
-      const newPrediction = "b";
-
-      if (this.store.isPredict) {
-        this.results.pop();
-        this.results.push(newPrediction);
-        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-        this.results = [];
-        this.getResult();
-      } else {
-        this.store.isPredict = true;
-        this.results.push(newPrediction);
-        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-        this.results = [];
-        this.getResult();
-      }
-
-      clearTimeout(this.removePredictionTimeout);
-      this.removePredictionTimeout = setTimeout(() => {
-        this.removePrediction();
-        this.initRoadmap();
-
-        this.store.isPredict = false;
-      }, 5000);
-      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      this.initRoadmap();
+      this.newPrediction = "b";
+      this.prediction();
     },
 
     predictPlayer() {
-      const newPrediction = "p";
-
+      this.newPrediction = "p";
+      this.prediction();
+    },
+    prediction() {
       if (this.store.isPredict) {
         this.results.pop();
-        this.results.push(newPrediction);
-        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-        this.results = [];
-        this.getResult();
+        this.results.push(this.newPrediction);
       } else {
         this.store.isPredict = true;
-        this.results.push(newPrediction);
-        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-        this.results = [];
-        this.getResult();
+        this.results.push(this.newPrediction);
       }
 
       clearTimeout(this.removePredictionTimeout);
@@ -531,11 +504,14 @@ export default {
         this.initRoadmap();
 
         this.store.isPredict = false;
-      }, 5000);
+      }, 2500);
+
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+      this.results = [];
+      this.getResult();
       this.initRoadmap();
       console.log("Player", this.roadmap);
     },
-
     removePrediction() {
       this.results.pop();
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
