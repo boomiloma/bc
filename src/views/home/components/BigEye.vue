@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     handleScroll(isLeft, id) {
-      console.log(this.CustomPlateResults);
+      console.log("📌", this.CustomPlateResults);
       if (isLeft) {
         if (id === "bigEyeId") {
           this.$refs.bigEyeId.scrollLeft -= 40;

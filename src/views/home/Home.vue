@@ -481,7 +481,7 @@ export default {
         this.removePrediction(newPrediction);
         this.initRoadmap();
 
-        this.getResult();
+        // this.getResult();
         this.store.isPredict = false;
       }, 5000);
 
@@ -505,7 +505,7 @@ export default {
         this.removePrediction(newPrediction);
         this.initRoadmap();
 
-        this.getResult();
+        // this.getResult();
         this.store.isPredict = false;
       }, 5000);
 

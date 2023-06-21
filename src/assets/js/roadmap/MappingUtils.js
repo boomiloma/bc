@@ -1405,4 +1405,23 @@ export default class MappingUtils {
     }
     return "flex flex-col justify-center items-center relative " + bigRoadClass;
   }
+
+  static CheckCustomTie(value) {
+    const allowedValues = [
+      "t",
+      "i",
+      "j",
+      "k",
+      "v",
+      "vi",
+      "vj",
+      "vk",
+      "y",
+      "yi",
+      "yj",
+      "yk",
+    ];
+
+    return allowedValues.includes(value);
+  }
 }
