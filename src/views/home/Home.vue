@@ -28,13 +28,18 @@
               @colIndex="colIndex = $event"
             />
           </div>
-          <Sign :results="results" />
+          <Sign
+            :results="results"
+            @bankerPredict="predictBanker"
+            @playerPredict="predictPlayer"
+          />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
             <BigRoad
               :BigRoadResults="roadmap.bigroad.matrix"
               :isChange="isChange"
+              :BigRoad="roadmap.bigroad"
             />
           </div>
         </div>
@@ -43,11 +48,15 @@
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
             :isChange="isChange"
+            :BigEye="roadmap.bigeyeboy"
+            :CustomPlate="roadmap.customplate"
           />
           <SmallRoad
             :SmallRoadResults="roadmap.smallroad.matrix"
             :CockRoachResults="roadmap.cockroachPig.matrix"
             :isChange="isChange"
+            :SmallRoad="roadmap.smallroad"
+            :CockRoach="roadmap.cockroachPig"
           />
         </div>
       </div>
@@ -102,7 +111,9 @@ export default {
   },
   data() {
     return {
+      newPrediction: "",
       isInsuranceOpen: false,
+      removePredictionTimeout: null,
       insuranceType: "",
       insuranceMax: 0,
       colValue: "",
@@ -399,7 +410,7 @@ export default {
             };
             // add to tatabase
             let res = await this.uResult.add(_data);
-          // for mapping update to database
+            // for mapping update to database
             this.results_id.push(res?.id);
             localStorage.setItem(
               "roadmap-results-id",
@@ -409,7 +420,6 @@ export default {
             console.log(e);
           }
           this.lastKeyPressed = null;
-     
         }
       }
     },
@@ -469,38 +479,43 @@ export default {
     onStartGame() {
       this.getConfig();
     },
-    // predictBanker() {
-    //   console.log("BANKER");
-    //   if (this.store.isPredict === false) {
-    //     this.store.isPredict = true;
-    //     this.push("b");
 
-    //     setTimeout(() => {
-    //       this.results.pop();
-    //       this.initRoadmap();
-    //     }, 3000);
-    //   } else {
-    //     this.results.pop();
-    //     this.results.push("b");
+    predictBanker() {
+      this.newPrediction = "b";
+      this.prediction();
+    },
 
-    //     setTimeout(() => {
-    //       this.results.pop();
-    //       this.initRoadmap();
-    //     }, 3000);
-    //   }
-    //   this.initRoadmap();
-    // },
-    // predictPlayer() {
-    //   console.log("Player");
-    //   if (this.store.isPredict === false) {
-    //     this.store.isPredict = true;
-    //     this.push("p");
-    //   } else {
-    //     this.results.pop();
-    //     this.results.push("p");
-    //   }
-    //   this.initRoadmap();
-    // },
+    predictPlayer() {
+      this.newPrediction = "p";
+      this.prediction();
+    },
+    prediction() {
+      if (this.store.isPredict) {
+        this.results.pop();
+        this.results.push(this.newPrediction);
+      } else {
+        this.store.isPredict = true;
+        this.results.push(this.newPrediction);
+      }
+
+      clearTimeout(this.removePredictionTimeout);
+      this.removePredictionTimeout = setTimeout(() => {
+        this.removePrediction();
+        this.initRoadmap();
+        this.store.isPredict = false;
+      }, 2500);
+      this.resetRoadMap();
+    },
+    removePrediction() {
+      this.results.pop();
+      this.resetRoadMap();
+    },
+    resetRoadMap() {
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+      this.results = [];
+      this.getResult();
+      this.initRoadmap();
+    },
   },
 };
 </script>

@@ -66,7 +66,6 @@ export default class CustomPlate extends RoadmapUtilities {
     if (!identity) {
       return console.warn(`${key} is not a valid key.`);
     }
-
     const [row, column] = this.getNextCoordinates(identity);
     const isTie = this.tieIdentities.includes(key);
 

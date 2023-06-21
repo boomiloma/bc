@@ -32,6 +32,7 @@
           v-for="(col, colKey) in row"
           :key="colKey"
           class="grid__col__Big_eye text-gray-200"
+          :class="CheckPredict(BigEye, rowKey, colKey)"
         >
           <div
             v-if="col && col.value"
@@ -77,6 +78,7 @@
           v-for="(col, colKey) in row"
           :key="colKey"
           class="grid__col__custom__road text-gray-200"
+          :class="CheckPredict(CustomPlate, rowKey, colKey)"
         >
           <div
             v-if="col && col.value"
@@ -93,11 +95,18 @@
 // @ is an alias to /src
 import { Icon } from "@iconify/vue";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
+import { store } from "../../../store/store";
 export default {
   components: {
     Icon,
   },
-  props: ["BigEyeResults", "CustomPlateResults", "isChange"],
+  props: [
+    "BigEyeResults",
+    "CustomPlateResults",
+    "isChange",
+    "BigEye",
+    "CustomPlate",
+  ],
   watch: {
     checkChange() {
       const bigEyeRoad = this.$refs.bigEyeId;
@@ -115,7 +124,11 @@ export default {
     },
   },
   methods: {
+    CheckPredict(Road, row, col) {
+      return MappingUtils.CheckIfPredict(store.isPredict, Road, row, col);
+    },
     handleScroll(isLeft, id) {
+      console.log("📌", this.CustomPlateResults);
       if (isLeft) {
         if (id === "bigEyeId") {
           this.$refs.bigEyeId.scrollLeft -= 40;

@@ -8,12 +8,18 @@
     <div class="flex flex-col gap-5 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div class="banker-fill">
-          <span class="main hover:cursor-pointer">
+          <span
+            class="main hover:cursor-pointer select-none"
+            @click="predictBanker"
+          >
             {{ $t("b") }}
           </span>
         </div>
         <div class="player-fill">
-          <span class="main hover:cursor-pointer">
+          <span
+            class="main hover:cursor-pointer select-none"
+            @click="predictPlayer"
+          >
             {{ $t("p") }}
           </span>
         </div>
@@ -200,6 +206,7 @@
 <script>
 import { ref } from "vue";
 import { store } from "@/store/store";
+import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 
 export default {
   setup() {
@@ -216,52 +223,27 @@ export default {
   props: ["results"],
   methods: {
     filterBanker() {
-      return this.results.filter(
-        (result) =>
-          result === "b" || result === "q" || result === "w" || result === "e"
-      ).length;
+      return MappingUtils.CountBankerBeads(this.results);
     },
     filterPlayer() {
-      return this.results.filter(
-        (result) =>
-          result === "p" || result === "f" || result === "g" || result === "h"
-      ).length;
+      return MappingUtils.CountPlayerBeads(this.results);
     },
     filterTie() {
-      return this.results.filter(
-        (result) =>
-          result === "t" || result === "j" || result === "k" || result === "i"
-      ).length;
+      return MappingUtils.CountTierBeads(this.results);
     },
     filterBankerPair() {
-      return this.results.filter(
-        (result) =>
-          result === "q" ||
-          result === "w" ||
-          result === "f" ||
-          result === "g" ||
-          result === "j" ||
-          result === "i"
-      ).length;
+      return MappingUtils.CountBankerPair(this.results);
     },
     filterPlayerPair() {
-      return this.results.filter(
-        (result) =>
-          result === "w" ||
-          result === "e" ||
-          result === "g" ||
-          result === "h" ||
-          result === "j" ||
-          result === "k"
-      ).length;
+      return MappingUtils.CountPlayerPair(this.results);
     },
 
-    // predictBanker() {
-    //   this.$emit("bankerPredict");
-    // },
-    // predictPlayer() {
-    //   this.$emit("playerPredict");
-    // },
+    predictBanker() {
+      this.$emit("bankerPredict");
+    },
+    predictPlayer() {
+      this.$emit("playerPredict");
+    },
     async onLoad() {
       let getSetting = await localStorage.getItem("setting");
       if (getSetting) {

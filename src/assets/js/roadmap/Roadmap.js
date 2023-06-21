@@ -6,6 +6,7 @@ import BigEyeBoy from "./BigEyeBoy";
 import SmallRoad from "./SmallRoad";
 import CockroachPig from "./CockroachPig";
 import CustomPlate from "./CustomPlate";
+import MappingUtils from "./MappingUtils";
 
 function attachToContext(obj, ctx) {
   for (const key in obj) {
@@ -108,7 +109,8 @@ export default class Roadmap {
 
     this.cockroachPig.bigRoadMatrix = this.bigroad.matrix;
     this.cockroachPig.traverseBigRoadScheme();
-    if (key !== "t" && key !== "i" && key !== "j" && key !== "k") {
+    const isTie = MappingUtils.CheckCustomTie(key);
+    if (!isTie) {
       this.customplate.push(key);
     }
   }
