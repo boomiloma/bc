@@ -370,7 +370,7 @@ async function onSaved(text) {
   }, 2000);
   let saveConfig = {
     desk_name: setting.value.table_no,
-    boot_num: 0,
+    boot_num: setting.value.shoe_no,
     double_small: setting.value.usd.min_pair,
     double_max: setting.value.usd.max_pair,
     draw_small: setting.value.usd.max_bp,
@@ -393,7 +393,7 @@ async function onSaved(text) {
     status: '',
     verify: setting.value.verification_code,
   }
-  let res =  await add(saveConfig)
+  await add(saveConfig)
   emit("onClose");
 
   // emit("onClose");
