@@ -28,11 +28,7 @@
               @colIndex="colIndex = $event"
             />
           </div>
-          <Sign
-            :results="results"
-            @bankerPredict="predictBanker"
-            @playerPredict="predictPlayer"
-          />
+          <Sign :results="results" @Predict="prediction" />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
@@ -479,23 +475,13 @@ export default {
     onStartGame() {
       this.getConfig();
     },
-
-    predictBanker() {
-      this.newPrediction = "b";
-      this.prediction();
-    },
-
-    predictPlayer() {
-      this.newPrediction = "p";
-      this.prediction();
-    },
-    prediction() {
+    prediction(value) {
       if (this.store.isPredict) {
         this.results.pop();
-        this.results.push(this.newPrediction);
+        this.results.push(value);
       } else {
         this.store.isPredict = true;
-        this.results.push(this.newPrediction);
+        this.results.push(value);
       }
 
       clearTimeout(this.removePredictionTimeout);

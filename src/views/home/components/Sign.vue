@@ -239,10 +239,10 @@ export default {
     },
 
     predictBanker() {
-      this.$emit("bankerPredict");
+      this.$emit("Predict", "b");
     },
     predictPlayer() {
-      this.$emit("playerPredict");
+      this.$emit("Predict", "p");
     },
     async onLoad() {
       let getSetting = await localStorage.getItem("setting");
