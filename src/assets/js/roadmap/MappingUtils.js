@@ -67,10 +67,10 @@ export default class MappingUtils {
     if (arr.includes("6") && arr.includes("2")) {
       keys = "u";
     }
-    if (arr.includes("6") && arr.includes("5")) {
+    if (arr.includes("6") && arr.includes("8")) {
       keys = "r";
     }
-    if (arr.includes("6") && arr.includes("8")) {
+    if (arr.includes("6") && arr.includes("5")) {
       keys = "s";
     }
     // PLAYER WITH SMALL AND BIG
@@ -1075,10 +1075,6 @@ export default class MappingUtils {
   }
   static Small(value) {
     const allowedValues = [
-      "zd",
-      "ze",
-      "zf",
-      "zg",
       "a",
       "d",
       "v",
