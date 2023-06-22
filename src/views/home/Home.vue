@@ -260,7 +260,11 @@ export default {
         // }
         this.isOpen = true;
       }
-      if (keyPressed === "." && this.isReplace === false) {
+      if (
+        keyPressed === "." &&
+        this.isReplace === false &&
+        localStorage.getItem("KEYBOARD_GAME") === "false"
+      ) {
         const headerComponent = this.$refs.headerComponent;
         headerComponent.handleCountdown();
       }
@@ -390,7 +394,6 @@ export default {
           this.push(this.lastKeyPressed);
           this.isOpen = false;
           this.isOpenCountDown = true;
-          localStorage.setItem("KEYBOARD_GAME", "false");
           let joinResult = Object.values(this.keyArray).join("");
           this.keyArray = [];
 

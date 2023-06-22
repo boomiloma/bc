@@ -81,6 +81,7 @@ onMounted(() => {
           if (countdown.value === 0) {
             emit("onClose");
             clearInterval(countdownInterval);
+            localStorage.setItem("KEYBOARD_GAME", "false");
           }
         }, 1000);
       }
