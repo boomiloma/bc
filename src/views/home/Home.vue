@@ -28,7 +28,7 @@
               @colIndex="colIndex = $event"
             />
           </div>
-          <Sign :results="results" @Predict="prediction" />
+          <Sign :results="results" @Predict="prediction" :RoadMap="roadmap" />
         </div>
         <div class="mb-8">
           <div class="border border-b-4 border-black">
@@ -456,7 +456,7 @@ export default {
             this.store.setting.thb.max_lucky6 = res.data.six_small_th;
             this.store.setting.thb.max_tie = res.data.banker_and_player_max_th;
             this.store.setting.thb.min_tie =
-            res.data.banker_and_player_small_th;
+              res.data.banker_and_player_small_th;
             this.store.setting.game_num = this.results.length;
             this.store.setting.is_online = res.data.is_online;
             this.store.setting.second = res.data.second;

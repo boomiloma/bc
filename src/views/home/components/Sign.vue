@@ -24,7 +24,10 @@
           </span>
         </div>
       </div>
-      <div class="flex flex-row items-center justify-evenly gap-1">
+      <div
+        class="flex flex-row items-center justify-evenly gap-1"
+        v-if="RoadMap.bigroad.matrix[0][1] !== 0"
+      >
         <div class="banker-hollow bw">
           <span class="main"> </span>
         </div>
@@ -32,7 +35,10 @@
           <span class="main"> </span>
         </div>
       </div>
-      <div class="flex flex-row items-center justify-evenly gap-1">
+      <div
+        class="flex flex-row items-center justify-evenly gap-1"
+        v-if="RoadMap.bigeyeboy.index > 0"
+      >
         <div class="banker-fill">
           <span class="main"> </span>
         </div>
@@ -40,7 +46,10 @@
           <span class="main"> </span>
         </div>
       </div>
-      <div class="flex flex-row items-center justify-evenly gap-1">
+      <div
+        class="flex flex-row items-center justify-evenly gap-1"
+        v-if="RoadMap.bigroad.matrix[0][4] !== 0"
+      >
         <div class="red-slash">
           <span class="slash"></span>
         </div>
@@ -220,7 +229,7 @@ export default {
       store,
     };
   },
-  props: ["results"],
+  props: ["results", "RoadMap"],
   methods: {
     filterBanker() {
       return MappingUtils.CountBankerBeads(this.results);
@@ -239,10 +248,10 @@ export default {
     },
 
     predictBanker() {
-      this.$emit("Predict", "b");
+      if (this.RoadMap.breadplate.index > 0) this.$emit("Predict", "b");
     },
     predictPlayer() {
-      this.$emit("Predict", "p");
+      if (this.RoadMap.breadplate.index > 0) this.$emit("Predict", "p");
     },
     async onLoad() {
       let getSetting = await localStorage.getItem("setting");
