@@ -39,8 +39,7 @@
             class="rounded-full w-6 h-6"
             :class="bigRoadResult(col.value)"
           >
-          <p class="text-black" style="font-size: 20px; padding: 1px;">{{ col.tie_count }}</p>
-
+            <p v-if="col.tie_count> 1" class="text-black" style="font-size: 20px; padding: 1px;color:green; font-weight: bold;">{{ col.tie_count }}</p>
           </div>
         </div>
       </div>
