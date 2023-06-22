@@ -109,21 +109,26 @@ export default class BigRoad extends RoadmapUtilities {
      * If previous col is tie and the current identity
      * is also tie
      */
-    if (isAnotherTie) {
+    if (isTie) {
       return this.matrix[prevRow][prevCol].tie_count++;
     }
 
     this.previousCoordinates = [nextRow, nextCol];
     this.previousIdentity = identity;
-
+    console.log("isTie===", isTie)
     if (!isTie) {
       this.matrix[nextRow][nextCol] = {
         value: key,
         index: this.index++,
         tie_count: 0,
       };
+    } else {
+      // console.log("this.matrix[prevRow][prevCol]===", this.matrix[prevRow][prevCol], prevRow, prevCol)
+      // console.log("isAnotherTie", isAnotherTie);
+      // this.matrix[prevRow][prevCol].tie_count +=1;
     }
     this.matrix = this.equalizeArrays();
+    console.log("matricx=======================================", this.matrix)
 
     if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();

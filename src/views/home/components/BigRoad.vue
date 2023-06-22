@@ -35,11 +35,13 @@
           class="grid__col__big__road text-gray-200"
           :class="CheckPredict(BigRoad, rowKey, colKey)"
         >
-          <!-- <p class="text-black">{{ colKey }}</p> -->
           <div
             class="rounded-full w-6 h-6"
             :class="bigRoadResult(col.value)"
-          ></div>
+          >
+          <p class="text-black" style="font-size: 20px; padding: 1px;">{{ col.tie_count }}</p>
+
+          </div>
         </div>
       </div>
     </div>
