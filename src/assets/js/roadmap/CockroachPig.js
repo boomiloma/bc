@@ -57,8 +57,8 @@ export default class CockroachPig extends RoadmapUtilities {
      * If E2 is empty, the starting point is F1
      */
 
-    const E2 = [1, 3];
-    const F1 = [0, 4];
+    const E2 = [1, 4];
+    const F1 = [0, 5];
 
     const c2HasValue = this.bigRoadMatrix[E2[0]][E2[1]];
     const d1HasValue = this.bigRoadMatrix[F1[0]][F1[1]];
