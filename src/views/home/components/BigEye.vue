@@ -128,7 +128,6 @@ export default {
       return MappingUtils.CheckIfPredict(store.isPredict, Road, row, col);
     },
     handleScroll(isLeft, id) {
-      console.log("📌", this.CustomPlateResults);
       if (isLeft) {
         if (id === "bigEyeId") {
           this.$refs.bigEyeId.scrollLeft -= 40;

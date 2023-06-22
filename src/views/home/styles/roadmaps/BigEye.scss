@@ -161,7 +161,7 @@
       border-bottom: $grid-border;
     }
     $last: last-child;
-    @for $i from 1 through 25 {
+    @for $i from 1 through 999 {
       // Remove border-bottom of the even rows
       &:nth-child(#{$i}) {
         @if $i % 2 == 1 {

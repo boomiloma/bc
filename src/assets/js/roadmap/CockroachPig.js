@@ -57,8 +57,8 @@ export default class CockroachPig extends RoadmapUtilities {
      * If E2 is empty, the starting point is F1
      */
 
-    const E2 = [1, 3];
-    const F1 = [0, 4];
+    const E2 = [1, 4];
+    const F1 = [0, 5];
 
     const c2HasValue = this.bigRoadMatrix[E2[0]][E2[1]];
     const d1HasValue = this.bigRoadMatrix[F1[0]][F1[1]];
@@ -87,7 +87,7 @@ export default class CockroachPig extends RoadmapUtilities {
         /**
          * Get the 3rd column to the right
          */
-        const prevColBLength = this.getColumnLength(initialCol - 3);
+        const prevColBLength = this.getColumnLength(initialCol - 4);
 
         this.push(prevColALength === prevColBLength ? "red" : "blue", {
           big_road_index: col.index,
@@ -155,10 +155,11 @@ export default class CockroachPig extends RoadmapUtilities {
   }
 
   getColumnLength(columnIdx) {
-    let coordinates = columnIdx;
-    if (coordinates) {
-      coordinates = [0, 0];
-    }
+    let coordinates = [0, columnIdx];
+    console.log(
+      "🚀 ~ file: CockroachPig.js:159 ~ CockroachPig ~ getColumnLength ~ columnIdx:",
+      columnIdx
+    );
     const column = this.bigRoadMatrix[coordinates[0]][coordinates[1]];
     const rootIdentity = this.identityDictionary[column.value];
 
@@ -287,7 +288,6 @@ export default class CockroachPig extends RoadmapUtilities {
       big_road_index: options.big_road_index,
     };
     this.matrix = this.equalizeArrays();
-
     if (this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
       // this.previousCoordinates = [row, column - 1];
