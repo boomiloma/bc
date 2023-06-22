@@ -35,11 +35,23 @@
           class="grid__col__big__road text-gray-200"
           :class="CheckPredict(BigRoad, rowKey, colKey)"
         >
-          <div
-            class="rounded-full w-6 h-6"
-            :class="bigRoadResult(col.value)"
-          >
-            <p v-if="col.tie_count> 1" class="text-black" style="font-size: 20px; padding: 1px;color:green; font-weight: bold;">{{ col.tie_count }}</p>
+          <div class="rounded-full w-6 h-6" :class="bigRoadResult(col.value)">
+            <p
+              v-if="col.tie_count > 1"
+              class="text-black"
+              style="
+                font-size: 22px;
+                padding: 1px;
+                color: #00c036;
+                font-weight: 700;
+                top: -2px;
+              "
+            >
+              {{ col.tie_count }}
+            </p>
+            <div class="green-slash" v-if="col.tie_count === 1">
+              <span class="slash"></span>
+            </div>
           </div>
         </div>
       </div>
