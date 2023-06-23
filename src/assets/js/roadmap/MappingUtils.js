@@ -1430,7 +1430,7 @@ export default class MappingUtils {
     const previousCol = coordinates.previousCoordinates[1];
 
     if (isPredict && row === previousRow && col === previousCol) {
-      return "animate-pulse";
+      return "animate-pulse-faster";
     }
     return false;
   }
