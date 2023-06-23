@@ -98,3 +98,18 @@
   font-weight: bold;
   // box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-pulse-faster {
+  animation: pulse 0.5s infinite;
+}
