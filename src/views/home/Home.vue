@@ -236,7 +236,7 @@ export default {
       });
     },
     push(key) {
-      this.isChange += 1;
+      // this.isChange += 1;
       this.results.push(key);
       this.roadmap.push(key);
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));

@@ -195,7 +195,7 @@
       &:not(:last-child) {
         border-right: $grid-border;
       }
-      @for $i from 1 through 30 {
+      @for $i from 1 through 999 {
         // Remove border-right of the even columns
         &:nth-child(#{$i}) {
           @if $i % 2 == 1 {
