@@ -55,23 +55,23 @@ export default class BigRoad extends RoadmapUtilities {
     if (this.previousIdentity === identity) {
       const bottomPosition = _get(this.matrix, [prevRow + 1, prevColumn]);
       // let findIndxe = _findIndex(this.prevRow)
-      if (this.isCol && bottomPosition == 0 && prevRow != 0) {
-        return [prevRow, prevColumn + 1];
-      }
+      // if (this.isCol && bottomPosition == 0 && prevRow != 0) {
+      //   return [prevRow, prevColumn + 1];
+      // }
       /**
        * Bottom position is empty
        */
       if (bottomPosition === 0) {
-        this.isCol = false;
+        // this.isCol = false;
         return [prevRow + 1, prevColumn];
       }
       /**
        * Else, just increment column to the right
        */
-      this.isCol = true;
+      // this.isCol = true;
       return [prevRow, prevColumn + 1];
     }
-    this.isCol = false;
+    // this.isCol = false;
     /**
      * Fallback. If not the same identity
      */
@@ -115,7 +115,7 @@ export default class BigRoad extends RoadmapUtilities {
 
     this.previousCoordinates = [nextRow, nextCol];
     this.previousIdentity = identity;
-    console.log("isTie===", isTie)
+    console.log("isTie===", isTie);
     if (!isTie) {
       this.matrix[nextRow][nextCol] = {
         value: key,
@@ -128,7 +128,7 @@ export default class BigRoad extends RoadmapUtilities {
       // this.matrix[prevRow][prevCol].tie_count +=1;
     }
     this.matrix = this.equalizeArrays();
-    console.log("matricx=======================================", this.matrix)
+    console.log("matricx=======================================", this.matrix);
 
     if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();
