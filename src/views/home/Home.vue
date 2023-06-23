@@ -309,10 +309,6 @@ export default {
       ) {
         return; // Exit early if the first element is not 1, 4, or 7
       }
-      console.log(
-        "🚀 ~ file: Home.vue:606 ~ handleKeyDown ~  this.keyArray:",
-        this.keyArray
-      );
 
       if (
         validNumbers.includes(keyPressed) &&

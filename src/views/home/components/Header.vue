@@ -142,10 +142,6 @@ export default {
       let getSetting = await localStorage.getItem("setting");
       if (getSetting) {
         this.store.setting = JSON.parse(getSetting);
-        console.log(
-          "🚀 ~ file: Header.vue:111 ~ onLoad ~ getSetting:",
-          JSON.parse(getSetting)
-        );
       }
     },
 

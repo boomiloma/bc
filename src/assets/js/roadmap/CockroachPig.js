@@ -156,10 +156,6 @@ export default class CockroachPig extends RoadmapUtilities {
 
   getColumnLength(columnIdx) {
     let coordinates = [0, columnIdx];
-    console.log(
-      "🚀 ~ file: CockroachPig.js:159 ~ CockroachPig ~ getColumnLength ~ columnIdx:",
-      columnIdx
-    );
     const column = this.bigRoadMatrix[coordinates[0]][coordinates[1]];
     const rootIdentity = this.identityDictionary[column.value];
 

@@ -7,7 +7,13 @@
     </div>
     <div class="flex flex-col gap-5 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
-        <div class="banker-fill">
+        <div
+          class="banker-fill"
+          :class="{
+            'shadow-lg shadow-slate-500 rounded-full  transition-all':
+              predictType === 'b' && store.isPredict,
+          }"
+        >
           <span
             class="main hover:cursor-pointer select-none"
             @click="predictBanker"
@@ -15,7 +21,13 @@
             {{ $t("b") }}
           </span>
         </div>
-        <div class="player-fill">
+        <div
+          class="player-fill"
+          :class="{
+            'shadow-xl shadow-slate-500 rounded-full transition-all':
+              predictType === 'p' && store.isPredict,
+          }"
+        >
           <span
             class="main hover:cursor-pointer select-none"
             @click="predictPlayer"
@@ -227,6 +239,7 @@ export default {
   data() {
     return {
       store,
+      predictType: "",
     };
   },
   props: ["results", "RoadMap"],
@@ -249,9 +262,11 @@ export default {
 
     predictBanker() {
       if (this.RoadMap.breadplate.index > 0) this.$emit("Predict", "b");
+      this.predictType = "b";
     },
     predictPlayer() {
       if (this.RoadMap.breadplate.index > 0) this.$emit("Predict", "p");
+      this.predictType = "p";
     },
     async onLoad() {
       let getSetting = await localStorage.getItem("setting");

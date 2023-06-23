@@ -95,10 +95,6 @@ export default class Roadmap {
     // this.results.push(key);
 
     this.breadplate.push(key);
-    console.log(
-      "🚀 ~ file: Roadmap.js:97 ~ Roadmap ~ push ~ this.breadplate:",
-      this.results
-    );
     this.bigroad.push(key);
 
     this.bigeyeboy.bigRoadMatrix = this.bigroad.matrix;

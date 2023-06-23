@@ -360,7 +360,6 @@ const currencyChange = () => {
 };
 
 async function onSaved(text) {
-  console.log("🚀 ~ file: SettingDialog.vue:360 ~ onSaved ~ text:", text);
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
   verifyStatus.value = text;
