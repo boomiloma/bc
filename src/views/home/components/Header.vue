@@ -7,46 +7,46 @@
             <div class="flex flex-row items-center">
               <div class="blocks-one-side-left">
                 <div class="terrace-details">
-                  <span class="text-left font-bold text-3xl"
+                  <span class="text-left text-3xl"
                     >{{ $t("table_no") }}:</span
                   >
-                  <span class="text-right font-bold text-3xl">
+                  <span class="text-right text-3xl">
                     &nbsp;{{ store.setting.table_no }}</span
                   >
                 </div>
                 <div class="boot-size">
-                  <span class="text-left font-bold text-3xl"
+                  <span class="text-left text-3xl"
                     >{{ $t("shoe_no") }}:</span
                   >
                   &nbsp;
-                  <span class="text-right font-bold text-3xl">{{
+                  <span class="text-right text-3xl">{{
                     store.setting.shoe_no
                   }}</span>
                 </div>
                 <div class="no-of-rounds">
-                  <span class="text-left font-bold text-3xl"
+                  <span class="text-left text-3xl"
                     >{{ $t("match_no") }}:</span
                   >
                   &nbsp;
-                  <span class="text-right font-bold text-3xl">
+                  <span class="text-right text-3xl">
                     {{ matches }}</span
                   >
                 </div>
                 <div class="status">
-                  <span class="text-left font-bold text-3xl"
+                  <span class="text-left text-3xl"
                     >{{ $t("status") }}:</span
                   >
                   &nbsp;
-                  <span class="text-right font-bold text-3xl">{{
+                  <span class="text-right text-3xl">{{
                     $t(status)
                   }}</span>
                 </div>
                 <div class="countdown gap-2">
-                  <span class="text-left font-bold text-3xl"
+                  <span class="text-left text-3xl"
                     >{{ $t("counter") }}:</span
                   >
                   &nbsp;
-                  <span class="text-right font-bold text-3xl">
+                  <span class="text-right text-3xl">
                     {{ countdown }}&nbsp;{{ $t("sec") }}</span
                   >
                 </div>
@@ -55,7 +55,7 @@
                 <div class="btn-start">
                   <button
                     type="button"
-                    class="btn-theme btn-1 font-bold text-3xl"
+                    class="btn-theme btn-1 text-2xl"
                     @click="handleCountdown"
                   >
                     {{ $t("start") }}
@@ -69,7 +69,7 @@
               <button
                 type="button"
                 @click="isOpen = true"
-                class="btn-theme btn-1 me-4 font-bold text-3xl"
+                class="btn-theme btn-1 me-8 text-2xl"
               >
                 {{ $t("settings") }}
               </button>

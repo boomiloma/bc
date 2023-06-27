@@ -1,20 +1,24 @@
 <template>
-  <div class="absolute z-10">
-    <Icon
+  <div class="relative">
+  <div class="absolute z-10 set-to-middle left">
+  
+  <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
+    <!-- <Icon
       icon="ic:round-keyboard-double-arrow-left"
       @click="handleScroll(true)"
-      class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+      class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
-    />
-  </div>
-  <div class="absolute z-10">
-    <Icon
+    />-->
+  </div> 
+  <div class="absolute z-10 set-to-middle right">
+    <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
+    <!-- <Icon
       icon="ic:round-keyboard-double-arrow-right"
       @click="handleScroll(false)"
-      class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
+      class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
       style="left: 52rem"
-    />
+    /> -->
   </div>
   <div
     class="grid bg-white"
@@ -43,7 +47,7 @@
             class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
           ></span>
           <div>
-            <p v-if="col.value" class="font-extrabold text-3xl select-none">
+            <p v-if="col.value" class="font-extrabold text-2xl select-none">
               {{ $t(beadRoadValue(col.value)) }}
             </p>
           </div>
@@ -51,6 +55,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>

@@ -16,10 +16,10 @@
     }
 
     .grid__col {
-      min-height: 50px;
-      min-width: 55px;
-      max-height: 55px;
-      max-width: 56px;
+      min-height: 48px;
+      min-width: 48px;
+      max-height: 48px;
+      max-width: 48px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -51,10 +51,10 @@
   padding-top: 2px;
   display: inline-block;
   // position: relative;
-  width: 49px;
-  height: 47px;
+  width: 44px;
+  height: 44px;
   margin: 0 auto;
-  border: 4px solid #ff3019;
+  border: 3px solid #ff3019;
   background: #fff;
   color: #ff3019;
   border-radius: 50%;
@@ -68,10 +68,10 @@
   padding-top: 2px;
   display: inline-block;
   // position: relative;
-  width: 49px;
-  height: 47px;
+  width: 44px;
+  height: 44px;
   margin: 0 auto;
-  border: 4px solid #08c418;
+  border: 3px solid #08c418;
   background: #fff;
   color: #08c418;
   border-radius: 50%;
@@ -85,20 +85,37 @@
   padding-top: 2px;
   display: inline-block;
   // position: relative;
-  width: 49px;
-  height: 47px;
+  width: 44px;
+  height: 44px;
   margin: 0 auto;
-  border: 4px solid #0059ff;
+  border: 3px solid #0059ff;
   background: #fff;
   color: #0059ff;
   border-radius: 50%;
   text-align: center;
-  line-height: 37px;
+  line-height: 32px;
   font-size: 28px;
   font-weight: bold;
   // box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
-
+.tie p, .player p, .banker p {
+  line-height: 32px !important;
+}
+.set-to-middle {
+  top: 50%;
+  
+}
+.left {
+  left: 51%;
+  transform: translate(-50px, -50px);
+}
+.right {
+  right: 33%;
+  transform: translate(-50px, -50px);
+}
+div.border-black {
+  position: relative;
+}
 @keyframes pulse {
   0% {
     opacity: 1;

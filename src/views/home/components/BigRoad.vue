@@ -1,22 +1,24 @@
 <template>
-  <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
-    <div class="absolute z-10">
-      <Icon
-        @click="handleScroll(true)"
-        icon="ic:round-keyboard-double-arrow-left"
-        class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-      />
-    </div>
-    <div class="absolute z-10">
-      <Icon
-        @click="handleScroll(false)"
-        icon="ic:round-keyboard-double-arrow-right"
-        class="text-slate-500 opacity-40 relative top-24 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-        style="left: 69rem"
-      />
-    </div>
+  <div class="relative flex flex-row items-stretch border-t-1 border-t-black relative">
+    <div class="absolute z-10 set-to-middle left">  
+      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
+    <!-- <Icon
+      icon="ic:round-keyboard-double-arrow-left"
+      @click="handleScroll(true)"
+      class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
+      width="100"
+    />-->
+  </div> 
+  <div class="absolute z-10 set-to-middle right">
+    <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
+    <!-- <Icon
+      icon="ic:round-keyboard-double-arrow-right"
+      @click="handleScroll(false)"
+      class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
+      width="100"
+      style="left: 52rem"
+    /> -->
+  </div>
     <!-- {{BigRoadResults}} -->
     <div
       class="grid bg-white"

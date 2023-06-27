@@ -2,10 +2,10 @@
   <div
     class="border-l-4 border-b-4 border-solid border-black text-black w-36 bg-white"
   >
-    <div class="flex flex-row items-center justify-center border-b-2">
-      <p class="text-2xl font-bold">{{ $t("prediction") }}</p>
+    <div class="flex flex-row items-center justify-center border-b-2 py-2">
+      <p class="text-2xl">{{ $t("prediction") }}</p>
     </div>
-    <div class="flex flex-col gap-5 justify-center mt-1">
+    <div class="flex flex-col gap-2 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div
           class="banker-fill"
@@ -75,55 +75,55 @@
   <div
     class="border border-l-4 border-b-4 border-black text-black w-36 bg-white"
   >
-    <div class="flex flex-row items-start justify-center border-b-2">
-      <p class="text-2xl font-bold">{{ results.length }}</p>
+    <div class="flex flex-row items-start justify-center border-b-2 py-2">
+      <p class="text-2xl">{{ results.length }}</p>
     </div>
     <div class="flex flex-col gap-2 justify-center">
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-3xl font-bold text-red-500 mx-1">
+        <span class="text-2xl text-red-500 mx-1">
           {{ $t("b") }}
         </span>
-        <span class="text-3xl font-bold text-red-500 mx-1">
+        <span class="text-2xl text-red-500 mx-1">
           {{ filterBanker() }}
         </span>
       </div>
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-3xl font-bold text-blue-500 mx-1">
+        <span class="text-2xl text-blue-500 mx-1">
           {{ $t("p") }}
         </span>
-        <span class="text-3xl font-bold text-blue-500 mx-1">
+        <span class="text-2xl text-blue-500 mx-1">
           {{ filterPlayer() }}
         </span>
       </div>
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-3xl font-bold text-green-500 mx-1">
+        <span class="text-2xl text-green-500 mx-1">
           {{ $t("t") }}
         </span>
-        <span class="text-3xl font-bold text-green-500 mx-1">
+        <span class="text-2xl text-green-500 mx-1">
           {{ filterTie() }}
         </span>
       </div>
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
       >
-        <span class="text-3xl font-bold text-red-500 mx-1">
+        <span class="text-2xl text-red-500 mx-1">
           {{ $t("bp") }}
         </span>
-        <span class="text-3xl font-bold text-red-500 mx-1">
+        <span class="text-2xl text-red-500 mx-1">
           {{ filterBankerPair() }}
         </span>
       </div>
       <div class="flex flex-row items-center justify-between gap-2">
-        <span class="text-3xl font-bold text-blue-500 mx-1">
+        <span class="text-2xl text-blue-500 mx-1">
           {{ $t("pp") }}
         </span>
-        <span class="text-3xl font-bold text-blue-500 mx-1">
+        <span class="text-2xl text-blue-500 mx-1">
           {{ filterPlayerPair() }}
         </span>
       </div>
@@ -134,24 +134,24 @@
     class="border border-1 border-solid border-l-0 items-stretch justify-center border-black text-black w-96 bg-white"
   >
     <div class="grid grid-cols-2">
-      <div class="flex flex-row justify-center border-b-2 items-center">
-        <p class="text-2xl font-bold">{{ $t("table_limit") }}</p>
+      <div class="flex flex-row justify-center border-b-2 items-center py-2">
+        <p class="text-2xl">{{ $t("table_limit") }}</p>
       </div>
       <div class="flex flex-row justify-center border-b-2">
         <div
-          class="text-2xl w-28 flex flex-row justify-center items-center font-bold text-black border-r-2"
+          class="text-ixl w-28 flex flex-row justify-center items-center text-black border-r-2"
         >
           {{ $t("b") }}/{{ $t("p") }}
         </div>
         <div
-          class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+          class="text-ixl w-full flex flex-col justify-start items-baseline text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">
+          <div class="border-b-2 w-full ">
             {{ $t("usd") }} : {{ store.setting["usd"]?.min_bp ?? 0 }}-{{
               store.setting["usd"]?.max_bp ?? 0
             }}
           </div>
-          <div class="font-extrabold">
+          <div class="">
             {{ $t("thb") }} : {{ store.setting["thb"]?.min_bp ?? 0 }}-{{
               store.setting["thb"]?.max_bp ?? 0
             }}
@@ -160,19 +160,19 @@
       </div>
       <div class="flex flex-row justify-center border-b-2">
         <div
-          class="text-2xl w-28 flex flex-row justify-center items-center font-bold text-black border-r-2"
+          class="text-ixl w-28 flex flex-row justify-center items-center text-black border-r-2"
         >
           {{ $t("t") }}
         </div>
         <div
-          class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+          class="text-ixl w-full flex flex-col justify-start items-baseline text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">
+          <div class="border-b-2 w-full">
             {{ $t("usd") }} : {{ store.setting["usd"]?.min_tie ?? 0 }}-{{
               store.setting["usd"]?.max_tie ?? 0
             }}
           </div>
-          <div class="font-extrabold">
+          <div class="">
             {{ $t("thb") }} : {{ store.setting["thb"]?.min_tie ?? 0 }}-{{
               store.setting["thb"]?.max_tie ?? 0
             }}
@@ -181,19 +181,19 @@
       </div>
       <div class="flex flex-row justify-center border-b-2">
         <div
-          class="text-2xl w-28 flex flex-row justify-center items-center font-bold text-black border-r-2"
+          class="text-ixl w-28 flex flex-row justify-center items-center text-black border-r-2"
         >
           {{ $t("pair") }}
         </div>
         <div
-          class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+          class="text-ixl w-full flex flex-col justify-start items-baseline text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">
+          <div class="border-b-2 w-full ">
             {{ $t("usd") }} : {{ store.setting["usd"]?.min_pair ?? 0 }}-{{
               store.setting["usd"]?.max_pair ?? 0
             }}
           </div>
-          <div class="font-extrabold">
+          <div class="">
             {{ $t("thb") }} : {{ store.setting["thb"]?.min_pair ?? 0 }}-{{
               store.setting["thb"]?.max_pair ?? 0
             }}
@@ -202,19 +202,19 @@
       </div>
       <div class="flex flex-row justify-center border-b-2">
         <div
-          class="text-xl w-28 flex flex-row justify-center items-center font-bold text-black border-r-2"
+          class="text-ixl w-28 flex flex-row justify-center items-center text-black border-r-2"
         >
           {{ $t("lucky_6") }}
         </div>
         <div
-          class="text-2xl w-full flex flex-col justify-start items-baseline font-bold text-blue-500"
+          class="text-ixl w-full flex flex-col justify-start items-baseline text-blue-500"
         >
-          <div class="border-b-2 w-full font-extrabold">
+          <div class="border-b-2 w-full">
             {{ $t("usd") }} : {{ store.setting["usd"]?.min_lucky6 ?? 0 }}-{{
               store.setting["usd"]?.max_lucky6 ?? 0
             }}
           </div>
-          <div class="font-extrabold">
+          <div class="">
             {{ $t("thb") }} : {{ store.setting["thb"]?.min_lucky6 ?? 0 }}-{{
               store.setting["thb"]?.max_lucky6 ?? 0
             }}

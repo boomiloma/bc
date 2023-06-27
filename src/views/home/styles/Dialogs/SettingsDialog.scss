@@ -1,5 +1,5 @@
 body {
-  font-family: 'Kozuka Gothic Pr6N R';
+  // font-family: 'Kozuka Gothic Pr6N R';
   background: #000;
 }
 header.header-main {
@@ -15,7 +15,7 @@ header.header-main {
   padding: 22px 0;
 }
 .left-part-text {
-  width: 80%;
+  width: 74%;
 }
 .blocks-one-side-left {
   width: 90%;
@@ -45,8 +45,8 @@ color: #FFFFFF;
 cursor: pointer;
 display: inline-block;
 font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-min-height: 40px;
-line-height: 40px;
+min-height: 44px;
+line-height: 44px;
 outline: 0;
 overflow: hidden;
 padding: 0 20px;
@@ -156,8 +156,8 @@ text-align: center;
 .banker-fill span.main {
   display: block;
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   /* margin: 0 auto; */
   background: #ff3019;
   background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
@@ -167,16 +167,16 @@ text-align: center;
   color: #fff;
   border-radius: 50%;
   text-align: center;
-  line-height: 50px;
-  font-size: 28px;
+  line-height: 44px;
+  font-size: 22px;
   font-weight: bold;
   box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
 .player-fill span.main {
   display: inline-block;
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   background: rgb(0,168,252); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(0,168,252,1) 0%, rgba(0,89,255,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top,  rgba(0,168,252,1) 0%,rgba(0,89,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -185,8 +185,8 @@ text-align: center;
   color: #fff;
   border-radius: 50%;
   text-align: center;
-  line-height: 50px;
-  font-size: 28px;
+  line-height: 44px;
+  font-size: 22px;
   font-weight: bold;
   box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
@@ -738,7 +738,7 @@ div#button-left:hover, div#button-right:hover {
 /* ======= New file html ===============*/
 
 .container-fluid-custom {
-  width: 86%;
+  width: 89%;
   margin: 0 auto;
 }
 .table-1 td:nth-child(1) {
@@ -1186,7 +1186,6 @@ select.form-control-custom {
   position: relative;
   z-index: 9;
 }
-
 
 // @charset "UTF-8";
 /*!

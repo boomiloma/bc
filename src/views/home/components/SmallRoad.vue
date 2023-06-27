@@ -1,21 +1,11 @@
 <template>
   <div class="flex flex-row">
-    <div class="absolute">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-left"
-        @click="handleScroll(true, 'smallRoadId')"
-        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-      />
+  <div class="relative">
+    <div class="absolute z-10 set-to-middle left">
+      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
     </div>
-    <div class="absolute">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-right"
-        @click="handleScroll(false, 'smallRoadId')"
-        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-        style="left: 30.7rem"
-      />
+    <div class="absolute z-10 set-to-middle right">
+      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
     </div>
     <div
       class="grid bg-white"
@@ -44,25 +34,15 @@
         </div>
       </div>
     </div>
-    <!-- COCKROACH ROAD -->
+  </div>
 
-    <div class="absolute">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-left"
-        @click="handleScroll(true, 'cockroachRoadId')"
-        class="text-slate-500 z-10 opacity-40 relative top-4 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-        style="left: 39.5rem"
-      />
+    <!-- COCKROACH ROAD -->
+<div class="relative cockroach">
+  <div class="absolute set-to-middle left">
+    <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
     </div>
-    <div class="absolute">
-      <Icon
-        icon="ic:round-keyboard-double-arrow-right"
-        @click="handleScroll(false, 'cockroachRoadId')"
-        class="text-slate-500 z-10 opacity-40 relative top-4 hover:scale-110 hover:opacity-100 hover:cursor-pointer"
-        width="100"
-        style="left: 69rem"
-      />
+    <div class="absolute set-to-middle right">
+      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
     </div>
     <div
       class="grid bg-white"
@@ -90,6 +70,7 @@
         </div>
       </div>
     </div>
+</div>
   </div>
 </template>
 

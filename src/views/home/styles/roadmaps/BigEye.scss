@@ -1,10 +1,10 @@
 .banker_big_eye {
   display: inline-block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   // margin: 0 auto;
-  border: 5px solid #ff3019;
+  border: 3px solid #ff3019;
   background: #fff;
   color: #ff3019;
   border-radius: 50%;
@@ -17,15 +17,14 @@
 .player_big_eye {
   display: inline-block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   // margin: 0 auto;
-  border: 5px solid #0059ff;
+  border: 3px solid #0059ff;
   background: #fff;
   color: #0059ff;
   border-radius: 50%;
   text-align: center;
-  line-height: 37px;
   font-size: 28px;
   font-weight: bold;
   // box-shadow: inset 0px -3px 3px rgb(0 0 0 / 22%);
@@ -34,10 +33,10 @@
 .banker_custom_big_eye {
   display: inline-block;
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   margin: 0 auto;
-  border: 8px solid #ff3019;
+  border: 4px solid #ff3019;
   background: #fff;
   color: #ff3019;
   border-radius: 50%;
@@ -51,10 +50,10 @@
 .player_custom_big_eye {
   display: inline-block;
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   margin: 0 auto;
-  border: 8px solid #0059ff;
+  border: 4px solid #0059ff;
   background: #fff;
   color: #0059ff;
   border-radius: 50%;
@@ -123,10 +122,10 @@
 
     .grid__col__custom__road {
       // padding: 5px;
-      min-height: 45px;
-      min-width: 44px;
-      max-height: 45px;
-      max-width: 44px;
+      min-height: 41px;
+      min-width: 41px;
+      max-height: 41px;
+      max-width: 41px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -171,10 +170,10 @@
     }
     .grid__col__Big_eye {
       // padding: 5px;
-      min-height: 22px;
-      max-height: 22px;
-      min-width: 22px;
-      max-width: 22px;
+      min-height: 20px;
+      max-height: 20px;
+      min-width: 20px;
+      max-width: 20px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -209,7 +208,17 @@
     }
   }
 }
-
+.set-to-middle {
+  top: 50%;
+}
+.left {
+  left: 45%;
+  transform: translate(-40px, -40px);
+}
+.right {
+  right: 30%;
+  transform: translate(-40px, -40px);
+}
 @keyframes pulse {
   0% {
     opacity: 1;

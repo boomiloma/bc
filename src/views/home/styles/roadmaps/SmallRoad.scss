@@ -24,10 +24,10 @@
     }
     .grid__col__small_road {
       // padding: 5px;
-      min-height: 22px;
-      max-height: 22px;
-      min-width: 22px;
-      max-width: 22px;
+      min-height: 20px;
+      max-height: 20px;
+      min-width: 20px;
+      max-width: 20px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -65,8 +65,8 @@
 .banker-fill-small-road {
   display: block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   /* margin: 0 auto; */
   background: #ff3019;
   background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
@@ -84,8 +84,8 @@
 .player-fill-small-road {
   display: inline-block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: rgb(0, 168, 252); /* Old browsers */
   background: -moz-linear-gradient(
     top,
@@ -166,7 +166,26 @@
   transform: rotate(45deg);
   left: 39%;
 }
+.set-to-middle {
+  top: 50%;
+}
+.left {
+  left: 45%;
+  transform: translate(-40px, -40px);
+}
+.right {
+  right: 30%;
+  transform: translate(-40px, -40px);
+}
 
+.cockroach .left {
+  left: 45%;
+  transform: translate(-40px, -40px);
+}
+.cockroach .right {
+  right: 30%;
+  transform: translate(-40px, -40px);
+}
 @keyframes pulse {
   0% {
     opacity: 1;
