@@ -1,61 +1,70 @@
 <template>
   <div class="relative">
-  <div class="absolute z-10 set-to-middle left">
-  
-  <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    <!-- <Icon
+    <div class="absolute z-10 set-to-middle left">
+      <img
+        src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+        width="80"
+        @click="handleScroll(true)"
+        class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+      />
+      <!-- <Icon
       icon="ic:round-keyboard-double-arrow-left"
       @click="handleScroll(true)"
       class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
     />-->
-  </div> 
-  <div class="absolute z-10 set-to-middle right">
-    <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    <!-- <Icon
+    </div>
+    <div class="absolute z-10 set-to-middle right">
+      <img
+        src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+        width="80"
+        @click="handleScroll(false)"
+        class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+      />
+      <!-- <Icon
       icon="ic:round-keyboard-double-arrow-right"
       @click="handleScroll(false)"
       class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
       style="left: 52rem"
     /> -->
-  </div>
-  <div
-    class="grid bg-white"
-    id="beadRoadId"
-    ref="beadRoadId"
-    style="width: 58.6rem; overflow: hidden"
-  >
+    </div>
     <div
-      v-for="(row, rowKey) in BreadPlateResults"
-      :key="rowKey"
-      class="grid__row"
+      class="grid bg-white"
+      id="beadRoadId"
+      ref="beadRoadId"
+      style="width: 58.6rem; overflow: hidden"
     >
       <div
-        v-for="(col, colKey) in row"
-        :key="colKey"
-        class="grid__col text-gray-200"
-        :class="handleEdit(rowKey, colKey, col)"
+        v-for="(row, rowKey) in BreadPlateResults"
+        :key="rowKey"
+        class="grid__row"
       >
-        <div :class="beadRoadResult(col.value)">
-          <span
-            v-if="beadRoadBankerPair(col.value)"
-            class="absolute -top-2 -left-2 inline-flex items-center rounded-full bg-red-500 px-2 py-2 border border-1 border-amber-200"
-          ></span>
-          <span
-            v-if="beadRoadPlayerPair(col.value)"
-            class="absolute -bottom-3 -right-2 inline-flex items-center rounded-full bg-blue-500 px-2 py-2 border border-1 border-amber-200"
-          ></span>
-          <div>
-            <p v-if="col.value" class="font-extrabold text-2xl select-none">
-              {{ $t(beadRoadValue(col.value)) }}
-            </p>
+        <div
+          v-for="(col, colKey) in row"
+          :key="colKey"
+          class="grid__col text-gray-200"
+          :class="handleEdit(rowKey, colKey, col)"
+        >
+          <div :class="beadRoadResult(col.value)">
+            <span
+              v-if="beadRoadBankerPair(col.value)"
+              class="absolute -top-1 -left-1 inline-flex items-center rounded-full bg-red-500 w-4 h-4 border border-1 border-amber-200"
+            ></span>
+            <span
+              v-if="beadRoadPlayerPair(col.value)"
+              class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 w-4 h-4 border border-1 border-amber-200"
+            ></span>
+            <div>
+              <p v-if="col.value" class="font-extrabold text-2xl select-none">
+                {{ $t(beadRoadValue(col.value)) }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

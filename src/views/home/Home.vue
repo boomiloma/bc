@@ -131,13 +131,13 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 17,
+          cols: 20,
           // cols: 25,
         },
         bigroad: {
           show_options: false,
           rows: 6,
-          cols: 30,
+          cols: 31,
         },
         bigeyeboy: {
           show_options: false,
