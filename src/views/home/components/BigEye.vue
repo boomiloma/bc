@@ -50,7 +50,7 @@
       class="grid bg-white"
       id="customRoadId"
       ref="customRoadId"
-      style="width: 38.3rem; overflow: hidden"
+      style="width: 38.4rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in CustomPlateResults"

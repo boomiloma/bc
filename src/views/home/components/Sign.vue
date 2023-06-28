@@ -5,7 +5,7 @@
     <div class="flex flex-row items-center justify-center border-b-2 py-2">
       <p class="text-2xl">{{ $t("prediction") }}</p>
     </div>
-    <div class="flex flex-col gap-2 justify-center mt-1">
+    <div class="flex flex-col gap-4 justify-center mt-1">
       <div class="flex flex-row items-center justify-evenly gap-1">
         <div
           class="banker-fill"
