@@ -337,7 +337,7 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import useConfig from "@/composables/useConfig";
 
-const { add, get, configBaselineInfo, configBetCount, configUpdateBoot, configTableLimit,configSetShoeVerifyCode} = useConfig();
+const { add, get, configBaselineInfo, configBetCount, configUpdateBoot, configTableLimit,configSetShoeVerifyCode,configTableLimitTH} = useConfig();
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
@@ -460,13 +460,25 @@ async function onSaveSetting(label, text){
     await configBetCount(setting.value.bet_counter)
   }
   else if(label == 'table_limit'){
-    let tableLimitParams = {
-      bankerAndPlayer: `${setting.value.usd.min_bp}-${setting.value.usd.max_bp}`,
-      draw: `${setting.value.usd.min_tie}-${setting.value.usd.max_tie}`,
-      doubles: `${setting.value.usd.min_pair}-${setting.value.usd.max_pair}`,
-      six: `${setting.value.usd.min_lucky6}-${setting.value.usd.max_lucky6}`
+    if(setting.value.currency == 'usd'){
+      let tableLimitParams = {
+        bankerAndPlayer: `${setting.value.usd.min_bp}-${setting.value.usd.max_bp}`,
+        draw: `${setting.value.usd.min_tie}-${setting.value.usd.max_tie}`,
+        doubles: `${setting.value.usd.min_pair}-${setting.value.usd.max_pair}`,
+        six: `${setting.value.usd.min_lucky6}-${setting.value.usd.max_lucky6}`
+      }
+      await configTableLimit(tableLimitParams)
     }
-    await configTableLimit(tableLimitParams)
+    else{
+      let tableLimitParams = {
+        bankerAndPlayerTh: `${setting.value.thb.min_bp}-${setting.value.thb.max_bp}`,
+        drawTh: `${setting.value.thb.min_tie}-${setting.value.thb.max_tie}`,
+        doublesTh: `${setting.value.thb.min_pair}-${setting.value.thb.max_pair}`,
+        sixTh: `${setting.value.thb.min_lucky6}-${setting.value.thb.max_lucky6}`
+      }
+      await configTableLimitTH(tableLimitParams)
+    }
+    
   }
   else if(label == 'verify_code'){
     await configSetShoeVerifyCode(setting.value.verification_code)
@@ -487,7 +499,6 @@ function verifyCode() {
     setTimeout(() => {
       isVerified.value = false;
     }, 3000);
-    console.log('Verified')
     configUpdateBoot();
   } else {
     verifyStatus.value = "verification_failed";

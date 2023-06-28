@@ -382,6 +382,7 @@ export default {
             }))
             
             console.log(result);
+            console.log('updateResult==========================================');
             if(result?.length > 0){
               let _data = {
                 deskName: result[0].deskName,
@@ -390,6 +391,7 @@ export default {
                 gameNum: result[0].gameNum,
               };
               console.log(_data)
+              console.log('sdfsdddddddddddddddddddddddddddddddddddddddd')
               this.uResult.updateResult(_data)
             }
             
@@ -451,10 +453,13 @@ export default {
     async getResult() {
       await this.getGameResult();
       let mapResult = this.store.results.map(m => MappingUtils.mappedResults(MappingUtils.numToArray(m.result)))
+      this.results_id =  this.store.results.map(m => m.id);
       this.results = mapResult;
       this.results.forEach((r) => {
           this.roadmap.push(r);
       });
+      localStorage.setItem("roadmap-results-id", JSON.stringify(this.results_id));
+      
       // console.log('map=', mapResult)
       // let re = await localStorage.getItem("roadmap-results");
       // let reID = await localStorage.getItem("roadmap-results-id");

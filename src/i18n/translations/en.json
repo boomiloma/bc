@@ -45,6 +45,7 @@
   "set_limit_success": "Successfully changed the table limit!",
   "set_code_success": "Successfully changed the verification code!",
   "change_table_no_success": "Changed Table No Success!",
+  "set_bet_count_success": "Set Bet Counter Success!",
   "wait_game_ends":"Please wait for the game to end!",
   "big":"B",
   "small":"S"

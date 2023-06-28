@@ -114,6 +114,18 @@ export default function useConfig() {
       state.saving = false;
     }
   };
+
+  const configTableLimitTH = async (data) => {
+    try {
+      state.saving = true;
+      await api.post("/config/quatoth",data);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
   const configUpdateBoot = async () => {
     try {
       state.saving = true;
@@ -250,5 +262,6 @@ export default function useConfig() {
     configSetShoeVerifyCode,
     startGame,
     updateStatus,
+    configTableLimitTH
   };
 }
