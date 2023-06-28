@@ -56,7 +56,7 @@
               class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 w-4 h-4 border border-1 border-amber-200"
             ></span>
             <div>
-              <p v-if="col.value" class="font-extrabold text-2xl select-none">
+              <p v-if="col.value" class="font-bold text-3xl select-none">
                 {{ $t(beadRoadValue(col.value)) }}
               </p>
             </div>
