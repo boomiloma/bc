@@ -80,6 +80,45 @@ export default function userResult() {
       state.saving = false;
     }
   };
+  const addResult = async (data) => {
+    try {
+      state.saving = true;
+      let response = await api.post("/config/add", data);
+      return response.data;
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+      
+    }
+  };
+  const updateResult = async (data) => {
+    try {
+      state.saving = true;
+      await api.post("/config/update", data);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+      
+    }
+  };
+
+  const getResult = async (deskName, bootNum) => {
+    try {
+      state.saving = true;
+      let res = await api.post(`config/search?deskName=${deskName}&bootNum=${bootNum}`);
+      return res.data;
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+  
 
   const update = async (id, data) => {
     try {
@@ -156,6 +195,9 @@ export default function userResult() {
     update,
     trash,
     paginate,
-    all
+    all,
+    addResult,
+    updateResult,
+    getResult,
   };
 }

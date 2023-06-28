@@ -1,8 +1,10 @@
 import axios from "axios";
 const api = axios.create({
-  headers: { "X-Requested-With": "XMLHttpRequest", Accept: "application/json" },
+  // headers: { "X-Requested-With": "XMLHttpRequest", Accept: "application/json" },
+  // baseURL: import.meta.env.VITE_API_URL,
+  // withCredentials: true,
+  headers: { Accept: "application/json" },
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true,
 });
 
 api.interceptors.response.use(

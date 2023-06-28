@@ -25,6 +25,8 @@
   "lucky_6_limit": "Lucky 6 Limit",
   "bet_counter": "Bet Counter",
   "change_shoe_verification_code": "Change shoe verification code",
+  "change_table_no_success": "Changed Table No Success!",
+  "set_bet_count_success": "Set Bet Counter Success!",
   "set_code": "Set code",
   "edit": "Edit"
 }

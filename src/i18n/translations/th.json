@@ -44,6 +44,8 @@
   "set_table_success": "สำเร็จเปลี่ยนเลขโต๊ะ!",
   "set_limit_success": "สำเร็จเปลี่ยนวงเงินราม!",
   "set_code_success": "สำเร็จเปลี่ยนโค้ดยืนยัน!",
+  "change_table_no_success": "Changed Table No Success!",
+  "set_bet_count_success": "Set Bet Counter Success!",
   "wait_game_ends": "กรุณารอจนกว่าเกมจะจบลง",
   "big": "B",
   "small": "S"
