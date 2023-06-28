@@ -184,17 +184,16 @@ export default {
   },
   mounted() {
     window.addEventListener("keydown", this.handleKeyDown);
-    this.getConfig();
   },
   beforeDestroy() {
     window.removeEventListener("keydown", this.handleKeyDown);
   },
   created() {
+    this.getConfig();
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
-    this.getResult();
     localStorage.setItem("KEYBOARD_GAME", false);
   },
   methods: {
@@ -439,17 +438,24 @@ export default {
       }
     },
     async getResult() {
-      let re = await localStorage.getItem("roadmap-results");
-      let reID = await localStorage.getItem("roadmap-results-id");
-      if (reID) {
-        this.results_id = JSON.parse(reID);
-      }
-      if (re) {
-        this.results = JSON.parse(re);
-        this.results.forEach((r) => {
+      await this.getGameResult();
+      let mapResult = this.store.results.map(m => MappingUtils.mappedResults(MappingUtils.numToArray(m.result)))
+      this.results = mapResult;
+      this.results.forEach((r) => {
           this.roadmap.push(r);
-        });
-      }
+      });
+      console.log('map=', mapResult)
+      // let re = await localStorage.getItem("roadmap-results");
+      // let reID = await localStorage.getItem("roadmap-results-id");
+      // if (reID) {
+      //   this.results_id = JSON.parse(reID);
+      // }
+      // if (re) {
+      //   this.results = JSON.parse(re);
+      //   this.results.forEach((r) => {
+      //     this.roadmap.push(r);
+      //   });
+      // }
     },
     async getConfig() {
       try {
@@ -505,7 +511,7 @@ export default {
             this.store.setting.status = res.data.status;
             this.store.setting.verification_code = res.data.verify;
 
-            this.getGameResult();
+            this.getResult();
 
           } catch (e) {
             console.log("error", e);
@@ -555,9 +561,9 @@ export default {
       this.resetRoadMap();
     },
     resetRoadMap() {
-      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      this.results = [];
       this.getResult();
+      this.results = [];
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.initRoadmap();
     },
   },
