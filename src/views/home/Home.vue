@@ -444,7 +444,7 @@ export default {
       this.results.forEach((r) => {
           this.roadmap.push(r);
       });
-      console.log('map=', mapResult)
+      // console.log('map=', mapResult)
       // let re = await localStorage.getItem("roadmap-results");
       // let reID = await localStorage.getItem("roadmap-results-id");
       // if (reID) {
