@@ -376,13 +376,24 @@ export default {
             // });
             console.log(joinResult);
             console.log(this.results_id);
-            let _data = {
-              deskName: this.store.setting.table_no,
-              result: joinResult,
-              bootNum: this.store.setting.shoe_no,
-              gameNum: this.results.length,
-            };
-            this.uResult.updateResult()
+            console.log(this.results_id[this.colIndex])
+            let result = null;
+            result = this.store.results.filter(((obj)=>{
+              return obj.id == this.results_id[this.colIndex];
+            }))
+            
+            console.log(result);
+            if(result?.length > 0){
+              let _data = {
+                deskName: result[0].deskName,
+                result: joinResult,
+                bootNum: result[0].bootNum,
+                gameNum: result[0].gameNum,
+              };
+              console.log(_data)
+              this.uResult.updateResult(_data)
+            }
+            
           } catch (e) {
             console.log(e);
           }
