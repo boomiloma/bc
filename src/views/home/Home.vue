@@ -189,11 +189,11 @@ export default {
     window.removeEventListener("keydown", this.handleKeyDown);
   },
   created() {
+    this.getConfig();
     this.initLocalConfig();
     this.roadmapUtils = new RoadmapUtilities();
     this.initRoadmap();
     window.addEventListener("keydown", this.handleKeyDown);
-    this.getResult();
     localStorage.setItem("KEYBOARD_GAME", false);
   },
   methods: {
@@ -370,9 +370,31 @@ export default {
           // for update results in db
           try {
             let joinResult = Object.values(this.keyArray).join("");
-            this.uResult.update(this.results_id[this.colIndex], {
-              result: joinResult,
-            });
+            // this.uResult.update(this.results_id[this.colIndex], {
+            //   result: joinResult,
+            // });
+            console.log(joinResult);
+            console.log(this.results_id);
+            console.log(this.results_id[this.colIndex])
+            let result = null;
+            result = this.store.results.filter(((obj)=>{
+              return obj.id == this.results_id[this.colIndex];
+            }))
+            
+            console.log(result);
+            console.log('updateResult==========================================');
+            if(result?.length > 0){
+              let _data = {
+                deskName: result[0].deskName,
+                result: joinResult,
+                bootNum: result[0].bootNum,
+                gameNum: result[0].gameNum,
+              };
+              console.log(_data)
+              console.log('sdfsdddddddddddddddddddddddddddddddddddddddd')
+              this.uResult.updateResult(_data)
+            }
+            
           } catch (e) {
             console.log(e);
           }
@@ -394,18 +416,29 @@ export default {
           this.keyArray = [];
 
           try {
+            // let _data = {
+            //   desk_name: this.store.setting.table_no,
+            //   result: joinResult,
+            //   result_name:
+            //     this.roadmapUtils.identityDictionary[this.lastKeyPressed],
+            //   boot_num: this.store.setting.shoe_no,
+            //   game_num: this.results.length,
+            // };
+            // // add to tatabase
+            // let res = await this.uResult.add(_data);
+
             let _data = {
-              desk_name: this.store.setting.table_no,
+              deskName: this.store.setting.table_no,
               result: joinResult,
-              result_name:
-                this.roadmapUtils.identityDictionary[this.lastKeyPressed],
-              boot_num: this.store.setting.shoe_no,
-              game_num: this.results.length,
+              bootNum: this.store.setting.shoe_no,
+              gameNum: this.results.length,
             };
             // add to tatabase
-            let res = await this.uResult.add(_data);
+            let res = await this.uResult.addResult(_data);
+            console.log(res);
+            this.store.results.push(res.data);
             // for mapping update to database
-            this.results_id.push(res?.id);
+            this.results_id.push(res?.data?.id);
             localStorage.setItem(
               "roadmap-results-id",
               JSON.stringify(this.results_id)
@@ -418,50 +451,84 @@ export default {
       }
     },
     async getResult() {
-      let re = await localStorage.getItem("roadmap-results");
-      let reID = await localStorage.getItem("roadmap-results-id");
-      if (reID) {
-        this.results_id = JSON.parse(reID);
-        console.log(this.results_id, " this.results_id ");
-      }
-      if (re) {
-        this.results = JSON.parse(re);
-        this.results.forEach((r) => {
+      await this.getGameResult();
+      let mapResult = this.store.results.map(m => MappingUtils.mappedResults(MappingUtils.numToArray(m.result)))
+      this.results_id =  this.store.results.map(m => m.id);
+      this.results = mapResult;
+      this.results.forEach((r) => {
           this.roadmap.push(r);
-        });
-      }
+      });
+      localStorage.setItem("roadmap-results-id", JSON.stringify(this.results_id));
+      
+      // console.log('map=', mapResult)
+      // let re = await localStorage.getItem("roadmap-results");
+      // let reID = await localStorage.getItem("roadmap-results-id");
+      // if (reID) {
+      //   this.results_id = JSON.parse(reID);
+      // }
+      // if (re) {
+      //   this.results = JSON.parse(re);
+      //   this.results.forEach((r) => {
+      //     this.roadmap.push(r);
+      //   });
+      // }
     },
     async getConfig() {
       try {
         let res = await this.uConfig.get("");
-        // console.log(res.data, "config");
+        console.log(res.data, "config");
         if (res.data) {
           try {
-            this.store.setting.table_no = res.data.desk_name;
-            this.store.setting.shoe_no = res.data.boot_num;
-            this.store.setting.usd.min_pair = res.data.double_small;
-            this.store.setting.usd.max_pair = res.data.double_max;
-            this.store.setting.usd.max_bp = res.data.draw_small;
-            this.store.setting.usd.min_bp = res.data.draw_max;
-            this.store.setting.usd.min_lucky6 = res.data.six_max;
-            this.store.setting.usd.max_lucky6 = res.data.six_small;
-            this.store.setting.usd.max_tie = res.data.banker_and_player_max;
-            this.store.setting.usd.min_tie = res.data.banker_and_player_small;
-            this.store.setting.thb.min_pair = res.data.double_small_th;
-            this.store.setting.thb.max_pair = res.data.double_max_th;
-            this.store.setting.thb.max_bp = res.data.draw_small_th;
-            this.store.setting.thb.min_bp = res.data.draw_max_th;
-            this.store.setting.thb.min_lucky6 = res.data.six_max_th;
-            this.store.setting.thb.max_lucky6 = res.data.six_small_th;
-            this.store.setting.thb.max_tie = res.data.banker_and_player_max_th;
-            this.store.setting.thb.min_tie =
-              res.data.banker_and_player_small_th;
-            this.store.setting.game_num = this.results.length;
-            this.store.setting.is_online = res.data.is_online;
+            // this.store.setting.table_no = res.data.desk_name;
+            // this.store.setting.shoe_no = res.data.boot_num;
+            // this.store.setting.usd.min_pair = res.data.double_small;
+            // this.store.setting.usd.max_pair = res.data.double_max;
+            // this.store.setting.usd.max_bp = res.data.draw_small;
+            // this.store.setting.usd.min_bp = res.data.draw_max;
+            // this.store.setting.usd.min_lucky6 = res.data.six_max;
+            // this.store.setting.usd.max_lucky6 = res.data.six_small;
+            // this.store.setting.usd.max_tie = res.data.banker_and_player_max;
+            // this.store.setting.usd.min_tie = res.data.banker_and_player_small;
+            // this.store.setting.thb.min_pair = res.data.double_small_th;
+            // this.store.setting.thb.max_pair = res.data.double_max_th;
+            // this.store.setting.thb.max_bp = res.data.draw_small_th;
+            // this.store.setting.thb.min_bp = res.data.draw_max_th;
+            // this.store.setting.thb.min_lucky6 = res.data.six_max_th;
+            // this.store.setting.thb.max_lucky6 = res.data.six_small_th;
+            // this.store.setting.thb.max_tie = res.data.banker_and_player_max_th;
+            // this.store.setting.thb.min_tie = res.data.banker_and_player_small_th;
+            // this.store.setting.game_num = this.results.length;
+            // this.store.setting.is_online = res.data.is_online;
+            // this.store.setting.second = res.data.second;
+            // this.store.setting.status = res.data.status;
+            // this.store.setting.verification_code = res.data.verification_code;
+
+            this.store.setting.table_no = res.data.deskName;
+            this.store.setting.shoe_no = res.data.bootNum;
+            this.store.setting.usd.min_pair = res.data.doubleSmall;
+            this.store.setting.usd.max_pair = res.data.doubleMax;
+            this.store.setting.usd.max_bp = res.data.drawSmall;
+            this.store.setting.usd.min_bp = res.data.drawMax;
+            this.store.setting.usd.min_lucky6 = res.data.sixMax;
+            this.store.setting.usd.max_lucky6 = res.data.sixSmall;
+            this.store.setting.usd.max_tie = res.data.bankerAndPlayerMax;
+            this.store.setting.usd.min_tie = res.data.bankerAndPlayerSmall;
+            this.store.setting.thb.min_pair = res.data.doubleSmallTh;
+            this.store.setting.thb.max_pair = res.data.doubleMaxTh;
+            this.store.setting.thb.max_bp = res.data.drawSmallTh;
+            this.store.setting.thb.min_bp = res.data.drawMaxTh;
+            this.store.setting.thb.min_lucky6 = res.data.sixMaxTh;
+            this.store.setting.thb.max_lucky6 = res.data.sixSmallTh;
+            this.store.setting.thb.max_tie = res.data.bankerAndPlayerMaxTh;
+            this.store.setting.thb.min_tie = res.data.bankerAndPlayerSmallTh;
+            this.store.setting.game_num = res.data.gameNum;
+            this.store.setting.is_online = res.data.isOnline;
             this.store.setting.second = res.data.second;
             this.store.setting.status = res.data.status;
-            this.store.setting.verification_code = res.data.verification_code;
-            // console.log(this.store.setting, 'this.store.setting');
+            this.store.setting.verification_code = res.data.verify;
+
+            this.getResult();
+
           } catch (e) {
             console.log("error", e);
           }
@@ -470,8 +537,23 @@ export default {
         console.log("error", e);
       }
     },
+    async getGameResult() {
+      console.log("getGameResult")
+      let response = await this.uResult.getResult(this.store.setting.table_no, this.store.setting.shoe_no);
+      console.log(response);
+      if(response?.data){
+        console.log('has data')
+        this.store.results = response.data;
+      }
+      
+    },
+    async startGame() {
+      let response = await this.uConfig.startGame("");
+      
+    },
     onStartGame() {
-      this.getConfig();
+      // this.getConfig();
+      this.startGame()
     },
     prediction(value) {
       if (this.store.isPredict) {
@@ -495,9 +577,9 @@ export default {
       this.resetRoadMap();
     },
     resetRoadMap() {
-      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-      this.results = [];
       this.getResult();
+      this.results = [];
+      localStorage.setItem("roadmap-results", JSON.stringify(this.results));
       this.initRoadmap();
     },
   },

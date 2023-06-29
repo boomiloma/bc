@@ -80,6 +80,103 @@ export default function useConfig() {
     }
   };
 
+  const configBaselineInfo = async (tableNo) => {
+    try {
+      state.saving = true;
+      await api.post("/config/baseInfo/"+tableNo);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+
+  const configBetCount = async (betCounter) => {
+    try {
+      state.saving = true;
+      await api.post("/config/setCountDown/"+betCounter);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+  const configTableLimit = async (data) => {
+    try {
+      state.saving = true;
+      await api.post("/config/quato",data);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+
+  const configTableLimitTH = async (data) => {
+    try {
+      state.saving = true;
+      await api.post("/config/quatoth",data);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+  const configUpdateBoot = async () => {
+    try {
+      state.saving = true;
+      await api.post("/config/updateBoot");
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+    }
+  };
+  const configSetShoeVerifyCode = async (code) => {
+    try {
+      state.saving = true;
+      await api.post("/config/verify/"+code);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+      
+    }
+  };
+
+  const startGame = async () => {
+    try {
+      state.saving = true;
+      await api.post("/config/start");
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+      
+    }
+  };
+
+  const updateStatus = async (status) => {
+    try {
+      state.saving = true;
+      await api.post("/config/updateStatus?status=" + status);
+    } catch (err) {
+      //throw Error(Utils.getErrorMessage(err));
+      throw Utils.getErrorMessage(err);
+    } finally {
+      state.saving = false;
+      
+    }
+  };
+
+  
   const update = async (id, data) => {
     try {
       state.saving = true;
@@ -107,7 +204,8 @@ export default function useConfig() {
   const get = async (id) => {
     try {
       state.loading = true;
-      const response = await api.get(`/config/${id}`);
+      // const response = await api.get(`/config/${id}`);
+      const response = await api.post(`/config/info`);
       return response.data; 
     } catch (err) {
       //throw Error(Utils.getErrorMessage(err));
@@ -156,6 +254,14 @@ export default function useConfig() {
     update,
     trash,
     paginate,
-    all
+    all,
+    configBaselineInfo,
+    configBetCount,
+    configTableLimit,
+    configUpdateBoot,
+    configSetShoeVerifyCode,
+    startGame,
+    updateStatus,
+    configTableLimitTH
   };
 }

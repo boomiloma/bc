@@ -40,7 +40,7 @@
                 <div class="mt-3 row align-items-center">
                   <div class="col-5">
                     <button
-                      @click="onSaved('set_table_success')"
+                      @click="onSaveSetting('table_no', 'change_table_no_success')"
                       type="button"
                       class="btn-theme btn-1"
                     >
@@ -185,8 +185,15 @@
               </div>
               <div class="mt-3 row">
                 <div class="col-5">
-                  <button
+                  <!-- <button
                     @click="onSaved('set_time_success')"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    {{ $t("change") }}
+                  </button> -->
+                  <button
+                    @click="onSaveSetting('bet_count','set_bet_count_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -216,8 +223,15 @@
                 </div>
                 <div class="col-4"></div>
                 <div class="col-5">
-                  <button
+                  <!-- <button
                     @click="onSaved('set_code_success')"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    {{ $t("change") }}
+                  </button> -->
+                  <button
+                    @click="onSaveSetting('verify_code','set_code_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -231,8 +245,15 @@
             <div class="col-7">
               <div class="row">
                 <div class="col-5">
-                  <button
+                  <!-- <button
                     @click="onSaved('set_limit_success')"
+                    type="button"
+                    class="btn-theme btn-1"
+                  >
+                    {{ $t("change") }}
+                  </button> -->
+                  <button
+                    @click="onSaveSetting('table_limit','set_limit_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -318,7 +339,7 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import useConfig from "@/composables/useConfig";
 
-const { add, get } = useConfig();
+const { add, get, configBaselineInfo, configBetCount, configUpdateBoot, configTableLimit,configSetShoeVerifyCode,configTableLimitTH} = useConfig();
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
@@ -399,6 +420,73 @@ async function onSaved(text) {
 
   // emit("onClose");
 }
+async function onSaveSetting(label, text){
+  localStorage.setItem("setting", JSON.stringify(setting.value));
+  store.setting = setting.value;
+  verifyStatus.value = text;
+  isVerified.value = true;
+  setTimeout(() => {
+    isVerified.value = false;
+  }, 2000);
+  let saveConfig = {
+    desk_name: setting.value.table_no,
+    boot_num: setting.value.shoe_no,
+    double_small: setting.value.usd.min_pair,
+    double_max: setting.value.usd.max_pair,
+    draw_small: setting.value.usd.max_bp,
+    draw_max: setting.value.usd.min_bp,
+    six_max: setting.value.usd.min_lucky6,
+    six_small: setting.value.usd.max_lucky6,
+    banker_and_player_max: setting.value.usd.max_tie,
+    banker_and_player_small: setting.value.usd.min_tie,
+    double_small_th: setting.value.thb.min_pair,
+    double_max_th: setting.value.thb.max_pair,
+    draw_small_th: setting.value.thb.max_bp,
+    draw_max_th: setting.value.thb.min_bp,
+    six_max_th: setting.value.thb.min_lucky6,
+    six_small_th: setting.value.thb.max_lucky6,
+    banker_and_player_max_th: setting.value.thb.max_tie,
+    banker_and_player_small_th: setting.value.thb.min_tie,
+    game_num: setting.value.shoe_no,
+    is_online: 1,
+    second: '',
+    status: '',
+    verify: setting.value.verification_code,
+  }
+  console.log('configTableLimit');
+  console.log(label);
+  if(label == 'table_no'){
+    await configBaselineInfo(setting.value.table_no)
+  }
+  else if(label == 'bet_count'){
+    await configBetCount(setting.value.bet_counter)
+  }
+  else if(label == 'table_limit'){
+    if(setting.value.currency == 'usd'){
+      let tableLimitParams = {
+        bankerAndPlayer: `${setting.value.usd.min_bp}-${setting.value.usd.max_bp}`,
+        draw: `${setting.value.usd.min_tie}-${setting.value.usd.max_tie}`,
+        doubles: `${setting.value.usd.min_pair}-${setting.value.usd.max_pair}`,
+        six: `${setting.value.usd.min_lucky6}-${setting.value.usd.max_lucky6}`
+      }
+      await configTableLimit(tableLimitParams)
+    }
+    else{
+      let tableLimitParams = {
+        bankerAndPlayerTh: `${setting.value.thb.min_bp}-${setting.value.thb.max_bp}`,
+        drawTh: `${setting.value.thb.min_tie}-${setting.value.thb.max_tie}`,
+        doublesTh: `${setting.value.thb.min_pair}-${setting.value.thb.max_pair}`,
+        sixTh: `${setting.value.thb.min_lucky6}-${setting.value.thb.max_lucky6}`
+      }
+      await configTableLimitTH(tableLimitParams)
+    }
+    
+  }
+  else if(label == 'verify_code'){
+    await configSetShoeVerifyCode(setting.value.verification_code)
+  }
+  emit("onClose");
+}
 function verifyCode() {
   if (verification_code.value == setting.value.verification_code) {
     verifyStatus.value = "change_success";
@@ -413,6 +501,7 @@ function verifyCode() {
     setTimeout(() => {
       isVerified.value = false;
     }, 3000);
+    configUpdateBoot();
   } else {
     verifyStatus.value = "verification_failed";
     isVerified.value = true;

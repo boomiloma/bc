@@ -1,4 +1,8 @@
 export default class MappingUtils {
+  static numToArray(num) {
+    const numArr = num.toString().split("");
+    return numArr;
+  }
   static mappedResults(arr) {
     let keys = "";
     if (arr.includes("1")) {

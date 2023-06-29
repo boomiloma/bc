@@ -105,12 +105,15 @@ import BaseDialog from "@/components/BaseDialog.vue";
 import placeYourBet from "@/assets/sounds/place_your_bet.mp3";
 import noMoreBet from "@/assets/sounds/no_more_bet.mp3";
 import { store } from "@/store/store";
+import useConfig from "@/composables/useConfig";
 
 export default {
   setup() {
     const { t } = useI18n({ useScope: "global" });
-    return { t };
+    const uConfig = useConfig();
+    return { t, uConfig };
   },
+  
   components: {
     Setting,
     Icon,
@@ -159,6 +162,8 @@ export default {
             this.status = "no_more_bet";
             localStorage.setItem("KEYBOARD_GAME", "true");
             this.NoMoreBetSound();
+            console.log('count down finished');
+            this.updateStatus(2)
           }
         }, 1000);
       } else {
@@ -177,6 +182,9 @@ export default {
       const audio = new Audio(noMoreBet);
       audio.play();
     },
+    async updateStatus(status) {
+      let response =  await this.uConfig.updateStatus(status);
+    }
   },
   mounted() {
     this.onLoad();

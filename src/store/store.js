@@ -33,4 +33,5 @@ export const store = reactive({
     },
   },
   isFirst: true,
+  results: Array,
 });
