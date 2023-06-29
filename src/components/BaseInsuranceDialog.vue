@@ -164,7 +164,7 @@ function checkInsuranceType(type) {
   border: 10px solid;
   border-image: linear-gradient(to left, #e7cd7d, #fff3cb) 100;
   box-shadow: inset;
-  border-radius: 10px;
+  border-radius: 24px;
   background: url(../assets/images/blue-1.jpg);
   background-size: cover;
   background-position: center;

@@ -24,7 +24,7 @@
       class="grid bg-white"
       id="bigroadId"
       ref="bigroadId"
-      style="width: 76.6rem; overflow: hidden"
+      style="width: 74.1rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in BigRoadResults"

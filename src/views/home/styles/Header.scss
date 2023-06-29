@@ -8,7 +8,7 @@ header.header-main {
   background: -webkit-linear-gradient(top, #2f4963 0%, #1e344b 100%);
   background: linear-gradient(to bottom, #2f4963 0%, #1e344b 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f4963', endColorstr='#1e344b',GradientType=0 );
-  padding: 21px 30px;
+  padding: 20px 30px;
 }
 .left-part-text {
   width: 79%;
@@ -45,8 +45,8 @@ header.header-main {
   display: inline-block;
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
-  min-height: 44px;
-  line-height: 44px;
+  min-height: 43px;
+  line-height: 43px;
   outline: 0;
   overflow: hidden;
   padding: 0 22px;
@@ -79,10 +79,10 @@ header.header-main {
   color: #192734;
 }
 button.btn-power {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   display: inline-block;
-  padding: 0 8px;
+  padding: 0 9px;
   border-radius: 50%;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#55697c+0,3d5163+50,4e657b+100 */
   background: #55697c; /* Old browsers */
@@ -128,5 +128,5 @@ svg.iconify.iconify--fa {
   box-shadow: 0px 2px 2px 1px rgb(0 0 0 / 58%);
 }
 .me-8 {
-  margin-right: 60px;
+  margin-right: 32px;
 }

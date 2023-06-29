@@ -18,7 +18,7 @@
       />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">
-          <div class="border border-b-4 border-black">
+          <div class="">
             <BreadPlate
               :BreadPlateResults="roadmap.breadplate.matrix"
               :results="results"
@@ -30,8 +30,8 @@
           </div>
           <Sign :results="results" @Predict="prediction" :RoadMap="roadmap" />
         </div>
-        <div class="mb-8">
-          <div class="border border-b-4 border-black">
+        <div class="" style="margin-bottom: 6px;">
+          <div class="">
             <BigRoad
               :BigRoadResults="roadmap.bigroad.matrix"
               :isChange="isChange"
@@ -39,7 +39,7 @@
             />
           </div>
         </div>
-        <div class="border border-b-4 border-t-3 border-r-4 border-black">
+        <div class="">
           <BigEye
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"

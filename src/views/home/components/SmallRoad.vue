@@ -11,7 +11,7 @@
       class="grid bg-white"
       id="smallRoadId"
       ref="smallRoadId"
-      style="width: 38.2rem; overflow: hidden"
+      style="width: 37.05rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in SmallRoadResults"
@@ -48,7 +48,7 @@
       class="grid bg-white"
       id="cockroachRoadId"
       ref="cockroachRoadId"
-      style="width: 38.4rem; overflow: hidden"
+      style="width: 37.05rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in CockRoachResults"

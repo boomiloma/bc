@@ -2,28 +2,30 @@
   <div class="blue-modal">
     <div
       class="modal-dialog modal-dialog-centered modal-lg"
-      style="max-width: 1270px"
+      style="max-width: 878px"
     >
       <div class="modal-content">
-        <div class="modal-header flex border-0 p-3">
-          <h5 class="modal-title flex-1">{{ $t("settings") }}</h5>
+        <div class="modal-header flex border-0 p-3 py-2">
+          <h5 class="modal-title" style="color: #c5b99e; font-size:25px;">{{ $t("settings") }}</h5>
           <div>
-            <Icon
+           
+            <img src="../../../../assets/images/close-icon.svg"  @click="emit('onClose')" style="cursor: pointer" />
+            <!-- <Icon
               height="20."
               style="cursor: pointer"
               @click="emit('onClose')"
               icon="fa:close"
-            />
+            /> -->
           </div>
         </div>
         <div class="header-bottom"></div>
         <div class="modal-body p-5">
           <div class="row">
-            <h4 class="text-white mb-3">{{ $t("edit_table_no") }}</h4>
+            <h4 class="mb-3" style=" color: #d4dde3;font-size: 24px;">{{ $t("edit_table_no") }}</h4>
             <div class="col-7">
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("edit_table_no") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("edit_table_no") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -34,8 +36,8 @@
                     />
                   </div>
                 </div>
-                <div class="col-4"></div>
-                <div class="mt-3 row">
+                <div class="col-5"></div>
+                <div class="mt-3 row align-items-center">
                   <div class="col-5">
                     <button
                       @click="onSaved('set_table_success')"
@@ -47,32 +49,32 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-3 row">
+              <div class="mt-3 row g-2">
                 <div class="col-12">
-                  <h4 class="text-white my-3">{{ $t("edit_table_limit") }}</h4>
+                  <h4 class="my-3" style="color: #d4dde3;font-size: 24px;">{{ $t("edit_table_limit") }}</h4>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("currency") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("currency") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
                     <select
                       @change="currencyChange"
                       v-model="setting.currency"
-                      class="form-control-custom"
+                      class="form-control-custom dropdown-custom"
                     >
                       <option value="usd">{{ $t("usd") }}</option>
                       <option value="thb">{{ $t("thb") }}</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-5"></div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("bp_limit") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("bp_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -93,9 +95,9 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("tie_limit") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("tie_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -116,9 +118,9 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("pair_limit") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("pair_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -139,9 +141,9 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <p class="text-white">{{ $t("lucky_6_limit") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-3">
+                  <p class=""  style="color: #d4dde3; font-size: 17px;">{{ $t("lucky_6_limit") }}:</p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -164,11 +166,11 @@
               </div>
             </div>
             <div class="col-5">
-              <div class="row">
-                <div class="col-5">
-                  <p class="text-white">{{ $t("bet_counter") }}:</p>
+              <div class="row align-items-center g-2">
+                <div class="col-4">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("bet_counter") }}:</p>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                   <div class="form-group">
                     <input
                       type="text"
@@ -178,7 +180,7 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <p class="text-white">{{ $t("sec") }}</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("sec") }}</p>
                 </div>
               </div>
               <div class="mt-3 row">
@@ -192,16 +194,16 @@
                   </button>
                 </div>
               </div>
-              <div class="mt-1 row pt-8">
+              <div class="mt-1 row pt-8 align-items-center">
                 <div class="col-12">
-                  <h4 class="text-white">
+                  <h4 class="" style=" color: #d4dde3;font-size: 24px;">
                     {{ $t("change_shoe_verification_code") }}
                   </h4>
                 </div>
               </div>
-              <div class="row mt-3">
-                <div class="col-5">
-                  <p class="text-white">{{ $t("set_code") }}:</p>
+              <div class="row mt-3 align-items-center g-2">
+                <div class="col-4">
+                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("set_code") }}:</p>
                 </div>
                 <div class="col-3">
                   <div class="form-group">

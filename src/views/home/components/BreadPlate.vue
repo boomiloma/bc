@@ -33,7 +33,7 @@
       class="grid bg-white"
       id="beadRoadId"
       ref="beadRoadId"
-      style="width: 58.6rem; overflow: hidden"
+      style="width: 56.3rem; overflow: hidden; margin-bottom:6px;"
     >
       <div
         v-for="(row, rowKey) in BreadPlateResults"

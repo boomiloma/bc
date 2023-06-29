@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row -mt-8 relative">
+  <div class="flex flex-row relative">
   <div class="relative">
     <div class="absolute set-to-middle left">
       <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'bigEyeId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
@@ -13,7 +13,7 @@
       class="grid bg-white"
       id="bigEyeId"
       ref="bigEyeId"
-      style="width: 38.2rem; overflow: hidden"
+      style="width: 37.05rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in BigEyeResults"
@@ -50,7 +50,7 @@
       class="grid bg-white"
       id="customRoadId"
       ref="customRoadId"
-      style="width: 38.4rem; overflow: hidden"
+      style="width: 37.05rem; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in CustomPlateResults"

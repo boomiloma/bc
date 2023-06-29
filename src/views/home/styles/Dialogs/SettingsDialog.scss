@@ -1067,8 +1067,8 @@ select.form-control-custom {
   margin-right: 50px;
 }
 .golden-border-modal-blue .modal-content {
-  border: 4px solid #ac987d;
-  border-radius: 10px;
+  border: 4px solid #cdb595;
+  border-radius: 24px;
   background: url(../images/blue-1.jpg);
   background-size: cover;
   background-position: center;
@@ -1186,7 +1186,55 @@ select.form-control-custom {
   position: relative;
   z-index: 9;
 }
+p {
+  margin-bottom: 10px !important;
+}
+.btn-theme {
+  background: rgb(233,214,186);
+  background: -moz-linear-gradient(top,  rgba(233,214,186,1) 0%, rgba(205,181,143,1) 52%, rgba(225,207,179,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(233,214,186,1) 0%,rgba(205,181,143,1) 52%,rgba(225,207,179,1) 100%);
+  background: linear-gradient(to bottom,  rgba(233,214,186,1) 0%,rgba(205,181,143,1) 52%,rgba(225,207,179,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9d6ba', endColorstr='#e1cfb3',GradientType=0 );
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  min-height: 43px;
+  line-height: 43px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 9;
+  border: 0;
+  border-bottom: 3px solid #c5a679;
+  transition: box-shadow 0.2s;
+  transition: border-bottom 0.2s;
+  text-shadow: 1px 1px 4px #372004;
+  font-size: 20px;
+}
 
+.btn-theme:hover {
+  border-bottom: 3px solid #c5a679;
+}
+select.dropdown-custom {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(../../../../assets/images/drop-down-icon.png);
+  background-repeat: no-repeat;
+  background-position: 97%;
+}
 // @charset "UTF-8";
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)

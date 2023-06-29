@@ -32,7 +32,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div
                   class="modal-content flex flex-col justify-center"
-                  style="height: 600px"
+                  style="height: 577px; width:577px;"
                 >
                   <div class="modal-body">
                     <div
