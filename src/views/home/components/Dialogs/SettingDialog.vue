@@ -6,10 +6,15 @@
     >
       <div class="modal-content">
         <div class="modal-header flex border-0 p-3 py-2">
-          <h5 class="modal-title" style="color: #c5b99e; font-size:25px;">{{ $t("settings") }}</h5>
+          <h5 class="modal-title" style="color: #c5b99e; font-size: 25px">
+            {{ $t("settings") }}
+          </h5>
           <div>
-           
-            <img src="../../../../assets/images/close-icon.svg"  @click="emit('onClose')" style="cursor: pointer" />
+            <img
+              src="../../../../assets/images/close-icon.svg"
+              @click="emit('onClose')"
+              style="cursor: pointer"
+            />
             <!-- <Icon
               height="20."
               style="cursor: pointer"
@@ -21,11 +26,15 @@
         <div class="header-bottom"></div>
         <div class="modal-body p-5">
           <div class="row">
-            <h4 class="mb-3" style=" color: #d4dde3;font-size: 24px;">{{ $t("edit_table_no") }}</h4>
+            <h4 class="mb-3" style="color: #d4dde3; font-size: 24px">
+              {{ $t("edit_table_no") }}
+            </h4>
             <div class="col-7">
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("edit_table_no") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("edit_table_no") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -40,7 +49,7 @@
                 <div class="mt-3 row align-items-center">
                   <div class="col-5">
                     <button
-                      @click="onSaveSetting('table_no', 'change_table_no_success')"
+                      @click="onSaveSetting('table_no', 'set_table_success')"
                       type="button"
                       class="btn-theme btn-1"
                     >
@@ -51,12 +60,16 @@
               </div>
               <div class="mt-3 row g-2">
                 <div class="col-12">
-                  <h4 class="my-3" style="color: #d4dde3;font-size: 24px;">{{ $t("edit_table_limit") }}</h4>
+                  <h4 class="my-3" style="color: #d4dde3; font-size: 24px">
+                    {{ $t("edit_table_limit") }}
+                  </h4>
                 </div>
               </div>
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("currency") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("currency") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -74,7 +87,9 @@
               </div>
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("bp_limit") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("bp_limit") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -97,7 +112,9 @@
               </div>
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("tie_limit") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("tie_limit") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -120,7 +137,9 @@
               </div>
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("pair_limit") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("pair_limit") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -143,7 +162,9 @@
               </div>
               <div class="row align-items-center g-2">
                 <div class="col-3">
-                  <p class=""  style="color: #d4dde3; font-size: 17px;">{{ $t("lucky_6_limit") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("lucky_6_limit") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -168,7 +189,9 @@
             <div class="col-5">
               <div class="row align-items-center g-2">
                 <div class="col-4">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("bet_counter") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("bet_counter") }}:
+                  </p>
                 </div>
                 <div class="col-4">
                   <div class="form-group">
@@ -180,7 +203,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("sec") }}</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("sec") }}
+                  </p>
                 </div>
               </div>
               <div class="mt-3 row">
@@ -193,7 +218,7 @@
                     {{ $t("change") }}
                   </button> -->
                   <button
-                    @click="onSaveSetting('bet_count','set_bet_count_success')"
+                    @click="onSaveSetting('bet_count', 'set_bet_count_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -203,14 +228,16 @@
               </div>
               <div class="mt-1 row pt-8 align-items-center">
                 <div class="col-12">
-                  <h4 class="" style=" color: #d4dde3;font-size: 24px;">
+                  <h4 class="" style="color: #d4dde3; font-size: 24px">
                     {{ $t("change_shoe_verification_code") }}
                   </h4>
                 </div>
               </div>
               <div class="row mt-3 align-items-center g-2">
                 <div class="col-4">
-                  <p class="" style="color: #d4dde3; font-size: 17px;">{{ $t("set_code") }}:</p>
+                  <p class="" style="color: #d4dde3; font-size: 17px">
+                    {{ $t("set_code") }}:
+                  </p>
                 </div>
                 <div class="col-3">
                   <div class="form-group">
@@ -231,7 +258,7 @@
                     {{ $t("change") }}
                   </button> -->
                   <button
-                    @click="onSaveSetting('verify_code','set_code_success')"
+                    @click="onSaveSetting('verify_code', 'set_code_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -253,7 +280,7 @@
                     {{ $t("change") }}
                   </button> -->
                   <button
-                    @click="onSaveSetting('table_limit','set_limit_success')"
+                    @click="onSaveSetting('table_limit', 'set_limit_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
@@ -339,7 +366,16 @@ import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import useConfig from "@/composables/useConfig";
 
-const { add, get, configBaselineInfo, configBetCount, configUpdateBoot, configTableLimit,configSetShoeVerifyCode,configTableLimitTH} = useConfig();
+const {
+  add,
+  get,
+  configBaselineInfo,
+  configBetCount,
+  configUpdateBoot,
+  configTableLimit,
+  configSetShoeVerifyCode,
+  configTableLimitTH,
+} = useConfig();
 const emit = defineEmits(["onClose", "onSave"]);
 const isConfirm = ref(false);
 const isVerified = ref(false);
@@ -411,16 +447,16 @@ async function onSaved(text) {
     banker_and_player_small_th: setting.value.thb.min_tie,
     game_num: setting.value.shoe_no,
     is_online: 1,
-    second: '',
-    status: '',
+    second: "",
+    status: "",
     verify: setting.value.verification_code,
-  }
-  await add(saveConfig)
+  };
+  await add(saveConfig);
   emit("onClose");
 
   // emit("onClose");
 }
-async function onSaveSetting(label, text){
+async function onSaveSetting(label, text) {
   localStorage.setItem("setting", JSON.stringify(setting.value));
   store.setting = setting.value;
   verifyStatus.value = text;
@@ -449,41 +485,36 @@ async function onSaveSetting(label, text){
     banker_and_player_small_th: setting.value.thb.min_tie,
     game_num: setting.value.shoe_no,
     is_online: 1,
-    second: '',
-    status: '',
+    second: "",
+    status: "",
     verify: setting.value.verification_code,
-  }
-  console.log('configTableLimit');
+  };
+  console.log("configTableLimit");
   console.log(label);
-  if(label == 'table_no'){
-    await configBaselineInfo(setting.value.table_no)
-  }
-  else if(label == 'bet_count'){
-    await configBetCount(setting.value.bet_counter)
-  }
-  else if(label == 'table_limit'){
-    if(setting.value.currency == 'usd'){
+  if (label == "table_no") {
+    await configBaselineInfo(setting.value.table_no);
+  } else if (label == "bet_count") {
+    await configBetCount(setting.value.bet_counter);
+  } else if (label == "table_limit") {
+    if (setting.value.currency == "usd") {
       let tableLimitParams = {
         bankerAndPlayer: `${setting.value.usd.min_bp}-${setting.value.usd.max_bp}`,
         draw: `${setting.value.usd.min_tie}-${setting.value.usd.max_tie}`,
         doubles: `${setting.value.usd.min_pair}-${setting.value.usd.max_pair}`,
-        six: `${setting.value.usd.min_lucky6}-${setting.value.usd.max_lucky6}`
-      }
-      await configTableLimit(tableLimitParams)
-    }
-    else{
+        six: `${setting.value.usd.min_lucky6}-${setting.value.usd.max_lucky6}`,
+      };
+      await configTableLimit(tableLimitParams);
+    } else {
       let tableLimitParams = {
         bankerAndPlayerTh: `${setting.value.thb.min_bp}-${setting.value.thb.max_bp}`,
         drawTh: `${setting.value.thb.min_tie}-${setting.value.thb.max_tie}`,
         doublesTh: `${setting.value.thb.min_pair}-${setting.value.thb.max_pair}`,
-        sixTh: `${setting.value.thb.min_lucky6}-${setting.value.thb.max_lucky6}`
-      }
-      await configTableLimitTH(tableLimitParams)
+        sixTh: `${setting.value.thb.min_lucky6}-${setting.value.thb.max_lucky6}`,
+      };
+      await configTableLimitTH(tableLimitParams);
     }
-    
-  }
-  else if(label == 'verify_code'){
-    await configSetShoeVerifyCode(setting.value.verification_code)
+  } else if (label == "verify_code") {
+    await configSetShoeVerifyCode(setting.value.verification_code);
   }
   emit("onClose");
 }
@@ -514,12 +545,12 @@ function verifyCode() {
 
 const getConfig = async () => {
   try {
-      let config = await get(2);
-      console.log(config,'config====');
-   } catch (e) {
+    let config = await get(2);
+    console.log(config, "config====");
+  } catch (e) {
     console.log(e.message);
   }
-}
+};
 
 onLoad();
 async function onLoad() {
