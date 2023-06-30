@@ -30,7 +30,7 @@
           </div>
           <Sign :results="results" @Predict="prediction" :RoadMap="roadmap" />
         </div>
-        <div class="" style="margin-bottom: 6px;">
+        <div class="" style="margin-bottom: 6px">
           <div class="">
             <BigRoad
               :BigRoadResults="roadmap.bigroad.matrix"
@@ -375,26 +375,27 @@ export default {
             // });
             console.log(joinResult);
             console.log(this.results_id);
-            console.log(this.results_id[this.colIndex])
+            console.log(this.results_id[this.colIndex]);
             let result = null;
-            result = this.store.results.filter(((obj)=>{
+            result = this.store.results.filter((obj) => {
               return obj.id == this.results_id[this.colIndex];
-            }))
-            
+            });
+
             console.log(result);
-            console.log('updateResult==========================================');
-            if(result?.length > 0){
+            console.log(
+              "updateResult=========================================="
+            );
+            if (result?.length > 0) {
               let _data = {
                 deskName: result[0].deskName,
                 result: joinResult,
                 bootNum: result[0].bootNum,
                 gameNum: result[0].gameNum,
               };
-              console.log(_data)
-              console.log('sdfsdddddddddddddddddddddddddddddddddddddddd')
-              this.uResult.updateResult(_data)
+              console.log(_data);
+              console.log("sdfsdddddddddddddddddddddddddddddddddddddddd");
+              this.uResult.updateResult(_data);
             }
-            
           } catch (e) {
             console.log(e);
           }
@@ -450,28 +451,37 @@ export default {
         }
       }
     },
-    async getResult() {
-      await this.getGameResult();
-      let mapResult = this.store.results.map(m => MappingUtils.mappedResults(MappingUtils.numToArray(m.result)))
-      this.results_id =  this.store.results.map(m => m.id);
-      this.results = mapResult;
-      this.results.forEach((r) => {
+    async getResult(isPredict = false) {
+      if (!isPredict) {
+        console.log("getResult not predicted");
+        await this.getGameResult();
+        let mapResult = this.store.results.map((m) =>
+          MappingUtils.mappedResults(MappingUtils.numToArray(m.result))
+        );
+        this.results_id = this.store.results.map((m) => m.id);
+        this.results = mapResult;
+        this.results.forEach((r) => {
           this.roadmap.push(r);
-      });
-      localStorage.setItem("roadmap-results-id", JSON.stringify(this.results_id));
-      
-      // console.log('map=', mapResult)
-      // let re = await localStorage.getItem("roadmap-results");
-      // let reID = await localStorage.getItem("roadmap-results-id");
-      // if (reID) {
-      //   this.results_id = JSON.parse(reID);
-      // }
-      // if (re) {
-      //   this.results = JSON.parse(re);
-      //   this.results.forEach((r) => {
-      //     this.roadmap.push(r);
-      //   });
-      // }
+        });
+        localStorage.setItem(
+          "roadmap-results-id",
+          JSON.stringify(this.results_id)
+        );
+        localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+        console.log("map=", mapResult);
+      } else {
+        let re = await localStorage.getItem("roadmap-results");
+        let reID = await localStorage.getItem("roadmap-results-id");
+        if (reID) {
+          this.results_id = JSON.parse(reID);
+        }
+        if (re) {
+          this.results = JSON.parse(re);
+          this.results.forEach((r) => {
+            this.roadmap.push(r);
+          });
+        }
+      }
     },
     async getConfig() {
       try {
@@ -528,7 +538,6 @@ export default {
             this.store.setting.verification_code = res.data.verify;
 
             this.getResult();
-
           } catch (e) {
             console.log("error", e);
           }
@@ -538,24 +547,26 @@ export default {
       }
     },
     async getGameResult() {
-      console.log("getGameResult")
-      let response = await this.uResult.getResult(this.store.setting.table_no, this.store.setting.shoe_no);
+      console.log("getGameResult");
+      let response = await this.uResult.getResult(
+        this.store.setting.table_no,
+        this.store.setting.shoe_no
+      );
       console.log(response);
-      if(response?.data){
-        console.log('has data')
+      if (response?.data) {
+        console.log("has data");
         this.store.results = response.data;
       }
-      
     },
     async startGame() {
       let response = await this.uConfig.startGame("");
-      
     },
     onStartGame() {
       // this.getConfig();
-      this.startGame()
+      this.startGame();
     },
     prediction(value) {
+      console.log("prediction");
       if (this.store.isPredict) {
         this.results.pop();
         this.results.push(value);
@@ -570,16 +581,16 @@ export default {
         this.initRoadmap();
         this.store.isPredict = false;
       }, 2500);
-      this.resetRoadMap();
+      this.resetRoadMap(true);
     },
     removePrediction() {
       this.results.pop();
-      this.resetRoadMap();
+      this.resetRoadMap(true);
     },
-    resetRoadMap() {
-      this.getResult();
-      this.results = [];
+    resetRoadMap(isPredict = false) {
       localStorage.setItem("roadmap-results", JSON.stringify(this.results));
+      this.results = [];
+      this.getResult(isPredict);
       this.initRoadmap();
     },
   },
