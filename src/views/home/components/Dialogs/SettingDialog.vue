@@ -218,7 +218,7 @@
                     {{ $t("change") }}
                   </button> -->
                   <button
-                    @click="onSaveSetting('bet_count', 'set_bet_count_success')"
+                    @click="onSaveSetting('bet_count', 'set_time_success')"
                     type="button"
                     class="btn-theme btn-1"
                   >
