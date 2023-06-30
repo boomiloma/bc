@@ -1,76 +1,96 @@
 <template>
   <div class="flex flex-row">
-  <div class="relative">
-    <div class="absolute z-10 set-to-middle left">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    </div>
-    <div class="absolute z-10 set-to-middle right">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    </div>
-    <div
-      class="grid bg-white"
-      id="smallRoadId"
-      ref="smallRoadId"
-      style="width: 37.05rem; overflow: hidden"
-    >
+    <div class="relative">
+      <div class="absolute z-10 set-to-middle left">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+          width="80"
+          @click="handleScroll(true, 'smallRoadId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
+      <div class="absolute z-10 set-to-middle right">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+          width="80"
+          @click="handleScroll(false, 'smallRoadId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
       <div
-        v-for="(row, rowKey) in SmallRoadResults"
-        :key="rowKey"
-        class="grid__row_diverse_road"
+        class="grid bg-white"
+        id="smallRoadId"
+        ref="smallRoadId"
+        style="width: 37.05rem; overflow: hidden"
       >
         <div
-          v-for="(col, colKey) in row"
-          :key="colKey"
-          class="grid__col__small_road"
-          :class="CheckPredict(SmallRoad, rowKey, colKey)"
+          v-for="(row, rowKey) in SmallRoadResults"
+          :key="rowKey"
+          class="grid__row_diverse_road"
         >
           <div
-            class="rounded-full w-6 h-6"
-            :class="{
-              'banker-fill-small-road': col && col.value === 'red',
-              'player-fill-small-road': col && col.value === 'blue',
-            }"
-          ></div>
+            v-for="(col, colKey) in row"
+            :key="colKey"
+            class="grid__col__small_road"
+            :class="CheckPredict(SmallRoad, rowKey, colKey)"
+          >
+            <div
+              class="rounded-full w-6 h-6"
+              :class="{
+                'banker-fill-small-road': col && col.value === 'red',
+                'player-fill-small-road': col && col.value === 'blue',
+              }"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <!-- COCKROACH ROAD -->
-<div class="relative cockroach">
-  <div class="absolute set-to-middle left">
-    <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    </div>
-    <div class="absolute set-to-middle right">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'smallRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    </div>
-    <div
-      class="grid bg-white"
-      id="cockroachRoadId"
-      ref="cockroachRoadId"
-      style="width: 37.05rem; overflow: hidden"
-    >
+    <div class="relative cockroach">
+      <div class="absolute set-to-middle left">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+          width="80"
+          @click="handleScroll(true, 'cockRoachId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
+      <div class="absolute set-to-middle right">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+          width="80"
+          @click="handleScroll(false, 'cockRoachId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
       <div
-        v-for="(row, rowKey) in CockRoachResults"
-        :key="rowKey"
-        class="grid__row_diverse_road"
+        class="grid bg-white"
+        id="cockroachRoadId"
+        ref="cockroachRoadId"
+        style="width: 37.05rem; overflow: hidden"
       >
         <div
-          v-for="(col, colKey) in row"
-          :key="colKey"
-          class="grid__col__small_road"
-          :class="CheckPredict(CockRoach, rowKey, colKey)"
+          v-for="(row, rowKey) in CockRoachResults"
+          :key="rowKey"
+          class="grid__row_diverse_road"
         >
-          <div v-if="col.value === `red`" class="red-slash">
-            <span class="slash"></span>
-          </div>
-          <div v-if="col.value === `blue`" class="blue-slash">
-            <span class="slash"></span>
+          <div
+            v-for="(col, colKey) in row"
+            :key="colKey"
+            class="grid__col__small_road"
+            :class="CheckPredict(CockRoach, rowKey, colKey)"
+          >
+            <div v-if="col.value === `red`" class="red-slash">
+              <span class="slash"></span>
+            </div>
+            <div v-if="col.value === `blue`" class="blue-slash">
+              <span class="slash"></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
   </div>
 </template>
 
