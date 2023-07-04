@@ -193,11 +193,11 @@
                     {{ $t("bet_counter") }}:
                   </p>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <div class="form-group">
                     <input
                       type="text"
-                      class="form-control-custom"
+                      class="form-control-custom text-center"
                       v-model="setting.bet_counter"
                     />
                   </div>
@@ -244,7 +244,7 @@
                   <div class="form-group">
                     <input
                       type="text"
-                      class="form-control-custom"
+                      class="form-control-custom text-center"
                       v-model="setting.verification_code"
                     />
                   </div>
