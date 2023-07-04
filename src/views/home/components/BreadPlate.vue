@@ -33,7 +33,7 @@
       class="grid bg-white"
       id="beadRoadId"
       ref="beadRoadId"
-      style="width: 56.3rem; overflow: hidden; margin-bottom:6px;"
+      style="width: 56.3rem; overflow: hidden; margin-bottom: 6px"
     >
       <div
         v-for="(row, rowKey) in BreadPlateResults"
@@ -56,7 +56,7 @@
               class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 w-4 h-4 border border-1 border-amber-200"
             ></span>
             <div>
-              <p v-if="col.value" class="font-bold text-3xl select-none">
+              <p v-if="col.value" class="text-center text-3xl select-none">
                 {{ $t(beadRoadValue(col.value)) }}
               </p>
             </div>

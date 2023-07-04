@@ -22,7 +22,7 @@
   "bp_limit": "庄闲限红",
   "tie_limit": "和局限红",
   "pair_limit": "对子限红",
-  "lucky_6_limit": "幸运 6 限红",
+  "lucky_6_limit": "幸运6限红",
   "bet_counter": "下注倒计时",
   "change_shoe_verification_code": "换靴验证码",
   "set_code": "设置验证码",
@@ -48,5 +48,8 @@
   "set_bet_count_success": "Set Bet Counter Success!",
   "wait_game_ends": "请等待游戏结束!",
   "big": "大",
-  "small": "小"
+  "small": "小",
+  "change_bet_counter": "修改下注计时",
+  "change_bet_limit": "修妀现场限红",
+  "change_verification_code": "修改验正码"
 }

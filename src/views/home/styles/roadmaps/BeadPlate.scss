@@ -98,12 +98,13 @@
   font-weight: bold;
   // box-shadow: inset 0px -5px 5px rgb(0 0 0 / 22%);
 }
-.tie p, .player p, .banker p {
-  line-height: 32px !important;
+.tie p,
+.player p,
+.banker p {
+  line-height: 36px !important;
 }
 .set-to-middle {
   top: 50%;
-  
 }
 .left {
   left: 51%;

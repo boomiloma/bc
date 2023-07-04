@@ -48,5 +48,8 @@
   "set_bet_count_success": "Set Bet Counter Success!",
   "wait_game_ends": "กรุณารอจนกว่าเกมจะจบลง",
   "big": "B",
-  "small": "S"
+  "small": "S",
+  "change_bet_counter": "เปลี่ยนเคาน์เตอร์เดิมพัน",
+  "change_bet_limit": "เปลี่ยนวงเงินเดิมพัน",
+  "change_verification_code": "เปลี่ยนโค้ดยืนยัน"
 }

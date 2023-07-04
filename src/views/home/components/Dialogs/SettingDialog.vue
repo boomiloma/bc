@@ -208,8 +208,8 @@
                   </p>
                 </div>
               </div>
-              <div class="mt-3 row">
-                <div class="col-5">
+              <div class="mt-3 row align-items-center g-2">
+                <div class="col-6">
                   <!-- <button
                     @click="onSaved('set_time_success')"
                     type="button"
@@ -221,8 +221,9 @@
                     @click="onSaveSetting('bet_count', 'set_time_success')"
                     type="button"
                     class="btn-theme btn-1"
+                    style="padding: 0px 17px"
                   >
-                    {{ $t("change") }}
+                    {{ $t("change_bet_counter") }}
                   </button>
                 </div>
               </div>
@@ -249,7 +250,7 @@
                   </div>
                 </div>
                 <div class="col-4"></div>
-                <div class="col-5">
+                <div class="col-6">
                   <!-- <button
                     @click="onSaved('set_code_success')"
                     type="button"
@@ -262,7 +263,7 @@
                     type="button"
                     class="btn-theme btn-1"
                   >
-                    {{ $t("change") }}
+                    {{ $t("change_verification_code") }}
                   </button>
                 </div>
               </div>
@@ -284,7 +285,7 @@
                     type="button"
                     class="btn-theme btn-1"
                   >
-                    {{ $t("change") }}
+                    {{ $t("change_bet_limit") }}
                   </button>
                 </div>
                 <div class="col-7"></div>
