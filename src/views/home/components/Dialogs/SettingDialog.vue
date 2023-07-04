@@ -96,6 +96,8 @@
                     <input
                       type="text"
                       class="form-control-custom"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       v-model="setting[setting.currency].min_bp"
                     />
                   </div>
@@ -105,6 +107,8 @@
                     <input
                       v-model="setting[setting.currency].max_bp"
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                     />
                   </div>
@@ -120,6 +124,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].min_tie"
                     />
@@ -129,6 +135,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].max_tie"
                     />
@@ -145,6 +153,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].min_pair"
                     />
@@ -154,6 +164,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].max_pair"
                     />
@@ -170,6 +182,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].min_lucky6"
                     />
@@ -179,6 +193,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom"
                       v-model="setting[setting.currency].max_lucky6"
                     />
@@ -197,6 +213,8 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      :oninput="(evt) => Utils.validationOnlyNumberEvent(evt)"
+                      maxlength="12"
                       class="form-control-custom text-center"
                       v-model="setting.bet_counter"
                     />
@@ -366,6 +384,7 @@ import { ref, onMounted, watch, computed } from "vue";
 import { Icon } from "@iconify/vue";
 import BaseDialog from "@/components/BaseDialog.vue";
 import useConfig from "@/composables/useConfig";
+import Utils from "@/helpers/Utils";
 
 const {
   add,
