@@ -17,10 +17,8 @@
 
     .grid__col__big__road {
       // padding: 5px;
-      min-height: 44px;
-      min-width: 42.3px;
-      max-height: 44px;
-      max-width: 42.3px;
+      height: 4.4vh;
+      width: 2.4vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -90,20 +88,8 @@
 
 .green-slash span.slash {
   background: #19ff19;
-  background: linear-gradient(to bottom, #75ff19 0%, #55cf04 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ff3019", endColorstr="#cf0404",GradientType=0 );
-  position: absolute;
-  width: 6px;
-  height: 100%;
-  border-radius: 6px;
-  transform: rotate(45deg);
-  left: 29%;
-  top: -5px;
-}
-.green-slash span.slash {
-  background: linear-gradient(to bottom, #75ff19 0%, #55cf04 100%);
-  background: #19ff19;
-  background: linear-gradient(to bottom, #75ff19 0%, #55cf04 100%);
+  background: linear-gradient(to bottom, #60d015 0%, #529426 100%);
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ff3019", endColorstr="#cf0404",GradientType=0 );
   position: absolute;
   width: 8px;

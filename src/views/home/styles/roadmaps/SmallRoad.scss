@@ -24,10 +24,8 @@
     }
     .grid__col__small_road {
       // padding: 5px;
-      min-height: 21px;
-      max-height: 21px;
-      min-width: 21.15px;
-      max-width: 21.15px;
+      height: 2vh;
+      width: 1vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -82,7 +80,7 @@
   // box-shadow: inset 0px -3px 3px rgb(0 0 0 / 22%);
 }
 .player-fill-small-road {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 16px;
   height: 16px;
@@ -114,9 +112,8 @@
 .red-slash,
 .blue-slash {
   position: relative;
-  width: 60px;
-  height: 60px;
-  margin-left: 8px;
+  width: 0.5vw;
+  height: 2vh;
 }
 
 .red-slash span.slash {
@@ -164,7 +161,7 @@
   height: 100%;
   border-radius: 6px;
   transform: rotate(45deg);
-  left: 39%;
+  left: 40%;
 }
 .set-to-middle {
   top: 50%;

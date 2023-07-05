@@ -15,6 +15,7 @@
         :matches="results.length"
         ref="headerComponent"
         @start="onStartGame"
+        :isOpenCountDown="isOpenCountDown"
       />
       <div v-if="roadmap" class="w-full">
         <div class="flex flex-row">

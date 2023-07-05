@@ -7,44 +7,30 @@
             <div class="flex flex-row items-center">
               <div class="blocks-one-side-left">
                 <div class="terrace-details">
-                  <span class="text-left text-3xl"
-                    >{{ $t("table_no") }}:</span
-                  >
+                  <span class="text-left text-3xl">{{ $t("table_no") }}:</span>
                   <span class="text-right text-3xl">
                     &nbsp;{{ store.setting.table_no }}</span
                   >
                 </div>
                 <div class="boot-size">
-                  <span class="text-left text-3xl"
-                    >{{ $t("shoe_no") }}:</span
-                  >
+                  <span class="text-left text-3xl">{{ $t("shoe_no") }}:</span>
                   &nbsp;
                   <span class="text-right text-3xl">{{
                     store.setting.shoe_no
                   }}</span>
                 </div>
                 <div class="no-of-rounds">
-                  <span class="text-left text-3xl"
-                    >{{ $t("match_no") }}:</span
-                  >
+                  <span class="text-left text-3xl">{{ $t("match_no") }}:</span>
                   &nbsp;
-                  <span class="text-right text-3xl">
-                    {{ matches }}</span
-                  >
+                  <span class="text-right text-3xl"> {{ matches }}</span>
                 </div>
                 <div class="status">
-                  <span class="text-left text-3xl"
-                    >{{ $t("status") }}:</span
-                  >
+                  <span class="text-left text-3xl">{{ $t("status") }}:</span>
                   &nbsp;
-                  <span class="text-right text-3xl">{{
-                    $t(status)
-                  }}</span>
+                  <span class="text-right text-3xl">{{ $t(status) }}</span>
                 </div>
                 <div class="countdown gap-2">
-                  <span class="text-left text-3xl"
-                    >{{ $t("counter") }}:</span
-                  >
+                  <span class="text-left text-3xl">{{ $t("counter") }}:</span>
                   &nbsp;
                   <span class="text-right text-3xl">
                     {{ countdown }}&nbsp;{{ $t("sec") }}</span
@@ -113,13 +99,13 @@ export default {
     const uConfig = useConfig();
     return { t, uConfig };
   },
-  
+
   components: {
     Setting,
     Icon,
     BaseDialog,
   },
-  props: ["matches"],
+  props: ["matches", "isOpenCountDown"],
   watch: {
     isOpen(newVal) {},
   },
@@ -138,6 +124,20 @@ export default {
   watch: {
     matches(newVal) {
       this.status = "complete_settlement";
+    },
+    isOpenCountDown(newVal) {
+      if (newVal) {
+        this.countdown = 3;
+        this.countdownInterval = setInterval(() => {
+          this.countdown--;
+          if (this.countdown === 0) {
+            clearInterval(this.countdownInterval);
+          }
+        }, 1000);
+      } else {
+        this.countdown = 0;
+        clearInterval(this.countdownInterval);
+      }
     },
   },
   methods: {
@@ -162,8 +162,8 @@ export default {
             this.status = "no_more_bet";
             localStorage.setItem("KEYBOARD_GAME", "true");
             this.NoMoreBetSound();
-            console.log('count down finished');
-            this.updateStatus(2)
+            console.log("count down finished");
+            this.updateStatus(2);
           }
         }, 1000);
       } else {
@@ -183,8 +183,8 @@ export default {
       audio.play();
     },
     async updateStatus(status) {
-      let response =  await this.uConfig.updateStatus(status);
-    }
+      let response = await this.uConfig.updateStatus(status);
+    },
   },
   mounted() {
     this.onLoad();

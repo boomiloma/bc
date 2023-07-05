@@ -1,30 +1,40 @@
 <template>
-  <div class="relative flex flex-row items-stretch border-t-1 border-t-black relative">
-    <div class="absolute z-10 set-to-middle left">  
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    <!-- <Icon
+  <div class="relative flex flex-row items-stretch border-t-1 border-t-black">
+    <div class="absolute z-10 set-to-middle left">
+      <img
+        src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+        width="80"
+        @click="handleScroll(true)"
+        class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+      />
+      <!-- <Icon
       icon="ic:round-keyboard-double-arrow-left"
       @click="handleScroll(true)"
       class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
     />-->
-  </div> 
-  <div class="absolute z-10 set-to-middle right">
-    <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false)"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    <!-- <Icon
+    </div>
+    <div class="absolute z-10 set-to-middle right">
+      <img
+        src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+        width="80"
+        @click="handleScroll(false)"
+        class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+      />
+      <!-- <Icon
       icon="ic:round-keyboard-double-arrow-right"
       @click="handleScroll(false)"
       class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
       width="100"
       style="left: 52rem"
     /> -->
-  </div>
+    </div>
     <!-- {{BigRoadResults}} -->
     <div
       class="grid bg-white"
       id="bigroadId"
       ref="bigroadId"
-      style="width: 74.1rem; overflow: hidden"
+      style="width: 76.5vw; overflow: hidden"
     >
       <div
         v-for="(row, rowKey) in BigRoadResults"
@@ -58,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute right-5 -bottom-44">
+    <div class="absolute -bottom-44" style="right: 3.25rem">
       <video ref="videoElement" autoplay muted playsinline>
         <source
           src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
@@ -100,7 +110,6 @@ export default {
       return MappingUtils.BigRoadResult(value);
     },
     handleScroll(isLeft) {
-      console.log("!!", this.BigRoad);
       if (isLeft) {
         this.$refs.bigroadId.scrollLeft -= 60;
       } else {
@@ -111,10 +120,16 @@ export default {
       return MappingUtils.CheckIfPredict(store.isPredict, BigRoad, row, col);
     },
   },
+  mounted() {
+    setTimeout(() => {
+      const bigroadElement = this.$refs.bigroadId;
+      this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
+    }, 3000);
+  },
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.bigroadId;
-      if (this.isChange > 28) {
+      if (store.results.length > 32) {
         setTimeout(() => {
           this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
         }, 600);

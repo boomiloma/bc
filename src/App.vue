@@ -58,8 +58,7 @@ onMounted(() => {
 body,
 html,
 #app {
-   min-height: 100vh;
-  // height: 100%;
+  height: 100vh;
   // width: 100%;
   flex-direction: row;
   justify-content: center;

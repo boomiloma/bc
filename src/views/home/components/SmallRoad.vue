@@ -21,7 +21,7 @@
         class="grid bg-white"
         id="smallRoadId"
         ref="smallRoadId"
-        style="width: 37.05rem; overflow: hidden"
+        style="width: 38.5vw; overflow: hidden"
       >
         <div
           v-for="(row, rowKey) in SmallRoadResults"
@@ -35,7 +35,7 @@
             :class="CheckPredict(SmallRoad, rowKey, colKey)"
           >
             <div
-              class="rounded-full w-6 h-6"
+              class="rounded-full w-3 h-3"
               :class="{
                 'banker-fill-small-road': col && col.value === 'red',
                 'player-fill-small-road': col && col.value === 'blue',
@@ -48,7 +48,7 @@
 
     <!-- COCKROACH ROAD -->
     <div class="relative cockroach">
-      <div class="absolute set-to-middle left">
+      <div class="z-10 absolute set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
           width="80"
@@ -56,7 +56,7 @@
           class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
         />
       </div>
-      <div class="absolute set-to-middle right">
+      <div class="z-10 absolute set-to-middle right">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
           width="80"
@@ -68,7 +68,7 @@
         class="grid bg-white"
         id="cockroachRoadId"
         ref="cockroachRoadId"
-        style="width: 37.05rem; overflow: hidden"
+        style="width: 38vw; overflow: hidden"
       >
         <div
           v-for="(row, rowKey) in CockRoachResults"
@@ -110,15 +110,27 @@ export default {
     "SmallRoad",
     "CockRoach",
   ],
+  mounted() {
+    setTimeout(() => {
+      const smallRoad = this.$refs.smallRoadId;
+      const cockroachRoad = this.$refs.cockroachRoadId;
+      this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
+      this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
+    }, 3000);
+  },
   watch: {
     checkChange() {
       const smallRoad = this.$refs.smallRoadId;
       const cockroachRoad = this.$refs.cockroachRoadId;
-      if (this.isChange > 30) {
-        setTimeout(() => {
+      if (store.results.length > 30) {
+        this.$nextTick(() => {
           this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
+        });
+      }
+      if (store.results.length > 30) {
+        this.$nextTick(() => {
           this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
-        }, 600);
+        });
       }
     },
   },

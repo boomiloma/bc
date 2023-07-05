@@ -1,77 +1,93 @@
 <template>
   <div class="flex flex-row relative">
-  <div class="relative">
-    <div class="absolute set-to-middle left">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'bigEyeId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-    
-    </div>
-    <div class="absolute set-to-middle right">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'bigEyeId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-      
-    </div>
-    <div
-      class="grid bg-white"
-      id="bigEyeId"
-      ref="bigEyeId"
-      style="width: 37.05rem; overflow: hidden"
-    >
+    <div class="relative">
+      <div class="z-10 absolute set-to-middle left">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+          width="80"
+          @click="handleScroll(true, 'bigEyeId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
+      <div class="z-10 absolute set-to-middle right">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+          width="80"
+          @click="handleScroll(false, 'bigEyeId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
       <div
-        v-for="(row, rowKey) in BigEyeResults"
-        :key="rowKey"
-        class="grid__row_diverse_road"
+        class="grid bg-white"
+        id="bigEyeId"
+        ref="bigEyeId"
+        style="width: 38.5vw; overflow: hidden"
       >
         <div
-          v-for="(col, colKey) in row"
-          :key="colKey"
-          class="grid__col__Big_eye text-gray-200"
-          :class="CheckPredict(BigEye, rowKey, colKey)"
+          v-for="(row, rowKey) in BigEyeResults"
+          :key="rowKey"
+          class="grid__row_diverse_road"
         >
           <div
-            v-if="col && col.value"
-            :class="{
-              banker_big_eye: col && col.value === 'red',
-              player_big_eye: col && col.value === 'blue',
-            }"
-          ></div>
+            v-for="(col, colKey) in row"
+            :key="colKey"
+            class="grid__col__Big_eye text-gray-200"
+            :class="CheckPredict(BigEye, rowKey, colKey)"
+          >
+            <div
+              v-if="col && col.value"
+              :class="{
+                banker_big_eye: col && col.value === 'red',
+                player_big_eye: col && col.value === 'blue',
+              }"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
-</div>
-<div class="relative">
-    <div class="absolute set-to-middle left">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg" width="80" @click="handleScroll(true, 'customRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-      
-    </div>
-    <div class="absolute set-to-middle right">
-      <img src="../../../assets/images/material-symbols_double-arrow-rounded.svg" width="80" @click="handleScroll(false, 'customRoadId')"  class="opacity-80 relative hover:opacity-100 hover:cursor-pointer" />
-      
-    </div>
-    <div
-      class="grid bg-white"
-      id="customRoadId"
-      ref="customRoadId"
-      style="width: 37.05rem; overflow: hidden"
-    >
+    <div class="relative">
+      <div class="z-10 absolute set-to-middle left">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
+          width="80"
+          @click="handleScroll(true, 'customRoadId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
+      <div class="z-10 absolute set-to-middle right">
+        <img
+          src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
+          width="80"
+          @click="handleScroll(false, 'customRoadId')"
+          class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
+        />
+      </div>
       <div
-        v-for="(row, rowKey) in CustomPlateResults"
-        :key="rowKey"
-        class="grid__row__custom__road"
+        class="grid bg-white"
+        id="customRoadId"
+        ref="customRoadId"
+        style="width: 38vw; overflow: hidden"
       >
         <div
-          v-for="(col, colKey) in row"
-          :key="colKey"
-          class="grid__col__custom__road text-gray-200"
-          :class="CheckPredict(CustomPlate, rowKey, colKey)"
+          v-for="(row, rowKey) in CustomPlateResults"
+          :key="rowKey"
+          class="grid__row__custom__road"
         >
           <div
-            v-if="col && col.value"
-            class="rounded-full w-4 h-4"
-            :class="customPlateValue(col.value)"
-          ></div>
+            v-for="(col, colKey) in row"
+            :key="colKey"
+            class="grid__col__custom__road text-gray-200"
+            :class="CheckPredict(CustomPlate, rowKey, colKey)"
+          >
+            <div
+              v-if="col && col.value"
+              class="rounded-full w-4 h-4"
+              :class="customPlateValue(col.value)"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -91,14 +107,29 @@ export default {
     "BigEye",
     "CustomPlate",
   ],
+  mounted() {
+    setTimeout(() => {
+      const bigEyeRoad = this.$refs.bigEyeId;
+      const customRoad = this.$refs.customRoadId;
+      bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
+      customRoad.scrollLeft = customRoad.scrollWidth;
+    }, 3000);
+  },
   watch: {
     checkChange() {
       const bigEyeRoad = this.$refs.bigEyeId;
-      const CustomRoad = this.$refs.customRoadId;
+      const customRoad = this.$refs.customRoadId;
 
-      if (this.isChange > 30) {
-        this.$refs.bigEyeId.scrollLeft = bigEyeRoad.scrollWidth;
-        this.$refs.customRoadId.scrollLeft = CustomRoad.scrollWidth;
+      if (store.results.length > 30) {
+        this.$nextTick(() => {
+          bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
+        });
+      }
+
+      if (store.results.length > 48) {
+        this.$nextTick(() => {
+          customRoad.scrollLeft = customRoad.scrollWidth;
+        });
       }
     },
   },

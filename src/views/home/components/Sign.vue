@@ -86,9 +86,9 @@
   >
     <div
       class="flex flex-row items-start justify-center border-b-2"
-      style="padding: 5px 0"
+      style="padding: 0px 0"
     >
-      <p class="" style="color: #253849; font-size: 28px">
+      <p class="" style="color: #253849; font-size: 34px; font-weight: 500">
         {{ results.length }}
       </p>
     </div>
@@ -128,7 +128,7 @@
       </div>
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
-        style="padding: 5px 16px"
+        style="padding: 5px 16px; padding-bottom: 11px"
       >
         <span class="text-2xl text-red-500 mx-1">
           {{ $t("bp") }}
@@ -214,7 +214,7 @@
           class="text-ixl w-full flex flex-col justify-start items-baseline text-blue-500"
         >
           <div class="border-b-2 w-full" style="padding-left: 15px">
-            USD: {{ store.setting["usd"]?.min_pair ?? 0 }}-{{
+            USD : {{ store.setting["usd"]?.min_pair ?? 0 }}-{{
               store.setting["usd"]?.max_pair ?? 0
             }}
           </div>

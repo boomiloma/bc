@@ -80,10 +80,8 @@
 
     .grid__col {
       padding: 5px;
-      min-height: 53px;
-      min-width: 56px;
-      max-height: 53px;
-      max-width: 56px;
+      height: 2.2vh;
+      width: 1.1vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -120,10 +118,8 @@
 
     .grid__col__custom__road {
       // padding: 5px;
-      min-height: 42px;
-      min-width: 42.3px;
-      max-height: 42px;
-      max-width: 42.3px;
+      height: 4.4vh;
+      width: 2.3vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -168,10 +164,8 @@
     }
     .grid__col__Big_eye {
       // padding: 5px;
-      min-height: 20px;
-      max-height: 20px;
-      min-width: 21.15px;
-      max-width: 21.15px;
+      height: 2.2vh;
+      width: 1.1vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;

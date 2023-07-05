@@ -16,10 +16,8 @@
     }
 
     .grid__col {
-      min-height: 52px;
-      min-width: 53px;
-      max-height: 52px;
-      max-width: 53px;
+      height: 5.5vh;
+      width: 2.8vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;

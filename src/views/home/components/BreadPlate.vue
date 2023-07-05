@@ -7,12 +7,6 @@
         @click="handleScroll(true)"
         class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
       />
-      <!-- <Icon
-      icon="ic:round-keyboard-double-arrow-left"
-      @click="handleScroll(true)"
-      class="text-slate-500 opacity-40 relative top-24 left-1 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
-      width="100"
-    />-->
     </div>
     <div class="absolute z-10 set-to-middle right">
       <img
@@ -21,19 +15,12 @@
         @click="handleScroll(false)"
         class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
       />
-      <!-- <Icon
-      icon="ic:round-keyboard-double-arrow-right"
-      @click="handleScroll(false)"
-      class="text-slate-500 opacity-40 relative top-24 left-96 hover:scale-110 hover:opacity-100 hover:cursor-pointer custombg-color"
-      width="100"
-      style="left: 52rem"
-    /> -->
     </div>
     <div
       class="grid bg-white"
       id="beadRoadId"
       ref="beadRoadId"
-      style="width: 56.3rem; overflow: hidden; margin-bottom: 6px"
+      style="width: 62vw; overflow: hidden; margin-bottom: 6px"
     >
       <div
         v-for="(row, rowKey) in BreadPlateResults"
@@ -88,10 +75,16 @@ export default {
     "isReplace",
     "Breadplate",
   ],
+  mounted() {
+    setTimeout(() => {
+      const bigroadElement = this.$refs.beadRoadId;
+      this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
+    }, 3000);
+  },
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.beadRoadId;
-      if (this.isChange > 52)
+      if (store.results.length > 120)
         this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
     },
   },
