@@ -36,11 +36,11 @@
           <div :class="beadRoadResult(col.value)">
             <span
               v-if="beadRoadBankerPair(col.value)"
-              class="absolute -top-1 -left-1 inline-flex items-center rounded-full bg-red-500 w-4 h-4 border border-1 border-amber-200"
+              class="absolute -top-1 -left-1 inline-flex items-center rounded-full bg-red-500 w-4 h-4"
             ></span>
             <span
               v-if="beadRoadPlayerPair(col.value)"
-              class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 w-4 h-4 border border-1 border-amber-200"
+              class="absolute -bottom-2 -right-1 inline-flex items-center rounded-full bg-blue-500 w-4 h-4"
             ></span>
             <div>
               <p v-if="col.value" class="text-center text-3xl select-none">

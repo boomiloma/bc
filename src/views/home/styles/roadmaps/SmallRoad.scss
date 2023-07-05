@@ -24,8 +24,8 @@
     }
     .grid__col__small_road {
       // padding: 5px;
-      height: 2vh;
-      width: 1vw;
+      height: 2.2vh;
+      width: 1.1vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -157,9 +157,9 @@
 .red-slash span.slash,
 .blue-slash span.slash {
   position: absolute;
-  width: 4px;
-  height: 100%;
-  border-radius: 6px;
+  width: 0.2vw;
+  height: 2.5vh;
+  border-radius: 15px;
   transform: rotate(45deg);
   left: 40%;
 }
