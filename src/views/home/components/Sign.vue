@@ -1,7 +1,7 @@
 <template>
   <div
     class="text-black bg-white"
-    style="width: 130px; margin-left: 6px; margin-bottom: 6px"
+    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height:100%;"
   >
     <div
       class="flex flex-row items-center justify-center border-b-2"
@@ -82,7 +82,7 @@
 
   <div
     class="text-black bg-white"
-    style="width: 143px; margin-left: 6px; margin-bottom: 6px"
+    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height:100%;"
   >
     <div
       class="flex flex-row items-start justify-center border-b-2"
@@ -153,7 +153,7 @@
   <!-- Table Limit -->
   <div
     class="items-stretch justify-center border-black text-black bg-white"
-    style="width: 458px; margin-left: 6px; margin-bottom: 6px"
+    style="width: 24.7%; margin-left: 6px; margin-bottom: 6px; height:100%;"
   >
     <div class="grid grid-cols-2" style="border: 0">
       <div

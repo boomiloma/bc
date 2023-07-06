@@ -10,15 +10,15 @@
     :insuranceMax="insuranceMax"
   />
   <div class="home">
-    <div class="">
+    <div class="d-flex">
       <Header
         :matches="results.length"
         ref="headerComponent"
         @start="onStartGame"
       />
       <div v-if="roadmap" class="w-full">
-        <div class="flex flex-row">
-          <div class="">
+        <div class="flex flex-row" style="height: 33vh;margin-bottom: 6px;">
+          <div class="" style="display: flex;height: 100%;flex-direction: row;width: 56.4%;">
             <BreadPlate
               :BreadPlateResults="roadmap.breadplate.matrix"
               :results="results"
@@ -30,16 +30,19 @@
           </div>
           <Sign :results="results" @Predict="prediction" :RoadMap="roadmap" />
         </div>
-        <div class="" style="margin-bottom: 6px">
-          <div class="">
+<div style="display: flex; flex-direction: row; height:calc(57vh - 6px);">
+  <div style="width:75%; height:calc(57vh - 6px);">
+    <div class="" style="margin-bottom: 6px;display: flex;width: 100%;flex-direction: column;height: calc(28.5vh - 6px);">
+          <div class="" style="height:100%;">
             <BigRoad
               :BigRoadResults="roadmap.bigroad.matrix"
               :isChange="isChange"
               :BigRoad="roadmap.bigroad"
             />
           </div>
-        </div>
-        <div class="">
+    </div>
+    <div class="" style="margin-bottom: 0px;display: flex;width: 100%;flex-direction: column;height: calc(27.8vh);">
+    
           <BigEye
             :BigEyeResults="roadmap.bigeyeboy.matrix"
             :CustomPlateResults="roadmap.customplate.matrix"
@@ -54,7 +57,24 @@
             :SmallRoad="roadmap.smallroad"
             :CockRoach="roadmap.cockroachPig"
           />
-        </div>
+    </div>
+  </div>
+  <div style="width:33%; height:calc(57vh - 6px);">
+    <div class="">
+      <video style="width: 100%;" ref="videoElement" autoplay muted playsinline>
+        <source
+          src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</div>
+
+        
+       
+
+
       </div>
     </div>
   </div>

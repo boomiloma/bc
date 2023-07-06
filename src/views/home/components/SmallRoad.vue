@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row">
-    <div class="relative">
+  <div class="flex flex-row" style="flex-direction: row;">
+    <div class="relative" style="width: 50%;">
       <div class="absolute z-10 set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -21,7 +21,7 @@
         class="grid bg-white"
         id="smallRoadId"
         ref="smallRoadId"
-        style="width: 37.05rem; overflow: hidden"
+        style="width: 100%;overflow: hidden;height: 13.96vh;"
       >
         <div
           v-for="(row, rowKey) in SmallRoadResults"
@@ -47,7 +47,7 @@
     </div>
 
     <!-- COCKROACH ROAD -->
-    <div class="relative cockroach">
+    <div class="relative cockroach" style="width: 50%;">
       <div class="absolute set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -68,7 +68,7 @@
         class="grid bg-white"
         id="cockroachRoadId"
         ref="cockroachRoadId"
-        style="width: 37.05rem; overflow: hidden"
+        style="width: 100%;overflow: hidden;height: 13.96vh;"
       >
         <div
           v-for="(row, rowKey) in CockRoachResults"

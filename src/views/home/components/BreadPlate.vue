@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative" style="display: block;width: 100%;">
     <div class="absolute z-10 set-to-middle left">
       <img
         src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -33,7 +33,7 @@
       class="grid bg-white"
       id="beadRoadId"
       ref="beadRoadId"
-      style="width: 56.3rem; overflow: hidden; margin-bottom: 6px"
+      style="width: 100%; overflow: hidden; margin-bottom: 6px"
     >
       <div
         v-for="(row, rowKey) in BreadPlateResults"
