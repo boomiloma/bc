@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-row relative">
-    <div class="relative">
-      <div class="z-10 absolute set-to-middle left">
+  <div class="flex flex-row relative" style="flex-direction: row">
+    <div class="relative" style="width: 50%">
+      <div class="absolute set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
           width="80"
@@ -9,7 +9,7 @@
           class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
         />
       </div>
-      <div class="z-10 absolute set-to-middle right">
+      <div class="absolute set-to-middle right">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
           width="80"
@@ -21,7 +21,7 @@
         class="grid bg-white"
         id="bigEyeId"
         ref="bigEyeId"
-        style="width: 38.5vw; overflow: hidden"
+        style="width: 100%; overflow: hidden; height: 13.96vh"
       >
         <div
           v-for="(row, rowKey) in BigEyeResults"
@@ -45,8 +45,11 @@
         </div>
       </div>
     </div>
-    <div class="relative">
-      <div class="z-10 absolute set-to-middle left">
+    <div class="relative" style="width: 50%">
+      <div
+        class="absolute set-to-middle left"
+        style="width: 100%; overflow: hidden"
+      >
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
           width="80"
@@ -54,7 +57,7 @@
           class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
         />
       </div>
-      <div class="z-10 absolute set-to-middle right">
+      <div class="absolute set-to-middle right">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
           width="80"
@@ -66,7 +69,7 @@
         class="grid bg-white"
         id="customRoadId"
         ref="customRoadId"
-        style="width: 38vw; overflow: hidden"
+        style="width: 100%; overflow: hidden"
       >
         <div
           v-for="(row, rowKey) in CustomPlateResults"
