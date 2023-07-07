@@ -140,6 +140,9 @@ export default {
     checkChange() {
       return this.isChange;
     },
+    checkChange() {
+      return store.isPredict;
+    },
   },
 };
 </script>

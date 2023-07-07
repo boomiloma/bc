@@ -92,6 +92,9 @@ export default {
     checkChange() {
       return this.isChange;
     },
+    checkChange() {
+      return store.isPredict;
+    },
   },
   data() {
     return {
