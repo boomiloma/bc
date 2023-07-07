@@ -1,7 +1,7 @@
 <template>
   <div
     class="text-black bg-white"
-    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height:100%;"
+    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height: 100%"
   >
     <div
       class="flex flex-row items-center justify-center border-b-2"
@@ -82,7 +82,7 @@
 
   <div
     class="text-black bg-white"
-    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height:100%;"
+    style="width: 9%; margin-left: 6px; margin-bottom: 6px; height: 100%"
   >
     <div
       class="flex flex-row items-start justify-center border-b-2"
@@ -128,7 +128,7 @@
       </div>
       <div
         class="flex flex-row items-center justify-between gap-2 border-b-2 py-1"
-        style="padding: 5px 16px; padding-bottom: 11px"
+        style="padding: 5px 16px; padding-bottom: 5px"
       >
         <span class="text-2xl text-red-500 mx-1">
           {{ $t("bp") }}
@@ -153,7 +153,7 @@
   <!-- Table Limit -->
   <div
     class="items-stretch justify-center border-black text-black bg-white"
-    style="width: 24.7%; margin-left: 6px; margin-bottom: 6px; height:100%;"
+    style="width: 24.7%; margin-left: 6px; margin-bottom: 6px; height: 100%"
   >
     <div class="grid grid-cols-2" style="border: 0">
       <div
