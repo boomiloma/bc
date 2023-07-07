@@ -16,6 +16,8 @@
     }
 
     .grid__col {
+      border-bottom: $grid-border;
+
       min-height: 52px;
       min-width: 51.5px;
       max-height: 52px;

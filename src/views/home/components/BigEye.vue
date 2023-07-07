@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row relative" style="flex-direction: row">
     <div class="relative" style="width: 50%">
-      <div class="absolute set-to-middle left">
+      <div class="absolute z-10 set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
           width="80"
@@ -9,7 +9,7 @@
           class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
         />
       </div>
-      <div class="absolute set-to-middle right">
+      <div class="absolute z-10 set-to-middle right">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
           width="80"
@@ -47,7 +47,7 @@
     </div>
     <div class="relative" style="width: 50%">
       <div
-        class="absolute set-to-middle left"
+        class="absolute z-10 set-to-middle left"
         style="width: 100%; overflow: hidden"
       >
         <img
@@ -57,7 +57,7 @@
           class="opacity-80 relative hover:opacity-100 hover:cursor-pointer"
         />
       </div>
-      <div class="absolute set-to-middle right">
+      <div class="absolute z-10 set-to-middle right">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded.svg"
           width="80"
