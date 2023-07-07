@@ -34,12 +34,13 @@
       class="grid bg-white"
       id="bigroadId"
       ref="bigroadId"
-      style="width: 76.5vw; overflow: hidden"
+      style="width: 100%;overflow: hidden;height: calc(28.5vh - 6px);display: flex;flex-direction: column;"
     >
       <div
         v-for="(row, rowKey) in BigRoadResults"
         :key="rowKey"
         class="grid__row"
+        style="height: calc(100% / 6);"
       >
         <div
           v-for="(col, colKey) in row"
@@ -68,14 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute -bottom-44" style="right: 3.25rem">
-      <video ref="videoElement" autoplay muted playsinline>
-        <source
-          src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </div>
+   
   </div>
 </template>
 

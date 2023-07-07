@@ -56,14 +56,15 @@ onMounted(() => {
 }
 
 body,
-html,
-#app {
-  height: 100vh;
+html {
+   min-height: 100vh;
+  // height: 100%;
   // width: 100%;
   flex-direction: row;
   justify-content: center;
   // align-items: center;
   background-color: rgb(0, 0, 0);
   color: theme("colors.blue.50");
+  font-size: min(1vw, 1.778vh);
 }
 </style>
