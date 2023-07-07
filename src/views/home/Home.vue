@@ -186,7 +186,7 @@ export default {
         bigroad: {
           show_options: false,
           rows: 6,
-          cols: 31,
+          cols: 34,
         },
         bigeyeboy: {
           show_options: false,
