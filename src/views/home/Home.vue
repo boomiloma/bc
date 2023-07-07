@@ -18,8 +18,16 @@
         :isOpenCountDown="isOpenCountDown"
       />
       <div v-if="roadmap" class="w-full">
-        <div class="flex flex-row" style="height: 33vh;margin-bottom: 6px;">
-          <div class="" style="display: flex;height: 100%;flex-direction: row;width: 56.4%;">
+        <div class="flex flex-row" style="height: 33vh; margin-bottom: 6px">
+          <div
+            class=""
+            style="
+              display: flex;
+              height: 100%;
+              flex-direction: row;
+              width: 56.4%;
+            "
+          >
             <BreadPlate
               :BreadPlateResults="roadmap.breadplate.matrix"
               :results="results"
@@ -31,51 +39,71 @@
           </div>
           <Sign :results="results" @Predict="prediction" :RoadMap="roadmap" />
         </div>
-<div style="display: flex; flex-direction: row; height:calc(57vh - 6px);">
-  <div style="width:75%; height:calc(57vh - 6px);">
-    <div class="" style="margin-bottom: 6px;display: flex;width: 100%;flex-direction: column;height: calc(28.5vh - 6px);">
-          <div class="" style="height:100%;">
-            <BigRoad
-              :BigRoadResults="roadmap.bigroad.matrix"
-              :isChange="isChange"
-              :BigRoad="roadmap.bigroad"
-            />
+        <div
+          style="display: flex; flex-direction: row; height: calc(57vh - 6px)"
+        >
+          <div style="width: 75%; height: calc(57vh - 6px)">
+            <div
+              class=""
+              style="
+                margin-bottom: 6px;
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                height: calc(28.5vh - 6px);
+              "
+            >
+              <div class="" style="height: 100%">
+                <BigRoad
+                  :BigRoadResults="roadmap.bigroad.matrix"
+                  :isChange="isChange"
+                  :BigRoad="roadmap.bigroad"
+                />
+              </div>
+            </div>
+            <div
+              class=""
+              style="
+                margin-bottom: 0px;
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                height: calc(27.8vh);
+              "
+            >
+              <BigEye
+                :BigEyeResults="roadmap.bigeyeboy.matrix"
+                :CustomPlateResults="roadmap.customplate.matrix"
+                :isChange="isChange"
+                :BigEye="roadmap.bigeyeboy"
+                :CustomPlate="roadmap.customplate"
+              />
+              <SmallRoad
+                :SmallRoadResults="roadmap.smallroad.matrix"
+                :CockRoachResults="roadmap.cockroachPig.matrix"
+                :isChange="isChange"
+                :SmallRoad="roadmap.smallroad"
+                :CockRoach="roadmap.cockroachPig"
+              />
+            </div>
           </div>
-    </div>
-    <div class="" style="margin-bottom: 0px;display: flex;width: 100%;flex-direction: column;height: calc(27.8vh);">
-    
-          <BigEye
-            :BigEyeResults="roadmap.bigeyeboy.matrix"
-            :CustomPlateResults="roadmap.customplate.matrix"
-            :isChange="isChange"
-            :BigEye="roadmap.bigeyeboy"
-            :CustomPlate="roadmap.customplate"
-          />
-          <SmallRoad
-            :SmallRoadResults="roadmap.smallroad.matrix"
-            :CockRoachResults="roadmap.cockroachPig.matrix"
-            :isChange="isChange"
-            :SmallRoad="roadmap.smallroad"
-            :CockRoach="roadmap.cockroachPig"
-          />
-    </div>
-  </div>
-  <div style="width:33%; height:calc(57vh - 6px);">
-    <div class="">
-      <video style="width: 100%;" ref="videoElement" autoplay muted playsinline>
-        <source
-          src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </div>
-  </div>
-</div>
-
-        
-       
-
-
+          <div style="width: 33%; height: calc(57vh - 6px)">
+            <div class="">
+              <video
+                style="width: 100%"
+                ref="videoElement"
+                autoplay
+                muted
+                playsinline
+              >
+                <source
+                  src="@/assets/images/kk-baccarat-logo-animation-5.gif.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -152,7 +180,7 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 20,
+          cols: 21,
           // cols: 25,
         },
         bigroad: {
