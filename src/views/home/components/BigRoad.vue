@@ -34,13 +34,19 @@
       class="grid bg-white"
       id="bigroadId"
       ref="bigroadId"
-      style="width: 100%;overflow: hidden;height: calc(28.5vh - 6px);display: flex;flex-direction: column;"
+      style="
+        width: 100%;
+        overflow: hidden;
+        height: calc(28.5vh - 6px);
+        display: flex;
+        flex-direction: column;
+      "
     >
       <div
         v-for="(row, rowKey) in BigRoadResults"
         :key="rowKey"
         class="grid__row"
-        style="height: calc(100% / 6);"
+        style="height: calc(100% / 6)"
       >
         <div
           v-for="(col, colKey) in row"
@@ -69,7 +75,6 @@
         </div>
       </div>
     </div>
-   
   </div>
 </template>
 
@@ -79,6 +84,11 @@ import { Icon } from "@iconify/vue";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 import { store } from "../../../store/store";
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
   components: {
     Icon,
   },
@@ -104,37 +114,48 @@ export default {
       return MappingUtils.BigRoadResult(value);
     },
     handleScroll(isLeft) {
-      if (isLeft) {
-        this.$refs.bigroadId.scrollLeft -= 48;
-      } else {
-        this.$refs.bigroadId.scrollLeft += 48;
+      // console.log("this.store.result", this.store.results);
+      if (this.store.results.length > 32) {
+        if (isLeft) {
+          this.$refs.bigroadId.scrollLeft -= 48;
+        } else {
+          this.$refs.bigroadId.scrollLeft += 48;
+        }
       }
     },
     CheckPredict(BigRoad, row, col) {
       return MappingUtils.CheckIfPredict(store.isPredict, BigRoad, row, col);
     },
-  },
-  mounted() {
-    setTimeout(() => {
+    handleScrollEnd(){
       const bigroadElement = this.$refs.bigroadId;
-      this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
-    }, 3000);
-  },
-  watch: {
-    checkChange() {
-      const bigroadElement = this.$refs.bigroadId;
-      if (store.results.length > 32) {
+      if (this.store.results.length > 32) {
         setTimeout(() => {
           this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
         }, 600);
       }
+    }
+  },
+  mounted() {
+    const bigroadElement = this.$refs.bigroadId;
+    setTimeout(() => {
+      if (this.store.results.length > 32) {
+        this.$refs.bigroadId.scrollLeft = bigroadElement.scrollWidth;
+      }
+    }, 600);
+  },
+  watch: {
+    checkChange() {
+      this.handleScrollEnd();
     },
+    checkChangePredit(){
+      this.handleScrollEnd();
+    }
   },
   computed: {
     checkChange() {
       return this.isChange;
     },
-    checkChange() {
+    checkChangePredit() {
       return store.isPredict;
     },
   },

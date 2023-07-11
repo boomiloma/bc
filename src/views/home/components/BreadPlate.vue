@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" style="display: block;width: 100%;">
+  <div class="relative" style="display: block; width: 100%">
     <div class="absolute z-10 set-to-middle left">
       <img
         src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -22,11 +22,7 @@
       ref="beadRoadId"
       style="width: 100%; overflow: hidden; margin-bottom: 6px"
     >
-      <div
-        v-for="(row, rowKey) in BreadPlateResults"
-        :key="rowKey"
-        class="grid__row"
-      >
+      <div v-for="(row, rowKey) in BreadPlateResults" :key="rowKey" class="grid__row">
         <div
           v-for="(col, colKey) in row"
           :key="colKey"
@@ -68,23 +64,17 @@ export default {
     const { t } = useI18n({ useScope: "global" });
     return { t };
   },
-  props: [
-    "BreadPlateResults",
-    "results",
-    "isChange",
-    "isReplace",
-    "Breadplate",
-  ],
+  props: ["BreadPlateResults", "results", "isChange", "isReplace", "Breadplate"],
   mounted() {
-    setTimeout(() => {
-      const bigroadElement = this.$refs.beadRoadId;
-      this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
-    }, 3000);
+    // setTimeout(() => {
+    //   const bigroadElement = this.$refs.beadRoadId;
+    //   this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
+    // }, 3000);
   },
   watch: {
     checkChange() {
       const bigroadElement = this.$refs.beadRoadId;
-      if (store.results.length > 120)
+      if (this.BreadPlateResults.length > 24)
         this.$refs.beadRoadId.scrollLeft = bigroadElement.scrollWidth;
     },
   },
@@ -115,10 +105,12 @@ export default {
   },
   methods: {
     handleScroll(isLeft) {
-      if (isLeft) {
-        this.$refs.beadRoadId.scrollLeft -= 48;
-      } else {
-        this.$refs.beadRoadId.scrollLeft += 48;
+      if (this.BreadPlateResults.length > 24) {
+        if (isLeft) {
+          this.$refs.beadRoadId.scrollLeft -= 48;
+        } else {
+          this.$refs.beadRoadId.scrollLeft += 48;
+        }
       }
     },
     beadRoadResult(value) {
@@ -147,8 +139,7 @@ export default {
             if (this.currentCol + 1 < this.maxRowlength) this.navCol += 1; // Move right one column
             break;
           case "2":
-            const test =
-              this.Breadplate.matrix[this.currentRow + 1][this.currentCol];
+            const test = this.Breadplate.matrix[this.currentRow + 1][this.currentCol];
             if (test && test !== 0 && this.currentRow < 5) this.navRow += 1; // Move down one row
             break;
           default:
@@ -162,9 +153,8 @@ export default {
         const navCol = this.navCol + this.Breadplate.previousCoordinates[1];
 
         if (rowKey === navRow && colKey === navCol) {
-          const rowLength = this.Breadplate.matrix[rowKey].filter(
-            (item) => item.value
-          ).length;
+          const rowLength = this.Breadplate.matrix[rowKey].filter((item) => item.value)
+            .length;
 
           this.currentRow = rowKey;
           this.currentCol = colKey;

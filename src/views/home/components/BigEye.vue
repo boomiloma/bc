@@ -32,7 +32,7 @@
             v-for="(col, colKey) in row"
             :key="colKey"
             class="grid__col__Big_eye text-gray-200"
-            style="width: calc(42.3/2) !important;"
+            style="width: calc(42.3 / 2) !important"
             :class="CheckPredict(BigEye, rowKey, colKey)"
           >
             <div
@@ -47,10 +47,7 @@
       </div>
     </div>
     <div class="relative" style="width: 50%">
-      <div
-        class="absolute z-10 set-to-middle left"
-        style="width: 100%; overflow: hidden"
-      >
+      <div class="absolute z-10 set-to-middle left" style="width: 100%; overflow: hidden">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
           width="80"
@@ -101,40 +98,30 @@ import { Icon } from "@iconify/vue";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 import { store } from "../../../store/store";
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
   components: {
     Icon,
   },
-  props: [
-    "BigEyeResults",
-    "CustomPlateResults",
-    "isChange",
-    "BigEye",
-    "CustomPlate",
-  ],
+  props: ["BigEyeResults", "CustomPlateResults", "isChange", "BigEye", "CustomPlate"],
   mounted() {
     setTimeout(() => {
       const bigEyeRoad = this.$refs.bigEyeId;
       const customRoad = this.$refs.customRoadId;
-      bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
-      customRoad.scrollLeft = customRoad.scrollWidth;
-    }, 3000);
+      if (this.store.results.length > 32) {
+        customRoad.scrollLeft = customRoad.scrollWidth;
+      }
+      if (this.store.results.length > 30) {
+        bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
+      }
+    }, 600);
   },
   watch: {
     checkChange() {
-      const bigEyeRoad = this.$refs.bigEyeId;
-      const customRoad = this.$refs.customRoadId;
-
-      if (store.results.length > 30) {
-        this.$nextTick(() => {
-          bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
-        });
-      }
-
-      if (store.results.length > 48) {
-        this.$nextTick(() => {
-          customRoad.scrollLeft = customRoad.scrollWidth;
-        });
-      }
+      this.handleScrolliong();
     },
   },
   computed: {
@@ -143,8 +130,24 @@ export default {
     },
   },
   methods: {
+    handleScrolliong() {
+      const bigEyeRoad = this.$refs.bigEyeId;
+      const customRoad = this.$refs.customRoadId;
+
+      if (this.store.results.length > 30) {
+        this.$nextTick(() => {
+          bigEyeRoad.scrollLeft = bigEyeRoad.scrollWidth;
+        });
+      }
+
+      if (this.store.results.length > 32) {
+        this.$nextTick(() => {
+          customRoad.scrollLeft = customRoad.scrollWidth;
+        });
+      }
+    },
     CheckPredict(Road, row, col) {
-      return MappingUtils.CheckIfPredict(store.isPredict, Road, row, col);
+      return MappingUtils.CheckIfPredict(this.store.isPredict, Road, row, col);
     },
     handleScroll(isLeft, id) {
       if (isLeft) {
@@ -154,10 +157,12 @@ export default {
           this.$refs.customRoadId.scrollLeft -= 48;
         }
       } else {
-        if (id === "customRoadId") {
-          this.$refs.customRoadId.scrollLeft += 48;
-        } else {
-          this.$refs.bigEyeId.scrollLeft += 48;
+        if (this.store.results.length > 32) {
+          if (id === "customRoadId") {
+            this.$refs.customRoadId.scrollLeft += 48;
+          } else {
+            this.$refs.bigEyeId.scrollLeft += 48;
+          }
         }
       }
     },

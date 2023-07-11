@@ -115,7 +115,7 @@ export default class BigRoad extends RoadmapUtilities {
 
     this.previousCoordinates = [nextRow, nextCol];
     this.previousIdentity = identity;
-    console.log("isTie===", isTie);
+    // console.log("isTie===", isTie);
     if (!isTie) {
       this.matrix[nextRow][nextCol] = {
         value: key,
@@ -128,7 +128,7 @@ export default class BigRoad extends RoadmapUtilities {
       // this.matrix[prevRow][prevCol].tie_count +=1;
     }
     this.matrix = this.equalizeArrays();
-    console.log("matricx=======================================", this.matrix);
+    // console.log("matricx=======================================", this.matrix);
 
     if (!this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn();

@@ -26,8 +26,8 @@
       // padding: 5px;
       height: 2.2vh;
       // width: 1.1vw;
-      max-width: calc(48/2);
-      min-width: calc(48/2);
+      max-width: 24px;
+      min-width: 24px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -170,20 +170,20 @@
 }
 .left {
   left: 45%;
-  transform: translate(-40px, -40px);
+  transform: translate(-48px, -48px);
 }
 .right {
   right: 30%;
-  transform: translate(-40px, -40px);
+  transform: translate(-48px, -48px);
 }
 
 .cockroach .left {
   left: 45%;
-  transform: translate(-40px, -40px);
+  transform: translate(-48px, -48px);
 }
 .cockroach .right {
   right: 30%;
-  transform: translate(-40px, -40px);
+  transform: translate(-48px, -48px);
 }
 @keyframes pulse {
   0% {

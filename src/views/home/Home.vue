@@ -180,13 +180,13 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 23,
+          cols: 24,
           // cols: 25,
         },
         bigroad: {
           show_options: false,
           rows: 6,
-          cols: 34,
+          cols: 32,
         },
         bigeyeboy: {
           show_options: false,
@@ -517,7 +517,7 @@ export default {
           JSON.stringify(this.results_id)
         );
         localStorage.setItem("roadmap-results", JSON.stringify(this.results));
-        console.log("map=", mapResult);
+        this.isChange += 1;
       } else {
         let re = await localStorage.getItem("roadmap-results");
         let reID = await localStorage.getItem("roadmap-results-id");
@@ -530,7 +530,9 @@ export default {
             this.roadmap.push(r);
           });
         }
+        this.isChange += 1;
       }
+ 
     },
     async getConfig() {
       try {

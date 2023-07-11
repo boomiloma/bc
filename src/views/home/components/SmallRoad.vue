@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row" style="flex-direction: row;">
-    <div class="relative" style="width: 50%;">
+  <div class="flex flex-row" style="flex-direction: row">
+    <div class="relative" style="width: 50%">
       <div class="absolute z-10 set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -21,12 +21,12 @@
         class="grid bg-white"
         id="smallRoadId"
         ref="smallRoadId"
-        style="width: 100%;overflow: hidden;height: 13.96vh;"
+        style="width: 100%; overflow: hidden; height: 13.96vh"
       >
         <div
           v-for="(row, rowKey) in SmallRoadResults"
           :key="rowKey"
-          class="grid__row_diverse_road"
+          class="grid__row_diverse_road grid__row_diverse_road_smallroad"
         >
           <div
             v-for="(col, colKey) in row"
@@ -47,7 +47,7 @@
     </div>
 
     <!-- COCKROACH ROAD -->
-    <div class="relative cockroach" style="width: 50%;">
+    <div class="relative cockroach" style="width: 50%">
       <div class="absolute set-to-middle left">
         <img
           src="../../../assets/images/material-symbols_double-arrow-rounded-left.svg"
@@ -68,7 +68,7 @@
         class="grid bg-white"
         id="cockroachRoadId"
         ref="cockroachRoadId"
-        style="width: 100%;overflow: hidden;height: 13.96vh;"
+        style="width: 100%; overflow: hidden; height: 13.96vh"
       >
         <div
           v-for="(row, rowKey) in CockRoachResults"
@@ -78,6 +78,7 @@
           <div
             v-for="(col, colKey) in row"
             :key="colKey"
+            id="grid_col_small_road_id"
             class="grid__col__small_road"
             :class="CheckPredict(CockRoach, rowKey, colKey)"
           >
@@ -100,34 +101,35 @@ import { Icon } from "@iconify/vue";
 import { store } from "../../../store/store";
 import MappingUtils from "../../../assets/js/roadmap/MappingUtils";
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
   components: {
     Icon,
   },
-  props: [
-    "SmallRoadResults",
-    "CockRoachResults",
-    "isChange",
-    "SmallRoad",
-    "CockRoach",
-  ],
+  props: ["SmallRoadResults", "CockRoachResults", "isChange", "SmallRoad", "CockRoach"],
   mounted() {
     setTimeout(() => {
-      const smallRoad = this.$refs.smallRoadId;
-      const cockroachRoad = this.$refs.cockroachRoadId;
-      this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
-      this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
-    }, 3000);
+      if (this.store.results.length > 30) {
+        const smallRoad = this.$refs.smallRoadId;
+        const cockroachRoad = this.$refs.cockroachRoadId;
+        this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
+        this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
+      }
+    }, 600);
   },
   watch: {
     checkChange() {
       const smallRoad = this.$refs.smallRoadId;
       const cockroachRoad = this.$refs.cockroachRoadId;
-      if (store.results.length > 30) {
+      if (this.store.results.length > 30) {
         this.$nextTick(() => {
           this.$refs.smallRoadId.scrollLeft = smallRoad.scrollWidth;
         });
       }
-      if (store.results.length > 30) {
+      if (this.store.results.length > 30) {
         this.$nextTick(() => {
           this.$refs.cockroachRoadId.scrollLeft = cockroachRoad.scrollWidth;
         });

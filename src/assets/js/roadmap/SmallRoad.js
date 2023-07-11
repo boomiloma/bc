@@ -29,7 +29,7 @@ export default class SmallRoad extends RoadmapUtilities {
         rows: this.bigroadConfig.rows,
         cols: this.bigroadConfig.cols
       })
-
+      console.log("this.bigroadConfig.cols", this.bigroadConfig.cols)
       return bigroad.matrix
     })()
 
@@ -272,7 +272,8 @@ export default class SmallRoad extends RoadmapUtilities {
     }
 
     this.matrix = this.equalizeArrays(this.matrix)
-
+    // console.log('this.matrix=', this.matrix);
+    this.matrix = this.equalizeArrays(true);
     if (this.hasFullRow) {
       // this.matrix = this.truncateFirstColumn()
       // this.previousCoordinates = [row, column - 1]

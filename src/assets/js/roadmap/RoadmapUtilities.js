@@ -108,7 +108,7 @@ export default class Roadmap {
     });
   }
 
-  equalizeArrays() {
+  equalizeArrays(isDerived = false) {
     let maxLength = 0;
     let arrays = this.matrix;
     for (let i = 0; i < arrays.length; i++) {
@@ -116,11 +116,23 @@ export default class Roadmap {
         maxLength = arrays[i].length;
       }
     }
+
+    if(isDerived) {
+      if(maxLength % 2 != 0) {
+        maxLength+=1
+      }
+    }
+    
     for (let i = 0; i < arrays.length; i++) {
       while (arrays[i].length < maxLength) {
         arrays[i].push(0);
       }
     }
+    // for (let i = 0; i < arrays.length; i++) {
+    //   if (arrays[i].length % 2 !== 0) {
+    //     arrays[i].push(0);
+    //   }
+    // }
     return arrays;
     // this.matrix = arrays
   }
