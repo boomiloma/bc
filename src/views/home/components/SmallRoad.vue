@@ -143,15 +143,15 @@ export default {
     handleScroll(isLeft, id) {
       if (isLeft) {
         if (id === "smallRoadId") {
-          this.$refs.smallRoadId.scrollLeft -= 40;
+          this.$refs.smallRoadId.scrollLeft -= 48;
         } else {
-          this.$refs.cockroachRoadId.scrollLeft -= 40;
+          this.$refs.cockroachRoadId.scrollLeft -= 48;
         }
       } else {
         if (id === "smallRoadId") {
-          this.$refs.smallRoadId.scrollLeft += 40;
+          this.$refs.smallRoadId.scrollLeft += 48;
         } else {
-          this.$refs.cockroachRoadId.scrollLeft += 40;
+          this.$refs.cockroachRoadId.scrollLeft += 48;
         }
       }
     },

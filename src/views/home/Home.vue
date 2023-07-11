@@ -180,7 +180,7 @@ export default {
         breadplate: {
           show_options: false,
           rows: 6,
-          cols: 21,
+          cols: 23,
           // cols: 25,
         },
         bigroad: {

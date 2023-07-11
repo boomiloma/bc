@@ -2,10 +2,10 @@
   $grid-border: 1px solid #dddd;
 
   display: grid;
-  grid-template-columns: 1fr;
+  // grid-template-columns: 1fr;
   height: 100%;
   border: $grid-border;
-  grid-auto-rows: 1fr;
+  // grid-auto-rows: 1fr;
 
   .grid__row_diverse_road {
     display: flex;
@@ -25,7 +25,9 @@
     .grid__col__small_road {
       // padding: 5px;
       height: 2.2vh;
-      width: 1.1vw;
+      // width: 1.1vw;
+      max-width: calc(48/2);
+      min-width: calc(48/2);
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -50,7 +52,7 @@
         // Remove border-right of the even columns
         &:nth-child(#{$i}) {
           @if $i % 2 == 1 {
-            border-right: none;
+            border-right: 1px solid #fff;
           }
         }
       }

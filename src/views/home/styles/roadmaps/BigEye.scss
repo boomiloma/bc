@@ -81,7 +81,7 @@
     .grid__col {
       padding: 5px;
       height: 2.2vh;
-      width: 1.1vw;
+      width: 1.0vw;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -119,7 +119,9 @@
     .grid__col__custom__road {
       // padding: 5px;
       height: 4.4vh;
-      width: 2.3vw;
+      // width: 2.3vw;
+      max-width: 48px;
+      min-width: 48px;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -165,7 +167,9 @@
     .grid__col__Big_eye {
       // padding: 5px;
       height: 2.2vh;
-      width: 1.1vw;
+      // width: 1.1vw;
+      max-width: calc(48/2)px;;
+      min-width: calc(48/2)px;;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
@@ -190,7 +194,9 @@
         // Remove border-right of the even columns
         &:nth-child(#{$i}) {
           @if $i % 2 == 1 {
-            border-right: none;
+            // border-right: none;
+          border-right: 1px solid #fff;
+
           }
         }
       }

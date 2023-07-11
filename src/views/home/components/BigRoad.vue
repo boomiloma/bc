@@ -105,9 +105,9 @@ export default {
     },
     handleScroll(isLeft) {
       if (isLeft) {
-        this.$refs.bigroadId.scrollLeft -= 60;
+        this.$refs.bigroadId.scrollLeft -= 48;
       } else {
-        this.$refs.bigroadId.scrollLeft += 60;
+        this.$refs.bigroadId.scrollLeft += 48;
       }
     },
     CheckPredict(BigRoad, row, col) {

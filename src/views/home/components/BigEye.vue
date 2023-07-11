@@ -32,6 +32,7 @@
             v-for="(col, colKey) in row"
             :key="colKey"
             class="grid__col__Big_eye text-gray-200"
+            style="width: calc(42.3/2) !important;"
             :class="CheckPredict(BigEye, rowKey, colKey)"
           >
             <div
@@ -148,15 +149,15 @@ export default {
     handleScroll(isLeft, id) {
       if (isLeft) {
         if (id === "bigEyeId") {
-          this.$refs.bigEyeId.scrollLeft -= 40;
+          this.$refs.bigEyeId.scrollLeft -= 48;
         } else {
-          this.$refs.customRoadId.scrollLeft -= 40;
+          this.$refs.customRoadId.scrollLeft -= 48;
         }
       } else {
         if (id === "customRoadId") {
-          this.$refs.customRoadId.scrollLeft += 40;
+          this.$refs.customRoadId.scrollLeft += 48;
         } else {
-          this.$refs.bigEyeId.scrollLeft += 40;
+          this.$refs.bigEyeId.scrollLeft += 48;
         }
       }
     },

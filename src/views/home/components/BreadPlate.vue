@@ -116,9 +116,9 @@ export default {
   methods: {
     handleScroll(isLeft) {
       if (isLeft) {
-        this.$refs.beadRoadId.scrollLeft -= 40;
+        this.$refs.beadRoadId.scrollLeft -= 48;
       } else {
-        this.$refs.beadRoadId.scrollLeft += 40;
+        this.$refs.beadRoadId.scrollLeft += 48;
       }
     },
     beadRoadResult(value) {
