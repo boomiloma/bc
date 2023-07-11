@@ -1,4 +1,4 @@
-# KK BACCARAT TERMINAL
+ bc
 
 ## Recommended IDE Setup
 
